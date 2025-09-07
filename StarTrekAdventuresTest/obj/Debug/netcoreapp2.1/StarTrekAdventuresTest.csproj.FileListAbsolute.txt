@@ -1,0 +1,14 @@
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventuresTest.deps.json
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventuresTest.dll
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.csproj.CoreCompileInputs.cache
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.AssemblyInfoInputs.cache
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.AssemblyInfo.cs
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventures.Views.dll
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventures.Views.pdb
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventuresTest.pdb
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventures.dll
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\bin\Debug\netcoreapp2.1\StarTrekAdventures.pdb
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.csprojAssemblyReference.cache
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.csproj.CopyComplete
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.dll
+C:\Users\Russell\source\repos\StarTrekAdventures\StarTrekAdventuresTest\obj\Debug\netcoreapp2.1\StarTrekAdventuresTest.pdb

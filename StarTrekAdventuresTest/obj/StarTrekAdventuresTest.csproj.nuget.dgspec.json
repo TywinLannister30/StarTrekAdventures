@@ -1,0 +1,134 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventuresTest\\StarTrekAdventuresTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventuresTest\\StarTrekAdventuresTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventuresTest\\StarTrekAdventuresTest.csproj",
+        "projectName": "StarTrekAdventuresTest",
+        "projectPath": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventuresTest\\StarTrekAdventuresTest.csproj",
+        "packagesPath": "C:\\Users\\Russell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventuresTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Russell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventures\\StarTrekAdventures.csproj": {
+                "projectPath": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventures\\StarTrekAdventures.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventures\\StarTrekAdventures.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventures\\StarTrekAdventures.csproj",
+        "projectName": "StarTrekAdventures",
+        "projectPath": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventures\\StarTrekAdventures.csproj",
+        "packagesPath": "C:\\Users\\Russell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Russell\\source\\repos\\StarTrekAdventures\\StarTrekAdventures\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Russell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "RandomNameGeneratorLibrary": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
