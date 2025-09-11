@@ -64,7 +64,7 @@ public class CharacterManager : ICharacterManager
 
     private static Character PerformStepThree(Character character)
     {
-        var upbringing = UbringingSelector.ChooseUpringing();
+        var upbringing = UpbringingSelector.ChooseUpbringing();
 
         character.Upbringing = upbringing.Name;
 
@@ -78,10 +78,10 @@ public class CharacterManager : ICharacterManager
 
     private static Character PerformStepFour(Character character)
     {
-        var track = TrackSelector.ChooseTrack(character);
+        var track = CareerPathSelector.ChooseCareerPath(character);
 
         character.ChosenTrack = track.Name;
-        character.Track = track.GetName();
+        character.CareerPath = track.GetName();
 
         character.AddValue();
         character.AddTraitsForTrack(track);

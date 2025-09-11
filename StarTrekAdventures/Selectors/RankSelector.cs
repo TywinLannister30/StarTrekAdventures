@@ -50,7 +50,7 @@ public static class RankSelector
                 weightedRankList.AddEntry(Rank.Captain, 1);
             }
 
-            if (character.Track == TrackName.StarfleetOfficerCommand && character.Experience == ExperienceName.Veteran)
+            if (character.CareerPath == TrackName.StarfleetOfficerCommand && character.Experience == ExperienceName.Veteran)
             {
                 weightedRankList.AddEntry(Rank.FleetCaptain, 1);
                 weightedRankList.AddEntry(Rank.Commodore, 1);

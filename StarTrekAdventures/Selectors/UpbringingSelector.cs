@@ -4,19 +4,24 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public class UbringingSelector
+public class UpbringingSelector
 {
-    public static Upbringing ChooseUpringing()
+    public static Upbringing ChooseUpbringing()
     {
-        return Upringings.OrderBy(n => Util.GetRandom()).First();
+        return Upbringings.OrderBy(n => Util.GetRandom()).First();
     }
 
-    public static Upbringing GetUpringing(string name)
+    public static Upbringing GetUpbringing(string name)
     {
-        return Upringings.First(x => x.Name == name);
+        return Upbringings.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    private static readonly List<Upbringing> Upringings = new()
+    internal static List<Upbringing> GetAllUpbringings()
+    {
+        return Upbringings;
+    }
+
+    private static readonly List<Upbringing> Upbringings = new()
     {
         new Upbringing {
             Name = "Agriculture or Rural (Accepted)",

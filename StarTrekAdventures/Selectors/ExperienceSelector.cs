@@ -25,10 +25,15 @@ public static class ExperienceSelector
 
     public static Experience GetExperience(string name)
     {
-        return Experiences.First(x => x.Name == name);
+        return Experiences.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    private static readonly List<Experience> Experiences = new List<Experience>
+    internal static List<Experience> GetAllExperiences()
+    {
+        return Experiences;
+    }
+
+    private static readonly List<Experience> Experiences = new()
     {
         new() { Name = ExperienceName.Novice, Talent = "Untapped Potential", MaxAttribute = 11, MaxDepartment = 4, Weight = 25 },
         new() { Name = ExperienceName.Experienced, AnyTalent = true, Weight = 50 },

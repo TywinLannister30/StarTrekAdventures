@@ -2,11 +2,11 @@
 
 namespace StarTrekAdventures.Managers;
 
-public interface ISpeciesManager
+public interface IUpbringingManager
 {
-    List<Species> GetAll();
+    List<Upbringing> GetAll();
 
     List<string> GetAllNames();
 
-    Species Get(string name);
+    Upbringing Get(string name);
 }

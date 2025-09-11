@@ -13,9 +13,15 @@ builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ICharacterMan
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ISpeciesManager, StarTrekAdventures.Managers.Version1.SpeciesManager>();
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ITechnobabbleManager, StarTrekAdventures.Managers.Version1.TechnobabbleManager>();
 
+builder.Services.AddTransient<ICareerEventManager, CareerEventManager>();
+builder.Services.AddTransient<ICareerPathManager, CareerPathManager>();
 builder.Services.AddTransient<ICharacterManager, CharacterManager>();
+builder.Services.AddTransient<IEnvironmentManager, EnvironmentManager>();
+builder.Services.AddTransient<IExperienceManager, ExperienceManager>();
+builder.Services.AddTransient<IRoleManager, RoleManager>();
 builder.Services.AddTransient<ISpeciesManager, SpeciesManager>();
 builder.Services.AddTransient<IStarshipManager, StarshipManager>();
+builder.Services.AddTransient<IUpbringingManager, UpbringingManager>();
 
 // Add MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();

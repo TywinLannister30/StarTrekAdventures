@@ -11,7 +11,17 @@ public static class CareerEventSelector
         return CareerEvents.OrderBy(n => Util.GetRandom()).Take(2).ToList();
     }
 
-    private static readonly List<CareerEvent> CareerEvents = new List<CareerEvent>
+    internal static List<CareerEvent> GetAllCareerEvents()
+    {
+        return CareerEvents;
+    }
+
+    internal static CareerEvent GetCareerEvent(string name)
+    {
+        return CareerEvents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    private static readonly List<CareerEvent> CareerEvents = new()
     {
         new()
         {

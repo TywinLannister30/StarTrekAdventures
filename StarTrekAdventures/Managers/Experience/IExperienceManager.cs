@@ -2,11 +2,11 @@
 
 namespace StarTrekAdventures.Managers;
 
-public interface ISpeciesManager
+public interface IExperienceManager
 {
-    List<Species> GetAll();
+    List<Experience> GetAll();
 
     List<string> GetAllNames();
 
-    Species Get(string name);
+    Experience Get(string name);
 }

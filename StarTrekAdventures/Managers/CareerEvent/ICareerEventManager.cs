@@ -2,11 +2,11 @@
 
 namespace StarTrekAdventures.Managers;
 
-public interface ISpeciesManager
+public interface ICareerEventManager
 {
-    List<Species> GetAll();
+    List<CareerEvent> GetAll();
 
     List<string> GetAllNames();
 
-    Species Get(string name);
+    CareerEvent Get(string name);
 }

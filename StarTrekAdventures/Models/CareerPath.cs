@@ -1,6 +1,6 @@
 ﻿namespace StarTrekAdventures.Models;
 
-public class Track
+public class CareerPath
 {
     public string Name { get; set; }
 

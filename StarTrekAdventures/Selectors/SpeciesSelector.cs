@@ -47,7 +47,7 @@ public static class SpeciesSelector
 
     public static Species GetSpecies(string name)
     {
-        return Species.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+        return Species.FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     public static Species GetAnotherRandomSpecies(string name)

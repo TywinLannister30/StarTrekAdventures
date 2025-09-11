@@ -16,21 +16,21 @@ public class SpeciesController : ControllerBase
     }
 
     [HttpGet("names")]
-    public ActionResult<List<string>> AllSpeciesNames()
+    public ActionResult<List<string>> GetAllNames()
     {
-        return Ok(_speciesManager.GetAllSpeciesNames());
+        return Ok(_speciesManager.GetAllNames());
     }
 
     [HttpGet]
-    public ActionResult<List<Species>> Species()
+    public ActionResult<List<Species>> Get()
     {
-        return Ok(_speciesManager.GetAllSpecies());
+        return Ok(_speciesManager.GetAll());
     }
 
     [HttpGet("{name}")]
-    public ActionResult<Species> Species(string name)
+    public ActionResult<Species> GetSingle(string name)
     {
-        var species = _speciesManager.GetSpecies(name);
+        var species = _speciesManager.Get(name);
 
         if (species == null) return NotFound("No species found.");
 

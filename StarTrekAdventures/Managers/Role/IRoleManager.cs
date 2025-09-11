@@ -2,11 +2,11 @@
 
 namespace StarTrekAdventures.Managers;
 
-public interface ISpeciesManager
+public interface IRoleManager
 {
-    List<Species> GetAll();
+    List<Role> GetAll();
 
     List<string> GetAllNames();
 
-    Species Get(string name);
+    Role Get(string name);
 }

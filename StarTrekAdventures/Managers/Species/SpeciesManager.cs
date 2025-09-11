@@ -5,17 +5,17 @@ namespace StarTrekAdventures.Managers;
 
 public class SpeciesManager : ISpeciesManager
 {
-    public List<Species> GetAllSpecies()
+    public List<Species> GetAll()
     {
         return SpeciesSelector.GetAllSpecies();
     }
 
-    public List<string> GetAllSpeciesNames()
+    public List<string> GetAllNames()
     {
-        return SpeciesSelector.GetAllSpecies().Select(speciesModel => speciesModel.Name).ToList();
+        return SpeciesSelector.GetAllSpecies().Select(x => x.Name).ToList();
     }
 
-    public Species GetSpecies(string name)
+    public Species Get(string name)
     {
         return SpeciesSelector.GetSpecies(name);
     }

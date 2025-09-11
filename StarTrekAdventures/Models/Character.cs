@@ -50,7 +50,7 @@ public class Character
     [JsonIgnore]
     public string ChosenTrack { get; set; }
 
-    public string Track { get; set; }
+    public string CareerPath { get; set; }
 
     public string Experience { get; set; }
     public List<string> CareerEvents { get; set; }
@@ -406,7 +406,7 @@ public class Character
             talent.Name += " (" + Focuses.OrderBy(n => Util.GetRandom()).First() + ")";
     }
 
-    internal void AddTraitsForTrack(Track track)
+    internal void AddTraitsForTrack(CareerPath track)
     {
         if (!string.IsNullOrEmpty(track.Trait))
             Traits.Add(track.Trait);
@@ -460,7 +460,7 @@ public class Character
         if (picks.Any(x => x.Name == AttributeName.Reason)) Attributes.Reason++;
     }
 
-    internal void AdjustDisciplinesForTrack(Track track)
+    internal void AdjustDisciplinesForTrack(CareerPath track)
     {
         Departments.Command += track.DepartmentModifiers.Command;
         Departments.Conn += track.DepartmentModifiers.Conn;
@@ -766,10 +766,10 @@ public class Character
 
     internal bool IsStarfleet()
     {
-        if (Track.StartsWith(TrackName.StarfleetOfficerCommand) || 
-            Track.StartsWith(TrackName.StarfleetOfficerOperations) ||
-            Track.StartsWith(TrackName.StarfleetOfficerSciences) ||
-            Track.StartsWith(TrackName.StarfleetIntelligence))
+        if (CareerPath.StartsWith(TrackName.StarfleetOfficerCommand) || 
+            CareerPath.StartsWith(TrackName.StarfleetOfficerOperations) ||
+            CareerPath.StartsWith(TrackName.StarfleetOfficerSciences) ||
+            CareerPath.StartsWith(TrackName.StarfleetIntelligence))
         {
             return true;
         }
@@ -779,7 +779,7 @@ public class Character
 
     internal bool IsEnlisted()
     {
-        return Track.StartsWith(TrackName.StarfleetEnlisted);
+        return CareerPath.StartsWith(TrackName.StarfleetEnlisted);
     }
 
     internal bool IsCommandingOfficer()

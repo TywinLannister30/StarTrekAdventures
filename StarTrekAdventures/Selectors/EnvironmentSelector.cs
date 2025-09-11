@@ -12,10 +12,15 @@ public static class EnvironmentSelector
 
     public static CharacterEnvironment GetEnvironment(string name)
     {
-        return Environments.First(x => x.Name == name);
+        return Environments.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    private static readonly List<CharacterEnvironment> Environments = new List<CharacterEnvironment>
+    internal static List<CharacterEnvironment> GetAllEnvironments()
+    {
+        return Environments;
+    }
+
+    private static readonly List<CharacterEnvironment> Environments = new()
     {
         new() { Name = "Homeworld", DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesAttributes = true },
         new() { Name = "Busy Colony", AttributeChoices = new CharacterAttributes { Daring = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 } },

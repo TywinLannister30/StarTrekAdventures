@@ -4,31 +4,41 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class TrackSelector
+public static class CareerPathSelector
 {
     private const int MaxDispline = 4;
 
-    public static Track ChooseTrack(Character character)
+    public static CareerPath ChooseCareerPath(Character character)
     {
-        var availableTracks = new WeightedList<Track>();
+        var availableCareerPaths = new WeightedList<CareerPath>();
 
-        foreach (var track in Tracks)
+        foreach (var careerPath in CareerPaths)
         {
-            if (track.DepartmentModifiers.Command + character.Departments.Command <= MaxDispline &&
-                track.DepartmentModifiers.Conn + character.Departments.Conn <= MaxDispline &&
-                track.DepartmentModifiers.Engineering + character.Departments.Engineering <= MaxDispline &&
-                track.DepartmentModifiers.Medicine + character.Departments.Medicine <= MaxDispline &&
-                track.DepartmentModifiers.Science + character.Departments.Science <= MaxDispline &&
-                track.DepartmentModifiers.Security + character.Departments.Security <= MaxDispline)
-                availableTracks.AddEntry(track, track.Weight);
+            if (careerPath.DepartmentModifiers.Command + character.Departments.Command <= MaxDispline &&
+                careerPath.DepartmentModifiers.Conn + character.Departments.Conn <= MaxDispline &&
+                careerPath.DepartmentModifiers.Engineering + character.Departments.Engineering <= MaxDispline &&
+                careerPath.DepartmentModifiers.Medicine + character.Departments.Medicine <= MaxDispline &&
+                careerPath.DepartmentModifiers.Science + character.Departments.Science <= MaxDispline &&
+                careerPath.DepartmentModifiers.Security + character.Departments.Security <= MaxDispline)
+                availableCareerPaths.AddEntry(careerPath, careerPath.Weight);
         }
 
-        return availableTracks.GetRandom();
+        return availableCareerPaths.GetRandom();
     }
 
-    private static readonly List<Track> Tracks = new()
+    internal static List<CareerPath> GetAllCareerPaths()
     {
-        new Track {
+        return CareerPaths;
+    }
+
+    internal static CareerPath GetCareerPath(string name)
+    {
+        return CareerPaths.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    private static readonly List<CareerPath> CareerPaths = new()
+    {
+        new CareerPath {
             Name = TrackName.StarfleetOfficerCommand,
             Major = DepartmentName.Command,
             Trait = "Starfleet Officer",
@@ -43,7 +53,7 @@ public static class TrackSelector
             Weight = 10
         },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetOfficerCommand,
             Major = DepartmentName.Conn,
             Trait = "Starfleet Officer",
@@ -59,7 +69,7 @@ public static class TrackSelector
                 Focus.WarpDrive, Focus.ZeroGCombat, },
             Weight = 10 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetOfficerOperations,
             Major = DepartmentName.Engineering,
             Trait = "Starfleet Officer",
@@ -74,7 +84,7 @@ public static class TrackSelector
                 Focus.TransportersAndReplicators, Focus.Troubleshooting, Focus.WarpCoreMechanics},
             Weight = 10 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetOfficerOperations,
             Major = DepartmentName.Security,
             Trait = "Starfleet Officer",
@@ -90,7 +100,7 @@ public static class TrackSelector
                 Focus.TargetingSystems, Focus.Torpedoes },
             Weight = 10 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetOfficerSciences,
             Major = DepartmentName.Medicine,
             Trait = "Starfleet Officer",
@@ -107,7 +117,7 @@ public static class TrackSelector
                 Focus.VeterinaryMedicine, Focus.Virology },
             Weight = 10 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetOfficerSciences,
             Major = DepartmentName.Science,
             Trait = "Starfleet Officer",
@@ -123,7 +133,7 @@ public static class TrackSelector
                 Focus.UnifiedFieldTheory, Focus.UnorthodoxMathematics, Focus.WarpTheory },
             Weight = 10 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetEnlisted,
             Major = DepartmentName.Conn,
             DepartmentModifiers = new Departments { Conn = 2 },
@@ -139,7 +149,7 @@ public static class TrackSelector
                 Focus.WarpDrive, Focus.ZeroGCombat, },
             Weight = 5 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetEnlisted,
             Major = DepartmentName.Security,
             DepartmentModifiers = new Departments { Security = 2 },
@@ -155,7 +165,7 @@ public static class TrackSelector
                 Focus.TargetingSystems, Focus.Torpedoes },
             Weight = 5 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetEnlisted,
             Major = DepartmentName.Engineering,
             DepartmentModifiers = new Departments { Engineering = 2 },
@@ -170,7 +180,7 @@ public static class TrackSelector
                 Focus.TransportersAndReplicators, Focus.Troubleshooting, Focus.WarpCoreMechanics},
             Weight = 5 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetEnlisted,
             Major = DepartmentName.Science,
             DepartmentModifiers = new Departments { Science = 2 },
@@ -186,7 +196,7 @@ public static class TrackSelector
                 Focus.UnifiedFieldTheory, Focus.UnorthodoxMathematics, Focus.WarpTheory },
             Weight = 5 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetIntelligence,
             Major = DepartmentName.Command,
             DepartmentModifiers = new Departments { Command = 2 },
@@ -198,7 +208,7 @@ public static class TrackSelector
                 Focus.Persuasion, Focus.Politics, Focus.StrategyOrTactics },
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.StarfleetIntelligence,
             Major = DepartmentName.Security,
             DepartmentModifiers = new Departments { Security = 2 },
@@ -214,7 +224,7 @@ public static class TrackSelector
 
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.DiplomaticCorps,
             DepartmentModifiers = new Departments { Command = 2 },
             RandomTrait = new List<string> { "Ambassador", "Diplomat" },
@@ -224,7 +234,7 @@ public static class TrackSelector
                 Focus.Negotiation, Focus.Persuasion, Focus.Philosophy, Focus.Politics, Focus.TimeManagement },
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianPhysician,
             RandomTrait = new List<string> { "Geneticist", "Physician", "Psychiatrist", "Surgeon" },
             DepartmentModifiers = new Departments { Medicine = 2 },
@@ -240,7 +250,7 @@ public static class TrackSelector
 
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianScientist,
             Major = DepartmentName.Science,
             RandomTrait = new List<string> { "Cyberneticist", "Scientist" },
@@ -257,7 +267,7 @@ public static class TrackSelector
                 Focus.UnifiedFieldTheory, Focus.UnorthodoxMathematics, Focus.WarpTheory },
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianScientist,
             Major = DepartmentName.Engineering,
             RandomTrait = new List<string> { "Engineer", "Transporter Expert" },
@@ -274,7 +284,7 @@ public static class TrackSelector
 
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianOfficial,
             Major = AttributeName.Insight,
             Trait = "Administrator",
@@ -286,7 +296,7 @@ public static class TrackSelector
             },
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianOfficial,
             Major = AttributeName.Presence,
             Trait = "Administrator",
@@ -298,7 +308,7 @@ public static class TrackSelector
             },
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianTrader,
             Major = AttributeName.Insight,
             RandomTrait = new List<string> { "Bartender", "Free Trader", "Merchant" },
@@ -311,7 +321,7 @@ public static class TrackSelector
             },
             Weight = 1 },
 
-        new Track {
+        new CareerPath {
             Name = TrackName.CivilianTrader,
             Major = AttributeName.Presence,
             RandomTrait = new List<string> { "Bartender", "Free Trader", "Merchant" },

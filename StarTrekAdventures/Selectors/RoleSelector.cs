@@ -19,7 +19,7 @@ public static class RoleSelector
         if (character.Rank == Rank.Commander)
             weightedRoleList.AddEntry(GetRole(RoleName.ExecutiveOfficer), 5);
 
-        if (character.Track.StartsWith(TrackName.StarfleetOfficerCommand))
+        if (character.CareerPath.StartsWith(TrackName.StarfleetOfficerCommand))
         {
             if (character.Rank == Rank.Commander || character.Rank == Rank.LieutenantCommander)
                 weightedRoleList.AddEntry(GetRole(RoleName.ExecutiveOfficer), 5);
@@ -27,7 +27,7 @@ public static class RoleSelector
             if (character.Departments.Conn >= 4) weightedRoleList.AddEntry(GetRole(RoleName.FlightController), 10);
         }
 
-        if (character.Track.StartsWith(TrackName.StarfleetOfficerOperations))
+        if (character.CareerPath.StartsWith(TrackName.StarfleetOfficerOperations))
         {
             if (character.Experience == ExperienceName.Experienced || character.Experience == ExperienceName.Veteran)
             {
@@ -38,7 +38,7 @@ public static class RoleSelector
             }
         }
 
-        if (character.Track.StartsWith(TrackName.StarfleetOfficerSciences))
+        if (character.CareerPath.StartsWith(TrackName.StarfleetOfficerSciences))
         {
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Navigator), 5);
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ScienceOfficer), 10);
@@ -55,7 +55,7 @@ public static class RoleSelector
             }
         }
 
-        if (character.Track.StartsWith(TrackName.StarfleetEnlisted))
+        if (character.CareerPath.StartsWith(TrackName.StarfleetEnlisted))
         {
             if (character.Departments.Conn >= 4) weightedRoleList.AddEntry(GetRole(RoleName.FlightController), 10);
 
@@ -77,17 +77,17 @@ public static class RoleSelector
             }
         }
 
-        if (character.Track.StartsWith(TrackName.StarfleetIntelligence))
+        if (character.CareerPath.StartsWith(TrackName.StarfleetIntelligence))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.IntelligenceAgent), 10);
         }
 
-        if (character.Track.StartsWith(TrackName.DiplomaticCorps))
+        if (character.CareerPath.StartsWith(TrackName.DiplomaticCorps))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.PoliticalLiason), 10);
         }
 
-        if (character.Track.StartsWith(TrackName.CivilianPhysician))
+        if (character.CareerPath.StartsWith(TrackName.CivilianPhysician))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.Expert), 10);
 
@@ -99,7 +99,7 @@ public static class RoleSelector
             }
         }
 
-        if (character.Track.StartsWith(TrackName.CivilianScientist))
+        if (character.CareerPath.StartsWith(TrackName.CivilianScientist))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.Expert), 10);
 
@@ -107,12 +107,12 @@ public static class RoleSelector
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ScienceOfficer), 10);
         }
 
-        if (character.Track.StartsWith(TrackName.CivilianOfficial))
+        if (character.CareerPath.StartsWith(TrackName.CivilianOfficial))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.Expert), 10);
         }
 
-        if (character.Track.StartsWith(TrackName.CivilianTrader))
+        if (character.CareerPath.StartsWith(TrackName.CivilianTrader))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.Merchant), 10);
 
@@ -130,7 +130,12 @@ public static class RoleSelector
 
     public static Role GetRole(string name)
     {
-        return Roles.First(x => x.Name == name);
+        return Roles.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    internal static List<Role> GetAllRoles()
+    {
+        return Roles;
     }
 
     private static readonly List<Role> Roles = new()
