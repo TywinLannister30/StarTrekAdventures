@@ -1,21 +1,19 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Text.Json.Serialization;
 
-namespace StarTrekAdventures.Models
+namespace StarTrekAdventures.Models;
+
+public class Role
 {
-    public class Role
-    {
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public string Benefit { get; set; }
+    public string Benefit { get; set; }
 
-        [JsonIgnore]
-        public int AdditionalValues{ get; set; }
+    [JsonIgnore]
+    public int AdditionalValues{ get; set; }
 
-        [JsonIgnore]
-        public int AdditionalFocuses { get; set; }
+    [JsonIgnore]
+    public int AdditionalFocuses { get; set; }
 
-        [JsonIgnore]
-        public List<string> AdditionalFocusesChoices { get; set; }
-    }
+    [JsonIgnore]
+    public ICollection<string> AdditionalFocusesChoices { get; set; }
 }

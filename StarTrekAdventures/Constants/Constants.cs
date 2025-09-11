@@ -26,6 +26,21 @@
             Male = 1,
             Female = 2
         }
+
+        public enum StarshipWeaponType
+        {
+            None,
+            Energy,
+            Torpedo
+        }
+
+        public enum StarshipWeaponRange
+        {
+            None,
+            Close,
+            Medium,
+            Long
+        }
     }
 
     public static class SpeciesName
@@ -135,10 +150,20 @@
         public static string Security = "Security";
     }
 
+    public static class SystemName
+    {
+        public static string Comms = "Comms";
+        public static string Computers = "Computers";
+        public static string Engines = "Engines";
+        public static string Sensors = "Sensors";
+        public static string Structure = "Structure";
+        public static string Weapons = "Weapons";
+    }
+
     public static class TrackName
     {
         public static string StarfleetOfficerCommand = "Starfleet Officer (Command)";
-        public static string StarfleetOfficerOperations= "Starfleet Officer (Operations)";
+        public static string StarfleetOfficerOperations = "Starfleet Officer (Operations)";
         public static string StarfleetOfficerSciences = "Starfleet Officer (Sciences)";
         public static string StarfleetEnlisted = "Starfleet (Enlisted)";
         public static string StarfleetIntelligence = "Starfleet (Intelligence)";
@@ -264,10 +289,10 @@
         public static string Astronavigation = "Astronavigation";
         public static string Astrophysics = "Astrophysics";
         public static string Athletics = "Athletics";
-        public static string AtmosphericFlight ="Atmospheric Flight";
+        public static string AtmosphericFlight = "Atmospheric Flight";
         public static string Bureaucracy = "Bureaucracy";
         public static string BiologyOrXenobiology = "Biology/Xenobiology";
-        public static string Botany= "Botany";
+        public static string Botany = "Botany";
         public static string BotanyOrXenobotany = "Botany/Xenobotany";
         public static string Chemistry = "Chemistry";
         public static string CombatTactics = "Combat Tactics";
@@ -415,5 +440,202 @@
         public static string WarpEngines = "Warp Engines";
         public static string WarpFieldDynamics = "Warp Field Dynamics";
         public static string WarpTheory = "Warp Theory";
+    }
+
+    public static class SpaceframeName
+    {
+        public static string Akira = "Akira";
+        public static string Ambassador = "Ambassador";
+        public static string California = "California";
+        public static string Columbia = "Columbia";
+        public static string Constellation = "Constellation";
+        public static string Constitution = "Constitution";
+        public static string ConstitutionIII = "Constitution III";
+        public static string Crossfield = "Crossfield";
+        public static string Defiant = "Defiant";
+        public static string Excelsior = "Excelsior";
+        public static string Freedom = "Freedom";
+        public static string Galaxy = "Galaxy";
+        public static string Intrepid = "Intrepid";
+        public static string Luna = "Luna";
+        public static string Miranda = "Miranda";
+        public static string Nebula = "Nebula";
+        public static string Nova = "Nova";
+        public static string NX = "NX";
+        public static string Oberth = "Oberth";
+        public static string Odyssey = "Odyssey";
+        public static string Pioneer = "Pioneer";
+        public static string Sagan = "Sagan";
+        public static string Sovereign = "Sovereign";
+        public static string Walker = "Walker";
+
+        // KLINGON
+        public static string Brel = "B'rel";
+        public static string D7 = "D7";
+        public static string VorCha = "Vor'cha";
+
+        // ROMULAN
+        public static string DDeridex  = "D'Deridex";
+        public static string Mogai = "Mogai";
+        public static string TLiss = "T’Liss";
+    }
+
+    public static class MissionProfileName
+    {
+        public static string Battlecruiser = "Battlecruiser";
+        public static string CivilianMerchantMarine = "Civilian Merchant Marine";
+        public static string ColonySupport = "Colony Support";
+        public static string CrisisAndEmergencyResponse = "Crisis and Emergency Response";
+        public static string EspionageOrIntelligence = "Espionage/Intelligence";
+        public static string Flagship = "Flagship";
+        public static string LogisticalOrQuartermaster = "Logistical/Quartermaster";
+        public static string MultiroleExplorer = "Multirole Explorer";
+        public static string PathfinderAndReconnaissanceOperations = "Pathfinder and Reconnaissance Operations";
+        public static string Patrol = "Patrol";
+        public static string ReconnaissanceOperations = "Reconnaissance Operations";
+        public static string ReserveFleet = "Reserve Fleet";
+        public static string ScientificAndSurveyOperations = "Scientific and Survey Operations";
+        public static string StrategicAndDiplomaticOperations = "Strategic and Diplomatic Operations";
+        public static string TacticalOperations = "Tactical Operations";
+        public static string TechnicalTestbed = "Technical Testbed";
+    }
+
+    public static class StarshipWeaponName
+    {
+        public static string DisruptorBanks = "Disruptor Banks";
+        public static string DisruptorCannons = "Disruptor Cannons";
+
+        public static string PhaseCannons = "Phase Cannons";
+
+        public static string PhaserArrays = "Phaser Arrays";
+        public static string PhaserBanks = "Phaser Banks";
+        public static string PulsePhaserCannons = "Pulse Phaser Cannons";
+
+        public static string PhotonTorpedoes = "Photon Torpedoes";
+        public static string PlasmaTorpedoes = "Plasma Torpedoes";
+        public static string QuantumTorpedoes = "Quantum Torpedoes";
+        public static string SpatialTorpedoes = "Spatial Torpedoes";
+
+        public static string GrapplerCable = "Grappler Cable";
+        public static string TractorBeam = "TractorBeam";
+    }
+
+    public static class StarshipTalentName
+    {
+        public static string AblativeArmor = "Ablative Armor";
+        public static string AblativeArmorGenerator = "Ablative Armor Generator";
+        public static string AblativeFieldProjector = "Ablative Armor Generator";
+        public static string AdaptableEnergyWeapons = "Adaptable Energy Weapons";
+        public static string AdaptiveShieldModulator = "Adaptive Shield Modulator";
+        public static string AdditionalPropulsionSystemSporeHubDrive = "Additional Propulsion System (Displacement-Activated Spore Hub Drive)";
+        public static string AdditionalPropulsionSystemProtostarDrive = "Additional Propulsion System (Protostar Drive)";
+        public static string AdditionalPropulsionSystemQuantumSlipstreamDrive = "Additional Propulsion System (Quantum Slipstream Drive)";
+        public static string AdvancedEmergencyCrewHolograms = "Advanced Emergency Crew Holograms";
+        public static string AdvancedSickbay = "Advanced Sickbay";
+        public static string AdvancedResearchFacilities = "Advanced Research Facilities";
+        public static string AdvancedSensorSuites = "Advanced Sensor Suites";
+        public static string AdvancedShields = "Advanced Shields";
+        public static string AdvancedTransporters = "Advanced Transporters";
+        public static string AnnularConfinementJacketing = "Annular Confinement Jacketing";
+        public static string AutomatedDefences = "Automated Defences";
+        public static string AutomaticReturn = "Automatic Return";
+        public static string BackupEPSConduits = "Backup EPS Conduits";
+        public static string CaptainsYacht = "Captain's Yacht";
+        public static string CloakedMines = "Cloaked Mines";
+        public static string CloakingDevice = "Cloaking Device";
+        public static string ClusterTorpedoes = "Cluster Torpedoes";
+        public static string CommandShip = "Command Ship";
+        public static string DedicatedPersonnelCommand = "Dedicated Personnel (Command)";
+        public static string DedicatedPersonnelConn = "Dedicated Personnel (Conn)";
+        public static string DedicatedPersonnelEngineering = "Dedicated Personnel (Engineering)";
+        public static string DedicatedPersonnelSecurity = "Dedicated Personnel (Security)";
+        public static string DedicatedPersonnelScience = "Dedicated Personnel (Science)";
+        public static string DedicatedPersonnelMedical= "Dedicated Personnel (Medical)";
+        public static string DedicatedSubspaceTransceiverArray = "Dedicated Subspace Transceiver Array";
+        public static string DeluxeGalley = "Deluxe Galley";
+        public static string DiplomaticSuites = "Diplomatic Suites";
+        public static string DualEnvironment = "Dual Environment";
+        public static string ElectronicWarfareSystems = "Electronic Warfare Systems";
+        public static string EmergencyMedicalHologram = "Emergency Medical Hologram";
+        public static string ExpandedEmergencyMedicalFacilities = "Expanded Emergency Medical Facilities";
+        public static string ExpandedMunitions = "Expanded Munitions";
+        public static string ExpansiveDepartmentCommand = "Expansive Department (Command)";
+        public static string ExpansiveDepartmentConn = "Expansive Department (Conn)";
+        public static string ExpansiveDepartmentEngineering = "Expansive Department (Engineering)";
+        public static string ExpansiveDepartmentSecurity = "Expansive Department (Security)";
+        public static string ExpansiveDepartmentScience = "Expansive Department (Science)";
+        public static string ExpansiveDepartmentMedical = "Expansive Department (Medical)";
+        public static string ExtendedSensorRange = "Extended Sensor Range";
+        public static string ExtensiveAutomation = "Extensive Automation";
+        public static string ExtensiveMedicalLaboratories = "Extensive Medical Laboratories";
+        public static string ExtensiveShuttlebays = "Extensive Shuttlebays";
+        public static string FastTargetingSystems = "Fast Targeting Systems";
+        public static string HighIntensityEnergyWeapons = "High-Intensity Energy Weapons";
+        public static string HighPowerTractorBeam = "High-Power Tractor Beam";
+        public static string HighResolutionSensors = "High-Resolution Sensors";
+        public static string ImprovedDamageControl = "Improved Damage Control";
+        public static string ImprovedHullIntegrity = "Improved Hull Integrity";
+        public static string ImprovedImpulseDrive = "Improved Impulse Drive";
+        public static string ImprovedPowerSystems = "Improved Power Systems";
+        public static string ImprovedProbeBay = "Improved Probe Bay";
+        public static string ImprovedReactionControlSystem = "Improved Reaction Control System";
+        public static string ImprovedShieldRecharge = "Improved Shield Recharge";
+        public static string ImprovedWarpDrive = "Improved Warp Drive";
+        public static string IndependentWeaponPower = "Independent Weapon Power";
+        public static string IndustrialReplicators = "Industrial Replicators";
+        public static string Minelayer = "Minelayer";
+        public static string ModularCargoBays = "Modular Cargo Bays";
+        public static string ModularLaboratories = "Modular Laboratories";
+        public static string PointDefenseSystem = "Point Defense System";
+        public static string RapidFireTorpedoLauncher = "Rapid-Fire Torpedo Launcher";
+        public static string ReducedSensorSilhouette = "Reduced Sensor Silhouette";
+        public static string RedundantSystemsComms = "Redundant Systems (Comms)";
+        public static string RedundantSystemsComputers = "Redundant Systems (Computers)";
+        public static string RedundantSystemsEngines = "Redundant Systems (Engines)";
+        public static string RedundantSystemsSensors = "Redundant Systems (Sensors)";
+        public static string RedundantSystemsStructure = "Redundant Systems (Structure)";
+        public static string RedundantSystemsWeapons = "Redundant Systems (Weapons)";
+        public static string RegenerativeHull = "Regenerative Hull";
+        public static string RuggedDesign = "Rugged Design";
+        public static string SecondaryReactors = "Secondary Reactors";
+        public static string SelfReplicatingMines = "Self-Replicating Mines";
+        public static string SiphoningShields = "Siphoning Shields";
+        public static string SophisticatedAstrometricsFacilities = "Sophisticated Astrometrics Facilities";
+        public static string TachyonDetectionField = "Tachyon Detection Field";
+        public static string TraceablePayloadSystem = "Traceable Payload System";
+        public static string TransportInhibitors = "Transport Inhibitors";
+        public static string VariableGeometryWarpField = "Variable Geometry Warp Field";
+        public static string VersatileTractorBeam = "Versatile Tractor Beam";
+        public static string WormholeRelaySystem = "Wormhole Relay System";
+    }
+
+    public static class StarshipSpecialRuleName
+    {
+        public static string AbundantPersonnel = "Abundant Personnel";
+        public static string AquariusEscort = "Aquarius Escort";
+        public static string ClassifiedDesign = "Classified Design";
+        public static string CompactVessel = "Compact Vessel";
+        public static string EncounterTheStrange = "Encounter the Strange";
+        public static string ExperimentalVessel = "Experimental Vessel";
+        public static string FarFromHome = "Far From Home";
+        public static string FourNacelleStability = "Four-Nacelle Stability";
+        public static string GrapplerCable = "Grappler Cable";
+        public static string LargerCrew = "Larger Crew";
+        public static string LandingGear = "Landing Gear";
+        public static string MissionOfMercy = "Mission of Mercy";
+        public static string MissionPod = "Mission Pod";
+        public static string PolarizedHullPlating = "Polarized Hull Plating";
+        public static string PeakPerformance = "Peak Performance";
+        public static string PreferentialTargeting = "Preferential Targeting";
+        public static string PrestigiousPosting = "Prestigious Posting";
+        public static string Prototype = "Prototype";
+        public static string QuantumSlipstreamBurstDrive = "Quantum Slipstream Burst Drive";
+        public static string ReadyForBattle = "Ready for Battle";
+        public static string Reliable = "Reliable";
+        public static string SaucerSeperation = "Saucer Seperation";
+        public static string SaucerSeperationAndReconnection = "Saucer Seperation and Reconnection";
+        public static string SpecializedShuttlebay = "Specialized Shuttlebay";
+        public static string TheLastGeneration = "The Last Generation";
+        public static string UpgradedSystem = "Upgraded System";
     }
 }

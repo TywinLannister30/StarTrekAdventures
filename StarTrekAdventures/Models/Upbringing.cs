@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
+﻿namespace StarTrekAdventures.Models;
 
-namespace StarTrekAdventures.Models
+public class Upbringing
 {
-    public class Upbringing
-    {
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public CharacterAttributes Attributes { get; set; }
+    public CharacterAttributes Attributes { get; set; }
 
-        public CharacterDepartments DepartmentChoices { get; set; }
+    public Departments DepartmentChoices { get; set; }
 
-        public List<string> Focuses { get; set; }
+    public ICollection<string> Focuses { get; set; }
 
-        public bool AnyDepartment { get; set; }
-    }
+    public bool AnyDepartment { get; set; }
 }

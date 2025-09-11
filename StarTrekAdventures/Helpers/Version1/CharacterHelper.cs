@@ -78,7 +78,7 @@ namespace StarTrekAdventures.Helpers.Version1
             return character;
         }
 
-        public static Character AdjustAttributesForEnvironment(this Character character, Environment environment)
+        public static Character AdjustAttributesForEnvironment(this Character character, CharacterEnvironment environment)
         {
             var choices = new List<string>();
 
@@ -180,7 +180,7 @@ namespace StarTrekAdventures.Helpers.Version1
             return character;
         }
 
-        public static Character AdjustDisciplinesForEnvironment(this Character character, Environment environment)
+        public static Character AdjustDisciplinesForEnvironment(this Character character, CharacterEnvironment environment)
         {
             var choices = new List<string>();
 

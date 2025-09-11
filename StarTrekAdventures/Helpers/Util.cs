@@ -1,19 +1,16 @@
-﻿using System;
+﻿namespace StarTrekAdventures.Helpers;
 
-namespace StarTrekAdventures.Helpers
+public static class Util
 {
-    public static class Util
+    private static readonly Random rnd = new Random();
+
+    public static int GetRandom()
     {
-        private static readonly Random rnd = new Random();
+        return rnd.Next();
+    }
 
-        public static int GetRandom()
-        {
-            return rnd.Next();
-        }
-
-        public static int GetRandom(int max)
-        {
-            return rnd.Next(0, max);
-        }
+    public static int GetRandom(int max)
+    {
+        return rnd.Next(0, max);
     }
 }

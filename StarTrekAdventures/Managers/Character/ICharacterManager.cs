@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Models;
 
-namespace StarTrekAdventures.Managers
+namespace StarTrekAdventures.Managers;
+
+public interface ICharacterManager
 {
-    public interface ICharacterManager
-    {
-        Character CreateCharacter(string species);
-        //ActionResult<CharacterSummary> CreateCharacterSummary(string species);
-    }
+    Character CreateCharacter(string species);
 }

@@ -3,40 +3,30 @@ using StarTrekAdventures.Managers;
 using StarTrekAdventures.Models;
 using StarTrekAdventures.Selectors;
 
-namespace StarTrekAdventures.Controllers
+namespace StarTrekAdventures.Controllers;
+
+[Route("api/v2/[controller]")]
+[ApiController]
+public class CharacterController : ControllerBase
 {
-    [Route("api/v2/[controller]")]
-    [ApiController]
-    public class CharacterController : ControllerBase
+    private readonly ICharacterManager _characterManager;
+
+    public CharacterController(ICharacterManager characterManager)
     {
-        private readonly ICharacterManager _characterManager;
+        _characterManager = characterManager;
+    }
 
-        public CharacterController(ICharacterManager characterManager)
-        {
-            _characterManager = characterManager;
-        }
+    [HttpGet]
+    public ActionResult<Character> Character(string species)
+    {
+        if (!string.IsNullOrEmpty(species) && SpeciesSelector.GetSpecies(species) == null)
+            return BadRequest($"{species} is not a valid species.");
 
-        [HttpGet]
-        public ActionResult<Character> Character(string species)
-        {
-            if (!string.IsNullOrEmpty(species) && SpeciesSelector.GetSpecies(species) == null)
-                return BadRequest($"{species} is not a valid species.");
+        var character = _characterManager.CreateCharacter(species);
 
-            var character = _characterManager.CreateCharacter(species);
+        if (!character.IsValid)
+            return UnprocessableEntity(character);
 
-            if (!character.IsValid)
-                return UnprocessableEntity(character);
-
-            return Ok(character);
-        }
-
-        //[HttpGet("summary")]
-        //public ActionResult<CharacterSummary> CharacterSummary(string species)
-        //{
-        //    if (!string.IsNullOrEmpty(species) && SpeciesSelector.GetSpecies(species) == null)
-        //        return BadRequest($"{species} is not a valid species.");
-
-        //    return _characterManager.CreateCharacterSummary(species);
-        //}
+        return Ok(character);
     }
 }

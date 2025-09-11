@@ -1,9 +1,8 @@
 ﻿using static StarTrekAdventures.Constants.Enums;
 
-namespace StarTrekAdventures.Models
+namespace StarTrekAdventures.Models;
+
+public class DepartmentRequirements : Departments
 {
-    public class DepartmentRequirements : CharacterDepartments
-    {
-        public Operator Operator { get; set; }
-    }
+    public Operator Operator { get; set; }
 }

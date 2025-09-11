@@ -1,27 +1,26 @@
-﻿using Newtonsoft.Json;
-using StarTrekAdventures.Constants;
-using System.Collections.Generic;
+﻿using StarTrekAdventures.Constants;
+using System.Text.Json.Serialization;
 
-namespace StarTrekAdventures.Models
+namespace StarTrekAdventures.Models;
+
+public class SpeciesAbility
 {
-    public class SpeciesAbility
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        
-        [JsonIgnore]
-        public string AddTalent { get; set; }
+    public string Name { get; set; }
 
-        [JsonIgnore]
-        public List<string> AddOneOfTheseTalents {get; set;}
+    public string Description { get; set; }
+    
+    [JsonIgnore]
+    public string AddTalent { get; set; }
 
-        [JsonIgnore]
-        public int AdditionalFocuses { get; set; }
+    [JsonIgnore]
+    public List<string> AddOneOfTheseTalents {get; set;}
 
-        [JsonIgnore]
-        public int ProtectionBonus { get; set; }
+    [JsonIgnore]
+    public int AdditionalFocuses { get; set; }
 
-        [JsonIgnore]
-        public string StressBasedOn { get; set; } = AttributeName.Fitness;
-    }
+    [JsonIgnore]
+    public int ProtectionBonus { get; set; }
+
+    [JsonIgnore]
+    public string StressBasedOn { get; set; } = AttributeName.Fitness;
 }

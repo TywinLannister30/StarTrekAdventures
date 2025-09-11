@@ -1,23 +1,20 @@
-﻿using System.Collections.Generic;
+﻿namespace StarTrekAdventures.Models;
 
-namespace StarTrekAdventures.Models
+public class Species
 {
-    public class Species
-    {
-        public string Name { get; set; }
+    public string Name { get; set; }
 
-        public List<string> Description { get; set; }
+    public ICollection<string> Description { get; set; }
 
-        public CharacterAttributes AttributeModifiers { get; set; }
-        
-        public bool ThreeRandomAttributes { get; set; }
+    public CharacterAttributes AttributeModifiers { get; set; }
+    
+    public bool ThreeRandomAttributes { get; set; }
 
-        public string TraitDescription { get; set; }
+    public string TraitDescription { get; set; }
 
-        public SpeciesAbility SpeciesAbility { get; set; }
+    public SpeciesAbility SpeciesAbility { get; set; }
 
-        public int Weight { get; set; }
+    public int Weight { get; set; }
 
-        public CharacterAttributes OneOfTheseModifiers { get; set; }
-    }
+    public CharacterAttributes OneOfTheseModifiers { get; set; }
 }
