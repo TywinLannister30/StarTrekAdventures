@@ -18,10 +18,12 @@ builder.Services.AddTransient<ICareerPathManager, CareerPathManager>();
 builder.Services.AddTransient<ICharacterManager, CharacterManager>();
 builder.Services.AddTransient<IEnvironmentManager, EnvironmentManager>();
 builder.Services.AddTransient<IExperienceManager, ExperienceManager>();
+builder.Services.AddTransient<IRankManager, RankManager>();
 builder.Services.AddTransient<IRoleManager, RoleManager>();
 builder.Services.AddTransient<ISpeciesManager, SpeciesManager>();
 builder.Services.AddTransient<IStarshipManager, StarshipManager>();
 builder.Services.AddTransient<IUpbringingManager, UpbringingManager>();
+builder.Services.AddTransient<IValueManager, ValueManager>();
 
 // Add MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();

@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
+using System.Reflection;
 
 namespace StarTrekAdventures.Selectors;
 
@@ -66,5 +67,14 @@ public static class RankSelector
         }
 
         return weightedRankList.GetRandom();
+    }
+
+    internal static List<string> GetAllRanks()
+    {
+        return typeof(Rank)
+            .GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            .Where(f => f.IsLiteral && !f.IsInitOnly)
+            .Select(f => (string)f.GetValue(null))
+            .ToList();
     }
 }

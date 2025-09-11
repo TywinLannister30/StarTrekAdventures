@@ -39,6 +39,16 @@ public class ValueSelector
         return true;
     }
 
+    internal static List<Value> GetAllValues()
+    {
+        return Values;
+    }
+
+    internal static Value GetSpecificValue(string name)
+    {
+        return Values.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
     private static readonly List<Value> Values = new()
     {
         new Value { Name = "Do not mistake my blindness for helplessness", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
@@ -358,7 +368,6 @@ public class ValueSelector
         new Value { Name = "Always up for an adventure", Weight = 1 },
         new Value { Name = "Are you sure these are the right coordinates?", Weight = 1 },
         new Value { Name = "Better to be too thorough than not thorough enough", Weight = 1 },
-        new Value { Name = "Body and mind alike must be healthy", Weight = 1 },
         new Value { Name = "Body and mind alike must be healthy", Weight = 1 },
         new Value { Name = "Breaking Federation principles in order to keep it safe", Weight = 1 },
         new Value { Name = "Build relationships", Weight = 1 },
