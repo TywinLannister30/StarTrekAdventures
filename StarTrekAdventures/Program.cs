@@ -14,6 +14,7 @@ builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ISpeciesManag
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ITechnobabbleManager, StarTrekAdventures.Managers.Version1.TechnobabbleManager>();
 
 builder.Services.AddTransient<ICharacterManager, CharacterManager>();
+builder.Services.AddTransient<ISpeciesManager, SpeciesManager>();
 builder.Services.AddTransient<IStarshipManager, StarshipManager>();
 
 // Add MVC (Controllers + Views)

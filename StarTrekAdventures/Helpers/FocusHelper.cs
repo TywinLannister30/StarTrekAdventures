@@ -9,7 +9,9 @@ public static class FocusHelper
         if (focus == Focus.Councelling ||
             focus == Focus.GuidedTherapy ||
             focus == Focus.NeuropsychologyOrPsychiatry ||
+            focus == Focus.Parapsychology ||
             focus == Focus.Psychiatry ||
+            focus == Focus.Psychoanalysis ||
             focus == Focus.Psychology ||
             focus == Focus.PsychosomaticDisorders ||
             focus == Focus.StressDisorders)
