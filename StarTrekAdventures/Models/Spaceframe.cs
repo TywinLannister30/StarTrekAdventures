@@ -14,7 +14,7 @@ public class Spaceframe
 
     public ICollection<string> SuggestedMissionProfiles { get; set; }
 
-    public string NameingConventions { get; set; }
+    public string NamingConventions { get; set; }
 
     public ICollection<string> Traits { get; set; }
 

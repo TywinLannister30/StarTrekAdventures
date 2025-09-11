@@ -38,6 +38,12 @@ public static class StarshipWeaponSelector
         },
         new StarshipWeaponQuality
         {
+            Name = "Dampening",
+            Description = "This attack drains the target’s reserve power, causing widespread disruption. If the target has Reserve Power available, it loses Reserve Power."
+
+        },
+        new StarshipWeaponQuality
+        {
             Name = "High Yield",
             Description = "This weapon inflicts massive damage to enemy vessels. If the attack inflicts one or more breaches to a system, it inflicts one additional breach (or steps up the Potency of a breach inflicted by 1—attacker’s choice)."
 
@@ -52,6 +58,12 @@ public static class StarshipWeaponSelector
         {
             Name = "Persistent",
             Description = "When this weapon hits, you may spend 1–3 Momentum. At the end of each round, the target suffers half the weapon’s damage rating (round up) again. This effect lasts for a number of rounds equal to the Momentum spent."
+
+        },
+        new StarshipWeaponQuality
+        {
+            Name = "Piercing",
+            Description = "The weapon is effective at cutting through layers of protection. When this weapon makes an attack, any Resistance the target has is ignored."
 
         },
         new StarshipWeaponQuality
@@ -99,6 +111,31 @@ public static class StarshipWeaponSelector
             Qualities = new List<StarshipWeaponQuality>
             {
                 GetWeaponQuality("Intense")
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.DisruptorSpinalLance,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Long,
+            Damage = 3,
+            DamageBasedOnScale = true,
+            Qualities = new List<StarshipWeaponQuality>
+            {
+                GetWeaponQuality("Intense")
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.ElectromagneticCannon,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Close,
+            Damage = 2,
+            DamageBasedOnScale = true,
+            Qualities = new List<StarshipWeaponQuality>
+            {
+                GetWeaponQuality("Dampening"),
+                GetWeaponQuality("Piercing"),
             }
         },
         new StarshipWeapon
