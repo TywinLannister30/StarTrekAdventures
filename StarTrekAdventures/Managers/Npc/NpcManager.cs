@@ -64,4 +64,9 @@ public class NpcManager : INpcManager
     {
         return NpcSelector.GetNonPlayerCharacter(name);
     }
+
+    public List<NonPlayerCharacter> GetAllByTrait(string trait)
+    {
+        return NpcSelector.GetAllNonPlayerCharacters().Where(x => x.Traits.Any(t => t.Equals(trait, StringComparison.OrdinalIgnoreCase))).ToList();
+    }
 }

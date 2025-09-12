@@ -33,6 +33,12 @@ public class NpcController : ControllerBase
         return Ok(_npcManager.GetAll());
     }
 
+    [HttpGet("trait/{trait}")]
+    public ActionResult<List<NonPlayerCharacter>> GetAllByTrait(string trait)
+    {
+        return Ok(_npcManager.GetAllByTrait(trait));
+    }
+
     [HttpGet("{name}")]
     public ActionResult<NonPlayerCharacter> GetSingle(string name)
     {

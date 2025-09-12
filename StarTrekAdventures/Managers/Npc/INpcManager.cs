@@ -11,4 +11,6 @@ public interface INpcManager
     NonPlayerCharacter Get(string name);
 
     NonPlayerCharacter GenerateNpc(string name);
+
+    List<NonPlayerCharacter> GetAllByTrait(string trait);
 }
