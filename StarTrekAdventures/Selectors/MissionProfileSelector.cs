@@ -29,7 +29,17 @@ public static class MissionProfileSelector
         return weightedMissionProfileList.GetRandom();
     }
 
-    private static readonly List<MissionProfile> MissionProfiles = new List<MissionProfile>
+    internal static List<MissionProfile> GetAllMissionProfiles()
+    {
+        return MissionProfiles;
+    }
+
+    internal static MissionProfile GetMissionProfile(string name)
+    {
+        return MissionProfiles.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    private static readonly List<MissionProfile> MissionProfiles = new()
     {
         new()
         {

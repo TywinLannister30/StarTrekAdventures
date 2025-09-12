@@ -140,7 +140,7 @@ public class TalentSelector
 
     public static Talent GetTalent(string name)
     {
-        return Talents.First(x => x.Name == name);
+        return Talents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     internal static List<Talent> GetAllTalents()

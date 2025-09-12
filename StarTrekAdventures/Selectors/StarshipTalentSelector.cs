@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
+using StarTrekAdventures.Models.Version1;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
@@ -91,7 +92,7 @@ public class StarshipTalentSelector
 
     public static StarshipTalent GetTalent(string name)
     {
-        return StarshipTalents.First(x => x.Name == name);
+        return StarshipTalents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     internal static StarshipTalent GetTalentFromList(Starship starship, ICollection<string> talentChoices)
@@ -104,6 +105,11 @@ public class StarshipTalentSelector
         var choice = talentChoices.OrderBy(n => Util.GetRandom()).First();
 
         return StarshipTalents.First(x => x.Name == choice);
+    }
+
+    internal static List<StarshipTalent> GetAllTalents()
+    {
+        return StarshipTalents;
     }
 
     private static readonly List<StarshipTalent> StarshipTalents = new()

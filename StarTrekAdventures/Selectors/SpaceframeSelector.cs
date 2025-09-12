@@ -21,7 +21,12 @@ public static class SpaceframeSelector
 
     public static Spaceframe GetSpaceframe(string name)
     {
-        return Spaceframes.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+        return Spaceframes.FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    internal static List<Spaceframe> GetAllSpaceframes()
+    {
+        return Spaceframes.ToList();
     }
 
     private static readonly ICollection<Spaceframe> Spaceframes = new List<Spaceframe>

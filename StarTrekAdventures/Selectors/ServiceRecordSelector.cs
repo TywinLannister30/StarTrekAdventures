@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
+using StarTrekAdventures.Models.Version1;
 
 namespace StarTrekAdventures.Selectors;
 
@@ -14,6 +15,16 @@ public static class ServiceRecordSelector
             return ServiceRecords.OrderBy(n => Util.GetRandom()).First();
 
         return null;
+    }
+
+    internal static List<ServiceRecord> GetAllServiceRecords()
+    {
+        return ServiceRecords;
+    }
+
+    internal static ServiceRecord GetServiceRecord(string name)
+    {
+        return ServiceRecords.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     private static readonly List<ServiceRecord> ServiceRecords = new()

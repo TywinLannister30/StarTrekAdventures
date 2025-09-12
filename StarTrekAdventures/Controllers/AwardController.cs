@@ -32,7 +32,7 @@ public class AwardController : ControllerBase
     {
         var upbringing = _awardManager.Get(name);
 
-        if (upbringing == null) return NotFound("No upbringing found.");
+        if (upbringing == null) return NotFound("No award found.");
 
         return Ok(upbringing);
     }
