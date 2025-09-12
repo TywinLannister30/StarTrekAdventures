@@ -25,6 +25,14 @@ public static class WeaponSelector
     {
         new WeaponQuality
         {
+            Name = "Accurate",
+            Description = new List < string >
+            {
+                "If you perform the Aim minor action before making an attack with this weapon, you may re-roll up to two d20s in your dice pool, rather than only one."
+            }
+        },
+        new WeaponQuality
+        {
             Name = "Area",
             Description = new List < string > 
             { 
@@ -91,6 +99,56 @@ public static class WeaponSelector
 
         new Weapon
         {
+            Name = WeaponName.BatLeth,
+            Type = WeaponType.Melee,
+            Injury = InjuryType.Deadly,
+            Severity = 3,
+            Size = WeaponSize.TwoHanded,
+            Qualities = new List<WeaponQuality>(),
+            Costs = new List<string> { "Opportunity 1" }
+        },
+        new Weapon
+        {
+            Name = WeaponName.DisruptorPistol,
+            Type = WeaponType.Ranged,
+            Injury = InjuryType.Deadly,
+            Severity = 4,
+            Size = WeaponSize.OneHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Intense"),
+            },
+            Costs = new List<string> { "Not Available" }
+        },
+        new Weapon
+        {
+            Name = WeaponName.DisruptorRifle,
+            Type = WeaponType.Ranged,
+            Injury = InjuryType.Deadly,
+            Severity = 5,
+            Size = WeaponSize.TwoHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Accurate"),
+                GetWeaponQuality("Intense"),
+            },
+            Costs = new List<string> { "Not Available" }
+        },
+        new Weapon
+        {
+            Name = WeaponName.DkTahgDagger,
+            Type = WeaponType.Melee,
+            Injury = InjuryType.Deadly,
+            Severity = 2,
+            Size = WeaponSize.OneHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Hidden 1")
+            },
+            Costs = new List<string> { "Opportunity 1" }
+        },
+        new Weapon
+        {
             Name = WeaponName.PhaserType1,
             Type = WeaponType.Ranged,
             Injury = InjuryType.StunOrDeadly,
@@ -101,7 +159,7 @@ public static class WeaponSelector
                 GetWeaponQuality("Hidden 1"),
                 GetWeaponQuality("Charge"),
             },
-            Costs = new List<string> { "Standard Issue "}
+            Costs = new List<string> { "Standard Issue" }
         },
         new Weapon
         {
@@ -114,7 +172,7 @@ public static class WeaponSelector
             {
                 GetWeaponQuality("Charge")
             },
-            Costs = new List<string> { "Standard Issue "}
+            Costs = new List<string> { "Standard Issue" }
         },
         new Weapon
         {

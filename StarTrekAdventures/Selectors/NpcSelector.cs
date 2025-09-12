@@ -31,6 +31,7 @@ public class NpcSelector
 
     private static readonly List<NonPlayerCharacter> NonPlayerCharacters = new()
     {
+        // STARFLEET & FEDERATION NPCS
         new NonPlayerCharacter 
         {
             Name = "Starfleet Officer",
@@ -215,6 +216,130 @@ public class NpcSelector
                     }
                 },
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining)
+            }
+        },
+        // KLINGON NPCS
+        new NonPlayerCharacter
+        {
+            Name = "Klingon Warrior",
+            TypeEnum = NPCType.Minor,
+            Description = "A worthy warrior of the Klingon Empire.",
+            Traits = new List<string>
+            {
+                "Klingon",
+                "Warrior"
+            },
+            PersonalThreat = 0,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 7, Daring = 10, Fitness = 10, Insight = 7, Presence = 9, Reason = 8 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.DkTahgDagger),
+                WeaponSelector.GetWeapon(WeaponName.BatLeth),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+            }
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Klingon Veteran",
+            TypeEnum = NPCType.Notable,
+            Description = "A battle-hardened Klingon warrior.",
+            Traits = new List<string>
+            {
+                "Klingon",
+                "Warrior"
+            },
+            Values = new List<string>
+            {
+                "Today is a Good Day to Die!"
+            },
+            Focuses = new List<string>
+            {
+                Focus.HandToHandCombat, Focus.Resilience
+            },
+            PersonalThreat = 3,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 11, Fitness = 10, Insight = 8, Presence = 10, Reason = 7 },
+            Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 3, Medicine = 1, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.DkTahgDagger),
+                WeaponSelector.GetWeapon(WeaponName.BatLeth),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1), (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Lead by Example",
+                    Description = new List<string>
+                    {
+                        "When the Klingon Officer makes a successful attack, they may spend 2 Threat to assist another Klingon’s next attack with his Daring + Command."
+                    }
+                },
+                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+            }
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Moq'var, son of Koloth",
+            TypeEnum = NPCType.Major,
+            Description = "Klingon commanders guide their ships through the quadrants, seeking honor and glory for themselves and their crews, and resources to benefit the Empire. Moq’var is representative of this type of officer.",
+            Traits = new List<string>
+            {
+                "Klingon",
+                "Commanding Officer"
+            },
+            Values = new List<string>
+            {
+                "There is nothing more honorable than victory",
+                "To kill the defenseless is not true battle"
+            },
+            Focuses = new List<string>
+            {
+                Focus.HandToHandCombat, Focus.Intimidation, Focus.Resilience, Focus.StarshipTactics
+            },
+            PersonalThreat = 8,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 12, Fitness = 10, Insight = 9, Presence = 11, Reason = 8 },
+            Departments = new Departments { Command = 3, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.DkTahgDagger),
+                WeaponSelector.GetWeapon(WeaponName.BatLeth),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Hardy",
+                    Description = new List<string>
+                    {
+                        "Moq’var is resilient and can shrug off wounds that would down normal combatants. Moq’var’s Personal Threat is increased by +2 (included above)."
+                    }
+                },
+                new()
+                {
+                    Name = "Lead by Example",
+                    Description = new List<string>
+                    {
+                        "When Moq’var makes a successful attack, they may spend 2 Threat to assist another Klingon’s next attack with his Daring + Command."
+                    }
+                },
+                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
             }
         },
     };

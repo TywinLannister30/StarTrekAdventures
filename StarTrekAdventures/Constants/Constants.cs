@@ -476,6 +476,7 @@
         public const string RapidAnalysis = "Rapid Analysis";
         public const string RepairsAndMaintenance = "Repairs and Maintenance";
         public const string Research = "Research";
+        public const string Resilience = "Resilience";
         public const string ReverseEngineering = "Reverse Engineering";
         public const string Rheumatology = "Rheumatology";
         public const string Rhetoric = "Rhetoric";
@@ -610,6 +611,10 @@
     {
         public const string UnarmedStrike = "Unarmed Strike";
 
+        public const string DisruptorPistol = "Disruptor Pistol";
+        public const string DisruptorRifle = "Disruptor Rifle";
+        public const string DkTahgDagger = "D’k tahg dagger";
+        public const string BatLeth = "Bat’leth";
         public const string PhaserType1 = "Phaser Type-1";
         public const string PhaserType2 = "Phaser Type-2";
         public const string VulcanNervePinch = "Vulcan Nerve Pinch";
