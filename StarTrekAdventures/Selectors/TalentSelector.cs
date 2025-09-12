@@ -125,12 +125,27 @@ public class TalentSelector
                 return false;
         }
 
+        if (talent.RequiresPsychologyFocus)
+        {
+            if (character.Focuses.Count == 0) return false;
+            
+            foreach (var focus in character.Focuses)
+            {
+                if (FocusHelper.IsPsychologyFocus(focus)) return true;
+            }
+        }
+
         return true;
     }
 
     public static Talent GetTalent(string name)
     {
         return Talents.First(x => x.Name == name);
+    }
+
+    internal static List<Talent> GetAllTalents()
+    {
+        return Talents;
     }
 
     private static readonly List<Talent> Talents = new()
@@ -424,7 +439,8 @@ public class TalentSelector
             Description = new List<string>
             {
                 "You possess some significant and uncommon item or device which is not standard issue, but which is nevertheless useful for missions. You may select this talent multiple times, gaining a different item each time."
-            }
+            },
+            MainCharacterOnly = true,
         },
         new()
         {
@@ -1048,7 +1064,8 @@ public class TalentSelector
             Description = new List<string>
             {
                 "The first time you introduce a supporting character in a mission, that supporting character may take one additional option to improve the supporting character.",
-            }
+            },
+            MainCharacterOnly = true
         },
         new()
         {
@@ -1470,7 +1487,7 @@ public class TalentSelector
         new()
         {
             Name = "In the Nick of Time",
-            DepartmentRequirements = new DepartmentRequirements { Engineering = 3, Science = 3 },
+            DepartmentRequirements = new DepartmentRequirements { Engineering = 3, Science = 3, Operator = Operator.Or },
             Weight = 6,
             Description = new List<string>
             {
@@ -2168,7 +2185,8 @@ public class TalentSelector
             Description = new List<string>
             {
                 "When you use Medicine during a social conflict, you may increase the complication range of your task by 1, 2, or 3. For each step of complication range increased, you may ask a single question as if you’d spent Momentum on Obtain Information. Any Complications generated from this task results in the individual you are interacting with becoming offended or upset with being “analyzed.”",
-            }
+            },
+            RequiresPsychologyFocus = true
         },
         new()
         {

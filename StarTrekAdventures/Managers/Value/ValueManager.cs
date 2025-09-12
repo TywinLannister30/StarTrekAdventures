@@ -28,6 +28,5 @@ public class ValueManager : IValueManager
     public List<string> GetAllNamesBySpecies(string species)
     {
         return ValueSelector.GetAllValues().Where(x => x.TraitRequirement != null && x.TraitRequirement.Equals(species, StringComparison.CurrentCultureIgnoreCase)).Select(x => x.Name).ToList();
-
     }
 }

@@ -16,8 +16,8 @@ public class CharacterController : ControllerBase
         _characterManager = characterManager;
     }
 
-    [HttpGet]
-    public ActionResult<Character> Character(string species)
+    [HttpPost("generate")]
+    public ActionResult<Character> GenerateCharacter(string species)
     {
         if (!string.IsNullOrEmpty(species) && SpeciesSelector.GetSpecies(species) == null)
             return BadRequest($"{species} is not a valid species.");

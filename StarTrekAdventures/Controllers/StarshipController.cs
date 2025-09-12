@@ -16,8 +16,8 @@ public class StarshipController : ControllerBase
         _starshipManager = starshipManager;
     }
 
-    [HttpGet]
-    public ActionResult<Starship> Starship(string spaceframe)
+    [HttpPost("generate")]
+    public ActionResult<Starship> GenerateStarship(string spaceframe)
     {
         if (!string.IsNullOrEmpty(spaceframe) && SpaceframeSelector.GetSpaceframe(spaceframe) == null)
             return BadRequest($"{spaceframe} is not a valid spaceframe.");

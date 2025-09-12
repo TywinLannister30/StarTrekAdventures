@@ -13,6 +13,7 @@ builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ICharacterMan
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ISpeciesManager, StarTrekAdventures.Managers.Version1.SpeciesManager>();
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ITechnobabbleManager, StarTrekAdventures.Managers.Version1.TechnobabbleManager>();
 
+builder.Services.AddTransient<IAwardManager, AwardManager>();
 builder.Services.AddTransient<ICareerEventManager, CareerEventManager>();
 builder.Services.AddTransient<ICareerPathManager, CareerPathManager>();
 builder.Services.AddTransient<ICharacterManager, CharacterManager>();
@@ -22,6 +23,7 @@ builder.Services.AddTransient<IRankManager, RankManager>();
 builder.Services.AddTransient<IRoleManager, RoleManager>();
 builder.Services.AddTransient<ISpeciesManager, SpeciesManager>();
 builder.Services.AddTransient<IStarshipManager, StarshipManager>();
+builder.Services.AddTransient<ITalentManager, TalentManager>();
 builder.Services.AddTransient<IUpbringingManager, UpbringingManager>();
 builder.Services.AddTransient<IValueManager, ValueManager>();
 
