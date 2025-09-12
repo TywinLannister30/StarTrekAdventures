@@ -2,6 +2,20 @@
 {
     public class Enums
     {
+        public enum Gender
+        {
+            None = 0,
+            Male = 1,
+            Female = 2
+        }
+
+        public enum InjuryType
+        {
+            Stun,
+            StunOrDeadly,
+            Deadly
+        }
+
         public enum LifepathStage
         {
             Species = 1,
@@ -13,18 +27,18 @@
             FinishingTouches = 7
         }
 
+        public enum NPCType
+        {
+            Minor,
+            Notable,
+            Major
+        }
+
         public enum Operator
         {
             None = 0,
             And = 1,
             Or = 2
-        }
-
-        public enum Gender
-        {
-            None = 0,
-            Male = 1,
-            Female = 2
         }
 
         public enum StarshipWeaponType
@@ -40,6 +54,18 @@
             Close,
             Medium,
             Long
+        }
+
+        public enum WeaponSize
+        {
+            OneHanded,
+            TwoHanded
+        }
+
+        public enum WeaponType
+        {
+            Melee,
+            Ranged
         }
     }
 
@@ -356,6 +382,7 @@
         public const string Finances = "Finances";
         public const string FirstAid = "First Aid";
         public const string FleetFormations = "Fleet Formations";
+        public const string FleetStrategyAndTactics = "Fleet Strategy and Tactics";
         public const string FlightControlSystems = "Flight Control Systems";
         public const string Forcefields = "Forcefields";
         public const string Forensics = "Forensics";
@@ -410,6 +437,7 @@
         public const string Metallurgy = "Metallurgy";
         public const string Meteorology = "Meteorology";
         public const string Microbiology = "Microbiology";
+        public const string MilitaryHistory = "Military History";
         public const string MiningOperations = "Mining Operations";
         public const string ModelingAndDesign = "Modeling and Design";
         public const string MolecularSynthesis = "Molecular Synthesis";
@@ -469,6 +497,7 @@
         public const string StarfleetProtocol = "Starfleet Protocols";
         public const string StarshipExpert = "Starship Expert";
         public const string StarshipRecognition = "Starship Recognition";
+        public const string StarshipTactics = "Starship Tactics";
         public const string StationOperations = "Station Operations";
         public const string StellarCartography = "Stellar Cartography";
         public const string StrategyOrTactics = "Strategy/Tactics";
@@ -575,6 +604,15 @@
         public const string StrategicAndDiplomaticOperations = "Strategic and Diplomatic Operations";
         public const string TacticalOperations = "Tactical Operations";
         public const string TechnicalTestbed = "Technical Testbed";
+    }
+
+    public static class WeaponName
+    {
+        public const string UnarmedStrike = "Unarmed Strike";
+
+        public const string PhaserType1 = "Phaser Type-1";
+        public const string PhaserType2 = "Phaser Type-2";
+        public const string VulcanNervePinch = "Vulcan Nerve Pinch";
     }
 
     public static class StarshipWeaponName
@@ -718,5 +756,10 @@
         public const string SpecializedShuttlebay = "Specialized Shuttlebay";
         public const string TheLastGeneration = "The Last Generation";
         public const string UpgradedSystem = "Upgraded System";
+    }
+
+    public static class NpcSpecialRuleName
+    {
+        public const string IntensiveTraining = "Intensive Training";
     }
 }

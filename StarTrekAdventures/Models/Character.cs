@@ -460,14 +460,14 @@ public class Character
         if (picks.Any(x => x.Name == AttributeName.Reason)) Attributes.Reason++;
     }
 
-    internal void AdjustDisciplinesForTrack(CareerPath track)
+    internal void AdjustDepartmentsForTrack(CareerPath careerPath)
     {
-        Departments.Command += track.DepartmentModifiers.Command;
-        Departments.Conn += track.DepartmentModifiers.Conn;
-        Departments.Engineering += track.DepartmentModifiers.Engineering;
-        Departments.Medicine += track.DepartmentModifiers.Medicine;
-        Departments.Science += track.DepartmentModifiers.Science;
-        Departments.Security += track.DepartmentModifiers.Security;
+        Departments.Command += careerPath.DepartmentModifiers.Command;
+        Departments.Conn += careerPath.DepartmentModifiers.Conn;
+        Departments.Engineering += careerPath.DepartmentModifiers.Engineering;
+        Departments.Medicine += careerPath.DepartmentModifiers.Medicine;
+        Departments.Science += careerPath.DepartmentModifiers.Science;
+        Departments.Security += careerPath.DepartmentModifiers.Security;
 
         var displinesAvailable = new List<string>
         {
@@ -479,12 +479,12 @@ public class Character
             DepartmentName.Security
         };
 
-        if (track.DepartmentModifiers.Command > 0) displinesAvailable.Remove(DepartmentName.Command);
-        if (track.DepartmentModifiers.Conn > 0) displinesAvailable.Remove(DepartmentName.Conn);
-        if (track.DepartmentModifiers.Engineering > 0) displinesAvailable.Remove(DepartmentName.Engineering);
-        if (track.DepartmentModifiers.Medicine > 0) displinesAvailable.Remove(DepartmentName.Medicine);
-        if (track.DepartmentModifiers.Science > 0) displinesAvailable.Remove(DepartmentName.Science);
-        if (track.DepartmentModifiers.Security > 0) displinesAvailable.Remove(DepartmentName.Security);
+        if (careerPath.DepartmentModifiers.Command > 0) displinesAvailable.Remove(DepartmentName.Command);
+        if (careerPath.DepartmentModifiers.Conn > 0) displinesAvailable.Remove(DepartmentName.Conn);
+        if (careerPath.DepartmentModifiers.Engineering > 0) displinesAvailable.Remove(DepartmentName.Engineering);
+        if (careerPath.DepartmentModifiers.Medicine > 0) displinesAvailable.Remove(DepartmentName.Medicine);
+        if (careerPath.DepartmentModifiers.Science > 0) displinesAvailable.Remove(DepartmentName.Science);
+        if (careerPath.DepartmentModifiers.Security > 0) displinesAvailable.Remove(DepartmentName.Security);
 
         var choices = displinesAvailable.OrderBy(n => Util.GetRandom()).Take(2);
 

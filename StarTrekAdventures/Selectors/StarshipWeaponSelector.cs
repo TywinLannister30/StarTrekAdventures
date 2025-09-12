@@ -11,78 +11,108 @@ public static class StarshipWeaponSelector
         return StarshipWeapons.First(x => x.Name == name);
     }
 
-    public static StarshipWeaponQuality GetWeaponQuality(string name)
+    public static WeaponQuality GetWeaponQuality(string name)
     {
         return StarshipWeaponQualities.First(x => x.Name == name);
     }
 
-    private static readonly List<StarshipWeaponQuality> StarshipWeaponQualities = new()
+    internal static List<StarshipWeapon> GetAllWeapons()
     {
-        new StarshipWeaponQuality
+        return StarshipWeapons;
+    }
+
+    private static readonly List<WeaponQuality> StarshipWeaponQualities = new()
+    {
+        new WeaponQuality
         {
             Name = "Area or Spread",
-            Description = "(Area): This weapon impacts a wider area and can affect several targets at once. When you succeed at an attack, additional targets in the same zone may be hit by spending 1 Momentum for each additional target (Repeatable). This attack may Succeed at Cost; (Spread): Attacks with this weapon reduce the cost of the Devastating Attack Momentum spend to 1. This is Repeatable."
+            Description = new List<string>
+            {
+                "Choose Are or Spread when you fire this weapon",
+                "Area => This weapon impacts a wider area and can affect several targets at once. When you succeed at an attack, additional targets in the same zone may be hit by spending 1 Momentum for each additional target (Repeatable). This attack may Succeed at Cost.",
+                "Spread => Attacks with this weapon reduce the cost of the Devastating Attack Momentum spend to 1. This is Repeatable.",
+            }
 
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Calibration",
-            Description = "This weapon needs to be calibrated before firing. The weapon cannot be fired unless a Prepare minor action is performed before the Attack major action in the same turn."
-
+            Description = new List<string>
+            {
+                "This weapon needs to be calibrated before firing. The weapon cannot be fired unless a Prepare minor action is performed before the Attack major action in the same turn."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Cumbersome",
-            Description = "This weapon is difficult to bring to bear against a target, increasing the Difficulty of an attack made using it by 1. If this weapon is a torpedo, it cannot be fired as part of a salvo."
-
+            Description = new List<string>
+            {
+                "This weapon is difficult to bring to bear against a target, increasing the Difficulty of an attack made using it by 1. If this weapon is a torpedo, it cannot be fired as part of a salvo."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Dampening",
-            Description = "This attack drains the target’s reserve power, causing widespread disruption. If the target has Reserve Power available, it loses Reserve Power."
-
+            Description = new List<string>
+            {
+                "This attack drains the target’s reserve power, causing widespread disruption. If the target has Reserve Power available, it loses Reserve Power."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "High Yield",
-            Description = "This weapon inflicts massive damage to enemy vessels. If the attack inflicts one or more breaches to a system, it inflicts one additional breach (or steps up the Potency of a breach inflicted by 1—attacker’s choice)."
-
+            Description = new List<string>
+            {
+                "This weapon inflicts massive damage to enemy vessels. If the attack inflicts one or more breaches to a system, it inflicts one additional breach (or steps up the Potency of a breach inflicted by 1—attacker’s choice)."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Intense",
-            Description = "When making an attack with this weapon, you may increase the damage by 1 by spending 1 Momentum, rather than 2. This is Repeatable."
-
+            Description = new List<string>
+            {
+                "When making an attack with this weapon, you may increase the damage by 1 by spending 1 Momentum, rather than 2. This is Repeatable."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Persistent",
-            Description = "When this weapon hits, you may spend 1–3 Momentum. At the end of each round, the target suffers half the weapon’s damage rating (round up) again. This effect lasts for a number of rounds equal to the Momentum spent."
-
+            Description = new List<string>
+            {
+                "When this weapon hits, you may spend 1–3 Momentum. At the end of each round, the target suffers half the weapon’s damage rating (round up) again. This effect lasts for a number of rounds equal to the Momentum spent."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Piercing",
-            Description = "The weapon is effective at cutting through layers of protection. When this weapon makes an attack, any Resistance the target has is ignored."
-
+            Description = new List<string>
+            {
+                "The weapon is effective at cutting through layers of protection. When this weapon makes an attack, any Resistance the target has is ignored."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Spread",
-            Description = "Attacks with this weapon reduce the cost of the Devastating Attack Momentum spend to 1. This is Repeatable."
-
+            Description = new List<string>
+            {
+                "Attacks with this weapon reduce the cost of the Devastating Attack Momentum spend to 1. This is Repeatable."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Versatile 1",
-            Description = "If an attack with this weapon is successful, it gains 1 point of bonus Momentum. Bonus Momentum cannot be saved."
-
+            Description = new List<string>
+            {
+                "If an attack with this weapon is successful, it gains 1 point of bonus Momentum. Bonus Momentum cannot be saved."
+            }
         },
-        new StarshipWeaponQuality
+        new WeaponQuality
         {
             Name = "Versatile 2",
-            Description = "If an attack with this weapon is successful, it gains 2 points of bonus Momentum. Bonus Momentum cannot be saved."
-
+            Description = new List<string>
+            {
+                "If an attack with this weapon is successful, it gains 2 points of bonus Momentum. Bonus Momentum cannot be saved."
+            }
         },
     };
 
@@ -96,7 +126,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Medium,
             Damage = 1,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Intense")
             }
@@ -108,7 +138,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Close,
             Damage = 2,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Intense")
             }
@@ -120,7 +150,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Long,
             Damage = 3,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Intense")
             }
@@ -132,7 +162,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Close,
             Damage = 2,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Dampening"),
                 GetWeaponQuality("Piercing"),
@@ -145,7 +175,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Close,
             Damage = 2,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Versatile 1")
             }
@@ -157,7 +187,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Medium,
             Damage = 0,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Area or Spread"),
                 GetWeaponQuality("Versatile 2")
@@ -170,7 +200,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Medium,
             Damage = 1,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Versatile 2")
             }
@@ -182,7 +212,7 @@ public static class StarshipWeaponSelector
             Range = StarshipWeaponRange.Close,
             Damage = 2,
             DamageBasedOnScale = true,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Spread"),
                 GetWeaponQuality("Versatile 2")
@@ -196,7 +226,7 @@ public static class StarshipWeaponSelector
             Type = StarshipWeaponType.Torpedo,
             Range = StarshipWeaponRange.Long,
             Damage = 3,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("High Yield")
             }
@@ -207,7 +237,7 @@ public static class StarshipWeaponSelector
             Type = StarshipWeaponType.Torpedo,
             Range = StarshipWeaponRange.Long,
             Damage = 5,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Calibration"),
                 GetWeaponQuality("Cumbersome"),
@@ -220,7 +250,7 @@ public static class StarshipWeaponSelector
             Type = StarshipWeaponType.Torpedo,
             Range = StarshipWeaponRange.Long,
             Damage = 4,
-            Qualities = new List<StarshipWeaponQuality>
+            Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality("Calibration"),
                 GetWeaponQuality("High Yield"),

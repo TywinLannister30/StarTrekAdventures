@@ -86,7 +86,7 @@ public class CharacterManager : ICharacterManager
         character.AddValue();
         character.AddTraitsForTrack(track);
         character.AdjustAttributesForTrack();
-        character.AdjustDisciplinesForTrack(track);
+        character.AdjustDepartmentsForTrack(track);
         character.AddFocuses(track.Focuses, 3);
         character.AddTalent();
 

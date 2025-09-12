@@ -148,6 +148,17 @@ public class TalentSelector
         return Talents;
     }
 
+    internal static NpcSpecialRule GetTalentAsSpecialRule(string name)
+    {
+        var talent = GetTalent(name);
+
+        return new NpcSpecialRule
+        {
+            Name = talent.Name + " (Talent)",
+            Description = talent.Description.ToList()
+        };
+    }
+
     private static readonly List<Talent> Talents = new()
     {
         // GENERAL TALENTS

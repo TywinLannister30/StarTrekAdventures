@@ -22,33 +22,63 @@ public class StarshipWeapon
     [JsonIgnore]
     public bool DamageBasedOnScale { get; set; }
 
-    public ICollection<StarshipWeaponQuality> Qualities { get; set; }
+    public ICollection<WeaponQuality> Qualities { get; set; }
    
     [JsonIgnore]
     public bool IsTractorBeam { get; set; }
 
-    public void SetEffect(Starship starship)
+    public void SetEffect(Starship starship = null)
     {
-        if (IsTractorBeam)
+        if (starship == null)
         {
-            Effect = $"Strength {Damage + starship.Talents.Sum(x => x.TractorBeamModifier)}";
+            if (IsTractorBeam)
+            {
+                Effect = $"Strength {Damage}";
+            }
+            else
+            {
+                string baseEffect = $"{Type}, {Range}, Damage";
+
+                if (DamageBasedOnScale)
+                {
+                    baseEffect += " equal to ship's scale";
+                    if (Damage > 0) baseEffect += $" +{Damage}";
+                }
+                else
+                {
+                    baseEffect += $" {Damage}";
+                }
+
+                if (Qualities != null && Qualities.Count != 0)
+                {
+                    baseEffect += ", " + string.Join(", ", Qualities.Select(q => q.Name));
+                }
+
+                Effect = baseEffect;
+            }
         }
         else
         {
-            var damage = Damage + (DamageBasedOnScale ? starship.Scale : 0) + starship.Systems.Weapons.ToBonus();
-
-            if (Type == StarshipWeaponType.Energy)
-                damage += starship.Talents.Sum(x => x.EnergyWeaponDamageModifier);
-
-            string baseEffect = $"{Type}, {Range}, Damage {damage}";
-
-            // Append quality names if any
-            if (Qualities != null && Qualities.Any())
+            if (IsTractorBeam)
             {
-                baseEffect += ", " + string.Join(", ", Qualities.Select(q => q.Name));
+                Effect = $"Strength {Damage + starship.Talents.Sum(x => x.TractorBeamModifier)}";
             }
+            else
+            {
+                var damage = Damage + (DamageBasedOnScale ? starship.Scale : 0) + starship.Systems.Weapons.ToBonus();
 
-            Effect = baseEffect;
+                if (Type == StarshipWeaponType.Energy)
+                    damage += starship.Talents.Sum(x => x.EnergyWeaponDamageModifier);
+
+                string baseEffect = $"{Type}, {Range}, Damage {damage}";
+
+                if (Qualities != null && Qualities.Count != 0)
+                {
+                    baseEffect += ", " + string.Join(", ", Qualities.Select(q => q.Name));
+                }
+
+                Effect = baseEffect;
+            }
         }
     }
 }
