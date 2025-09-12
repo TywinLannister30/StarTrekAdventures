@@ -218,6 +218,7 @@ public class NpcSelector
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining)
             }
         },
+
         // KLINGON NPCS
         new NonPlayerCharacter
         {
@@ -340,6 +341,125 @@ public class NpcSelector
                     }
                 },
                 TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+            }
+        },
+
+        // ROMULAN NPCS
+        new NonPlayerCharacter
+        {
+            Name = "Romulan Uhlan",
+            TypeEnum = NPCType.Minor,
+            Description = "A rank-and-file soldier of the Romulan Star Empire.",
+            Traits = new List<string>
+            {
+                "Romulan",
+                "Soldier"
+            },
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 8, Fitness = 9, Insight = 8, Presence = 7, Reason = 10 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.Dagger),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                TalentSelector.GetTalentAsSpecialRule("Wary"),
+            }
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Romulan Centurion",
+            TypeEnum = NPCType.Notable,
+            Description = "An experienced soldier in the Romulan services.",
+            Traits = new List<string>
+            {
+                "Romulan",
+                "Imperial Navy Officer"
+            },
+            Values = new List<string>
+            {
+                "I will not fail in my duty to the Empire"
+            },
+            Focuses = new List<string>
+            {
+                "Guerilla Tactics", "Paranoia"
+            },
+            PersonalThreat = 3,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 11, Daring = 9, Fitness = 9, Insight = 9, Presence = 7, Reason = 9 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.Dagger),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Group Ambush",
+                    Description = new List<string>
+                    {
+                        "When the centurion makes an attack against an enemy who is unaware of their presence, they may spend 2 Threat to increase the severity of this and all other attacks made this round by them and their subordinates by 1."
+                    }
+                },
+                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                TalentSelector.GetTalentAsSpecialRule("Wary"),
+            }
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Major Verohk, Tal Shiar Agent",
+            TypeEnum = NPCType.Major,
+            Description = "Verohk is a member of the Romulan Empire’s intelligence arm, the Tal Shiar.",
+            Traits = new List<string>
+            {
+                "Romulan",
+                "Agent of the Tal Shiar"
+            },
+            Values = new List<string>
+            {
+                "The ends justify the means",
+                "Everything I do, I do for Romulus"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Deception, Focus.Infiltration, Focus.Interrogation, "Propaganda"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 11, Daring = 9, Fitness = 9, Insight = 10, Presence = 9, Reason = 11 },
+            Departments = new Departments { Command = 4, Conn = 2, Engineering = 3, Security = 2, Medicine = 2, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.Dagger),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                new()
+                {
+                    Name = "Supreme Authority",
+                    Description = new List<string>
+                    {
+                        "Whenever a Romulan under Major Verohk’s command attempts a task to resist persuasion or intimidation, Verohk may spend 1 Threat to allow that Romulan to re-roll, even if Verohk is not present in the scene herself."
+                    }
+                },
+                TalentSelector.GetTalentAsSpecialRule("Wary"),
             }
         },
     };

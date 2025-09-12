@@ -615,6 +615,7 @@
         public const string DisruptorRifle = "Disruptor Rifle";
         public const string DkTahgDagger = "D’k tahg dagger";
         public const string BatLeth = "Bat’leth";
+        public const string Dagger = "Dagger";
         public const string PhaserType1 = "Phaser Type-1";
         public const string PhaserType2 = "Phaser Type-2";
         public const string VulcanNervePinch = "Vulcan Nerve Pinch";

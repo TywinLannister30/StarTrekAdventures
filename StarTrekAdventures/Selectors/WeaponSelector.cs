@@ -109,6 +109,19 @@ public static class WeaponSelector
         },
         new Weapon
         {
+            Name = WeaponName.Dagger,
+            Type = WeaponType.Melee,
+            Injury = InjuryType.Deadly,
+            Severity = 2,
+            Size = WeaponSize.OneHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Hidden 1")
+            },
+            Costs = new List<string> { "Opportunity 1" }
+        },
+        new Weapon
+        {
             Name = WeaponName.DisruptorPistol,
             Type = WeaponType.Ranged,
             Injury = InjuryType.Deadly,
