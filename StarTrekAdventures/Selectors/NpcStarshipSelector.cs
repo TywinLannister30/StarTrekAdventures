@@ -273,5 +273,72 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel)
             }
         },
+
+        // CARDASSIAN STARSHIPS
+        new NpcStarship
+        {
+            Name = "Galor-class Cruiser",
+            Description = new List<string>
+            {
+                "The main battle cruiser of the Cardassian navy, a bit dated as of the mid- 24th century, but capable enough to suppress most resistance."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Cardassian Starship",
+                "Galor class"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 9, Sensors = 8, Structure = 8, Weapons = 9 },
+            Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 4, Medicine = 2, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorSpinalLance),
+            },
+            TractorBeamStrength = 3,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+            }
+        },
+
+        // FERENGI STARSHIPS
+        new NpcStarship
+        {
+            Name = "D’Kora-class Marauder",
+            Description = new List<string>
+            {
+                "In the 24th century, the D’Kora class was the largest Ferengi starship in the Ferengi navy, though a number were sold to independent merchant-captains as well."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Flagship,
+            Traits = new List<string>
+            {
+                "Ferengi Marauder",
+                "D’Kora class",
+                "The Best Latinum Can Buy"
+            },
+            Scale = 5,
+            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 10, Sensors = 9, Structure = 10, Weapons = 7 },
+            Departments = new Departments { Command = 4, Conn = 1, Engineering = 3, Security = 3, Medicine = 1, Science = 3 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannon),
+            },
+            TractorBeamStrength = 4,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedShields),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.DeluxeGalley),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+            }
+        },
     };
 }

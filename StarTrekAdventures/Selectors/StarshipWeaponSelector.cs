@@ -152,6 +152,7 @@ public static class StarshipWeaponSelector
             DamageBasedOnScale = true,
             Qualities = new List<WeaponQuality>
             {
+                GetWeaponQuality("Cumbersome"),
                 GetWeaponQuality("Intense")
             }
         },
