@@ -20,6 +20,7 @@ builder.Services.AddTransient<IEnvironmentManager, EnvironmentManager>();
 builder.Services.AddTransient<IExperienceManager, ExperienceManager>();
 builder.Services.AddTransient<IMissionProfileManager, MissionProfileManager>();
 builder.Services.AddTransient<INpcManager, NpcManager>();
+builder.Services.AddTransient<INpcStarshipManager, NpcStarshipManager>();
 builder.Services.AddTransient<IRankManager, RankManager>();
 builder.Services.AddTransient<IReprimandManager, ReprimandManager>();
 builder.Services.AddTransient<IRoleManager, RoleManager>();

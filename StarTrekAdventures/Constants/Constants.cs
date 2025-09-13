@@ -2,6 +2,14 @@
 {
     public class Enums
     {
+        public enum CrewQuality
+        {
+            Basic,
+            Proficient,
+            Talented,
+            Exceptional
+        }
+
         public enum Gender
         {
             None = 0,
