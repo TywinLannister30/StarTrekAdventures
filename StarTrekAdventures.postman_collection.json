@@ -1,0 +1,1748 @@
+{
+	"info": {
+		"_postman_id": "69cef139-906d-4849-8611-95cb24893da3",
+		"name": "StarTrekAdventures",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "831546"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "v1/character/summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/character?species=human",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"character"
+							],
+							"query": [
+								{
+									"key": "species",
+									"value": "human"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/character/summary - specific species",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/character/summary?species=ocampa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"character",
+								"summary"
+							],
+							"query": [
+								{
+									"key": "species",
+									"value": "ocampa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/character",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/character",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"character"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/character - specific species",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/character?species=arbazan",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"character"
+							],
+							"query": [
+								{
+									"key": "species",
+									"value": "arbazan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/species",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/species",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"species"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/species - specific species",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/species?name=andorian",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"species"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "andorian"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/species/name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/species/name",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"species",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble/{number}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble/20",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble/action",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble/action",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble",
+								"action"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble/descriptor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble/descriptor",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble",
+								"descriptor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble/source",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble/source",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble",
+								"source"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble/effect",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble/effect",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble",
+								"effect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1/technobabble/device",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44389/api/v1/technobabble/device",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44389",
+							"path": [
+								"api",
+								"v1",
+								"technobabble",
+								"device"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v2/character/generate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/character/generate",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"character",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/character/generate?species",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/character/generate?species=romulan",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"character",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "species",
+							"value": "romulan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starship/generate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starship/generate",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starship",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starship/generate?spaceframe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starship/generate?spaceframe=D'Kora",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starship",
+						"generate"
+					],
+					"query": [
+						{
+							"key": "spaceframe",
+							"value": "D'Kora"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/species",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/species",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"species"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/species/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/species/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"species",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/species/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/species/Andorian",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"species",
+						"Andorian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/environment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/environment",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"environment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/environment/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/environment/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"environment",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/environment/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/environment/Homeworld",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"environment",
+						"Homeworld"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/upbringing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/upbringing",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"upbringing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/upbringing/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/upbringing/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"upbringing",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/upbringing/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/upbringing/Business or Trade (Rebelled)",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"upbringing",
+						"Business or Trade (Rebelled)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/careerpath",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/careerpath",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"careerpath"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/careerpath/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/careerpath/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"careerpath",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/careerpath/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/careerpath/Starfleet Officer (Command)",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"careerpath",
+						"Starfleet Officer (Command)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/experience",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/experience",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"experience"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/experience/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/experience/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"experience",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/experience/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/experience/Veteran",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"experience",
+						"Veteran"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/careerevent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/careerevent",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"careerevent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/careerevent/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/careerevent/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"careerevent",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/careerevent/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/careerevent/Betrayed Ideals for a Superior",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"careerevent",
+						"Betrayed Ideals for a Superior"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/role",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/role",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/role/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/role/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"role",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/role/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/role/Commanding Officer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"role",
+						"Commanding Officer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/rank",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/rank",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"rank"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/value",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/value/species/{species}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/value/species/andorian",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"value",
+						"species",
+						"andorian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/value/species/{species}/name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/value/species/andorian/name",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"value",
+						"species",
+						"andorian",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/value/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/value/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"value",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/value/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/value/do not mistake my blindness for helplessness",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"value",
+						"do not mistake my blindness for helplessness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/talent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/talent",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"talent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/talent/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/talent/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"talent",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/talent/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/talent/nerve pinch",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"talent",
+						"nerve pinch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/award",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/award",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"award"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/award/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/award/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"award",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/award/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/award/Christopher Pike Medal of Valor",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"award",
+						"Christopher Pike Medal of Valor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/reprimand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/reprimand",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"reprimand"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/reprimand/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/reprimand/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"reprimand",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/reprimand/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/reprimand/Court Martial",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"reprimand",
+						"Court Martial"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/spaceframe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/spaceframe",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"spaceframe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/spaceframe/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/spaceframe/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"spaceframe",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/spaceframe/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/spaceframe/nx",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"spaceframe",
+						"nx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/missionprofile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/missionprofile",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"missionprofile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/missionprofile/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/missionprofile/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"missionprofile",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/missionprofile/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/missionprofile/Battlecruiser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"missionprofile",
+						"Battlecruiser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/servicerecord",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/servicerecord",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"servicerecord"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/servicerecord/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/servicerecord/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"servicerecord",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/servicerecord/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/servicerecord/Aging Relic",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"servicerecord",
+						"Aging Relic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starshiptalent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starshiptalent",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starshiptalent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starshiptalent/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starshiptalent/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starshiptalent",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starshiptalent/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starshiptalent/Emergency Medical Hologram",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starshiptalent",
+						"Emergency Medical Hologram"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starshipweapon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starshipweapon",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starshipweapon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starshipweapon/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starshipweapon/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starshipweapon",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/starshipweapon/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/starshipweapon/Disruptor Cannons",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"starshipweapon",
+						"Disruptor Cannons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npc",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npc/trait/{trait}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npc/trait/romulan",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npc",
+						"trait",
+						"romulan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npc/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npc/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npc",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npc/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npc/Tribble",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npc",
+						"Tribble"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npc/{name}/generate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npc/Section 31 Operative/generate",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npc",
+						"Section 31 Operative",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npcstarship",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npcstarship",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npcstarship"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npcstarship/trait/{trait}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npcstarship/trait/klingon starship",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npcstarship",
+						"trait",
+						"klingon starship"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npcstarship/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npcstarship/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npcstarship",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/npcstarship/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/npcstarship/Jem’Hadar Battlecruiser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"npcstarship",
+						"Jem’Hadar Battlecruiser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
