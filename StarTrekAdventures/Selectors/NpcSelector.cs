@@ -906,5 +906,392 @@ public class NpcSelector
                 },
             },
         },
+
+        // CREATURES
+        new NonPlayerCharacter
+        {
+            Name = "Berengarian Dragon",
+            TypeEnum = NPCType.Major,
+            Description = "A huge animal more than 200 meters in length from nose to tail-tip, the dragons of Berengaria VII are capable of flight and breath fire. Their scale colors tend to vary from lavender to purple to violet.",
+            Traits = new List<string>
+            {
+                "Berengarian Dragon",
+                "Flying",
+                "Massive",
+                "Animal"
+            },
+            Values = new List<string>
+            {
+                "Arboreal hunter",
+                "Pays small creatures little heed"
+            },
+            Focuses = new List<string>
+            {
+                "Hunting", "Melee", Focus.Observation
+            },
+            PersonalThreat = 8,
+            Protection = 4,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 12, Fitness = 12, Insight = 5, Presence = 10, Reason = 4 },
+            Departments = new Departments { Command = 3, Conn = 0, Engineering = 0, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = "Claws",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 4,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality> 
+                    { 
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Area) 
+                    }
+                },
+                new()
+                {
+                    Name = "Bite",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 5,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality> 
+                    { 
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Piercing)
+                    }
+                },
+                new()
+                {
+                    Name = "Fire Breath",
+                    Type = WeaponType.Ranged,
+                    Injury = InjuryType.Deadly,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Area)
+                    }
+                },
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Massive",
+                    Description = new List<string>
+                    {
+                        "The Berengarian Dragon is massive. It must suffer three Injuries before it is defeated."
+                    }
+                }
+            },
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Moopsy",
+            TypeEnum = NPCType.Notable,
+            Description = "Deceptively cute, the moopsy is actually a terrifying predatory creature that bites its prey and injects venom that dissolves bone. It then slurps up the prey’s skeletal slush.",
+            Traits = new List<string>
+            {
+                "Moopsy",
+                "Deceptive",
+                "Small",
+                "Venomous"
+            },
+            Values = new List<string>
+            {
+                "Moopsy!"
+            },
+            PersonalThreat = 3,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 3, Daring = 5, Fitness = 3, Insight = 5, Presence = 6, Reason = 3 },
+            Departments = new Departments { Command = 0, Conn = 0, Engineering = 0, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = "Venomous Bite",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 4,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Piercing),
+                    }
+                }
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Bone-Dissolving Venom",
+                    Description = new List<string>
+                    {
+                        "When the moopsy successfully injures a living being, it injects a lethal venom that dissolves the being’s skeletal system."
+                    }
+                }
+            },
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Mugato",
+            TypeEnum = NPCType.Notable,
+            Description = "Native to Neural, mugato are powerful, white-furred creatures with a large horn on their head and a venomous bite. In some regions, they are known as gumato, mugutu, mogatu, or muguto.",
+            Traits = new List<string>
+            {
+                "Mugato",
+                "Venomous",
+                "Animal"
+            },
+            Values = new List<string>
+            {
+                "Territorial hunter"
+            },
+            Focuses = new List<string>
+            {
+                "Melee", Focus.Tracking
+            },
+            PersonalThreat = 3,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 6, Daring = 8, Fitness = 11, Insight = 4, Presence = 10, Reason = 6 },
+            Departments = new Departments { Command = 0, Conn = 0, Engineering = 0, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = "Claws",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                    }
+                },
+                new()
+                {
+                    Name = "Bite",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 4,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Cumbersome),
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
+                    }
+                },
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Venomous",
+                    Description = new List<string>
+                    {
+                        "After successfully biting an enemy, a mugato may spend 1 Threat to inject them with venom. This creates a Poisoned Injury, and the creature remains defeated until a cure for the poison is found."
+                    }
+                }
+            },
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Neural Parasite",
+            TypeEnum = NPCType.Minor,
+            Description = "Neural parasites are small creatures that attach themselves to targets and take over the host body, inducing insanity and then death. Neural parasites are migratory, and have been encountered in a number of locations across the Galaxy, including Deneva, Levinius V, and Ingraham B.",
+            Traits = new List<string>
+            {
+                "Neural Parasite",
+                "Limited Flight",
+                "Animal"
+            },
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 4, Fitness = 8, Insight = 4, Presence = 5, Reason = 6 },
+            Departments = new Departments { Command = 1, Conn = 0, Engineering = 0, Security = 1, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Attach",
+                    Description = new List<string>
+                    {
+                        "When a neural parasite makes a melee attack, it attaches itself to its victim rather than inflicting an Injury. If it succeeds, it fuses with the creature’s nervous system and takes control of it."
+                    }
+                }
+            },
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Sehlat",
+            TypeEnum = NPCType.Notable,
+            Description = "Native to Vulcan, sehlats are large predatory creatures with fangs and claws, and are generally light brown to dark gray in color. They are fearsome in the wild, but can be domesticated up to a point.",
+            Traits = new List<string>
+            {
+                "Sehlat",
+                "Desert Predator",
+                "Animal"
+            },
+            Values = new List<string>
+            {
+                "Territorial hunter"
+            },
+            Focuses = new List<string>
+            {
+                "Melee", Focus.Stealth
+            },
+            PersonalThreat = 3,
+            Protection = 2,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 11, Fitness = 12, Insight = 6, Presence = 9, Reason = 2 },
+            Departments = new Departments { Command = 2, Conn = 0, Engineering = 0, Security = 3, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = "Claws and Teeth",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 4,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
+                    }
+                },
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>()
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Talarian Hook Spider",
+            TypeEnum = NPCType.Minor,
+            Description = "Found in warm environments, Talarian hook spiders are small arachnids with legs a half-meter in length.",
+            Traits = new List<string>
+            {
+                "Talarian Hook Spider",
+                "Lurking",
+                "Arachnid"
+            },
+            PersonalThreat = 0,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 7, Fitness = 8, Insight = 2, Presence = 2, Reason = 4 },
+            Departments = new Departments { Command = 1, Conn = 0, Engineering = 0, Security = 3, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = "Hooks",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Stun,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>()
+                },
+                new()
+                {
+                    Name = "Bite",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 4,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                    }
+                },
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Web",
+                    Description = new List<string>
+                    {
+                        "As a major action, a hook spider can fill its zone with sticky webbing. This makes the zone difficult terrain with a cost of 1, or adds 1 to the cost of any existing difficult terrain."
+                    }
+                }
+            },
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Targ",
+            TypeEnum = NPCType.Minor,
+            Description = "Native to Qo’noS, targs are cultivated as livestock or pets, though wild targs are hunted for their meat and milk.",
+            Traits = new List<string>
+            {
+                "Targ",
+                "Stubborn Beast",
+                "Animal"
+            },
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 4, Daring = 10, Fitness = 11, Insight = 5, Presence = 8, Reason = 2 },
+            Departments = new Departments { Command = 2, Conn = 0, Engineering = 0, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = "Tusks",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.StunOrDeadly,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>()
+                }
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Rush",
+                    Description = new List<string>
+                    {
+                        "As a major action, a targ may charge at an enemy within Medium range. The targ moves to any adjacent zone, and makes a melee attack against the chosen enemy. If the attack hits, the enemy is also knocked prone."
+                    }
+                }
+            },
+        },
+        new NonPlayerCharacter
+        {
+            Name = "Tribble",
+            TypeEnum = NPCType.Minor,
+            Description = "Tribbles are small, furry life-forms native to the plant Iota Geminorum IV. They make soft, calming, purring sounds when touched, and breed at an alarming rate. When close to Klingons, tribbles emit a high-pitched shriek.",
+            Traits = new List<string>
+            {
+                "Tribble",
+                "Animal"
+            },
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 4, Daring = 8, Fitness = 4, Insight = 6, Presence = 9, Reason = 6 },
+            Departments = new Departments { Command = 0, Conn = 0, Engineering = 1, Security = 0, Medicine = 0, Science = 1 },
+            Attacks = new List<Weapon>(),
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Klingon Disdain",
+                    Description = new List<string>
+                    {
+                        "A tribble’s reaction is strong enough to automatically detect the presence of a Klingon—even one disguised or surgically altered— within Close range, while a disguised Klingon must attempt a Control + Command task with a Difficulty of 2 to mask their disgust at the tribble’s presence."
+                    }
+                }
+            },
+        },
     };
 }

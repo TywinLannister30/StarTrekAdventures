@@ -1474,7 +1474,7 @@ public static class SpaceframeSelector
             {
                 StarshipWeaponName.PhaserBanks,
                 StarshipWeaponName.DisruptorBanks,
-                StarshipWeaponName.ElectromagneticCannon
+                StarshipWeaponName.ElectromagneticCannons
             },
             TractorBeamStrength = 4,
             Weight = 0

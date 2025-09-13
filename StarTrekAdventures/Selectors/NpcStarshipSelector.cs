@@ -328,7 +328,7 @@ public class NpcStarshipSelector
             {
                 StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
                 StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannon),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannons),
             },
             TractorBeamStrength = 4,
             Talents = new List<StarshipTalent>

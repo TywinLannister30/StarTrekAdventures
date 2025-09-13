@@ -509,6 +509,7 @@
         public const string StarshipRecognition = "Starship Recognition";
         public const string StarshipTactics = "Starship Tactics";
         public const string StationOperations = "Station Operations";
+        public const string Stealth = "Stealth";
         public const string StellarCartography = "Stellar Cartography";
         public const string StrategyOrTactics = "Strategy/Tactics";
         public const string StressDisorders = "Stress Disorders";
@@ -622,42 +623,134 @@
     {
         public const string UnarmedStrike = "Unarmed Strike";
 
+        public const string AndorianPlasmaRifle = "Andorian Plasma Rifle";
+        public const string AnestheticHypospray = "Anesthetic Hypospray";
         public const string BatLeth = "Bat’leth";
         public const string Blade = "Blade";
+        public const string Bludgeon = "Bludgeon";
         public const string Dagger = "Dagger";
         public const string DisruptorPistol = "Disruptor Pistol";
         public const string DisruptorRifle = "Disruptor Rifle";
         public const string DkTahgDagger = "D’k tahg dagger";
         public const string EnergyWhip = "Energy Whip";
+        public const string HeavyBlade = "Heavy Blade";
+        public const string JemHadarPlasmaPistol = "Jem’Hadar Plasma Pistol";
         public const string JemHadarPlasmaRifle = "Jem’Hadar Plasma Rifle";
         public const string KarTakin = "Kar’takin";
+        public const string Knife = "Knife";
+        public const string ParticleRifle = "Particle Rifle";
+        public const string PhasePistol = "Phase Pistol";
         public const string PhaserType1 = "Phaser Type-1";
         public const string PhaserType2 = "Phaser Type-2";
+        public const string PhaserType3 = "Phaser Type-3";
+        public const string PulseGrenade = "Pulse Grenade";
         public const string VulcanNervePinch = "Vulcan Nerve Pinch";
+    }
+
+    public static class WeaponQualityName
+    {
+        public const string Accurate = "Accurate";
+        public const string Area = "Area";
+        public const string AreaOrSpread = "Area or Spread";
+        public const string Calibration = "Calibration";
+        public const string Charge = "Charge";
+        public const string Cumbersome = "Cumbersome";
+        public const string Dampening = "Dampening";
+        public const string Debilitating = "Debilitating";
+        public const string Depleting = "Depleting";
+        public const string Devastating = "Devastating";
+        public const string Grenade = "Grenade";
+        public const string Hidden1 = "Hidden 1";
+        public const string HighYield = "High Yield";
+        public const string Innacurate = "Innacurate";
+        public const string Intense = "Intense";
+        public const string Jamming = "Jamming";
+        public const string Persistent = "Persistent";
+        public const string Piercing = "Piercing";
+        public const string Slowing = "Slowing";
+        public const string Spread = "Spread";
+        public const string Versatile1 = "Versatile 1";
+        public const string Versatile2 = "Versatile 2";
     }
 
     public static class StarshipWeaponName
     {
+        public const string AntiprotonBeamArray = "Antiproton Beam Array";
+        public const string AntiprotonBeamBanks = "Antiproton Beam Banks";
+        public const string AntiprotonBeamCannons = "Antiproton Beam Cannons";
+        public const string AntiprotonBeamSpinalLance = "Antiproton Beam Spinal Lance";
+
+        public const string DisruptorArray = "Disruptor Array";
         public const string DisruptorBanks = "Disruptor Banks";
         public const string DisruptorCannons = "Disruptor Cannons";
-
         public const string DisruptorSpinalLance = "Disruptor Spinal Lance";
 
-        public const string ElectromagneticCannon = "Electromagnetic Cannon";
+        public const string ElectromagneticArray = "Electromagnetic Array";
+        public const string ElectromagneticBanks = "Electromagnetic Banks";
+        public const string ElectromagneticCannons = "Electromagnetic Cannons";
+        public const string ElectromagneticSpinalLance = "Electromagnetic Spinal Lance";
 
+        public const string FreeElectronLaserArray = "Free Electron Laser Array";
+        public const string FreeElectronLaserBanks = "Free Electron Laser Banks";
+        public const string FreeElectronLaserCannons = "Free Electron Laser Cannons";
+        public const string FreeElectronLaserSpinalLance = "Free Electron Laser Spinal Lance";
+
+        public const string GravitonArray = "Graviton Array";
+        public const string GravitonBanks = "Graviton Banks";
+        public const string GravitonCannons = "Graviton Cannons";
+        public const string GravitonSpinalLance = "Graviton Spinal Lance";
+
+        public const string IonicArray = "Ionic Array";
+        public const string IonicBanks = "Ionic Banks";
+        public const string IonicCannons = "Ionic Cannons";
+        public const string IonicSpinalLance = "Ionic Spinal Lance";
+
+        public const string PhaseArray = "Phase Array";
+        public const string PhaseBanks = "Phase Banks";
         public const string PhaseCannons = "Phase Cannons";
+        public const string PhaseSpinalLance = "Phase Spinal Lance";
 
         public const string PhasedPoleronBeamArray = "Phased Poleron Beam Array";
         public const string PhasedPoleronBeamBanks = "Phased Poleron Beam Banks";
+        public const string PhasedPoleronCannons = "Phased Poleron Beam Cannons";
+        public const string PhasedPoleronSpinalLance = "Phased Poleron Beam Spinal Lance";
 
         public const string PhaserArrays = "Phaser Arrays";
         public const string PhaserBanks = "Phaser Banks";
+        public const string PhaserCannons = "Phaser Cannons";
+        public const string PhaserSpinalLance = "Phaser Spinal Lance";
+
         public const string PulsePhaserCannons = "Pulse Phaser Cannons";
 
+        public const string PulseArray = "Pulse Array";
+        public const string PulseBanks = "Pulse Banks";
+        public const string PulseCannons = "Pulse Cannons";
+        public const string PulseSpinalLance = "Pulse Spinal Lance";
+
+        public const string ProtonBeamArray = "Proton Beam Array";
+        public const string ProtonBeamBanks = "Proton Beam Banks";
+        public const string ProtonBeamCannons = "Proton Beam Cannons";
+        public const string ProtonBeamSpinalLance = "Proton Beam Spinal Lance";
+
+        public const string TetryonBeamArray = "Tetryon Beam Array";
+        public const string TetryonBeamBanks = "Tetryon Beam Banks";
+        public const string TetryonBeamCannons = "Tetryon Beam Cannons";
+        public const string TetryonBeamSpinalLance = "Tetryon Beam Spinal Lance";
+
+        public const string ChronitonTorpedoes = "Chroniton Torpedoes";
+        public const string GravimetricTorpedoes = "Gravimetric Torpedoes";
+        public const string NeutronicTorpedoes = "Neutronic Torpedoes";
+        public const string NuclearTorpedoes = "Nuclear Torpedoes";
         public const string PhotonTorpedoes = "Photon Torpedoes";
+        public const string PhotonicTorpedoes = "Photonic Torpedoes";
         public const string PlasmaTorpedoes = "Plasma Torpedoes";
+        public const string PolaronTorpedoes = "Polaron Torpedoes";
+        public const string PositronTorpedoes = "Positron Torpedoes";
         public const string QuantumTorpedoes = "Quantum Torpedoes";
         public const string SpatialTorpedoes = "Spatial Torpedoes";
+        public const string TetryonicTorpedoes = "Tetryonic Torpedoes";
+        public const string TransphasicTorpedoes = "Transphasic Torpedoes";
+        public const string TricobaltTorpedoes = "Tricobalt Torpedoes";
 
         public const string GrapplerCable = "Grappler Cable";
         public const string TractorBeam = "Tractor Beam";

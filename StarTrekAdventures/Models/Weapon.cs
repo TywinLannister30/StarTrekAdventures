@@ -7,7 +7,10 @@ namespace StarTrekAdventures.Models;
 
 public class Weapon
 {
-    public Weapon() { }
+    public Weapon() 
+    { 
+        Costs = new List<string>();
+    }
 
     public Weapon(Weapon weapon)
     {
