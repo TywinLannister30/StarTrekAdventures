@@ -54,7 +54,8 @@ public class StarshipSpecialRuleSelector
             Description = new List<string>
             {
                 "Each adventure, the gamemaster begins with +2 Threat. In addition, the ship always has an additional Directive for each mission: Understand the Inexplicable."
-            }
+            },
+            Source = BookSource.TechnicalManual,
         },
         new StarshipSpecialRule
         {
@@ -74,6 +75,7 @@ public class StarshipSpecialRuleSelector
             },
             CrewSupportModifier = -1,
             SmallCraftReadinessModifier = -1,
+            Source = BookSource.TechnicalManual,
         },
         new StarshipSpecialRule
         {
@@ -81,7 +83,8 @@ public class StarshipSpecialRuleSelector
             Description = new List<string>
             {
                 "The vessel’s configuration of four warp nacelles can be used to produce a stable and long-lasting warp field. The Difficulty of any task attempted to go to warp, or to maintain warp speed despite hazards, damage, or anomalies, is reduced by 1, to a minimum of 1."
-            }
+            },
+            Source = BookSource.GameToolkit
         },
         new StarshipSpecialRule
         {
@@ -127,7 +130,8 @@ public class StarshipSpecialRuleSelector
                 "Certain spaceframes can be fitted with a mission pod, chosen from the list below. The talents provided by the pod may not be swapped out, but the entire mission pod (and all of its benefits) may be swapped out as if it were a single talent.",
                 "If the selected mission pod provides a talent the spaceframe already has (either from its starting allotment of talents or from its mission profile), replace it with another talent (so long as it meets the listed requirements for the talent, if any)."
             },
-            ChooseMissionPod = true
+            ChooseMissionPod = true,
+            Source = BookSource.GameToolkit
         },
         new StarshipSpecialRule
         {
@@ -135,7 +139,8 @@ public class StarshipSpecialRuleSelector
             Description = new List<string>
             {
                 "Select one of the ship’s systems. Whenever a task assisted by this system succeeds, the ship scores 1 bonus Momentum. Bonus Momentum cannot be saved."
-            }
+            },
+            Source = BookSource.TechnicalManual,
         },
         new StarshipSpecialRule
         {
@@ -225,7 +230,8 @@ public class StarshipSpecialRuleSelector
             Description = new List<string>
             {
                 "Select one of the ship’s systems. When you attempt a task assisted by that system, if the Difficulty is 2 or lower, you may reroll the ship’s assist die; If the Difficulty is 3 or higher, increase the task’s complication range by 1."
-            }
+            },
+            Source = BookSource.TechnicalManual,
         },
         new StarshipSpecialRule
         {
@@ -234,7 +240,8 @@ public class StarshipSpecialRuleSelector
             {
                 "When the ship is created, you may select one ship talent granted by the ship’s spaceframe and replace it with a different talent. In addition, select one system: that system may be increased up to three times by refits rather than only twice."
             },
-            MajorRefit = true
+            MajorRefit = true,
+            Source = BookSource.TechnicalManual,
         },
     };
 }

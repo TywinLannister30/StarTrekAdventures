@@ -85,7 +85,8 @@ public static class CareerEventSelector
            Name = "Encountered a Rogue AI Ancient",
            AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
            DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
-           Focuses = new List<string> { Focus.Computers, Focus.Cybernetics, Focus.Holoprogramming }
+           Focuses = new List<string> { Focus.Computers, Focus.Cybernetics, Focus.Holoprogramming },
+           Source = BookSource.TechnicalManual
         },
 
         new()
@@ -93,7 +94,8 @@ public static class CareerEventSelector
            Name = "Encountered a Spatial Anomoly",
            AttributeModifierChoices = new CharacterAttributes { Daring = 1, Control = 1 },
            DepartmentModifierChoices = new Departments { Conn = 1, Science = 1 },
-           Focuses = new List<string> { Focus.AnomalousPhysics, Focus.QuantumMechanics, Focus.SubspaceDynamics }
+           Focuses = new List<string> { Focus.AnomalousPhysics, Focus.QuantumMechanics, Focus.SubspaceDynamics },
+           Source = BookSource.TechnicalManual
         },
 
         new()
@@ -102,7 +104,8 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Daring = 1, Control = 1 },
            DepartmentModifierChoices = new Departments { Science = 1, Engineering = 1 },
            Focuses = new List<string> { Focus.Archaeology, Focus.History, Focus.TemporalMechanics },
-           GainARandomTrait = new List<string> { "Seen the Future", "Trans-temporal Awareness", "Time-Displaced." }
+           GainARandomTrait = new List<string> { "Seen the Future", "Trans-temporal Awareness", "Time-Displaced." },
+           Source = BookSource.TechnicalManual
         },
 
         new() 
@@ -119,6 +122,7 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Reason = 1, Fitness = 1 },
            DepartmentModifierChoices = new Departments { Science = 1, Security = 1 },
            Focuses = new List<string> { Focus.AlternateHistories, Focus.MultiDimensionalPhysics, Focus.SubspaceDynamics },
+           Source = BookSource.TechnicalManual
         },
 
         new()
@@ -127,7 +131,8 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Presence = 1, Reason = 1 },
            DepartmentModifierChoices = new Departments { Science = 1, Medicine = 1 },
            Focuses = new List<string> { Focus.ArchaeologicalMedicine, Focus.Cybernetics, Focus.TheoreticalPhysics  },
-           GainARandomTrait = new List<string> { "Daystrom Fellow", "Studied at the Vulcan Science Academy" }
+           GainARandomTrait = new List<string> { "Daystrom Fellow", "Studied at the Vulcan Science Academy" },
+           Source = BookSource.TechnicalManual
         },
 
         new() 
@@ -234,6 +239,7 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
            DepartmentModifierChoices = new Departments { Engineering = 1, Medicine = 1 },
            Focuses = new List<string> { Focus.Archaeotechnology, Focus.Electronics, Focus.History },
+           Source = BookSource.TechnicalManual
         },
 
         new()
@@ -242,6 +248,7 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
            DepartmentModifierChoices = new Departments { Engineering = 1, Science = 1 },
            Focuses = new List<string> { Focus.EPSPowerSystems, Focus.MatterAntimatterReactors, Focus.PlasmaPhysics },
+           Source = BookSource.TechnicalManual
         },
 
         new()
@@ -250,6 +257,7 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Daring = 1, Fitness = 1 },
            DepartmentModifierChoices = new Departments { Command = 1, Medicine = 1 },
            Focuses = new List<string> { Focus.DamageControlProcedures, Focus.FirstAid, Focus.NuclearPhysics  },
+           Source = BookSource.TechnicalManual
         },
 
         new()
@@ -258,6 +266,7 @@ public static class CareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
            DepartmentModifierChoices = new Departments { Engineering = 1, Medicine = 1 },
            Focuses = new List<string> { Focus.MolecularSynthesis, Focus.SensorOperations, Focus.TransportersAndReplicators  },
+           Source = BookSource.TechnicalManual
         },
 
         new() 

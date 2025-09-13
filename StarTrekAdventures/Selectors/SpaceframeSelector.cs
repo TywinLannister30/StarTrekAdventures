@@ -73,7 +73,8 @@ public static class SpaceframeSelector
                 StarshipSpecialRuleName.GrapplerCable,
                 StarshipSpecialRuleName.PolarizedHullPlating
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -158,7 +159,8 @@ public static class SpaceframeSelector
             {
                 StarshipTalentName.RuggedDesign
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -198,7 +200,8 @@ public static class SpaceframeSelector
             {
                 StarshipTalentName.RuggedDesign
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -289,7 +292,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.ClassifiedDesign
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -330,7 +334,8 @@ public static class SpaceframeSelector
             {
                 StarshipTalentName.ExtensiveShuttlebays
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -370,7 +375,8 @@ public static class SpaceframeSelector
                 StarshipTalentName.HighResolutionSensors,
                 StarshipTalentName.ImprovedWarpDrive
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -415,7 +421,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.PreferentialTargeting
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -459,7 +466,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.FourNacelleStability
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -697,7 +705,8 @@ public static class SpaceframeSelector
                 StarshipSpecialRuleName.MissionPod,
                 StarshipSpecialRuleName.SaucerSeperationAndReconnection,
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -744,7 +753,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.SpecializedShuttlebay
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -786,7 +796,8 @@ public static class SpaceframeSelector
                 StarshipTalentName.AdvancedSensorSuites
             },
             SpecialRules = new List<string>(),
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -834,7 +845,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.LandingGear
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -974,7 +986,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.MissionPod
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -1070,7 +1083,8 @@ public static class SpaceframeSelector
                 StarshipSpecialRuleName.QuantumSlipstreamBurstDrive,
                 StarshipSpecialRuleName.SaucerSeperationAndReconnection
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -1117,7 +1131,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.FourNacelleStability
             },
-            Weight = 1
+            Weight = 1,
+            Source = BookSource.GameToolkit
         },
 
         // KLINGON
@@ -1255,7 +1270,8 @@ public static class SpaceframeSelector
             {
                 StarshipSpecialRuleName.AbundantPersonnel
             },
-            Weight = 0
+            Weight = 0,
+            Source = BookSource.GameToolkit
         },
 
         // ROMULAN
@@ -1394,7 +1410,8 @@ public static class SpaceframeSelector
             {
                 StarshipTalentName.CloakingDevice,
             },
-            Weight = 0
+            Weight = 0,
+            Source = BookSource.GameToolkit
         },
         
         // CARDASSIAN

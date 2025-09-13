@@ -132,7 +132,8 @@ public class StarshipTalentSelector
                 "The ship is fitted with several external replicators pre-set to materialize an outer layer of armor plating over the hull, reinforced with structural integrity fields.",
                 "When the ship raises its shields, it may deploy armor instead, but this requires using Reserve Power. Deploying the armor increases the ship’s maximum shields capacity by 5 and increases the ship’s Resistance by 3. While armor is deployed, the Modulate Shields and Regenerate Shields actions cannot be taken—the armor cannot be fine-tuned."
             },
-            MinimumServiceYear = 2400
+            MinimumServiceYear = 2400,
+            Source = BookSource.GameToolkit
         },
         new StarshipTalent
         {
@@ -142,7 +143,8 @@ public class StarshipTalentSelector
                 "The ship’s shield emitters are combined with an ablative field projector, allowing its graviton field to be shared with another target in Close range. These projectors charge the target’s shields while dissipating its own.",
                 "When you attempt the Regenerate Shields action, any Momentum you spend to increase shields regenerated may restore shields on an allied vessel within Close range."
             },
-            MinimumServiceYear = 2400
+            MinimumServiceYear = 2400,
+            Source = BookSource.GameToolkit
         },
         new StarshipTalent
         {
@@ -169,7 +171,8 @@ public class StarshipTalentSelector
             {
                 "The ship has been fitted with an additional propulsion system alongside its impulse and warp engines. Select one of the propulsion systems described in the transwarp and other propulsion section. The ship is equipped with that system.",
             },
-            GMPermission = true
+            GMPermission = true,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -178,7 +181,8 @@ public class StarshipTalentSelector
             {
                 "The ship has been fitted with an additional propulsion system alongside its impulse and warp engines. Select one of the propulsion systems described in the transwarp and other propulsion section. The ship is equipped with that system.",
             },
-            GMPermission = true
+            GMPermission = true,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -187,7 +191,8 @@ public class StarshipTalentSelector
             {
                 "The ship has been fitted with an additional propulsion system alongside its impulse and warp engines. Select one of the propulsion systems described in the transwarp and other propulsion section. The ship is equipped with that system.",
             },
-            GMPermission = true
+            GMPermission = true,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -296,7 +301,8 @@ public class StarshipTalentSelector
                 "The ship’s mines are equipped with cloaking technology, making them near-impossible to detect. Mines deployed by the ship have the Hidden 2 quality.",
             },
             DepartmentRequirements = new DepartmentRequirements { Security = 3 },
-            RequiresMines = true
+            RequiresMines = true,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -314,6 +320,7 @@ public class StarshipTalentSelector
             {
                 "The ship uses a modified torpedo system, where each casing splits into several smaller projectiles with separate payloads. When the ship fires a torpedo salvo, the attack gains the Versatile 2 quality.",
             },
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -506,6 +513,7 @@ public class StarshipTalentSelector
             {
                 "The ship’s sensors have been refined to be more effective at longer ranges. When you attempt a task assisted by the ship’s Sensors, if there is any increase in Difficulty due to range, then reduce that Difficulty increase by 2. This effect is lost if the Sensors suffer one or more breaches.",
             },
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -646,7 +654,8 @@ public class StarshipTalentSelector
                 "The ship’s directed energy weapons are powered from an independent reactor rather than tied to the ship’s main engines.",
                 "Increase the Damage rating of the ship’s energy weapons by 1. Further, when you fire one of the ship’s energy weapons, ignore one breach currently affecting the ship’s Weapons system. However, Reserve Power cannot be redirected to the ship’s Weapons."
             },
-            EnergyWeaponDamageModifier = 1
+            EnergyWeaponDamageModifier = 1,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -658,7 +667,8 @@ public class StarshipTalentSelector
             },
             SmallCraftReadinessModifier = 2,
             TraitGained = "Industrial Replicators",
-            ScaleRequirement = 3
+            ScaleRequirement = 3,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -667,6 +677,8 @@ public class StarshipTalentSelector
             {
                 "The ship has been refitted to deploy mines in addition to its existing armaments. Choose a single type of mine for the ship to carry. The Expanded Munitions talent allows the ship to select additional mine types.",
             },
+            AddRandomMine = true,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -676,6 +688,7 @@ public class StarshipTalentSelector
                 "The ship’s cargo bays are large, but they’re also fitted with additional equipment, movable partitions, force field generators, and other stowable furnishings that make it easier to refit the cargo bay for other purposes.",
                 "When you convert a cargo bay to serve another purpose, it only costs 1 Momentum (Immediate) rather than 2, and the new trait gains +1 Potency."
             },
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -766,7 +779,8 @@ public class StarshipTalentSelector
             {
                 "The ship’s hull is infused with reverse-engineered Borg nanite technology that seeks out and repairs the hull immediately when it is damaged, often preventing a breach before it can happen. Each time the ship suffers one or more breaches, roll a d20. If you roll equal to or under your ship’s Structure, ignore one breach inflicted."
             },
-            MinimumServiceYear = 2400
+            MinimumServiceYear = 2400,
+            Source = BookSource.GameToolkit
         },
         new StarshipTalent
         {
@@ -792,7 +806,8 @@ public class StarshipTalentSelector
                 "The ship carries mines which are capable of self-replicating themselves over time, allowing them to replenish detonated mines. This reduces the mines’ Damage rating by 1, and cannot be done with Cumbersome mines, but the Difficulty of the task made to avoid the mines is not reduced when mines are detonated."
             },
             MinimumServiceYear = 2371,
-            RequiresMines = true
+            RequiresMines = true,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -818,7 +833,8 @@ public class StarshipTalentSelector
                 "The ship is equipped with a field generator that projects a cloud of tachyons around it. When a character at sensor operations succeeds at a Reveal major action, all cloaked or hidden vessels within Long range are revealed, rather than only one."
             },
             DepartmentRequirements = new DepartmentRequirements { Science = 3 },
-            MinimumServiceYear = 2400
+            MinimumServiceYear = 2400,
+            Source = BookSource.GameToolkit
         },
         new StarshipTalent
         {
@@ -828,7 +844,8 @@ public class StarshipTalentSelector
                 "The ship’s armaments have been modified to leave a distinctive radioisotope signature on anything they strike. This signature is difficult to detect unless it has been specifically looked for, but the firing ship can detect it up to five light-years away.",
                 "Whenever this ship succeeds at an attack, you may spend 1 Momentum to apply the trait Radioisotope Trace to the target. This trait remains for approximately a day. If a target with that trait is within five lightyears, you may attempt a Reason + Science task with a Difficulty of 2, assisted by the ship’s Sensors + Security to detect the target’s approximate location (the closer you are, the more precise a location you can get). If the target is outside of this range, the task immediately fails."
             },
-            MinimumServiceYear = 2400
+            MinimumServiceYear = 2400,
+            Source = BookSource.TechnicalManual
         },
         new StarshipTalent
         {
@@ -847,6 +864,16 @@ public class StarshipTalentSelector
                 "A ship with a variable geometry warp field can adjust its subspace field in highly turbulent spacetime and can continue to provide propulsive force even then. When you attempt a task to go to warp, you may select one trait in play which affects the task roll, and ignore its effects."
             },
             MinimumServiceYear = 2400
+        },
+        new StarshipTalent
+        {
+            Name = StarshipTalentName.VersatileTractorBeam,
+            Description = new List<string>
+            {
+                "The ship has exotic particle emitters integrated with its tractor beam system. When the tractor beam is activated, the operator may inflict a negative trait upon the target ship by spending 1 Momentum, rather than the normal cost of 2."
+            },
+            MinimumServiceYear = 2400,
+            Source = BookSource.GameToolkit
         },
         new StarshipTalent
         {

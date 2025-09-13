@@ -10,6 +10,7 @@ public class Weapon
     public Weapon() 
     { 
         Costs = new List<string>();
+        Source = BookSource.Core;
     }
 
     public Weapon(Weapon weapon)
@@ -28,6 +29,8 @@ public class Weapon
         Costs = new List<string>();
         foreach (var cost in weapon.Costs)
             Costs.Add(cost);
+
+        Source = weapon.Source;
     }
 
     public string Name { get; set; }
@@ -50,6 +53,8 @@ public class Weapon
 
     [JsonIgnore]
     public ICollection<string> Costs { get; set; }
+
+    public string Source { get; set; }
 
     public void SetEffect(NonPlayerCharacter npc)
     {

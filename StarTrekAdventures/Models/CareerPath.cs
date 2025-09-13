@@ -1,7 +1,14 @@
-﻿namespace StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+
+namespace StarTrekAdventures.Models;
 
 public class CareerPath
 {
+    public CareerPath()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public string Major { get; set; }
@@ -17,6 +24,8 @@ public class CareerPath
     public ICollection<string> Focuses { get; set; }
 
     public int Weight { get; set; }
+
+    public string Source { get; set; }
 
     internal string GetName()
     {

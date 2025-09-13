@@ -1,9 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using StarTrekAdventures.Constants;
+using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
 
 public class Talent
 {
+    public Talent()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public string Requirement
@@ -195,6 +201,8 @@ public class Talent
 
     [JsonIgnore]
     public int Weight { get; set; }
+
+    public string Source { get; set; }
 
     private static string AddValue(string value, bool leadWithComma)
     {

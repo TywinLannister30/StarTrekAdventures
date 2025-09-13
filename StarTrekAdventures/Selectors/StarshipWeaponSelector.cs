@@ -41,6 +41,22 @@ public static class StarshipWeaponSelector
         return weightedWeaponsList.GetRandom();
     }
 
+    internal static StarshipWeapon GetRandomTypedWeapon(Starship starship, StarshipWeaponType weaponType)
+    {
+        var weightedWeaponsList = new WeightedList<StarshipWeapon>();
+
+        foreach (var weapon in StarshipWeapons)
+        {
+            if (!starship.Weapons.Any(x => x.Name == weapon.Name))
+            {
+                if (weapon.Type == weaponType)
+                    weightedWeaponsList.AddEntry(weapon, 1);
+            }
+        }
+
+        return weightedWeaponsList.GetRandom();
+    }
+
     private static readonly List<WeaponQuality> StarshipWeaponQualities = new()
     {
         new WeaponQuality
@@ -1000,7 +1016,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.Jamming)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1011,7 +1028,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.Piercing)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1022,7 +1040,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.Slowing)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1035,7 +1054,8 @@ public static class StarshipWeaponSelector
                 GetWeaponQuality(WeaponQualityName.Cumbersome),
                 GetWeaponQuality(WeaponQualityName.HighYield),
                 GetWeaponQuality(WeaponQualityName.Piercing)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1046,7 +1066,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.Dampening)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1057,7 +1078,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.Intense)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1068,7 +1090,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.HighYield)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1079,7 +1102,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.HighYield)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1091,7 +1115,8 @@ public static class StarshipWeaponSelector
             {
                 GetWeaponQuality(WeaponQualityName.Cumbersome),
                 GetWeaponQuality(WeaponQualityName.Persistent)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1102,7 +1127,8 @@ public static class StarshipWeaponSelector
             Qualities = new List<WeaponQuality>
             {
                 GetWeaponQuality(WeaponQualityName.Piercing)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1114,7 +1140,8 @@ public static class StarshipWeaponSelector
             {
                 GetWeaponQuality(WeaponQualityName.Cumbersome),
                 GetWeaponQuality(WeaponQualityName.Dampening)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1126,7 +1153,8 @@ public static class StarshipWeaponSelector
             {
                 GetWeaponQuality(WeaponQualityName.HighYield),
                 GetWeaponQuality(WeaponQualityName.Intense)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1138,7 +1166,8 @@ public static class StarshipWeaponSelector
             {
                 GetWeaponQuality(WeaponQualityName.Depleting),
                 GetWeaponQuality(WeaponQualityName.HighYield)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
         new StarshipWeapon
         {
@@ -1150,7 +1179,8 @@ public static class StarshipWeaponSelector
             {
                 GetWeaponQuality(WeaponQualityName.Devastating),
                 GetWeaponQuality(WeaponQualityName.Piercing)
-            }
+            },
+            Source = BookSource.TechnicalManual
         },
     };
 }

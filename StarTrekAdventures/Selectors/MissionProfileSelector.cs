@@ -74,7 +74,8 @@ public static class MissionProfileSelector
                 StarshipTalentName.ExtensiveShuttlebays,
                 StarshipTalentName.ImprovedPowerSystems,
                 StarshipTalentName.RuggedDesign
-            }
+            },
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -91,7 +92,8 @@ public static class MissionProfileSelector
                 StarshipTalentName.AdvancedTransporters,
                 StarshipTalentName.ExtensiveShuttlebays,
                 StarshipTalentName.HighPowerTractorBeam
-            }
+            },
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -158,7 +160,8 @@ public static class MissionProfileSelector
                 StarshipTalentName.ExtensiveShuttlebays,
                 StarshipTalentName.ImprovedWarpDrive,
                 StarshipTalentName.RuggedDesign
-            }
+            },
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -231,7 +234,8 @@ public static class MissionProfileSelector
                 StarshipTalentName.ExtensiveShuttlebays,
                 StarshipTalentName.ImprovedHullIntegrity,
                 StarshipTalentName.SecondaryReactors
-            }
+            },
+            Source = BookSource.GameToolkit
         },
         new()
         {
@@ -299,7 +303,8 @@ public static class MissionProfileSelector
                 StarshipTalentName.ImprovedImpulseDrive,
                 StarshipTalentName.ImprovedPowerSystems,
                 StarshipTalentName.ImprovedWarpDrive
-            }
+            },
+            Source = BookSource.GameToolkit
         }
     };
 }

@@ -1,10 +1,14 @@
-﻿using System.Text.Json.Serialization;
+﻿using StarTrekAdventures.Constants;
+using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
 
 public class NpcSpecialRule
 {
-    public NpcSpecialRule() { }
+    public NpcSpecialRule() 
+    { 
+        Source = BookSource.Core;
+    }
 
     public NpcSpecialRule(NpcSpecialRule specialrule)
     {
@@ -28,6 +32,8 @@ public class NpcSpecialRule
                 AddQualitiesToUnarmedStrikes.Add(quality);
             }
         }
+
+        Source = specialrule.Source;
     }
 
     public string Name { get; set; }
@@ -45,4 +51,6 @@ public class NpcSpecialRule
 
     [JsonIgnore]
     public List<string> AddQualitiesToUnarmedStrikes { get; set; }
+
+    public string Source { get; set; }
 }

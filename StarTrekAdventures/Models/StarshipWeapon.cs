@@ -1,13 +1,16 @@
-﻿using StarTrekAdventures.Helpers;
+﻿using StarTrekAdventures.Constants;
+using StarTrekAdventures.Helpers;
 using System.Text.Json.Serialization;
 using static StarTrekAdventures.Constants.Enums;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace StarTrekAdventures.Models;
 
 public class StarshipWeapon
 {
-    public StarshipWeapon() { }
+    public StarshipWeapon() 
+    {
+        Source = BookSource.Core;
+    }
 
     public StarshipWeapon(StarshipWeapon weapon)
     {
@@ -25,6 +28,8 @@ public class StarshipWeapon
         }
 
         IsTractorBeam = weapon.IsTractorBeam;
+
+        Source = weapon.Source;
     }
 
     public string Name { get; set; }
@@ -47,6 +52,8 @@ public class StarshipWeapon
    
     [JsonIgnore]
     public bool IsTractorBeam { get; set; }
+
+    public string Source { get; set; }
 
     public void SetEffect(Starship starship = null)
     {

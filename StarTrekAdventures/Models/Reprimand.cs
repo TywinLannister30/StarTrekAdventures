@@ -1,9 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using StarTrekAdventures.Constants;
+using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
 
 public class Reprimand
 {
+    public Reprimand()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public string Cost 
@@ -23,4 +29,6 @@ public class Reprimand
     public bool VariableCost { get; set; }
 
     public string Description { get; set; }
+
+    public string Source { get; set; }
 }

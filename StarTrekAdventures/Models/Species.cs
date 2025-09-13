@@ -1,7 +1,14 @@
-﻿namespace StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+
+namespace StarTrekAdventures.Models;
 
 public class Species
 {
+    public Species()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public ICollection<string> Description { get; set; }
@@ -17,4 +24,6 @@ public class Species
     public int Weight { get; set; }
 
     public CharacterAttributes OneOfTheseModifiers { get; set; }
+
+    public string Source { get; set; }
 }

@@ -16,6 +16,8 @@ public class NpcStarship
 
         Systems = new StarshipSystems();
         Departments = new Departments();
+
+        Source = BookSource.Core;
     }
 
     public NpcStarship(NpcStarship npcStarship)
@@ -77,6 +79,8 @@ public class NpcStarship
         {
             SpecialRules.Add(specialRule);
         }
+
+        Source = npcStarship.Source;
     }
 
     public string Name { get; set; }
@@ -126,6 +130,8 @@ public class NpcStarship
     public ICollection<StarshipTalent> Talents { get; set; }
 
     public ICollection<StarshipSpecialRule> SpecialRules { get; set; }
+
+    public string Source { get; set; }
 
     internal void SetResistance()
     {

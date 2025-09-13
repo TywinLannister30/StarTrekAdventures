@@ -1,7 +1,14 @@
-﻿namespace StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+
+namespace StarTrekAdventures.Models;
 
 public class CareerEvent
 {
+    public CareerEvent()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public CharacterAttributes AttributeModifierChoices { get; set; }
@@ -14,5 +21,7 @@ public class CareerEvent
 
     public bool AnyDepartment { get; set; }
 
-    public ICollection<string> GainARandomTrait { get; set; } 
+    public ICollection<string> GainARandomTrait { get; set; }
+
+    public string Source { get; set; }
 }

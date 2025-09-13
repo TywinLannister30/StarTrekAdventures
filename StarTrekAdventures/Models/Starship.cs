@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using System.Text.Json.Serialization;
+using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Models;
 
@@ -246,7 +247,7 @@ public class Starship
 
     internal bool HasMines()
     {
-        return Talents.Any(x => x.Name == StarshipTalentName.Minelayer);
+        return Weapons.Any(x => x.Type == StarshipWeaponType.Mine);
     }
 
     internal bool HasTractorBeam()

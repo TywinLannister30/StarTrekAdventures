@@ -1,7 +1,14 @@
-﻿namespace StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+
+namespace StarTrekAdventures.Models;
 
 public class Award
 {
+    public Award()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public string Description { get; set; }
@@ -11,4 +18,6 @@ public class Award
     public string Conditions { get; set; }
 
     public string Benefit { get; set; }
+
+    public string Source { get; set; }
 }

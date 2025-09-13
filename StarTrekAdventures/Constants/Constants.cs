@@ -78,6 +78,16 @@
         }
     }
 
+    public static class BookSource
+    {
+        public const string Core = "Core Rulebook";
+        public const string GameToolkit = "Game Toolkit";
+        public const string TechnicalManual = "Technical Manual";
+
+        //1st Edition
+        public const string CommandDivision1stEdition = "Command Division - 1st Edition";
+    }
+
     public static class SpeciesName
     {
         public const string Aenar = "Aenar";

@@ -2,6 +2,7 @@
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
 using StarTrekAdventures.Selectors;
+using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Managers;
 
@@ -150,6 +151,9 @@ public class StarshipManager : IStarshipManager
 
         if (starship.Talents.Any(x => x.AddRandomWeapon))
             starship.AddWeapon(StarshipWeaponSelector.GetRandomWeapon(starship));
+
+        if (starship.Talents.Any(x => x.AddRandomMine))
+            starship.AddWeapon(StarshipWeaponSelector.GetRandomTypedWeapon(starship, StarshipWeaponType.Mine));
 
         foreach (var weapon in starship.Weapons)
             weapon.SetEffect(starship);

@@ -7,7 +7,10 @@ namespace StarTrekAdventures.Models;
 
 public class NonPlayerCharacter
 {
-    public NonPlayerCharacter() { }
+    public NonPlayerCharacter() 
+    { 
+        Source = BookSource.Core;
+    }
 
     public NonPlayerCharacter(NonPlayerCharacter npc)
     {
@@ -61,6 +64,8 @@ public class NonPlayerCharacter
         {
             SpecialRules.Add(new NpcSpecialRule(specialrule));
         }
+
+        Source = npc.Source;
     }
 
     public string Name { get; set; }
@@ -95,6 +100,8 @@ public class NonPlayerCharacter
 
     [JsonIgnore]
     public bool RandomSpecies { get; set; }
+
+    public string Source { get; set; }
 
     internal void AddOneToTwoDifferentDepartments()
     {

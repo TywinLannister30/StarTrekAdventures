@@ -1,9 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using StarTrekAdventures.Constants;
+using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
 
 public class StarshipSpecialRule
 {
+    public StarshipSpecialRule() 
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public List<string> Description { get; set; }
@@ -34,4 +40,6 @@ public class StarshipSpecialRule
 
     [JsonIgnore]
     public int ExtraRefits { get; set; }
+
+    public string Source { get; set; }
 }

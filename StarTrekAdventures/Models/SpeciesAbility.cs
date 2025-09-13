@@ -5,6 +5,11 @@ namespace StarTrekAdventures.Models;
 
 public class SpeciesAbility
 {
+    public SpeciesAbility()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public string Description { get; set; }
@@ -23,4 +28,6 @@ public class SpeciesAbility
 
     [JsonIgnore]
     public string StressBasedOn { get; set; } = AttributeName.Fitness;
+
+    public string Source { get; set; }
 }

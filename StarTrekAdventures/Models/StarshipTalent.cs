@@ -1,9 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using StarTrekAdventures.Constants;
+using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
 
 public class StarshipTalent
 {
+    public StarshipTalent()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public string Requirement
@@ -117,6 +123,9 @@ public class StarshipTalent
     public bool AddRandomWeapon { get; set; }
 
     [JsonIgnore]
+    public bool AddRandomMine { get; set; }
+
+    [JsonIgnore]
     public bool RequiresMines { get; set; }
 
     [JsonIgnore]
@@ -130,6 +139,8 @@ public class StarshipTalent
 
     [JsonIgnore]
     public int ScaleRequirement { get; set; }
+
+    public string Source { get; set; }
 
     private static string AddValue(string value, bool leadWithComma)
     {

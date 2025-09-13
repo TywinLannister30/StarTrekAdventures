@@ -1,7 +1,14 @@
-﻿namespace StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+
+namespace StarTrekAdventures.Models;
 
 public class Spaceframe
 {
+    public Spaceframe()
+    {
+        Source = BookSource.Core;
+    }
+
     public string Name { get; set; }
 
     public int LaunchYear { get; set; }
@@ -37,4 +44,6 @@ public class Spaceframe
     public ICollection<string> SpecialRules { get; set; }
 
     public int Weight { get; set; }
+
+    public string Source { get; set; }
 }

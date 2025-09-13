@@ -795,6 +795,16 @@ public class Character
             );
     }
 
+    internal bool IsFlagOfficer()
+    {
+        return (
+            Rank == Constants.Rank.RearAdmiral ||
+            Rank == Constants.Rank.ViceAdmiral ||
+            Rank == Constants.Rank.Admiral ||
+            Rank == Constants.Rank.FleetAdmiral
+            );
+    }
+
     internal bool HasPsychologyFocus()
     {
         foreach (var focus in Focuses)
