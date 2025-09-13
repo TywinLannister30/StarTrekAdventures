@@ -149,7 +149,7 @@ public class StarshipManager : IStarshipManager
         }
 
         if (starship.Talents.Any(x => x.AddRandomWeapon))
-            starship.AddRandomWeapon(); //TODO
+            starship.AddWeapon(StarshipWeaponSelector.GetRandomWeapon(starship));
 
         foreach (var weapon in starship.Weapons)
             weapon.SetEffect(starship);

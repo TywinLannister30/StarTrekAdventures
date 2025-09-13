@@ -1,5 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
+using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
+using StarTrekAdventures.Models.Version1;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
@@ -19,6 +21,24 @@ public static class StarshipWeaponSelector
     internal static List<StarshipWeapon> GetAllWeapons()
     {
         return StarshipWeapons;
+    }
+
+    internal static StarshipWeapon GetRandomWeapon(Starship starship)
+    {
+        var weightedWeaponsList = new WeightedList<StarshipWeapon>();
+
+        foreach (var weapon in StarshipWeapons)
+        {
+            if (!starship.Weapons.Any(x => x.Name == weapon.Name))
+            {
+                if (weapon.Name == StarshipWeaponName.QuantumTorpedoes)
+                    weightedWeaponsList.AddEntry(weapon, 10);
+                else
+                    weightedWeaponsList.AddEntry(weapon, 1);
+            }
+        }
+
+        return weightedWeaponsList.GetRandom();
     }
 
     private static readonly List<WeaponQuality> StarshipWeaponQualities = new()

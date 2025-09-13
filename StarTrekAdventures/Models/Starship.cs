@@ -254,9 +254,9 @@ public class Starship
         return Weapons.Any(x => x.Name == StarshipWeaponName.TractorBeam);
     }
 
-    internal void AddRandomWeapon()
+    internal void AddWeapon(StarshipWeapon weapon)
     {
-        //TODO
+        Weapons.Add(weapon);
     }
 
     internal void AddMissionPodAttributes(MissionPod chosenMissionPod)
