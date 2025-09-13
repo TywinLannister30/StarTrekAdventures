@@ -9,8 +9,8 @@ public class NpcSpecialRule
     public NpcSpecialRule(NpcSpecialRule specialrule)
     {
         Name = specialrule.Name;
-        Description = new List<string>();
 
+        Description = new List<string>();
         foreach (var description in specialrule.Description)
         {
             Description.Add(description);
@@ -18,6 +18,16 @@ public class NpcSpecialRule
 
         HideIfGenerating = specialrule.HideIfGenerating;
         AddOneToTwoDifferentDepartments = specialrule.AddOneToTwoDifferentDepartments;
+        UnarmedStrikesCanBeDeadly = specialrule.UnarmedStrikesCanBeDeadly;
+
+        AddQualitiesToUnarmedStrikes = new List<string>();
+        if (specialrule.AddQualitiesToUnarmedStrikes != null)
+        {
+            foreach (var quality in specialrule.AddQualitiesToUnarmedStrikes)
+            {
+                AddQualitiesToUnarmedStrikes.Add(quality);
+            }
+        }
     }
 
     public string Name { get; set; }
@@ -29,4 +39,10 @@ public class NpcSpecialRule
 
     [JsonIgnore]
     public bool AddOneToTwoDifferentDepartments { get; set; }
+
+    [JsonIgnore]
+    public bool UnarmedStrikesCanBeDeadly { get; set; }
+
+    [JsonIgnore]
+    public List<string> AddQualitiesToUnarmedStrikes { get; set; }
 }

@@ -438,6 +438,7 @@
         public const string Meteorology = "Meteorology";
         public const string Microbiology = "Microbiology";
         public const string MilitaryHistory = "Military History";
+        public const string MilitaryTactics = "Military Tactics";
         public const string MiningOperations = "Mining Operations";
         public const string ModelingAndDesign = "Modeling and Design";
         public const string MolecularSynthesis = "Molecular Synthesis";
@@ -508,6 +509,7 @@
         public const string SubspaceDynamics = "Subspace Dynamics";
         public const string SubspaceMechanics = "Subspace Mechanics";
         public const string SubspaceTheory = "Subspace Theory";
+        public const string Subterfuge = "Subterfuge";
         public const string Surgery = "Surgery";
         public const string Survey = "Survey";
         public const string Survival = "Survival";
@@ -540,6 +542,7 @@
         public const string WarpEngines = "Warp Engines";
         public const string WarpFieldDynamics = "Warp Field Dynamics";
         public const string WarpTheory = "Warp Theory";
+        public const string Willpower = "Willpower";
         public const string ZeroGCombat = "Zero-G Combat";
     }
 
@@ -611,11 +614,15 @@
     {
         public const string UnarmedStrike = "Unarmed Strike";
 
+        public const string BatLeth = "Bat’leth";
+        public const string Blade = "Blade";
+        public const string Dagger = "Dagger";
         public const string DisruptorPistol = "Disruptor Pistol";
         public const string DisruptorRifle = "Disruptor Rifle";
         public const string DkTahgDagger = "D’k tahg dagger";
-        public const string BatLeth = "Bat’leth";
-        public const string Dagger = "Dagger";
+        public const string EnergyWhip = "Energy Whip";
+        public const string JemHadarPlasmaRifle = "Jem’Hadar Plasma Rifle";
+        public const string KarTakin = "Kar’takin";
         public const string PhaserType1 = "Phaser Type-1";
         public const string PhaserType2 = "Phaser Type-2";
         public const string VulcanNervePinch = "Vulcan Nerve Pinch";
@@ -766,6 +773,8 @@
 
     public static class NpcSpecialRuleName
     {
+        public const string ImmuneToFear = "Immune to Fear";
+        public const string ImmuneToPain = "Immune to Pain";
         public const string IntensiveTraining = "Intensive Training";
     }
 }

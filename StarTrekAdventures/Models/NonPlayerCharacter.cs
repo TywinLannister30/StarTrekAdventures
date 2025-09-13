@@ -48,11 +48,15 @@ public class NonPlayerCharacter
             Medicine = npc.Departments.Medicine,
         };
 
-        Attacks = npc.Attacks;
+        Attacks = new List<Weapon>();
+        foreach (var attack in npc.Attacks)
+        {
+            Attacks.Add(new Weapon(attack));
+        }
+
         EscalationAttacks = npc.EscalationAttacks;
 
         SpecialRules = new List<NpcSpecialRule>();
-
         foreach (var specialrule in npc.SpecialRules)
         {
             SpecialRules.Add(new NpcSpecialRule(specialrule));

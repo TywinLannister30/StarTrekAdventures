@@ -1,5 +1,4 @@
 ﻿using StarTrekAdventures.Models;
-using StarTrekAdventures.Models.Version1;
 using StarTrekAdventures.Selectors;
 
 namespace StarTrekAdventures.Managers;

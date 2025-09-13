@@ -14,6 +14,22 @@ public class NpcSpecialRuleSelector
     {
         new NpcSpecialRule
         {
+            Name = NpcSpecialRuleName.ImmuneToFear,
+            Description = new List<string>
+            {
+                "The creature is incapable of feeling fear, continuing undeterred despite the greatest terror. The creature cannot be intimidated or threatened."
+            }
+        },
+        new NpcSpecialRule
+        {
+            Name = NpcSpecialRuleName.ImmuneToPain,
+            Description = new List<string>
+            {
+                "The creature is incapable of feeling pain, continuing undeterred despite the most horrific Injury. The creature ignores all Stun Injuries, and cannot be Defeated by an attack which inflicts a Stun Injury."
+            }
+        },
+        new NpcSpecialRule
+        {
             Name = NpcSpecialRuleName.IntensiveTraining,
             Description = new List<string>
             {

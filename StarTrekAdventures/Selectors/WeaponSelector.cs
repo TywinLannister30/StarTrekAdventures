@@ -8,7 +8,9 @@ public static class WeaponSelector
 {
     public static Weapon GetWeapon(string name)
     {
-        return Weapons.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+        var weaponSelected = Weapons.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+
+        return new Weapon(weaponSelected);
     }
 
     public static WeaponQuality GetWeaponQuality(string name)
@@ -48,6 +50,14 @@ public static class WeaponSelector
                 "Area => When you succeed at an attack, additional targets in the same zone may be hit by spending 1 Momentum for each additional target (Repeatable). This attack may Succeed at Cost.",
                 "Intense => When making an attack with this weapon, you may increase the severity by spending 1 Momentum, rather than 2 (Repeatable).",
                 "Piercing => A successful attack with this weapon ignores the target's Protection rating.",
+            }
+        },
+        new WeaponQuality
+        {
+            Name = "Debilitating",
+            Description = new List < string >
+            {
+                "The Difficulty to treat or to heal injuries caused by this weapon is increased by 1."
             }
         },
         new WeaponQuality
@@ -109,6 +119,16 @@ public static class WeaponSelector
         },
         new Weapon
         {
+            Name = WeaponName.Blade,
+            Type = WeaponType.Melee,
+            Injury = InjuryType.Deadly,
+            Severity = 3,
+            Size = WeaponSize.OneHanded,
+            Qualities = new List<WeaponQuality>(),
+            Costs = new List<string> { "Opportunity 1" }
+        },
+        new Weapon
+        {
             Name = WeaponName.Dagger,
             Type = WeaponType.Melee,
             Injury = InjuryType.Deadly,
@@ -159,6 +179,43 @@ public static class WeaponSelector
                 GetWeaponQuality("Hidden 1")
             },
             Costs = new List<string> { "Opportunity 1" }
+        },
+        new Weapon
+        {
+            Name = WeaponName.EnergyWhip,
+            Type = WeaponType.Ranged,
+            Injury = InjuryType.Stun,
+            Severity = 4,
+            Size = WeaponSize.OneHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Intense")
+            },
+            Costs = new List<string> { "Not available" }
+        },
+        new Weapon
+        {
+            Name = WeaponName.JemHadarPlasmaRifle,
+            Type = WeaponType.Ranged,
+            Injury = InjuryType.Deadly,
+            Severity = 4,
+            Size = WeaponSize.TwoHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Accurate"),
+                GetWeaponQuality("Debilitating"),
+            },
+            Costs = new List<string> { "Not Available" }
+        },
+        new Weapon
+        {
+            Name = WeaponName.KarTakin,
+            Type = WeaponType.Melee,
+            Injury = InjuryType.Deadly,
+            Severity = 3,
+            Size = WeaponSize.TwoHanded,
+            Qualities = new List<WeaponQuality>(),
+            Costs = new List<string> { "Not Available" }
         },
         new Weapon
         {

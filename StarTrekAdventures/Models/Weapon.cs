@@ -1,10 +1,32 @@
-﻿using System.Text.Json.Serialization;
+﻿using StarTrekAdventures.Constants;
+using StarTrekAdventures.Selectors;
+using System.Text.Json.Serialization;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Models;
 
 public class Weapon
 {
+    public Weapon() { }
+
+    public Weapon(Weapon weapon)
+    {
+        Name = weapon.Name;
+        Effect = weapon.Effect;
+        Type = weapon.Type;
+        Injury = weapon.Injury;
+        Size = weapon.Size;
+        Severity = weapon.Severity;
+
+        Qualities = new List<WeaponQuality>();
+        foreach (var weaponQuality in weapon.Qualities)
+            Qualities.Add(weaponQuality);
+
+        Costs = new List<string>();
+        foreach (var cost in weapon.Costs)
+            Costs.Add(cost);
+    }
+
     public string Name { get; set; }
 
     public string Effect { get; set; }
@@ -26,11 +48,27 @@ public class Weapon
     [JsonIgnore]
     public ICollection<string> Costs { get; set; }
 
-    public void SetEffect(ICollection<(string, int)> escalationAttacks)
+    public void SetEffect(NonPlayerCharacter npc)
     {
+        if (Name == WeaponName.UnarmedStrike)
+        {
+            if (npc.SpecialRules.Any(x => x.UnarmedStrikesCanBeDeadly))
+                Injury = InjuryType.StunOrDeadly;
+
+            var specialRule = npc.SpecialRules.FirstOrDefault(x => x.AddQualitiesToUnarmedStrikes != null);
+
+            if (specialRule != null)
+            {
+                foreach (var quality in specialRule.AddQualitiesToUnarmedStrikes)
+                {
+                    Qualities.Add(WeaponSelector.GetWeaponQuality(quality));
+                }
+            }
+        }
+
         var baseEffect = string.Empty;
 
-        var match = escalationAttacks.FirstOrDefault(e => e.Item1 == Name);
+        var match = npc.EscalationAttacks.FirstOrDefault(e => e.Item1 == Name);
 
         if (!string.IsNullOrEmpty(match.Item1))
         {
