@@ -199,5 +199,79 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear)
             }
         },
+
+        // ROMULAN STARSHIPS
+        new NpcStarship
+        {
+            Name = "T’Liss-class Bird of Prey",
+            Description = new List<string>
+            {
+                "The T’Liss class was the primary scout ship type of the 23rd century Romulan Navy."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.PathfinderAndReconnaissanceOperations,
+            Traits = new List<string>
+            {
+                "Romulan Bird of Prey",
+                "Experimental"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 6, Computers = 8, Engines = 8, Sensors = 9, Structure = 7, Weapons = 9 },
+            Departments = new Departments { Command = 2, Conn = 4, Engineering = 3, Security = 3, Medicine = 1, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
+            },
+            TractorBeamStrength = 3,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ReducedSensorSilhouette),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Prototype)
+            }
+        },
+        new NpcStarship
+        {
+            Name = "D’Deridex-class Warbird",
+            Description = new List<string>
+            {
+                "The mainstay of the mid-to-late 24th century Romulan fleet, the D’Deridex-class warbirds were more than a match for most Federation and Klingon starships of the time."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.EspionageOrIntelligence,
+            Traits = new List<string>
+            {
+                "Romulan Starship",
+                "Imposing"
+            },
+            Scale = 7,
+            Systems = new StarshipSystems { Comms = 9, Computers = 10, Engines = 10, Sensors = 11, Structure = 11, Weapons = 9 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 4, Medicine = 1, Science = 3 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
+            },
+            TractorBeamStrength = 5,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedDamageControl),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ReducedSensorSilhouette),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel)
+            }
+        },
     };
 }
