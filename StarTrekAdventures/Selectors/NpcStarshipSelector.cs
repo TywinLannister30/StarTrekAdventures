@@ -129,5 +129,75 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
             }
         },
+
+        // KLINGON STARSHIPs
+        new NpcStarship
+        {
+            Name = "D7 Battlecruiser",
+            Description = new List<string>
+            {
+                "In the 23rd century, the D7 battlecruiser was the mainstay of the Klingon Defense Force."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Battlecruiser,
+            Traits = new List<string>
+            {
+                "Klingon Starship",
+                "Symbol of Klingon Unity"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 7, Computers = 7, Engines = 8, Sensors = 7, Structure = 8, Weapons = 10 },
+            Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 3,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+            },
+        },
+        new NpcStarship
+        {
+            Name = "B’rel-class Bird of Prey",
+            Description = new List<string>
+            {
+                "The B’rel class is one of the most common types of Klingon scout or raider encountered in the Alpha and Beta Quadrants."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Klingon Starship",
+                "B’rel class",
+                "Bird of Prey",
+                "Agile Raider"
+            },
+            Scale = 3,
+            Systems = new StarshipSystems { Comms = 8, Computers = 7, Engines = 9, Sensors = 8, Structure = 7, Weapons = 9 },
+            Departments = new Departments { Command = 1, Conn = 4, Engineering = 1, Security = 5, Medicine = 2, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 2,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear)
+            }
+        },
     };
 }
