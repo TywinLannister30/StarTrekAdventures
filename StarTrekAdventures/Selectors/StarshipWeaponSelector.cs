@@ -74,7 +74,7 @@ public static class StarshipWeaponSelector
             Name = WeaponQualityName.Cumbersome,
             Description = new List<string>
             {
-                "This weapon is difficult to bring to bear against a target, increasing the Difficulty of an attack made using it by 1. If this weapon is a torpedo, it cannot be fired as part of a salvo."
+                "This weapon is difficult to bring to bear against a target, increasing the Difficulty of an attack made using it by 1. If this weapon is a torpedo, it cannot be fired as part of a salvo. If the weapon is a mine, the ship deploys only a single mine, the Difficulty to avoid it is reduced by 1, and the minefield is removed entirely after the mine detonates."
             }
         },
         new WeaponQuality
@@ -90,7 +90,7 @@ public static class StarshipWeaponSelector
             Name = WeaponQualityName.Depleting,
             Description = new List<string>
             {
-                "This attack strips away the protective layers of deflector shields. The attack cannot cause the ship to be shaken, but the Momentum cost to increase damage is reduced to 1."
+                "This attack strips away the protective layers of deflector shields. The attack cannot cause the ship to be shaken, but the Momentum cost to increase damage is reduced to 1. On a mine, the ship hit cannot be shaken, and damage is instead increased by 1 for each success less than the Difficulty the enemy ship scored."
             }
         },
         new WeaponQuality
@@ -106,7 +106,7 @@ public static class StarshipWeaponSelector
             Name = WeaponQualityName.Hidden1,
             Description = new List<string>
             {
-                "This weapon system is concealed from scans. When the weapon is hidden, it cannot be detected unless a specific scan is attempted; this scan is a task with a Difficulty of 1."
+                "This weapon system is concealed from scans. When the weapon is hidden, it cannot be detected unless a specific scan is attempted; this scan is a task with a Difficulty of 1. If mines have this quality, an active scan (such as a Reveal major action) is needed to detect a minefield. Further, the Difficulty to avoid the mines increases by 1."
             }
         },
         new WeaponQuality
@@ -122,7 +122,7 @@ public static class StarshipWeaponSelector
             Name = WeaponQualityName.Intense,
             Description = new List<string>
             {
-                "When making an attack with this weapon, you may increase the damage by 1 by spending 1 Momentum, rather than 2. This is Repeatable."
+                "When making an attack with this weapon, you may increase the damage by 1 by spending 1 Momentum, rather than 2. This is Repeatable. On a mine, the damage is instead increased by 1 for each success less than the Difficulty the enemy ship scored."
             }
         },
         new WeaponQuality
@@ -987,6 +987,169 @@ public static class StarshipWeaponSelector
                 GetWeaponQuality(WeaponQualityName.Area),
                 GetWeaponQuality(WeaponQualityName.Calibration),
                 GetWeaponQuality(WeaponQualityName.Cumbersome)
+            }
+        },
+
+        // MINES
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.BlackoutMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 2,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Jamming)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.BladeMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 3,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Piercing)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.ChronitonMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 4,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Slowing)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.GravimetricMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 6,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Cumbersome),
+                GetWeaponQuality(WeaponQualityName.HighYield),
+                GetWeaponQuality(WeaponQualityName.Piercing)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.NeutronicMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 5,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Dampening)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.NuclearMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 4,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Intense)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.PhotonMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 4,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.HighYield)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.PhotonicMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 3,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.HighYield)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.PlasmaMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 6,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Cumbersome),
+                GetWeaponQuality(WeaponQualityName.Persistent)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.PolaronMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 4,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Piercing)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.PositronMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 6,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Cumbersome),
+                GetWeaponQuality(WeaponQualityName.Dampening)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.QuantumMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 5,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.HighYield),
+                GetWeaponQuality(WeaponQualityName.Intense)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.TetryonicMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 3,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Depleting),
+                GetWeaponQuality(WeaponQualityName.HighYield)
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.TransphasicMines,
+            Type = StarshipWeaponType.Mine,
+            Range = StarshipWeaponRange.None,
+            Damage = 5,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Devastating),
+                GetWeaponQuality(WeaponQualityName.Piercing)
             }
         },
     };

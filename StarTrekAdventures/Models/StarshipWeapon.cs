@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Helpers;
 using System.Text.Json.Serialization;
 using static StarTrekAdventures.Constants.Enums;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StarTrekAdventures.Models;
 
@@ -57,7 +58,12 @@ public class StarshipWeapon
             }
             else
             {
-                string baseEffect = $"{Type}, {Range}, Damage";
+                var baseEffect = string.Empty;
+
+                if (Type == StarshipWeaponType.Mine)
+                    baseEffect = $"{Type}, Damage";
+                else
+                    baseEffect = $"{Type}, {Range}, Damage";
 
                 if (DamageBasedOnScale)
                 {
@@ -85,12 +91,22 @@ public class StarshipWeapon
             }
             else
             {
-                var damage = Damage + (DamageBasedOnScale ? starship.Scale : 0) + starship.Systems.Weapons.ToBonus();
+                var damage = 0;
+
+                if (Type == StarshipWeaponType.Mine)
+                    damage = Damage;
+                else
+                    damage = Damage + (DamageBasedOnScale ? starship.Scale : 0) + starship.Systems.Weapons.ToBonus();
 
                 if (Type == StarshipWeaponType.Energy)
                     damage += starship.Talents.Sum(x => x.EnergyWeaponDamageModifier);
 
-                string baseEffect = $"{Type}, {Range}, Damage {damage}";
+                var baseEffect = string.Empty;
+
+                if (Type == StarshipWeaponType.Mine)
+                    baseEffect = $"{Type}, Damage {damage}";
+                else
+                    baseEffect = $"{Type}, {Range}, Damage {damage}";
 
                 if (Qualities != null && Qualities.Count != 0)
                 {
@@ -110,12 +126,22 @@ public class StarshipWeapon
         }
         else
         {
-            var damage = Damage + (DamageBasedOnScale ? starship.Scale : 0) + starship.Systems.Weapons.ToBonus();
+            var damage = 0;
+
+            if (Type == StarshipWeaponType.Mine)
+                damage = Damage;
+            else
+                damage = Damage + (DamageBasedOnScale ? starship.Scale : 0) + starship.Systems.Weapons.ToBonus();
 
             if (Type == StarshipWeaponType.Energy)
                 damage += starship.Talents.Sum(x => x.EnergyWeaponDamageModifier);
 
-            string baseEffect = $"{Type}, {Range}, Damage {damage}";
+            var baseEffect = string.Empty;
+
+            if (Type == StarshipWeaponType.Mine)
+                baseEffect = $"{Type}, Damage {damage}";
+            else
+                baseEffect = $"{Type}, {Range}, Damage {damage}";
 
             if (Qualities != null && Qualities.Count != 0)
             {

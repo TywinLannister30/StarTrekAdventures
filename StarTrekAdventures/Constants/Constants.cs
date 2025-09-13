@@ -53,7 +53,8 @@
         {
             None,
             Energy,
-            Torpedo
+            Torpedo,
+            Mine
         }
 
         public enum StarshipWeaponRange
@@ -754,6 +755,21 @@
 
         public const string GrapplerCable = "Grappler Cable";
         public const string TractorBeam = "Tractor Beam";
+
+        public const string BlackoutMines = "Blackout Mines";
+        public const string BladeMines = "Blade Mines";
+        public const string ChronitonMines = "Chroniton Mines";
+        public const string GravimetricMines = "Gravimetric Mines";
+        public const string NeutronicMines = "Neutronic Mines";
+        public const string NuclearMines = "Nuclear Mines";
+        public const string PhotonMines = "Photon Mines";
+        public const string PhotonicMines = "Photonic Mines";
+        public const string PlasmaMines = "Plasma Mines";
+        public const string PolaronMines = "Polaron Mines";
+        public const string PositronMines = "Positron Mines";
+        public const string QuantumMines = "Quantum Mines";
+        public const string TetryonicMines = "Tetryonic Mines";
+        public const string TransphasicMines = "Transphasic Mines";
     }
 
     public static class StarshipTalentName
