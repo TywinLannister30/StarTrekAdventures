@@ -171,6 +171,33 @@ public static class StarshipWeaponSelector
         },
         new StarshipWeapon
         {
+            Name = StarshipWeaponName.PhasedPoleronBeamArray,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Medium,
+            Damage = 0,
+            DamageBasedOnScale = true,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Area or Spread"),
+                GetWeaponQuality("Intense"),
+                GetWeaponQuality("Piercing")
+            }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.PhasedPoleronBeamBanks,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Medium,
+            Damage = 1,
+            DamageBasedOnScale = true,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality("Intense"),
+                GetWeaponQuality("Piercing")
+            }
+        },
+        new StarshipWeapon
+        {
             Name = StarshipWeaponName.PhaseCannons,
             Type = StarshipWeaponType.Energy,
             Range = StarshipWeaponRange.Close,

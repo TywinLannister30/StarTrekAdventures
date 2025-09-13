@@ -647,6 +647,9 @@
 
         public const string PhaseCannons = "Phase Cannons";
 
+        public const string PhasedPoleronBeamArray = "Phased Poleron Beam Array";
+        public const string PhasedPoleronBeamBanks = "Phased Poleron Beam Banks";
+
         public const string PhaserArrays = "Phaser Arrays";
         public const string PhaserBanks = "Phaser Banks";
         public const string PulsePhaserCannons = "Pulse Phaser Cannons";

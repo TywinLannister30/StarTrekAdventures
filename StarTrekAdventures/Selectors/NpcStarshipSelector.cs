@@ -340,5 +340,81 @@ public class NpcStarshipSelector
                 StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
             }
         },
+
+        // DOMINION STARSHIPS
+        new NpcStarship
+        {
+            Name = "Jem’Hadar Attack Ship",
+            Description = new List<string>
+            {
+                "The primary fighter of the Dominion, used by the Jem’Hadar to strike fear into the hearts of their adversaries."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            Traits = new List<string>
+            {
+                "Dominion Warship"
+            },
+            Scale = 3,
+            Systems = new StarshipSystems { Comms = 7, Computers = 7, Engines = 8, Sensors = 10, Structure = 6, Weapons = 10 },
+            Departments = new Departments { Command = 1, Conn = 5, Engineering = 2, Security = 4, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamBanks),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 2,
+            Talents = new List<StarshipTalent>
+            {
+                new()
+                {
+                    Name = "Anti-Cloak Sensors",
+                    Description = new List<string>
+                    {
+                        "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
+                    }
+                },
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem)
+            }
+        },
+        new NpcStarship
+        {
+            Name = "Jem’Hadar Battlecruiser",
+            Description = new List<string>
+            {
+                "A powerful warship capable of subjugating planets or standing in battle against the starships of most opponents."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            Traits = new List<string>
+            {
+                "Dominion Warship"
+            },
+            Scale = 6,
+            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 9, Sensors = 10, Structure = 12, Weapons = 12 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 0, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamArray),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 5,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedTransporters),
+                new()
+                {
+                    Name = "Anti-Cloak Sensors",
+                    Description = new List<string>
+                    {
+                        "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
+                    }
+                },
+                StarshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.HighIntensityEnergyWeapons),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.RapidFireTorpedoLauncher),
+            }
+        },
     };
 }
