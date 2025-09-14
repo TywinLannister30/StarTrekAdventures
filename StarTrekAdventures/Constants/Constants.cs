@@ -363,6 +363,7 @@
         public const string Cooking = "Cooking";
         public const string Councelling = "Councelling";
         public const string CourtingRituals = "Courting Rituals";
+        public const string CovertOperations = "Covert Operations";
         public const string CriminalOrganizations = "Criminal Organizations";
         public const string CrisisManagement = "Crisis Management";
         public const string CulturalExpert = "Cultural Expert";
@@ -395,6 +396,7 @@
         public const string EVA = "EVA";
         public const string EvacuationProcedures = "Evacuation Procedures";
         public const string EvasiveAction = "Evasive Action";
+        public const string Exoarchaeology = "Exoarchaeology";
         public const string ExoTectonics = "Exo-tectonics";
         public const string ExtraVehicularActivity = "Extra-Vehicular Activity";
         public const string ExperimentalTechnology = "Experimental Technology";
@@ -517,6 +519,7 @@
         public const string Sociology = "Sociology";
         public const string StarfleetProgramming = "Starfleet Programming";
         public const string StarfleetProtocol = "Starfleet Protocols";
+        public const string StarshipDesign = "Starship Design";
         public const string StarshipExpert = "Starship Expert";
         public const string StarshipRecognition = "Starship Recognition";
         public const string StarshipTactics = "Starship Tactics";
@@ -591,6 +594,7 @@
         public const string Odyssey = "Odyssey";
         public const string Pioneer = "Pioneer";
         public const string Sagan = "Sagan";
+        public const string Scout = "Scout";
         public const string Sovereign = "Sovereign";
         public const string Walker = "Walker";
 
@@ -905,8 +909,52 @@
 
     public static class NpcSpecialRuleName
     {
+        public const string Amphibious = "Amphibious";
+        public const string AquaticEnvironment = "Aquatic Environment";
+        public const string Camouflaged1 = "Camouflaged 1";
+        public const string Camouflaged2 = "Camouflaged 2";
+        public const string Camouflaged3 = "Camouflaged 3";
+        public const string Coordination = "Coordination";
+        public const string EnergyBased = "Energy Based";
+        public const string ExtraordinaryControl1 = "Extraordinary Control 1";
+        public const string ExtraordinaryDaring1 = "Extraordinary Daring 1";
+        public const string ExtraordinaryFitness1 = "Extraordinary Fitness 1";
+        public const string ExtraordinaryInsight1 = "Extraordinary Insight 1";
+        public const string ExtraordinaryPresence1 = "Extraordinary Presence 1";
+        public const string ExtraordinaryReason1 = "Extraordinary Reason 1";
+        public const string FastRecovery = "Fast Recovery";
+        public const string Flight = "Flight";
+        public const string Formless = "Formless";
+        public const string HyperAgile = "Hyper-Agile";
+        public const string ImmuneToCold = "Immune to Cold";
+        public const string ImmuneToDisease = "Immune to Disease";
         public const string ImmuneToFear = "Immune to Fear";
+        public const string ImmuneToHeat = "Immune to Heat";
         public const string ImmuneToPain = "Immune to Pain";
+        public const string ImmuneToPoison = "Immune to Poison";
+        public const string ImmuneToVacuum = "Immune to Vacuum";
+        public const string Incorporeal = "Incorporeal";
+        public const string Initiative2 = "Initiative 2";
         public const string IntensiveTraining = "Intensive Training";
+        public const string InvulnerableSpecificWeakness = "Invulnerable (Specific Weakness)";
+        public const string InvulnerableStaggered = "Invulnerable (Staggered)";
+        public const string InvulnerableWrathful = "Invulnerable (Wrathful)";
+        public const string LiquidEnvironment = "Liquid Environment";
+        public const string Machine = "Machine";
+        public const string Menacing1 = "Menacing 1";
+        public const string Mimicry = "Mimicry";
+        public const string MultiLimbed = "Multi-Limbed";
+        public const string Multidimensional = "Multidimensional";
+        public const string NaturalProtection1 = "Natural Protection 1";
+        public const string NightVision = "Night Vision";
+        public const string Poisonous = "Poisonous";
+        public const string Ram = "Ram";
+        public const string Resilient = "Resilient";
+        public const string SenseSpectrum = "Sense Spectrum";
+        public const string Sturdy = "Sturdy";
+        public const string ThreatGesture = "Threat Gesture";
+        public const string ToolUser = "Tool User";
+        public const string Toxic = "Toxic";
+        public const string Venomous = "Venomous";
     }
 }

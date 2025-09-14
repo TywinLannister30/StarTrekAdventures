@@ -1,5 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
+using StarTrekAdventures.Models.Version1;
+using StarTrekAdventures.Selectors;
 using System.Text.Json.Serialization;
 using static StarTrekAdventures.Constants.Enums;
 
@@ -18,15 +20,9 @@ public class NonPlayerCharacter
         TypeEnum = npc.TypeEnum;
         Description = npc.Description;
 
-        Traits = new List<string>();
-
-        foreach (var trait in npc.Traits)
-        {
-            Traits.Add(trait);
-        }
-
-        Values = npc.Values;
-        Focuses = npc.Focuses;
+        Traits = new List<string>(npc.Traits);
+        Values = Values != null ? new List<string>(npc.Values) : null;
+        Focuses = Focuses != null ? new List<string>(npc.Focuses) : null;
 
         PersonalThreat = npc.PersonalThreat;
         Protection = npc.Protection;
@@ -65,6 +61,7 @@ public class NonPlayerCharacter
             SpecialRules.Add(new NpcSpecialRule(specialrule));
         }
 
+        RandomSpecies = npc.RandomSpecies;
         Source = npc.Source;
     }
 
@@ -75,7 +72,7 @@ public class NonPlayerCharacter
     [JsonIgnore]
     public NPCType TypeEnum { get; set; }
 
-    public string Description { get; set; }
+    public List<string> Description { get; set; }
 
     public List<string> Traits { get; set; }
 
@@ -171,5 +168,62 @@ public class NonPlayerCharacter
             if (pick == AttributeName.Presence) Attributes.Presence++;
             if (pick == AttributeName.Reason) Attributes.Reason++;
         }
+    }
+
+    internal void AdjustForAcademyTeacher()
+    {
+        var displinesAvailable = new List<string>
+        {
+            DepartmentName.Conn,
+            DepartmentName.Engineering,
+            DepartmentName.Medicine,
+            DepartmentName.Science,
+            DepartmentName.Security
+        };
+
+        var choice = displinesAvailable.OrderBy(n => Util.GetRandom()).First();
+
+        var focusChoices = new List<string>();
+
+        if (choice == DepartmentName.Conn)
+        {
+            Departments.Conn++;
+            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Conn)"));
+            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerCommand, DepartmentName.Conn).Focuses.ToList();
+        }
+        if (choice == DepartmentName.Engineering)
+        {
+            Departments.Engineering++;
+            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Engineering)"));
+            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Engineering).Focuses.ToList();
+        }
+        if (choice == DepartmentName.Security)
+        {
+            Departments.Security++;
+            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Security)"));
+            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Security).Focuses.ToList();
+        }
+        if (choice == DepartmentName.Medicine)
+        {
+            Departments.Medicine++;
+            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Medicine)"));
+            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Medicine).Focuses.ToList();
+        }
+        if (choice == DepartmentName.Science)
+        {
+            Departments.Science++;
+            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Science)"));
+            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Science).Focuses.ToList();
+        }
+
+        var focus = focusChoices.OrderBy(n => Util.GetRandom()).First();
+        Focuses.Add(focus);
+    }
+
+    internal void OrderLists()
+    {
+        Values = Values?.OrderBy(x => x).ToList();
+        Focuses = Focuses?.OrderBy(x => x).ToList();
+        SpecialRules = SpecialRules?.OrderBy(x => x.Name).ToList();
     }
 }

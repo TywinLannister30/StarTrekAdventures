@@ -26,6 +26,11 @@ public class NpcManager : INpcManager
             npc.AdjustAttributesForSpecies(chosenSpecies.First());
         }
 
+        if (npc.Name == "Academy Instructor")
+        {
+            npc.AdjustForAcademyTeacher();
+        }
+
         var specialRulesToRemove = new List<NpcSpecialRule>();
 
         foreach (var specialRule in npc.SpecialRules)
@@ -45,6 +50,8 @@ public class NpcManager : INpcManager
         {
             npc.SpecialRules.Remove(specialRule);
         }
+
+        npc.OrderLists();
 
         return npc;
     }

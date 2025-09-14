@@ -36,6 +36,11 @@ public static class CareerPathSelector
         return CareerPaths.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
+    internal static CareerPath GetCareerPath(string name, string major)
+    {
+        return CareerPaths.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase) && x.Major.Equals(major, StringComparison.CurrentCultureIgnoreCase));
+    }
+
     private static readonly List<CareerPath> CareerPaths = new()
     {
         new CareerPath {

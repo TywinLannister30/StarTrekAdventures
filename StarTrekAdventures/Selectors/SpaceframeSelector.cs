@@ -205,6 +205,45 @@ public static class SpaceframeSelector
         },
         new()
         {
+            Name = SpaceframeName.Scout,
+            LaunchYear = 2242,
+            Overview = "The Hermes-class scout was designed in conjunction with the Constitution class, the Saladin class, and the Ptolemy class. Sharing basic design elements and equipment with its sister classes, the Hermes class was highly successful. The Hermes class shared the same basic saucer-like primary hull and ‘neck’ dorsal as other vessels, that connected to a single warp nacelle. Internally the design was quite successful in its role as a scout, but the ship’s small size and lack of mission adaptable space in its single hull made the Hermes class fall out of use by the 2280s. Some demilitarized Hermes-class starships were donated to civilian agencies across the Federation and continued to see use as research vessels for universities into the 24th century.",
+            Capabilities = "The ship’s single warp nacelle created a powerful enough warp field from its two sets of warp coils that the Hermes class was able to have a much smaller matter/antimatter warp core than the Constitution class, fitting the entire engineering section into the neck and lower portion of the aft saucer. With the two sets of warp coils so close together, the Hermes class could maintain a strong field gradient for a minimal amount of power allowing it to maintain high warp velocities for longer. This meant that most commanding officers of a Hermes-class vessel could order their vessels to maintain a steady warp 7 and push emergency speeds above warp 9. Sublight propulsion was provided by the standard multistage fusion reactors at the aft of the primary hull. The weapon systems were comprised of only a single phaser bank on the ventral side of the hull, and no photon torpedo systems. The space this makes available in the saucer allows for the addition of extra sensor suites and laboratories networked through the vessel’s two large and powerful duotronic computer cores. The Hermes class wasn’t designed to include a shuttlebay as that space was required for sensor pallets, but it did have three separate docking ports that often carried small travel pods that could be used to move personnel and small amounts of cargo between the starship and orbital facilities and other starships.",
+            SuggestedMissionProfiles = new List<string>(),
+            Traits = new List<string>
+            {
+                "Federation Starship",
+                "Scout class"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems
+            {
+                Comms = 7, Computers = 6, Engines = 9, Sensors = 8, Structure = 8, Weapons = 6
+            },
+            Departments = new Departments
+            {
+                Conn = 2, Science = 1
+            },
+            Weapons = new List<string>
+            {
+                StarshipWeaponName.PhaserBanks,
+            },
+            TractorBeamStrength = 3,
+            Talents = new List<string>
+            {
+                StarshipTalentName.ImprovedReactionControlSystem,
+                StarshipTalentName.IndependentWeaponPower,
+                StarshipTalentName.RuggedDesign
+            },
+            SpecialRules = new List<string>
+            {
+                StarshipSpecialRuleName.CompactVessel
+            },
+            Weight = 1,
+            Source = BookSource.CommandDivision1stEdition
+        },
+        new()
+        {
             Name = SpaceframeName.Constitution,
             LaunchYear = 2243,
             Overview = "The symbol of Starfleet in the mid-to-late 23rd century, the Constitution class became legendary due to its five-year missions that expanded the Federation’s borders and its scientific knowledge. The Constitution class became the testbed of new technologies in the early 2270s developed out of the five-year missions and lessons learned from the brief war with the Klingon Empire. The spaceframe continued in service until the mid-24th century.",

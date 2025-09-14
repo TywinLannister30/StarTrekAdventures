@@ -378,7 +378,7 @@ public class TalentSelector
             },
             new()
             {
-                Name = "Collaboration (Medical)",
+                Name = "Collaboration (Medicine)",
                 Weight = 1,
                 Description = new List<string>
                 {
@@ -1228,6 +1228,17 @@ public class TalentSelector
             },
             new()
             {
+                Name = "Fleet Commander",
+                DepartmentRequirements = new DepartmentRequirements { Command = 4 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You are skilled at commanding multiple ships at once. Commanding a vessel during a fleet action allows you to re-roll 1d20 on any task to grant a bonus to your vessel or group. In addition, your flagship may use your Command rating instead of its own.",
+                },
+                Source = BookSource.CommandDivision1stEdition
+            },
+            new()
+            {
                 Name = "Follow my Lead",
                 DepartmentRequirements = new DepartmentRequirements { Command = 3 },
                 Weight = 3,
@@ -1298,6 +1309,17 @@ public class TalentSelector
                     "When you create a trait for an ally that represents your guidance or advice, that ally may re-roll one d20 on a single task they attempt which benefits from that trait.",
                 }
             },
+            new()
+            {
+                Name = "Time Management",
+                DepartmentRequirements = new DepartmentRequirements { Command = 4 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "During any Challenge, Extended Task or other activity under time pressure, the character may attempt a Control + Command Task with a Difficulty 3. If this Task succeeds, reduce the total number of intervals the Players have taken by 1; for every 2 Momentum spent (Repeatable) reduce by a further 1. The character has managed to minimize lost time. If the Task fails, add one additional interval as the character’s efforts actually waste time.",
+                },
+                Source = BookSource.CommandDivision1stEdition
+            },
         };
     }
 
@@ -1345,6 +1367,17 @@ public class TalentSelector
                     "You may reroll one d20 on any Engineering task to perform repairs or any ship or small craft you have piloted. You may reroll one d20 on any Conn task to pilot any ship or small craft you have repaired.",
                 },
                 Source = BookSource.TechnicalManual
+            },
+            new()
+            {
+                Name = "Flight Controller",
+                AnyRoleRequirement = new List<string> { RoleName.FlightController },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "When you take the Assist action while at the helm of the ship, you or the ally you assist may re-roll 1d20.",
+                },
+                Source = BookSource.CommandDivision1stEdition
             },
             new()
             {
