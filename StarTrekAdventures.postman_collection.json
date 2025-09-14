@@ -415,7 +415,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44389/api/v2/starship/generate?spaceframe=D'Kora",
+					"raw": "https://localhost:44389/api/v2/starship/generate?spaceframe=mogai",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -430,7 +430,7 @@
 					"query": [
 						{
 							"key": "spaceframe",
-							"value": "D'Kora"
+							"value": "mogai"
 						}
 					]
 				}
@@ -1739,6 +1739,94 @@
 						"v2",
 						"npcstarship",
 						"Jem’Hadar Battlecruiser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/smallcraft",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/smallcraft",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"smallcraft"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/smallcraft/trait/{trait}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/smallcraft/trait/unarmed",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"smallcraft",
+						"trait",
+						"unarmed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/smallcraft/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/smallcraft/names",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"smallcraft",
+						"names"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v2/smallcraft/{name}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/v2/smallcraft/Runabout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"v2",
+						"smallcraft",
+						"Runabout"
 					]
 				}
 			},

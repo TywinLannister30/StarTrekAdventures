@@ -28,13 +28,13 @@ public class NpcStarshipController : ControllerBase
     }
 
     [HttpGet("trait/{trait}")]
-    public ActionResult<List<NonPlayerCharacter>> GetAllByTrait(string trait)
+    public ActionResult<List<NpcStarship>> GetAllByTrait(string trait)
     {
         return Ok(_npcManager.GetAllByTrait(trait));
     }
 
     [HttpGet("{name}")]
-    public ActionResult<NonPlayerCharacter> GetSingle(string name)
+    public ActionResult<NpcStarship> GetSingle(string name)
     {
         var npc = _npcManager.Get(name);
 

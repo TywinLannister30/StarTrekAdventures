@@ -865,6 +865,17 @@ public static class StarshipWeaponSelector
         },
         new StarshipWeapon
         {
+            Name = StarshipWeaponName.MicroTorpedoes,
+            Type = StarshipWeaponType.Torpedo,
+            Range = StarshipWeaponRange.Long,
+            Damage = 3,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.HighYield)
+            }
+        },
+        new StarshipWeapon
+        {
             Name = StarshipWeaponName.NeutronicTorpedoes,
             Type = StarshipWeaponType.Torpedo,
             Range = StarshipWeaponRange.Long,

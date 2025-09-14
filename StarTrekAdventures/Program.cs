@@ -25,6 +25,7 @@ builder.Services.AddTransient<IRankManager, RankManager>();
 builder.Services.AddTransient<IReprimandManager, ReprimandManager>();
 builder.Services.AddTransient<IRoleManager, RoleManager>();
 builder.Services.AddTransient<IServiceRecordManager, ServiceRecordManager>();
+builder.Services.AddTransient<ISmallCraftManager, SmallCraftManager>();
 builder.Services.AddTransient<ISpaceframeManager, SpaceframeManager>();
 builder.Services.AddTransient<ISpeciesManager, SpeciesManager>();
 builder.Services.AddTransient<IStarshipManager, StarshipManager>();

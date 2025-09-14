@@ -4,10 +4,11 @@
     {
         public enum CrewQuality
         {
-            Basic,
-            Proficient,
-            Talented,
-            Exceptional
+            None = -1,
+            Basic = 0,
+            Proficient = 1,
+            Talented = 2,
+            Exceptional = 3
         }
 
         public enum Gender
@@ -750,6 +751,7 @@
 
         public const string ChronitonTorpedoes = "Chroniton Torpedoes";
         public const string GravimetricTorpedoes = "Gravimetric Torpedoes";
+        public const string MicroTorpedoes = "Micro Torpedoes";
         public const string NeutronicTorpedoes = "Neutronic Torpedoes";
         public const string NuclearTorpedoes = "Nuclear Torpedoes";
         public const string PhotonTorpedoes = "Photon Torpedoes";

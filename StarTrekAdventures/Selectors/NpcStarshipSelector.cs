@@ -57,6 +57,38 @@ public class NpcStarshipSelector
         // STARFLEET & FEDERATION STARSHIPs
         new NpcStarship
         {
+            Name = "Aquarius-class Escort",
+            Description = new List<string>
+            {
+                "The Aquarius escort is a small starship embedded in a docking slip at the aft of the Odyssey. The Aquarius is an independent starship and can travel at warp, though its endurance is limited, and it is not designed to go on extended missions. When deployed, the Aquarius can be an NPC ally starship or can be commanded by a player at the gamemaster’s discretion. Deploying the Aquarius class functions the same way as launching a small craft, though it does not take up any of the ship’s Small Craft Capacity.",
+                "As it exists as part of its parent ship, the Aquarius class does not have a separate Crew Support rating. It also does not have talents, though it can be improved with character advancement.)"
+            },
+            CrewQualityEnum = CrewQuality.None,
+            Traits = new List<string>
+            {
+                "Federation Starship",
+                "Aquarius class",
+                "Escort Vessel"
+            },
+            Scale = 2,
+            Systems = new StarshipSystems { Comms = 10, Computers = 10, Engines = 8, Sensors = 10, Structure = 6, Weapons = 10 },
+            Departments = new Departments { Command = 1, Conn = 4, Engineering = 2, Security = 4, Medicine = 1, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserCannons),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            Talents = new List<StarshipTalent>(),
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel)
+            },
+            NoCrewSupport = true,
+            Source = BookSource.GameToolkit
+        },
+        new NpcStarship
+        {
             Name = "Constitution-Class",
             Description = new List<string> 
             { 

@@ -80,6 +80,8 @@ public class NpcStarship
             SpecialRules.Add(specialRule);
         }
 
+        NoCrewSupport = npcStarship.NoCrewSupport;
+
         Source = npcStarship.Source;
     }
 
@@ -94,6 +96,9 @@ public class NpcStarship
     { 
         get
         {
+            if (CrewQualityEnum == Enums.CrewQuality.None)
+                return "None";
+
             var attribute = (int)CrewQualityEnum + 8;
             var department = (int)CrewQualityEnum + 1;
 
@@ -133,6 +138,9 @@ public class NpcStarship
 
     public string Source { get; set; }
 
+    [JsonIgnore]
+    public bool NoCrewSupport { get; set; }
+
     internal void SetResistance()
     {
         Resistance = ((Scale + 1) / 2) + Systems.Structure.ToBonus() + Talents.Sum(x => x.ResistanceModifier);
@@ -150,6 +158,12 @@ public class NpcStarship
 
     internal void SetCrewSupport()
     {
+        if (NoCrewSupport)
+        {
+            CrewSupport = 0;
+            return;
+        }
+
         CrewSupport = Scale + SpecialRules.Sum(x => x.CrewSupportModifier);
 
         if (Talents.Any(x => x.HalfCrewSupport))
@@ -178,7 +192,7 @@ public class NpcStarship
 
     internal bool HasMines()
     {
-        return Talents.Any(x => x.Name == StarshipTalentName.Minelayer);
+        return Attacks.Any(x => x.Type == StarshipWeaponType.Mine);
     }
 
     internal bool HasTractorBeam()

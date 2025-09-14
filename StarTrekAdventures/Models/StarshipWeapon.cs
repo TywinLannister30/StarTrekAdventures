@@ -158,4 +158,31 @@ public class StarshipWeapon
             Effect = baseEffect;
         }
     }
+
+    public void SetEffect(SmallCraft smallCraft)
+    {
+        var damage = 0;
+
+        if (Type == StarshipWeaponType.Mine)
+            damage = Damage;
+        else
+            damage = Damage + (DamageBasedOnScale ? smallCraft.Scale : 0) + smallCraft.Systems.Weapons.ToBonus();
+
+        if (Type == StarshipWeaponType.Energy)
+            damage += smallCraft.Talents.Sum(x => x.EnergyWeaponDamageModifier);
+
+        var baseEffect = string.Empty;
+
+        if (Type == StarshipWeaponType.Mine)
+            baseEffect = $"{Type}, Damage {damage}";
+        else
+            baseEffect = $"{Type}, {Range}, Damage {damage}";
+
+        if (Qualities != null && Qualities.Count != 0)
+        {
+            baseEffect += ", " + string.Join(", ", Qualities.Select(q => q.Name));
+        }
+
+        Effect = baseEffect;
+    }
 }
