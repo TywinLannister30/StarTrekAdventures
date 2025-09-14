@@ -143,12 +143,12 @@ public class TalentSelector
         return Talents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Talent> GetAllTalents()
+    public static List<Talent> GetAllTalents()
     {
         return Talents;
     }
 
-    internal static NpcSpecialRule GetTalentAsSpecialRule(string name)
+    public static NpcSpecialRule GetTalentAsSpecialRule(string name)
     {
         var talent = GetTalent(name);
 
