@@ -43,7 +43,14 @@ public static class RoleSelector
                 if (character.Departments.Engineering >= 4) weightedRoleList.AddEntry(GetRole(RoleName.OperationsManager), 10);
                 if (character.Departments.Security >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ChiefOfSecurity), 10);
                 if (character.Departments.Security >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ChiefTacticalOfficer), 10);
+                if (character.Departments.Security >= 3) weightedRoleList.AddEntry(GetRole(RoleName.SquadLeader), 1);
             }
+
+            if (character.Departments.Security >= 3 && character.Departments.Engineering >= 3) weightedRoleList.AddEntry(GetRole(RoleName.CombatEngineer), 1);
+            if (character.Departments.Security >= 3 && character.Departments.Engineering >= 3) weightedRoleList.AddEntry(GetRole(RoleName.ExplosiveOrdnanceExpert), 1);
+            if (character.Departments.Security >= 3 && character.Departments.Medicine >= 3) weightedRoleList.AddEntry(GetRole(RoleName.FieldMedic), 1);
+            if (character.Departments.Security >= 3) weightedRoleList.AddEntry(GetRole(RoleName.HeavyWeaponSpecialist), 1);
+            if (character.Departments.Security >= 3) weightedRoleList.AddEntry(GetRole(RoleName.Reconnaissance), 1);
         }
 
         if (character.CareerPath.StartsWith(TrackName.StarfleetOfficerSciences))
@@ -73,11 +80,18 @@ public static class RoleSelector
                 if (character.Departments.Engineering >= 4) weightedRoleList.AddEntry(GetRole(RoleName.OperationsManager), 10);
                 if (character.Departments.Security >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ChiefOfSecurity), 10);
                 if (character.Departments.Security >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ChiefTacticalOfficer), 10);
+                if (character.Departments.Security >= 3) weightedRoleList.AddEntry(GetRole(RoleName.SquadLeader), 1);
             }
 
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Navigator), 5);
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ScienceOfficer), 10);
             if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ShipsDoctor), 10);
+
+            if (character.Departments.Security >= 3 && character.Departments.Engineering >= 3) weightedRoleList.AddEntry(GetRole(RoleName.CombatEngineer), 1);
+            if (character.Departments.Security >= 3 && character.Departments.Engineering >= 3) weightedRoleList.AddEntry(GetRole(RoleName.ExplosiveOrdnanceExpert), 1);
+            if (character.Departments.Security >= 3 && character.Departments.Medicine >= 3) weightedRoleList.AddEntry(GetRole(RoleName.FieldMedic), 1);
+            if (character.Departments.Security >= 3) weightedRoleList.AddEntry(GetRole(RoleName.HeavyWeaponSpecialist), 1);
+            if (character.Departments.Security >= 3) weightedRoleList.AddEntry(GetRole(RoleName.Reconnaissance), 1);
 
             if (character.HasPsychologyFocus())
             {
@@ -302,6 +316,50 @@ public static class RoleSelector
             Description = "Command department only. This officer coordinates the movements and activities of vessels and forces in a given region or on a particular mission. Typically officers with a keen understanding of strategy, they advise the admiral and adjust plans independently when they cannot consult the admiral.",
             Benefit = "Regardless of rank, the strategic operations officer has authority over all vessels and forces linked to their region or mission. They may reduce the Difficulty of Persuade Tasks with the commanding officers of those vessels and forces by 1, to a minimum of 0.",
             Source = BookSource.CommandDivision1stEdition
+        },
+
+        // 1st Edition Roles - Tactical Roles
+        new Role
+        {
+            Name = RoleName.CombatEngineer,
+            Description = "From breaching security doors to erecting makeshift bunkers, combat engineers are responsible for dealing with all manners of fortifications (both enemy and friendly). They also make sure the squad’s equipment is in good working order.",
+            Benefit = "When you succeed at an Engineering task roll during a combat encounter, you generate 1 bonus Momentum. Bonus Momentum may not be saved.",
+            Source = BookSource.OperationsDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.ExplosiveOrdnanceExpert,
+            Description = "Due to the prevalence of explosives in major conflict zones, someone capable of using and deactivating these weapons is critical.",
+            Benefit = "You may reroll one d20 when attempting a task to use or disarm an explosive device, or to attack with a weapon which has the Area and/or Grenade qualities.",
+            Source = BookSource.OperationsDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.FieldMedic,
+            Description = "Every combatant’s best friend is their medic. These characters are responsible for patching up their squad mates and keeping them alive in the heat of battle.",
+            Benefit = "You ignore any increase in Difficulty to the First Aid major action which are related to the chaos or distractions of battle.",
+            Source = BookSource.OperationsDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.HeavyWeaponSpecialist,
+            Description = "Starfleet attempts to avoid lethal engagements but sometimes there simply isn’t another way. In such situations, heavy weapon specialists ensure that their combat squad can match their opponent’s firepower.",
+            Benefit = "Whenever you requisition weapons with an Escalation cost, reduce that Escalation cost by 1, to a minimum of 1.",
+            Source = BookSource.OperationsDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.Reconnaissance,
+            Description = "Throughout history, it is often the force with the most information that achieves its tactical objectives. Recon specialists are the eyes and ears of the team, venturing out ahead of the others to gather information.",
+            Benefit = "When you succeed at an Insight + Security task roll to survey an environment or detect dangers, you generate 1 bonus Momentum which may only be spent to Obtain Information. Bonus Momentum may not be Saved.",
+            Source = BookSource.OperationsDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.SquadLeader,
+            Description = "Each combat squad must have one leader. This character serves as the commanding officer for the team.",
+            Benefit = "When you use the Direct major action, you may assist with Control + Security instead of Control + Command. This task roll is still considered to be a Command task in all other regards.",
+            Source = BookSource.OperationsDivision1stEdition
         },
     };
 }

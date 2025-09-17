@@ -62,6 +62,7 @@ public class NonPlayerCharacter
         }
 
         RandomSpecies = npc.RandomSpecies;
+        RandomNonHumanSpecies = npc.RandomNonHumanSpecies;
         Source = npc.Source;
     }
 
@@ -97,6 +98,9 @@ public class NonPlayerCharacter
 
     [JsonIgnore]
     public bool RandomSpecies { get; set; }
+
+    [JsonIgnore]
+    public bool RandomNonHumanSpecies { get; set; }
 
     public string Source { get; set; }
 
@@ -218,6 +222,27 @@ public class NonPlayerCharacter
 
         var focus = focusChoices.OrderBy(n => Util.GetRandom()).First();
         Focuses.Add(focus);
+    }
+
+    internal void AddFocuses(ICollection<string> focusesAvailable, int numToChoose)
+    {
+        Focuses ??= new List<string>();
+
+        var choices = new List<string>();
+
+        foreach (var focus in focusesAvailable)
+        {
+            if (!Focuses.Any(x => x == focus)) 
+                choices.Add(focus);
+        }
+
+        for (int i = 0; i < numToChoose; i++)
+        {
+            var focus = choices.OrderBy(n => Util.GetRandom()).First();
+
+            Focuses.Add(focus);
+            choices.Remove(focus);
+        }
     }
 
     internal void OrderLists()

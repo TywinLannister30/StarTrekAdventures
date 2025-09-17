@@ -1,4 +1,5 @@
-﻿using StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+using StarTrekAdventures.Models;
 using StarTrekAdventures.Selectors;
 
 namespace StarTrekAdventures.Managers;
@@ -26,6 +27,20 @@ public class NpcManager : INpcManager
             npc.AdjustAttributesForSpecies(chosenSpecies.First());
         }
 
+        if (baseNpc.RandomNonHumanSpecies)
+        {
+            var oldTrait = baseNpc.Traits.Last();
+            npc.Traits.Clear();
+
+            var chosenSpecies = SpeciesSelector.GetAnotherRandomSpecies(SpeciesName.Human);
+
+            npc.Traits.Add(chosenSpecies.Name);
+
+            npc.Traits.Add(oldTrait);
+
+            npc.AdjustAttributesForSpecies(chosenSpecies);
+        }
+
         if (npc.Name == "Academy Instructor")
         {
             npc.AdjustForAcademyTeacher();
@@ -38,6 +53,11 @@ public class NpcManager : INpcManager
             if (specialRule.AddOneToTwoDifferentDepartments)
             {
                 npc.AddOneToTwoDifferentDepartments();
+            }
+
+            if (specialRule.AddRandomFocus != null && specialRule.AddRandomFocus.Count > 0)
+            {
+                npc.AddFocuses(specialRule.AddRandomFocus, 1);
             }
 
             if (specialRule.HideIfGenerating)

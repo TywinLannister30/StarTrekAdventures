@@ -33,6 +33,15 @@ public class NpcSpecialRule
             }
         }
 
+        AddRandomFocus = new List<string>();
+        if (specialrule.AddRandomFocus != null)
+        {
+            foreach (var focus in specialrule.AddRandomFocus)
+            {
+                AddRandomFocus.Add(focus);
+            }
+        }
+
         Source = specialrule.Source;
     }
 
@@ -51,6 +60,9 @@ public class NpcSpecialRule
 
     [JsonIgnore]
     public List<string> AddQualitiesToUnarmedStrikes { get; set; }
+
+    [JsonIgnore]
+    public List<string> AddRandomFocus { get; set; }
 
     public string Source { get; set; }
 }

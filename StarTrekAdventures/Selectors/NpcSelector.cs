@@ -100,6 +100,50 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Engineering Specialist",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "An engineering specialist, or systems engineer, is a Starfleet engineer with a particular Focus. These individuals are often brought aboard a starship or starbase to facilitate repairs or upgrades in a particular area, such as the warp fields, computing, replicators and transporters, phasers, or torpedo technology. Their knowledge often strays into the theoretical too, and commissioned Starfleet officers who are deemed “specialists” are often pioneers in their own field of expertise."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Enlisted Personnel"
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 8, Insight = 8, Presence = 7, Reason = 9 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 2, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Field of Expertise",
+                        Description = new List<string>
+                        {
+                            "The NPC has a single focus from the following fields of engineering or science, even though they are minor NPCs. When this NPC attempts a task using that focus, the first bonus d20 is free: Warp fields, Electro-plasma power systems, Structural integrity fields, Energy-matter-scrambler technology, Quantum mechanics"
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string>
+                        {
+                            Focus.ElectroPlasmaPowerSystems, "Energy-matter-scrambler technology", Focus.QuantumMechanics, "Structural integrity fields", "Warp fields"
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Starfleet Officer",
                 TypeEnum = NPCType.Minor,
                 Description = new List<string>
@@ -199,6 +243,168 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Admiral Raner",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Admiral Raner served as the head of Starfleet Security until 2370, when she was dishonorably discharged for restarting the covert program to develop a phasing cloaking device, a project Starfleet Intelligence had covered up several years before. As chief of Starfleet Security her remit covered the security and safety of the Federation, instigating criminal investigations, and guarding Starfleet and civilian facilities across Federation space.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Starfleet Flag Officer",
+                    "Head of Starfleet Security"
+                },
+                Values = new List<string>
+                {
+                    "Safeguard the Federation from all threats",
+                },
+                Focuses = new List<string>
+                {
+                    "Starfleet Command", "Intelligence", "Federation Law"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 8, Insight = 9, Presence = 11, Reason = 10 },
+                Departments = new Departments { Command = 4, Conn = 1, Engineering = 1, Security = 3, Medicine = 1, Science = 1 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                    new()
+                    {
+                        Name = "The Bigger Picture",
+                        Description = new List<string>
+                        {
+                            "When Admiral Raner attempts a Persuasion task and uses Threat to buy one or more additional d20s, she may reroll 1d20."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Commander Mahmud Al-Khaled",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Lt. Commander Al-Khaled is a well-regarded repair specialist, and eventually Command Liaison in the Corps of Engineers in 2280. He had command of the U.S.S. Aephas, a Mirandaclass starship during his field work before he lead the Corps at the Tucker Memorial Building in Starfleet Command HQ. Mahmud is passionate about his work, insisting that the efficiency of the personnel under his guidance is of the highest standard.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Starfleet Officer",
+                    "Starfleet Corps of Engineers"
+                },
+                Values = new List<string>
+                {
+                    "To achieve high standards, you must expect high standards.",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.GroundVehicles, "Starship Repair", "Warp Core Maintenance"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 9, Insight = 10, Presence = 8, Reason = 10 },
+                Departments = new Departments { Command = 2, Conn = 2, Engineering = 4, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Faith of the Heart",
+                        Description = new List<string>
+                        {
+                            "When Al-Khaled uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    new()
+                    {
+                        Name = "I Know Starfleet Ships",
+                        Description = new List<string>
+                        {
+                            "Whenever Commander Al-Khaled attempts a task to determine the source of a technical problem aboard a vessel with the Federation Starship trait, the first bonus d20 is free."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "My Repairs do the Talking",
+                        Description = new List<string>
+                        {
+                            "Whenever Al-Khaled attempts a task to direct or give orders to Engineering personnel, he may use Engineering instead of Command."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Communications Officer",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "The communications officer was a separate bridge position until the late 23rd Century. These operations staff were responsible for ship-wide, local and long-distance (subspace) communications. Early in Starfleet history, before the proliferation of the universal translator, communications officers were required to be fluent in several Federation languages, and have a familiarity with other key languages such as Klingon.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer",
+                    "Polyglot"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "Language is the key to exploring new civilizations",
+                },
+                Focuses = new List<string>
+                {
+                    "Cryptography", Focus.SubspaceCommunications, "Xenolinguistics"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 7, Insight = 9, Presence = 10, Reason = 9 },
+                Departments = new Departments { Command = 2, Conn = 2, Engineering = 3, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Cautious (Engineering)"),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Interpretive Translation",
+                        Description = new List<string>
+                        {
+                            "The communications officer may always choose to Succeed at Cost when attempting to translate a message in an unfamiliar language, or piece together a distorted or corrupted transmission. The complication represents any flaws or limitations in the translation or reconstruction of the message."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
                 Name = "JAG Officer",
                 TypeEnum = NPCType.Notable,
                 Description = new List<string>
@@ -248,6 +454,54 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Operations Officer",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "The operations officer, at the bridge ops station, is the head of ship operations. The two bridge positions of communications and science officer were amalgamated into this role in the 24th Century. These officers must be familiar with both the Science and Engineering Disciplines. They interpret key data and act on the orders of the commanding officers aboard a ship maintaining communication, scanning and other operational duties.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer",
+                    "Polymath"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "From this chair, I am in control",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.PowerManagement, Focus.SensorOperations, "Starfleet Reporting Procedures"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 10, Daring = 8, Fitness = 8, Insight = 9, Presence = 8, Reason = 8 },
+                Departments = new Departments { Command = 1, Conn = 3, Engineering = 2, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Operational Insight",
+                        Description = new List<string>
+                        {
+                            "Whenever the operations officer uses the Override major action, they ignore the normal increase in difficulty from that action."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Pathfinder Specialist",
                 TypeEnum = NPCType.Notable,
                 Description = new List<string>
@@ -293,6 +547,109 @@ public class NpcSelector
                     NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 },
                 Source = BookSource.CommandDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Quartermaster",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "The quartermaster was a highly visible and important position in the 22nd Century era of Starfleet. Quartermasters can still be found on the occasional Starfleet installation, and are responsible for the distribution and allocation of supplies and resources. They can requisition supplies and equipment from Fleet Operations, and are a department head’s point of contact for requesting gear for their team.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "Fail to prepare and you prepare to fail",
+                },
+                Focuses = new List<string>
+                {
+                    "Repair Procedures", "Resources Management"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 8, Insight = 9, Presence = 9, Reason = 9 },
+                Departments = new Departments { Command = 2, Conn = 1, Engineering = 3, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Contacts in Fleet Ops",
+                        Description = new List<string>
+                        {
+                            "Whenever the quartermaster attempts, or assists in, a Persuasion task to request resources from Starfleet Command, the first bonus d20 is free."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Requisitions",
+                        Description = new List<string>
+                        {
+                            "Whenever the player characters seek assistance from the quartermaster when requisitioning equipment, select one item the player characters are obtaining that has an Opportunity Cost of 1 or higher. By increasing the Opportunity cost by 1, they may increase the Potency of that item’s equipment trait by 1."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Repair Team Leader",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Often members of the Corps of Engineers when in space dock, and officers in the engineering division aboard a starship, repair team leaders lead groups of engineers. They restore systems from serious damage aboard Starfleet vessels and, when in combat or a crisis, damage control teams will be sent out to keep systems online. It is their job to fight fires, both literally and metaphorically. In space dock, these repair teams work long hours to help maintain, upgrade and otherwise repair ships on the frontline of Federation space.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Personnel"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "We’ll get it done",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.DamageControlProcedures, "Damage Reporting", "Hazard Containment"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 9, Fitness = 9, Insight = 9, Presence = 7, Reason = 8 },
+                Departments = new Departments { Command = 1, Conn = 2, Engineering = 3, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Pushing the Deadline",
+                        Description = new List<string>
+                        {
+                            "Whenever the repair team leader succeeds at an Engineering or Science task as part of a timed challenge or timed extended task, the cost to reduce the amount of time taken is 1 Momentum."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
             },
             new()
             {
@@ -347,6 +704,175 @@ public class NpcSelector
                     },
                     NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 }
+            },
+            new()
+            {
+                Name = "Starfleet Intelligence Agent",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Intelligence agents are specialists within Starfleet, with proficiency in covert operations and espionage inside and outside the Federation. Their role in gathering information on threats to the Federation is invaluable, and several breakthroughs in criminal investigations and strategic planning have been credited to their actions. This includes stings on Orion smuggling operations, and intelligence on the Romulan Star Empire on the other side of the Neutral Zone."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Intelligence Operative",
+                    "Professionally Cautious"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "I am the unseen hand of Starfleet",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.Espionage, "Intelligence Analysis", "Undercover Operations,"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 9, Fitness = 8, Insight = 8, Presence = 9, Reason = 8 },
+                Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 4, Medicine = 1, Science = 1 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Constantly Watching"),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                    new()
+                    {
+                        Name = "Personal Forcefield (Escalation 1)",
+                        Description = new List<string>
+                        {
+                            "Protection 3; may be sacrificed when suffering an Injury – the Injury becomes a Stun Injury and the forcefield stops working"
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    new()
+                    {
+                        Name = "Trained to Withstand Interrogation",
+                        Description = new List<string>
+                        {
+                            "Whenever the agent would be intimidated or threatened, spend 2 Threat to ignore that attempt."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Transporter Chief",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Transporter chiefs are key personnel aboard Starfleet installations and ships, and report to the chief of operations. They monitor and coordinate energy-matter-scrambler transportation of personnel and cargo, often in person from a transporter room or cargo bay. They are usually a petty officer, ensign or lieutenant aboard Starfleet ships and stations."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Enlisted Personnel",
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "Are you sure these are the right coordinates?",
+                },
+                Focuses = new List<string>
+                {
+                    "Containment Procedures", Focus.TransportersAndReplicators
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 10, Daring = 8, Fitness = 8, Insight = 9, Presence = 8, Reason = 8 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 3, Security = 2, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                    TalentSelector.GetTalentAsSpecialRule("Transporter Chief"),
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Admiral John Harriman",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Admiral Harriman served as commanding officer of the U.S.S. Enterprise-B, in 2293. The events of its maiden voyage left a lasting impression on him with the loss of his childhood hero, James T. Kirk. He had a dedication plaque to Kirk made and installed in main engineering of the Enterprise-B. His missions quickly took him away from the bridge of the Enterprise, and he moved into more covert operations along the Romulan Neutral Zone. After almost resigning his commission in 2311, he was promoted to Admiral, and this eventually led to his role as Starfleet Corps of Engineers Command Liaison in the 2360s and after. He coordinates the efforts of the Engineer Corps with Starfleet Command itself, assigning personnel and equipment throughout Starfleet. Unlike some more formal Admirals, Harriman recognizes potential and welcomes questions and opinions in many of his meetings with Starfleet personnel.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Starfleet Flag Officer",
+                    "Elderly",
+                    "Command Liaison to Starfleet Corps of Engineers"
+                },
+                Values = new List<string>
+                {
+                    "Starfleet is a family tradition",
+                    "Keeping an old admiral busy",
+                    "Risk is part of the game if you want the captain’s chair"
+                },
+                Focuses = new List<string>
+                {
+                    Focus.Espionage, Focus.HandPhasers, "Quantum Singularity Technology", Focus.Saboteur, "Personnel Management,", "The Romulan Star Empire"
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 10, Fitness = 8, Insight = 10, Presence = 8, Reason = 10 },
+                Departments = new Departments { Command = 4, Conn = 2, Engineering = 4, Security = 3, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Advisor"),
+                    new()
+                    {
+                        Name = "Dauntless",
+                        Description = new List<string>
+                        {
+                            "Whenever another character attempts to intimidate or threaten you, you may spend 2 Threat (or add 2 Threat, if an ally to the PCs) to ignore their attempt."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    new()
+                    {
+                        Name = "Faith of the Heart",
+                        Description = new List<string>
+                        {
+                            "When Harriman uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                    new()
+                    {
+                        Name = "Sabotage",
+                        Description = new List<string>
+                        {
+                            "When Admiral Harriman attempts an Engineering task to sabotage equipment, the first die he purchases is free."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
             },
             new()
             {
@@ -429,6 +955,75 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Captain Herman Zimmerman",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Captain Zimmerman has had a long career commanding various starships but, most notably, he is a contributing design specialist for Shipyard Operations, and worked on the designs of the Galaxy- and Defiant-class starships, notably the U.S.S. Enterprise-D and the U.S.S. Defiant.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Starfleet Officer",
+                    "Starfleet Corps of Engineers",
+                    "Starship Designer"
+                },
+                Values = new List<string>
+                {
+                    "Design moves technology to its preferred state",
+                    "Most comfortable in the center chair",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.Composure, Focus.StarshipTactics, "Structural Integrity Fields", "Technological Innovation", Focus.WarpFieldDynamics, "Weapon Array Configuration"
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 10, Daring = 8, Fitness = 8, Insight = 9, Presence = 10, Reason = 11 },
+                Departments = new Departments { Command = 4, Conn = 3, Engineering = 5, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Faith of the Heart",
+                        Description = new List<string>
+                        {
+                            "When Zimmerman uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    new()
+                    {
+                        Name = "Innovation",
+                        Description = new List<string>
+                        {
+                            "Whenever Capt. Zimmerman assists a player character in developing a prototype piece of technology, Zimmerman or the player character may reroll 1d20 during any task to create that prototype."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    TalentSelector.GetTalentAsSpecialRule("More Power!"),
+                    TalentSelector.GetTalentAsSpecialRule("Starship Expert"),
+                    new()
+                    {
+                        Name = "Veteran",
+                        Description = new List<string>
+                        {
+                            "Should Capt. Zimmerman spend Threat in place of Determination, roll 1d20: if the result is equal to or under his Control, those points of Threat are regained (if Zimmerman is an ally, he would add to Threat in place of Determination, and this would prevent those points being added)."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Captain T'Mek",
                 TypeEnum = NPCType.Major,
                 Description = new List<string>
@@ -475,6 +1070,84 @@ public class NpcSelector
                     NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                     TalentSelector.GetTalentAsSpecialRule("Nerve Pinch")
                 }
+            },
+            new()
+            {
+                Name = "Luthor Sloan",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Luther Sloan is the supposed director of Section 31, the unrecognized covert department of Federation “dirty tricks”. Little is known about his personal life, though hints about an early career in Starfleet Intelligence indicate how he ended up leading the Section 31 organization. Records, of course, can’t corroborate any theory of his origin or profession.",
+                    "Sloane is a calculating individual, who twists facts to suit his objectives or ambitions, but that’s not to say he is selfishly driven. He is someone who must protect Federation citizens from a universe that doesn’t share their sense of right and wrong, and his motivations seem to be the preservation of the Federation and its member species. His methods, however, are questionable. As the leader of Section 31 he’s not scared to get his hands rather dirty in the line of duty."
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Director of Section 31",
+                    "Covert Mastermind"
+                },
+                Values = new List<string>
+                {
+                    "I am a man of secrets",
+                    "The ends justify the means",
+                    "A prodigy of Starfleet Intelligence",
+                    "Breaking the Federation’s principles in order to keep it safe"
+                },
+                Focuses = new List<string>
+                {
+                    "Disguise", Focus.Espionage, Focus.Infiltration, Focus.Interrogation, "Manipulation", "Starfleet Security"
+                },
+                PersonalThreat = 12,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 10, Daring = 9, Fitness = 8, Insight = 10, Presence = 12, Reason = 10 },
+                Departments = new Departments { Command = 4, Conn = 2, Engineering = 2, Security = 5, Medicine = 2, Science = 1 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Commission",
+                        Description = new List<string>
+                        {
+                            "Sloan can counterfeit records to give himself a Starfleet commission or civilian identity (excluding flag officer ranks), and he can remove those records just as easily. Sloan may give himself a trait representing this fake rank or status at the start of a mission for no cost, and this trait has a potency of 2. During a mission, he may spend 2 Threat to change this trait and adopt a different persona."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    new()
+                    {
+                        Name = "Counterintelligence",
+                        Description = new List<string>
+                        {
+                            "Whenever Obtain Information is used to enquire about Sloan, you may spend 1 Threat to choose to mislead the players. You may try to double-bluff players with this, by spending the Threat but still revealing truthful information."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Lethal Implant",
+                        Description = new List<string>
+                        {
+                            "Sloan may activate an implant which kills him instantly to avoid exposing Section 31 or its operations. This costs a number of Threat equal to the number of main characters in the scene."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    new()
+                    {
+                        Name = "Profiling",
+                        Description = new List<string>
+                        {
+                            "Whenever Sloan attempts to intimidate or deceive a character during a social conflict, the first d20 he purchases is free."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                },
+                Source = BookSource.OperationsDivision1stEdition,
             },
             new()
             {
@@ -783,6 +1456,33 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Informant",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "Informants provide their Starfleet Intelligence contacts with intelligence on events, people and items with which they have close contact. These individuals can come from any walk of life, but often have a deep-seated appreciation for the Federation and its principals. This makes them valuable in the fight against moral corruption and external threats.",
+                },
+                Traits = new List<string>
+                {
+                    "Alien (Choose Species)",
+                    "Confidential Informant",
+                    "Justifiably Paranoid"
+                },
+                RandomNonHumanSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 7, Daring = 8, Fitness = 8, Insight = 10, Presence = 9, Reason = 9 },
+                Departments = new Departments { Command = 0, Conn = 2, Engineering = 1, Security = 2, Medicine = 1, Science = 0 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>(),
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Negotiator",
                 TypeEnum = NPCType.Minor,
                 Description = new List<string>
@@ -857,6 +1557,54 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Doctor Leah Brahms",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Dr. Brahms is a key designer of the propulsion systems of the Galaxy and Nebula-class starships at the Utopia Planitia Fleet Yards. A graduate of the Daystrom Institute of Technology, she has a brilliant mind for the theory of propulsion and subspace designs.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Professor of Theoretical Physics",
+                    "Daystrom Fellow",
+                    "A Leader in Warp Field Theory"
+                },
+                Values = new List<string>
+                {
+                    "More comfortable with engine schematics than people",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.ImpulseEngines, Focus.SubspacePhysics, Focus.WarpFieldDynamics
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 7, Insight = 9, Presence = 10, Reason = 12 },
+                Departments = new Departments { Command = 0, Conn = 2, Engineering = 4, Security = 1, Medicine = 1, Science = 4 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "All Theory",
+                        Description = new List<string>
+                        {
+                            "Dr. Brahms’ theories are well-documented in published papers and technical manuals. Accessing her published works aboard a Starfleet vessel or Federation facility allows you to create an equipment trait, Technical Documentation, with an Opportunity cost of 1, which can benefit any task roll for which one of Dr. Brahms focuses would apply. However, lengthy reading and referencing means that tasks benefitting from this equipment may take longer."
+                        },
+                        Source = BookSource.OperationsDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ExtraordinaryReason1),
+                    TalentSelector.GetTalentAsSpecialRule("Procedural Compliance"),
+                },
+                Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Ambassador Lwaxana Troi",
                 TypeEnum = NPCType.Major,
                 Description = new List<string>
@@ -896,7 +1644,7 @@ public class NpcSelector
                 {
                     new()
                     {
-                        Name = "Breat the Ice",
+                        Name = "Break the Ice",
                         Description = new List<string>
                         {
                             "Ambassador Troi’s manner breaks through formality in a way that sometimes puts other diplomats and negotiators ill-at-ease, but which tends to open up talks in a way that proper etiquette and procedure cannot. When attempting a task during a social conflict, Lwaxana may choose to increase her complication range by 1, 2, or 3. If the task succeeds, she gains bonus Momentum equal to the amount by which she increased her Complication range. Bonus Momentum may not be saved."

@@ -13,7 +13,7 @@ public class SpeciesAbility
     public string Name { get; set; }
 
     public string Description { get; set; }
-    
+
     [JsonIgnore]
     public string AddTalent { get; set; }
 

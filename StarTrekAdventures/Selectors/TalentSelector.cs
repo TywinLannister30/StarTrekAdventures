@@ -1573,6 +1573,29 @@ public class TalentSelector
             },
             new()
             {
+                Name = "Experimental Device",
+                DepartmentRequirements = new DepartmentRequirements { Engineering = 4 },
+                MainCharacterOnly = true,
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You have designed and constructed a new piece of equipment that is either a brand-new invention or is heavily modified from its original to the point of being barely recognizable. In either case, the device performs a function that you determine when you select this talent, which you must agree with the gamemaster. You gain an equipment trait to represent the item and the uses which you can turn it to; if it is a modified version of an existing piece of technology, it counts as that device, but the equipment trait’s Potency is increased by 1. If the device has an Escalation cost normally, increase that cost by 1. Whenever you attempt a task using the device, the complication range is increased by 2. This talent may be selected multiple times, creating a different experimental device for each selection.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
+            },
+            new()
+            {
+                Name = "Exploit Engineering Flaw",
+                DepartmentRequirements = new DepartmentRequirements { Engineering = 3, Conn = 3, Operator = Operator.And },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "When an ally succeeds at the task roll for a Scan for Weakness major action, you may add 1 Threat to highlight an identified engineering flaw in the opponent’s ship, as long as you’re able to communicate with both the ally taking the Scan for Weakness action and the ally making the attack. You immediately create a trait which represents an engineering flaw in the target ship.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
+            },
+            new()
+            {
                 Name = "I Know my Ship",
                 DepartmentRequirements = new DepartmentRequirements { Engineering = 4 },
                 Weight = 4,
@@ -1705,6 +1728,17 @@ public class TalentSelector
             },
             new()
             {
+                Name = "Rocks into Replicators",
+                DepartmentRequirements = new DepartmentRequirements { Engineering = 4, Science = 2, Operator = Operator.And },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "Starfleet engineers are famed for being able to build or create nearly anything needed from the most basic of available components. Once per mission, you may take one or more pieces of equipment you possess and destroy them to jury-rig another device, which must have an equal or lower Opportunity Cost than the total cost of all the items destroyed (Standard Issue items are counted as having an Opportunity Cost of 1 for this purpose). Any task roll using this newly created piece of technology increase their complication range by 2, and any complication suffered will render the device useless. The gamemaster has the final say on what can be created using this talent.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
+            },
+            new()
+            {
                 Name = "Saboteur",
                 DepartmentRequirements = new DepartmentRequirements { Engineering = 3 },
                 Weight = 3,
@@ -1785,6 +1819,17 @@ public class TalentSelector
             },
             new()
             {
+                Name = "Criminal Minds",
+                DepartmentRequirements = new DepartmentRequirements { Security = 3 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "By imagining you are a suspect, and thinking in the same way, you gain insight into a criminal’s thought processes or actions. Whenever you succeed at a Reason task roll to interpret evidence about a crime, you generate 1 bonus Momentum, which may only be used to Obtain Information. Bonus Momentum cannot be saved.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
+            },
+            new()
+            {
                 Name = "Crisis Management",
                 DepartmentRequirements = new DepartmentRequirements { Security = 3, Command = 3, Operator = Operator.Or },
                 Weight = 3,
@@ -1792,6 +1837,18 @@ public class TalentSelector
                 {
                     "The Momentum cost to use the Direct major action is removed.",
                 }
+            },
+            new()
+            {
+                Name = "Deadeye Marksman",
+                DepartmentRequirements = new DepartmentRequirements { Security = 3 },
+                AttributeRequirements = new CharacterAttributes { Control = 10 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You’ve spent time at the target range every day, working on your aim. When you take the Aim minor action, you reduce the Difficulty of your next attack by 1, in addition to the normal effects of the Aim minor action.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
             },
             new()
             {
@@ -1827,6 +1884,17 @@ public class TalentSelector
             },
             new()
             {
+                Name = "Full Spread - Maximum Yield!",
+                DepartmentRequirements = new DepartmentRequirements { Security = 3 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You’re skilled in setting up torpedo attacks. When you make an attack with torpedoes, and declare that it is a salvo, you gain 2 bonus Momentum, which may only be used to pay extra targets hit by the Area quality, or for the Devastating Attack Momentum spend when using the Spread quality.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
+            },
+            new()
+            {
                 Name = "Get Down!",
                 DepartmentRequirements = new DepartmentRequirements { Security = 2 },
                 Weight = 2,
@@ -1834,6 +1902,17 @@ public class TalentSelector
                 {
                     "You and any allies within Close range gain +1 Protection while in Cover.",
                 }
+            },
+            new()
+            {
+                Name = "Hunker Down",
+                DepartmentRequirements = new DepartmentRequirements { Security = 2 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "Making good use of your surroundings for protection is one of the hallmarks of a skilled soldier. Whenever you take cover, you may count the Potency of any location trait that represents that cover by +1.",
+                },
+                Source = BookSource.OperationsDivision1stEdition
             },
             new()
             {
