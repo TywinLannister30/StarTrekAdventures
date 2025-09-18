@@ -21,8 +21,8 @@ public class NonPlayerCharacter
         Description = npc.Description;
 
         Traits = new List<string>(npc.Traits);
-        Values = Values != null ? new List<string>(npc.Values) : null;
-        Focuses = Focuses != null ? new List<string>(npc.Focuses) : null;
+        Values = npc.Values != null ? new List<string>(npc.Values) : null;
+        Focuses = npc.Focuses != null ? new List<string>(npc.Focuses) : null;
 
         PersonalThreat = npc.PersonalThreat;
         Protection = npc.Protection;

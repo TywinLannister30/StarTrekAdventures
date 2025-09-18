@@ -119,7 +119,8 @@ public static class CareerPathSelector
                 Focus.MedicalToxicology, Focus.Microbiology, Focus.NeuropsychologyOrPsychiatry, Focus.Parapsychology,
                 Focus.PatientCare, Focus.Pediatrics, Focus.Pharmacology, Focus.Psychiatry, Focus.Psychoanalysis,
                 Focus.PsychosomaticDisorders, Focus.Rheumatology, Focus.StressDisorders, Focus.Surgery, Focus.Triage,
-                Focus.VeterinaryMedicine, Focus.Virology },
+                Focus.VeterinaryMedicine, Focus.Virology 
+            },
             Weight = 10 },
 
         new CareerPath {

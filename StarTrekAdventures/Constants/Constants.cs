@@ -90,6 +90,7 @@ namespace StarTrekAdventures.Constants
         //1st Edition
         public const string CommandDivision1stEdition = "Command Division - 1st Edition";
         public const string OperationsDivision1stEdition = "Operations Division - 1st Edition";
+        public const string ScienceDivision1stEdition = "Science Division - 1st Edition";
     }
 
     public static class SpeciesName
@@ -167,6 +168,13 @@ namespace StarTrekAdventures.Constants
         public const string Zahl = "Zahl";
         public const string Zakdorn = "Zakdorn";
         public const string Zaranite = "Zaranite";
+    }
+
+    public static class SpeciesAbilityName
+    {
+        public const string FaithOfTheHeart = "Faith of the Heart";
+        public const string MentalDiscipline = "Mental Discipline";
+        public const string Sturdy = "Sturdy";
     }
 
     public static class AttributeName
@@ -422,6 +430,7 @@ namespace StarTrekAdventures.Constants
         public const string GalacticPolitics = "Galactic Politics";
         public const string Gambling = "Gambling";
         public const string Genetics = "Genetics";
+        public const string Geography = "Geography";
         public const string Geology = "Geology";
         public const string GroundVehicles = "Ground Vehicles";
         public const string GuidanceSystems = "Guidance Systems";
@@ -505,6 +514,8 @@ namespace StarTrekAdventures.Constants
         public const string Psychology = "Psychology";
         public const string PsychosomaticDisorders = "Psychosomatic Disorders";
         public const string QuantumMechanics = "Quantum Mechanics";
+        public const string QuantumPyhsics = "Quantum Pyhsics";
+        public const string QuantumTheory = "Quantum Theory";
         public const string RapidAnalysis = "Rapid Analysis";
         public const string RepairsAndMaintenance = "Repairs and Maintenance";
         public const string Research = "Research";

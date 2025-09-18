@@ -2183,6 +2183,18 @@ public class TalentSelector
             },
             new()
             {
+                Name = "Temporal Mechanic",
+                DepartmentRequirements = new DepartmentRequirements { Science = 3 },
+                FocusRequirement = Focus.TemporalMechanics,
+                Weight = 2,
+                Description = new List<string>
+                {
+                    "Long study into the facets of temporal mechanics has given you an intuitive understanding of the space-time continuum and the various phenomena that can distort it. Once per scene, when confronted with an anomaly that affects the flow of time and space, you may select one d20 in your dice pool before attempting a Task roll relating to the phenomenon. When you make that task roll, if the die rolls an odd number, you generate one bonus Momentum if you succeed (bonus Momentum may not be saved). If you roll an even number on that die, you add 1 Threat instead.",
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
                 Name = "Testing a Theory",
                 DepartmentRequirements = new DepartmentRequirements { Science = 2 },
                 Weight = 2,
@@ -2212,6 +2224,18 @@ public class TalentSelector
                     "When you succeed at a task using Engineering or Science where you gain the additional d20 from the Testing a Theory talent, or which benefits from a trait that represents a hypothesis you’ve made, you generate 2 bonus Momentum. Bonus Momentum may not be saved.",
                 },
                 TalentRequirement = "Testing a Theory"
+            },
+            new()
+            {
+                Name = "Unconventional Thinking",
+                DepartmentRequirements = new DepartmentRequirements { Science = 3 },
+                AttributeRequirements = new CharacterAttributes { Insight = 9 },
+                Weight = 2,
+                Description = new List<string>
+                {
+                    "During any Challenge or Extended Task to adapt technology or study an unfamiliar phenomenon, you may propose an “Outside the Box” hypothesis—some strange, seemingly bizarre suggestion—and add 2 Threat to create a trait related to that hypothesis. Each time this trait is used to benefit you or your allies, add 1 Momentum to the group pool.",
+                },
+                Source = BookSource.ScienceDivision1stEdition
             },
             new()
             {
@@ -2351,6 +2375,40 @@ public class TalentSelector
                 {
                     "When you attempt the First Aid task during combat, the first die you purchase is free. Further, you may always Succeed at Cost, with each complication you suffer adding 1 to the Difficulty of healing the patient’s Injury subsequently.",
                 }
+            },
+            new()
+            {
+                Name = "Healing Hands",
+                DepartmentRequirements = new DepartmentRequirements { Medicine = 3 },
+                AttributeRequirements = new CharacterAttributes { Control = 9 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "Whenever you attempt a task to remove any injury complications, you may re-roll 1d20.",
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
+                Name = "Heart, Body and Mind",
+                DepartmentRequirements = new DepartmentRequirements { Medicine = 3, Command = 2, Operator = Operator.And },
+                Weight = 5,
+                Description = new List<string>
+                {
+                    "Whenever you succeed at a Medicine task, and you spend Momentum to recover an ally’s Stress, it costs you only 1 Momentum per Stress recovered. If you have any other talents which let you recover an ally’s Stress, any affected ally recovers one more Stress than they would otherwise.",
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
+                Name = "I'm a Doctor, not A...",
+                DepartmentRequirements = new DepartmentRequirements { Medicine = 3 },
+                Weight = 5,
+                Description = new List<string>
+                {
+                    "When you select this talent, choose one of your departments, with which you have a score of 1. When you attempt a task using the selected department, and you spend a point of Determination on that task, you may use your Medicine score instead of that department. The normal limits of spending Determination apply.",
+                },
+                Source = BookSource.ScienceDivision1stEdition
             },
             new()
             {

@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
+using System.Net.NetworkInformation;
 
 namespace StarTrekAdventures.Selectors;
 
@@ -58,6 +59,9 @@ public static class RoleSelector
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Navigator), 5);
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ScienceOfficer), 10);
             if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ShipsDoctor), 10);
+            if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ChiefSurgeon), 5);
+            if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Anesthesiologist), 1);
+            if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.PhysiciansAssistant), 1);
 
             if (character.Experience == ExperienceName.Experienced || character.Experience == ExperienceName.Veteran)
             {
@@ -86,6 +90,8 @@ public static class RoleSelector
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Navigator), 5);
             if (character.Departments.Science >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ScienceOfficer), 10);
             if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ShipsDoctor), 10);
+            if (character.Departments.Medicine >= 3) weightedRoleList.AddEntry(GetRole(RoleName.HeadNurse), 10);
+            if (character.Departments.Medicine >= 3) weightedRoleList.AddEntry(GetRole(RoleName.PhysiciansAssistant), 5);
 
             if (character.Departments.Security >= 3 && character.Departments.Engineering >= 3) weightedRoleList.AddEntry(GetRole(RoleName.CombatEngineer), 1);
             if (character.Departments.Security >= 3 && character.Departments.Engineering >= 3) weightedRoleList.AddEntry(GetRole(RoleName.ExplosiveOrdnanceExpert), 1);
@@ -115,6 +121,10 @@ public static class RoleSelector
             weightedRoleList.AddEntry(GetRole(RoleName.Expert), 10);
 
             if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ShipsDoctor), 10);
+            if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.ChiefSurgeon), 10);
+            if (character.Departments.Medicine >= 3) weightedRoleList.AddEntry(GetRole(RoleName.HeadNurse), 5);
+            if (character.Departments.Medicine >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Anesthesiologist), 5);
+            if (character.Departments.Medicine >= 3) weightedRoleList.AddEntry(GetRole(RoleName.PhysiciansAssistant), 10);
 
             if (character.HasPsychologyFocus())
             {
@@ -298,6 +308,20 @@ public static class RoleSelector
         },
         new Role
         {
+            Name = RoleName.Anesthesiologist,
+            Description = "These medical professionals are experts in treating pain and ensuring that patients do not suffer during the course of their treatments. This is of particular importance during major surgeries and other invasive treatments, as the anaesthesiologist is also responsible for monitoring the patient’s vital signs and adjusting medications during the proceedings. This allows the surgeons and physicians to focus on the task at hand.",
+            Benefit = "When you Assist during a Medicine Task, you do not count against any limit on the number of characters that may assist, and do not have to pay Momentum or add Threat in order to assist.",
+            Source = BookSource.ScienceDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.ChiefSurgeon,
+            Description = "On larger ships and starbases, and on dedicated medical ships, the medical staff may be robust enough to support a dedicated surgery team. The head of this team is the Chief of Surgery or Chief Surgeon. While the duties of this role may often be filled by the Chief Medical Officer (often referred to as Ship’s Surgeon), when there is a dedicated surgeon, a character may choose to assume this role.",
+            Benefit = "When you attempt a Control + Medicine task to remove an Injury (or as part of an extended task to treat multiple injuries), the first bonus d20 you purchase is free.",
+            Source = BookSource.ScienceDivision1stEdition
+        },
+        new Role
+        {
             Name = RoleName.DiplomaticAttache,
             Description = "A civilian from the Federation Diplomatic Corps and a valuable part of the staff who advises the admiral, and briefs them on culture, protocol, and other essential information during negotiations and other diplomatic activities.",
             Benefit = "At the start of any social conflict scene involving a foreign culture, you may spend 2 Momentum (Immediate) to create a trait for any other main character present, representing a briefing you provided them. You may do this even if your character is not personally present in the scene; it is prior counsel, not immediate assistance.",
@@ -309,6 +333,20 @@ public static class RoleSelector
             Description = "A fleet liaison represents the interests of the fleet, and Starfleet as a whole, to one of the Federation’s allies. A Starfleet officer will represent the Federation, though the Gamemaster may allow other fleet liaison officers; for example, a joint Klingon- Federation task force may include a Klingon Empire liaison. These officers report to superiors and allow cooperation between allies.",
             Benefit = "The fleet liaison officer has an additional Trait: Contacts Amongst X, where X is the fleet or service the liaison works with/for. For example, a Klingon Defence Force has the trait Contacts Amongst the Klingon Defence Force.",
             Source = BookSource.CommandDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.HeadNurse,
+            Description = "On almost any Federation starship, sickbay is staffed by a number of nurses, who assist the doctors on board with treating patients. There is, however, always a senior nurse—with the most experience, who works closely with the chief medical officer in managing the nursing staff.",
+            Benefit = "You may substitute your Medicine Department in place of Command whenever attempting to coordinate or direct medical staff or patients under your care, and you may use the Direct major action on them. This may only be used with characters subordinate to you and thus would not apply to doctors or surgeons.",
+            Source = BookSource.ScienceDivision1stEdition
+        },
+        new Role
+        {
+            Name = RoleName.PhysiciansAssistant,
+            Description = "Filling a role between doctor and nurse—and commonly a role filled by those still finishing their training as doctors, nurse-practitioners, or medical researchers who lack their medical doctorate—physician’s assistants have attended medical school, but are not full medical doctors. They have sufficient training to diagnose and treat most minor to moderate conditions, and can make medical recommendations as well as prescribe medications. For more complex or life-threatening conditions, the physician’s assistant will call in a full doctor.",
+            Benefit = "When you succeed at a Medicine task to diagnose or treat a patient, then if you later (during the same mission) assist another character making a Medicine task for that patient, you may roll two d20s to assist rather than one.",
+            Source = BookSource.ScienceDivision1stEdition
         },
         new Role
         {

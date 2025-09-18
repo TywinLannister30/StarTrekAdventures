@@ -50,6 +50,7 @@ public class NpcSelector
         allTalents.AddRange(GetFerengiNpcs());
         allTalents.AddRange(GetDominionNpcs());
         allTalents.AddRange(GetCreatures());
+        allTalents.AddRange(GetUnusualLifeforms());
         return allTalents;
     }
 
@@ -57,6 +58,46 @@ public class NpcSelector
     {
         return new List<NonPlayerCharacter>
         {
+            new()
+            {
+                Name = "Astrocartographer",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "An astrocartographer specializes in the mapping and cataloguing of stars and planets, and any data about those bodies into star charts used by all spacefaring civilizations. An astrocartographer is present on all Starfleet vessels and is integral to maintaining properly updated navigational charts and keeping the onboard science database up to date on all current observations. Astrocartographers in charge of their department are typically lieutenants in rank, and may serve as the single crewmember in their department on smaller ships. On larger vessels there may be multiple astrocartographers of ensign rank and enlisted."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer"
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 7, Daring = 8, Fitness = 7, Insight = 8, Presence = 8, Reason = 9 },
+                Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Sector Specialist",
+                        Description = new List<string>
+                        {
+                            "The gamemaster may choose to make an Astrocartographer an expert in a specific sector of space. All tasks involving the mapping of that sector, location of bodies, navigation hazards, etc., have their Difficulty reduced by 1. However, this reliance on their own expertise can often trip them up when they encounter something unexpected or outside of their knowledge, increasing their complication range by 1."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Visit Every Star")
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
             new()
             {
                 Name = "Cadet",
@@ -97,6 +138,38 @@ public class NpcSelector
                     }
                 },
                 Source = BookSource.CommandDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Counselor",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "Where physicians seek to heal the body, counselors seek to heal the mind and spirit. On board a Starfleet vessel, counselors are typically referred to as ‘doctor,’ ‘counselor,’ or more rarely by their rank."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer",
+                    "Counselor"
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 7, Fitness = 8, Insight = 9, Presence = 8, Reason = 8 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 1, Security = 1, Medicine = 3, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Cold Reading"),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                },
+                Source = BookSource.ScienceDivision1stEdition,
             },
             new()
             {
@@ -323,15 +396,7 @@ public class NpcSelector
                 EscalationAttacks = new List<(string, int)>(),
                 SpecialRules = new List<NpcSpecialRule>
                 {
-                    new()
-                    {
-                        Name = "Faith of the Heart",
-                        Description = new List<string>
-                        {
-                            "When Al-Khaled uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
-                        },
-                        Source = BookSource.OperationsDivision1stEdition,
-                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                     new()
                     {
                         Name = "I Know Starfleet Ships",
@@ -550,6 +615,56 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Physician",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Physicians are trained medical personnel that have gone to medical school and have graduated with a doctorate (or its equivalent) in medicine. With the sheer number of lifeforms in the Federation, there is always a need for physicians that are skilled in a particular specialty or species. On a Starfleet vessel, these crewmembers typically are referred to as ‘doctor’ rather than their rank, but may not be the chief medical officer on board.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer",
+                    "Physician"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "First, do no harm",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.EmergencyMedicine, Focus.Virology
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 9, Fitness = 8, Insight = 8, Presence = 8, Reason = 9 },
+                Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 1, Medicine = 3, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.AnestheticHypospray),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Field Medicine"),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "Interspecies Medical Exchange",
+                        Description = new List<string>
+                        {
+                            "The Physician may reroll a single d20 on any task using Insight to diagnose a member of a species known to the Federation."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Quartermaster",
                 TypeEnum = NPCType.Notable,
                 Description = new List<string>
@@ -653,6 +768,66 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Science Officer",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "During the 23rd century, it was common for a single officer to be given the title of science officer. This officer was in charge of the starship’s science teams, but also acted as the primary sensor operator and data analyst on the bridge. As starships became larger and more complex in the late 23rd and early 24th centuries, this position became rare as more bridge stations allowed for a more diverse collection of specialists to operate sensor platforms and analyze data. A science officer’s rank is typically no less than a lieutenant commander, and often a commander given the amount of responsibility they have over the numerous personnel in the science departments.",
+                },
+                Traits = new List<string>
+                {
+                    "Vulcan",
+                    "Starfleet Officer"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "Fascinating…",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.SensorOperations, "Science Communication"
+                },
+                PersonalThreat = 4,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 7, Insight = 10, Presence = 9, Reason = 11 },
+                Departments = new Departments { Command = 2, Conn = 1, Engineering = 2, Security = 1, Medicine = 2, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Collaboration (Science)"),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
+                    new()
+                    {
+                        Name = "Scientific Specialty",
+                        Description = new List<string>
+                        {
+                            "Choose a scientific focus."
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string>
+                        {
+                            Focus.AlternativeMedicine, Focus.Anesthesiology, Focus.Biotechnology, Focus.Councelling, Focus.Dentistry,
+                            Focus.EmergencyMedicine, Focus.Ethics, Focus.FieldMedicine, Focus.FirstAid, Focus.Genetics, Focus.GuidedTherapy,
+                            Focus.ImagingSystems, Focus.Immunology, Focus.InfectiousDiseases, Focus.InternalMedicine, Focus.Kinesiology,
+                            Focus.MedicalToxicology, Focus.Microbiology, Focus.NeuropsychologyOrPsychiatry, Focus.Parapsychology,
+                            Focus.PatientCare, Focus.Pediatrics, Focus.Pharmacology, Focus.Psychiatry, Focus.Psychoanalysis,
+                            Focus.PsychosomaticDisorders, Focus.Rheumatology, Focus.StressDisorders, Focus.Surgery, Focus.Triage,
+                            Focus.VeterinaryMedicine, Focus.Virology
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Section 31 Operative",
                 TypeEnum = NPCType.Notable,
                 Description = new List<string>
@@ -726,7 +901,7 @@ public class NpcSelector
                 },
                 Focuses = new List<string>
                 {
-                    Focus.Espionage, "Intelligence Analysis", "Undercover Operations,"
+                    Focus.Espionage, "Intelligence Analysis", "Undercover Operations"
                 },
                 PersonalThreat = 3,
                 Protection = 0,
@@ -763,6 +938,62 @@ public class NpcSelector
                     },
                 },
                 Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Starfleet Research Scientist",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Starfleet R&D has kept the Federation on the cutting edge of technological innovation for centuries. Those that work inside the hangar bays, engineering shops, and research facilities operated by R&D are some of the most forward-thinking and creative people in the Federation. From the outside, they may appear stereotypically bookish or socially awkward, but this is because they think and communicate on a level most don’t understand about their passion, the cutting edge of science. Amongst their own, many of these researchers are like test-pilots of 20th century Earth, pushing the envelope of technology or finding new ways to observe and record dangerous phenomena."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Research Scientist"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "On the cutting edge of progress",
+                },
+                Focuses = new List<string>
+                {
+                    "Federation Technology", "Prototyping", Focus.Research
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 10, Fitness = 8, Insight = 8, Presence = 8, Reason = 9 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 2, Security = 1, Medicine = 1, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Bench Thumping the Black Box",
+                        Description = new List<string>
+                        {
+                            "The Research Scientist may bring along experimental technology, far in advance of anything in widespread service. This equipment trait increases its Potency by +1, but any task performed with the device has its complication range increased by +4."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    TalentSelector.GetTalentAsSpecialRule("Jury-Rig"),
+                    new()
+                    {
+                        Name = "Scientific Method",
+                        Description = new List<string>
+                        {
+                            "After a successful Science task, a Research Scientist may spend 1 Momentum or 1 Threat to create a trait which represents a working hypothesis about the situation. When that trait benefits a task they attempt, they may reroll 1d20."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
             },
             new()
             {
@@ -803,6 +1034,54 @@ public class NpcSelector
                     TalentSelector.GetTalentAsSpecialRule("Transporter Chief"),
                 },
                 Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Xenobiology Department Head",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "On a starship, the xenobiology department head is responsible for teams of specialists ranging from microbiologists and molecular biologists to ecologists and biochemists. This person must not only be highly trained in biology, but must also be able to manage large amounts of data about vastly different biochemistries along with ensuring the best person for each new world is assigned where they may best add to the department’s efforts. When a new world filled with strange new life is discovered, the xenobiology department head is often seen as the most important and busiest officer onboard an exploratory vessel.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Starfleet Officer",
+                    "Xenobiologist"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "Seek out new life",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.Biochemistry, Focus.Microbiology, Focus.Xenobiology
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 7, Fitness = 8, Insight = 10, Presence = 8, Reason = 9 },
+                Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 1, Medicine = 3, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                    new()
+                    {
+                        Name = "On the Final Frotnier",
+                        Description = new List<string>
+                        {
+                            "Some xenobiology department heads haven’t been assigned many deep space missions where they have been able to practice their trade extensively, and instead have become more adept at command tasks and management of their department’s personnel and resources. At the Gamemaster’s discretion the Xenobiology Department Head has had this sort of background and increases their Command Discipline to 03 and decreases their Medicine Discipline to 02."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
             },
             new()
             {
@@ -851,15 +1130,7 @@ public class NpcSelector
                         },
                         Source = BookSource.OperationsDivision1stEdition,
                     },
-                    new()
-                    {
-                        Name = "Faith of the Heart",
-                        Description = new List<string>
-                        {
-                            "When Harriman uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
-                        },
-                        Source = BookSource.OperationsDivision1stEdition,
-                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                     NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                     NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                     new()
@@ -922,15 +1193,7 @@ public class NpcSelector
                         },
                         Source = BookSource.CommandDivision1stEdition,
                     },
-                    new()
-                    {
-                        Name = "Faith of the Heart",
-                        Description = new List<string>
-                        {
-                            "When April uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
-                        },
-                        Source = BookSource.CommandDivision1stEdition,
-                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                     NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                     new()
                     {
@@ -989,15 +1252,7 @@ public class NpcSelector
                 EscalationAttacks = new List<(string, int)>(),
                 SpecialRules = new List<NpcSpecialRule>
                 {
-                    new()
-                    {
-                        Name = "Faith of the Heart",
-                        Description = new List<string>
-                        {
-                            "When Zimmerman uses one of his values, add 1 Threat if he is an adversary or add 1 to the group’s Momentum pool if he is an ally."
-                        },
-                        Source = BookSource.OperationsDivision1stEdition,
-                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                     new()
                     {
                         Name = "Innovation",
@@ -1456,6 +1711,129 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Explorer (Academic)",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "Starfleet doesn’t hold a monopoly on those that wish to explore the Galaxy. There are many civilians who have dedicated their lives to being like naturalists of old such as Darwin and Dioscorides. Instead of researching and analyzing, explorers tend to go out into the universe and turn over rocks to gain a better understanding of the world. While these people tend to not be as respected as those that have spent their lives studying and experimenting, many of their observations and discoveries can go on to influence researchers and academia."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Independent Explorer",
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 7, Insight = 9, Presence = 7, Reason = 8 },
+                Departments = new Departments { Command = 0, Conn = 2, Engineering = 3, Security = 0, Medicine = 1, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                    WeaponSelector.GetWeapon(WeaponName.ParticleRifle),
+                },
+                EscalationAttacks = new List<(string, int)> { (WeaponName.ParticleRifle, 1) },
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Academic Explorer",
+                        Description = new List<string>
+                        {
+                            "The Explorer has a focus of Stellar Cartography, Planetary Geography, or Geomorphology.",
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string> { "Geomorphology", "Planetary Geography", Focus.StellarCartography },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Explorer (Exploring Life)",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "Starfleet doesn’t hold a monopoly on those that wish to explore the Galaxy. There are many civilians who have dedicated their lives to being like naturalists of old such as Darwin and Dioscorides. Instead of researching and analyzing, explorers tend to go out into the universe and turn over rocks to gain a better understanding of the world. While these people tend to not be as respected as those that have spent their lives studying and experimenting, many of their observations and discoveries can go on to influence researchers and academia."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Independent Explorer",
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 7, Insight = 9, Presence = 7, Reason = 8 },
+                Departments = new Departments { Command = 0, Conn = 2, Engineering = 1, Security = 0, Medicine = 3, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                    WeaponSelector.GetWeapon(WeaponName.ParticleRifle),
+                },
+                EscalationAttacks = new List<(string, int)> { (WeaponName.ParticleRifle, 1) },
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Explorering Life",
+                        Description = new List<string>
+                        {
+                            "The Explorer has a focus of Xenobiology.",
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string> { Focus.Xenobiology },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Explorer (Trailblazer)",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "Starfleet doesn’t hold a monopoly on those that wish to explore the Galaxy. There are many civilians who have dedicated their lives to being like naturalists of old such as Darwin and Dioscorides. Instead of researching and analyzing, explorers tend to go out into the universe and turn over rocks to gain a better understanding of the world. While these people tend to not be as respected as those that have spent their lives studying and experimenting, many of their observations and discoveries can go on to influence researchers and academia."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Independent Explorer",
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 7, Insight = 9, Presence = 7, Reason = 8 },
+                Departments = new Departments { Command = 0, Conn = 3, Engineering = 1, Security = 1, Medicine = 1, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                    WeaponSelector.GetWeapon(WeaponName.ParticleRifle),
+                },
+                EscalationAttacks = new List<(string, int)> { (WeaponName.ParticleRifle, 1) },
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Explorering Life",
+                        Description = new List<string>
+                        {
+                            "The Explorer has a focus of Astronavigation.",
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string> { Focus.Astronavigation },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Informant",
                 TypeEnum = NPCType.Minor,
                 Description = new List<string>
@@ -1517,6 +1895,126 @@ public class NpcSelector
                     },
                 },
                 Source = BookSource.CommandDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Professor (Hard Science)",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "A professor is a catch-all term for a professional scientist or researcher that has completed what would be equivalent to the doctorate program in their field and has many years of experience. A professor can be found teaching at universities across the Federation, leading a team of researchers or even a whole research lab, or as an officer with a rank of lieutenant or lieutenant junior grade in the sciences division."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Professor",
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 7, Fitness = 7, Insight = 9, Presence = 8, Reason = 10 },
+                Departments = new Departments { Command = 2, Conn = 0, Engineering = 1, Security = 0, Medicine = 1, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Hard Science",
+                        Description = new List<string>
+                        {
+                            "The professor gains a focus based on a single scientific field of study, e.g., Astrophysics, Subspace Theory, Quantum Mechanics",
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string> { Focus.Astrophysics, Focus.SubspaceTheory, Focus.QuantumMechanics },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Professor (Research Lead)",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "A professor is a catch-all term for a professional scientist or researcher that has completed what would be equivalent to the doctorate program in their field and has many years of experience. A professor can be found teaching at universities across the Federation, leading a team of researchers or even a whole research lab, or as an officer with a rank of lieutenant or lieutenant junior grade in the sciences division."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Professor",
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 7, Fitness = 7, Insight = 9, Presence = 8, Reason = 9 },
+                Departments = new Departments { Command = 3, Conn = 0, Engineering = 1, Security = 0, Medicine = 1, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Research Lead",
+                        Description = new List<string>
+                        {
+                            "The professor has a broad background in the sciences and has honed their people skills to lead other researchers in their projects. They gain a focus of Team Dynamics.",
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string> { Focus.TeamDynamics },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Professor (Social Scientist)",
+                TypeEnum = NPCType.Minor,
+                Description = new List<string>
+                {
+                    "A professor is a catch-all term for a professional scientist or researcher that has completed what would be equivalent to the doctorate program in their field and has many years of experience. A professor can be found teaching at universities across the Federation, leading a team of researchers or even a whole research lab, or as an officer with a rank of lieutenant or lieutenant junior grade in the sciences division."
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Professor",
+                },
+                RandomSpecies = true,
+                PersonalThreat = 0,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 7, Fitness = 7, Insight = 9, Presence = 8, Reason = 9 },
+                Departments = new Departments { Command = 2, Conn = 0, Engineering = 1, Security = 0, Medicine = 1, Science = 3 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Social Scientist",
+                        Description = new List<string>
+                        {
+                            "A social scientist is trained in how intelligent beings interact with the world around them in fields such as Anthropology, Geography, and Linguistics, and may often specialize in a single world or culture. They gain a focus such as Andorian History, or Tellarite Jurisprudence, or Xenolinguistics.",
+                        },
+                        HideIfGenerating = true,
+                        AddRandomFocus = new List<string> { "Andorian History", Focus.Anthropology, Focus.Geography, Focus.Linguistics, "Tellarite Jurisprudence", "Xenolinguistics"},
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
             },
             new()
             {
@@ -1602,6 +2100,99 @@ public class NpcSelector
                     TalentSelector.GetTalentAsSpecialRule("Procedural Compliance"),
                 },
                 Source = BookSource.OperationsDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Terraformer",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Terraforming specialists are a broad class of academics doing research into furthering the field of terraforming technologies, scientists researching and studying possible worlds for terraforming, as well as the hard-working engineers of Starfleet’s Corps of Engineers Terraforming Division. These people are found on worlds across the Federation and beyond, expanding the number of worlds able to be settled and assisting newly admitted worlds to the Federation in fixing any environmental damage they may have. Regardless of what part of the terraforming field they may be in, these scientists and engineers typically have a good understanding of physics, climatology, and spacebased engineering. Terraforming specialists can also be found on starbases as they move between new planets or projects, and many larger exploration starships have at least one of these personnel aboard, cataloguing new worlds that could host a colony with some atmospheric adjustments. While terraforming technically refers to making a world more Earth-like, in the Federation the term has come to mean making a world more Class-M-like, and terraformers can be of any species.",
+                },
+                Traits = new List<string>
+                {
+                    "Species (add 3 points to attributes based on species)",
+                    "Terraforming Engineer"
+                },
+                RandomSpecies = true,
+                Values = new List<string>
+                {
+                    "Making the Galaxy a better place one world at a time",
+                },
+                Focuses = new List<string>
+                {
+                    "Geoengineering", "Macro-Engineering", "Terraforming Technology"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 7, Daring = 9, Fitness = 7, Insight = 10, Presence = 8, Reason = 10 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 3, Security = 0, Medicine = 2, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "The World is my Oyster",
+                        Description = new List<string>
+                        {
+                            "Due to their dedication and a terraformer’s deep insight into the worlds they are reengineering, they can ignore the first complication generated on a task related to their terraforming project."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Vulcan Science Academy Professor Emeritus",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "For centuries the Vulcan Science Academy has been known as one of the Federation’s best learning institutions, with the strictest standards for admission and no tolerance for anything less than perfection. The demand for perfection and intellectual rigor for its professors is even stronger, and only the best minds on Vulcan can ever claim to have taught at the Academy. These positions, however, are temporary, as the Academy refuses to allow its teaching staff to become stagnant or to lose their curiosity of the universe around them; after a time these professors leave to continue their teaching or research elsewhere. A VSA professor emeritus, one who used to teach at the Academy, is highly sought after in other institutions of higher learning, and many go on to find teaching positions at Starfleet Academy and the Daystrom Institute.",
+                },
+                Traits = new List<string>
+                {
+                    "Vulcan",
+                    "Professor Emeritus of the Vulcan Science Academy",
+                    "Respected Expert"
+                },
+                Values = new List<string>
+                {
+                    "Logic is the beginning, not the end, of wisdom",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.Teaching, Focus.Physics, Focus.QuantumTheory, Focus.SubspaceTheory
+                },
+                PersonalThreat = 5,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 10, Daring = 7, Fitness = 9, Insight = 8, Presence = 9, Reason = 11 },
+                Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 0, Medicine = 1, Science = 4 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Kohlinar"),
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
+                    TalentSelector.GetTalentAsSpecialRule("Teacher"),
+                    new()
+                    {
+                        Name = "Using Reason as our Guide",
+                        Description = new List<string>
+                        {
+                            "A VSA professor emeritus is highly skilled in logic and reason, and during their time teaching and researching at the Vulcan Science Academy, they have become used to determining the validity of ideas based on rationalizing all available data. At the gamemaster’s discretion, once per mission the VSA professor emeritus may use their Reason attribute in place of any other on a task."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
             },
             new()
             {
@@ -1738,6 +2329,337 @@ public class NpcSelector
             },
             new()
             {
+                Name = "Dr. Carol Marcus",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Much of Carol Marcus’ worldview was formed by being a ‘Starfleet Brat’, travelling from post to post with her father Admiral Alexander Marcus as she grew up. Seeing alien beings and the almost infinite variety of life on the worlds she visited let her gain a deep interest in knowing about them. After graduating with a doctorate in molecular biology and a M.S. in xenobiology, Doctor Marcus quickly rose to become the preeminent researcher in her field. A string of groundbreaking research papers brought her to the attention of the Daystrom Institute, where she became a permanent fellow. By the early 2270s Doctor Marcus was the lead researcher of Project Genesis, a multi-disciplinary research and development project directly monitored by the Federation Science Council and in cooperation with the Starfleet Corps of Engineers. Although it began as a way to research whether it was possible to artificially create designed lifeforms for biochemical production, or to make new disease-resistant crops, the project became the single most debated scientific discovery and technological breakthrough of the 23rd century, the Genesis Device. The device was capable of scanning an environment, determining what resources weren’t present, and then, using an anti-matter powered detonation, it began to reconstruct matter at the atomic level to produce a Class-M environment fully stocked with plant life. After its initial accidental use in the Mutara Nebula made many question her ethics in making something that could so easily be used as a weapon, and after the death of her son on the Genesis Planet, Doctor Marcus withdrew from public life and resigned from her position at the Daystrom Institute. Even after her withdrawal, Carol Marcus’ papers on molecular biology and artificial creation of biological matter would help researchers develop replicated foodstuffs and assist in new ways to produce large quantities of algae for terraforming new worlds.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Legendary Scientist",
+                    "Creator of Project Genesis",
+                    "True Believer"
+                },
+                Values = new List<string>
+                {
+                    "Can I cook, or can’t I?",
+                    "Life from lifelessness",
+                    "Feeling young as when the world was new",
+                },
+                Focuses = new List<string>
+                {
+                    "Geoengineering", "Molecular Biology", Focus.QuantumPyhsics, Focus.Xenobiology, 
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 7, Daring = 7, Fitness = 9, Insight = 11, Presence = 10, Reason = 12 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 3, Security = 1, Medicine = 5, Science = 5 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Doctor's Orders"),
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                    new()
+                    {
+                        Name = "Starfleet Brat",
+                        Description = new List<string>
+                        {
+                            "Carol Marcus grew up with Starfleet in her blood and she knows the structure of Starfleet better than most civilians (and knows many who currently serve in it). Succeeding at a task involving Starfleet operations or organizational structure, Carol Marcus gains one bonus Momentum that can only be spent to Obtain Information. This stacks with the Studious talent."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Studious"),
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Dr. Lewis Zimmerman",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "When Lewis Zimmerman graduated Starfleet Academy in 2342 he began his computers career maintaining the complex isolinear networks on board the starships he served. His studies in isolinear database functionality combined with an interest in holo-engineering, and after a breakthrough he made resulted in more life-like holographic people, Starfleet transferred Doctor Zimmerman to Jupiter Station, the primary research facility for holographic technologies. It was here that he collected the largest database of medical facts and practices in the Federation. He even found personal logs of famous Starfleet medical officers and used them to correlate behavior and ethics into the database.",
+                    "The end result of this work was the creation of the Emergency Medical Hologram, or EMH1. This holographic matrix was more complex than any program written before it and consisted of multiple layers of databases, ethical subroutines and behavioral patterns giving it the skills and knowledge that most biological physicians could only dream of. Problems quickly became apparent as the behavioral routines meant that the EMH typically became contemptuous with patients and had little bedside manner. As the EMH’s appearance was modeled after Zimmerman himself, he felt a great humiliation when the programs were transferred off active Starfleet vessels for being faulty. Instead they were assigned to Federation mining facilities processing dilithium. Since that time, Zimmerman has continued his work on Jupiter Station as the research and development lead for the EMH Mk II, III, and IV programs, even while depressed with the failure of his first great creation."
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Legendary Scientist",
+                    "Pioneering Holo-Engineer",
+                    "Jerk"
+                },
+                Values = new List<string>
+                {
+                    "Like father like son",
+                    "There’s nothing worse than a room full of pointy-eared blowhards",
+                    "At least one of you is still doing what I designed you to do",
+                },
+                Focuses = new List<string>
+                {
+                    "Holo-Engineering", "Isolinear Computer Systems", "Neural Networks", Focus.TransportersAndReplicators
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 11, Daring = 9, Fitness = 7, Insight = 11, Presence = 7, Reason = 12 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 5, Security = 2, Medicine = 3, Science = 4 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Computer Expertise"),
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                    TalentSelector.GetTalentAsSpecialRule("Studious"),
+                    new()
+                    {
+                        Name = "Zimmerman Zeal",
+                        Description = new List<string>
+                        {
+                            "More so than most expert holo-engineers, Doctor Zimmerman is able to layer and link multiple levels of programming into each of his creations, sometimes databases or personality traits that may not normally be compatible. When Dr. Zimmerman attempts a task for constructing a holographic character, humanoid or otherwise, the first bonus d20 is free, but the complication range is increased by 2. A complication may produce a  strange quirk to the holographic character, causing them to deviate from their normal parameters, perhaps gaining some personality flaw, or even a holographic pet iguana suddenly gaining the ability to speak and repeating embarrassing things to anyone in earshot."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Dr. Noonian Soong",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Doctor Soong was a rising star in the Federation for his work on cybernetic interfaces in prosthetics. He began research into a new form of neural networking and artificial intelligence systems that he touted as being ground-breaking during conference presentations. But year after year he was unable to present any real working models of his positronic brain, and his papers began to be rejected by journals and the Daystrom Institute. Humiliated and disgraced after giving a rambling and spiteful presentation to the Federation Science Council, Doctor Soong disappeared from public life. He secretly travelled to the colony world of Omicron Theta where he continued to work on his ‘positronic brain’. With the change in location, plus the love and assistance of his new wife Juliana O’Donnell, Soong made a breakthrough in nanoscale circuitry and made a prototype positronic brain. During those years Doctor Soong and Ms. O’Donnell perfected means to build both a positronic brain and network along with advanced cybernetic components, producing a humanoid android named B-4, and two more advanced androids, Lore and Data.",
+                    "After the attack on Omicron Theta by the Crystalline Entity, Soong made one final android to house the memories of his dying wife, the new Juliana being unaware that she was artificial. Soong would continue to improve upon his positronic AI systems until his death at the hands of his ‘son’ Lore in 2367, even manufacturing an ‘emotion chip’ that could give Data human-like emotions and needs. Now considered to be one of the greatest minds of the 24th century, Soong’s legacy continues to improve as Lt. Commander Data develops as a recognized sentient being."
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Legendary Scientist",
+                    "Pioneering Cyberneticist",
+                    "Long Family History of Scientists",
+                    "Nine Lives"
+                },
+                Values = new List<string>
+                {
+                    "In my image",
+                    "Often wrong, but proven right",
+                    "Everybody dies… well, almost everybody",
+                },
+                Focuses = new List<string>
+                {
+                    "Artificial Intelligence Systems", Focus.Cybernetics, "Nano-scale Engineering", "Positronic Networks",
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 10, Fitness = 6, Insight = 12, Presence = 7, Reason = 12 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 5, Security = 2, Medicine = 1, Science = 5 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    TalentSelector.GetTalentAsSpecialRule("Computer Expertise"),
+                    new()
+                    {
+                        Name = "Deus ex Machina",
+                        Description = new List<string>
+                        {
+                            "Dr. Soong’s creations have stunned the world of science and engineering, and thousands of papers have been published on the subject of the construction of simple positronic brains since his death, but none ever comes close to replicating his techniques or ability to cultivate sentience from otherwise lifeless material. Any task to reproduce or recreate Dr. Soong’s work increases in Difficulty by +2, and increases the complication range by 1. Any complication suffered from such a task counts as two complications: if a trait is created, it gains +1 Potency, while if it is paid off in Threat, 4 Threat is added rather than 2."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                    TalentSelector.GetTalentAsSpecialRule("Studious"),
+                   
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Dr. Richard Daystrom",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Richard Daystrom demands attention with his deep baritone voice and his imposing height, but he is able to keep people’s attention with his quick wit, incredible intelligence, and his sardonic humor. Daystrom seemed to be destined for greatness as he developed a unique way of computing what he termed ‘comptronic circuits’ during his time as a graduate student. Then, when he was only 24 years old he invented duotronic computing, a revolutionary new technology that made the older semi-conductor-based computing of the past obsolete. This single discovery swept through the Federation, technology and sensing equipment that once only fit in sickbay or science labs being able to be miniaturized and made into the standard tricorder systems known from the 23rd century onwards. He won the Nobel and Zee-Magness Prize for his work, honors that few have achieved together. His genius came with paranoia, and he felt that his work was mocked or ignored by others in his field. His feelings of persecution continued to drive him to continue his development of duotronics into what he felt was the next step in computing technology, the ‘multitronic’ M-5 system. Without a doubt, the multitronic concept provided a computer system that wouldn’t be rivaled in complexity or processing power until Dr. Soong’s invention of positronic circuitry in the 24th century, but the technology was unstable and resulted in the murder of hundreds of Starfleet personnel during wargames where the M-5 computer was in command of the Enterprise. Daystrom’s genius was not forgotten even after he was committed to an asylum for rehabilitation, and the Daystrom Institute is the preeminent center of research and development in multiple fields of study for Starfleet and the Federation as a whole.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Legendary Scientist",
+                    "Inventor of Duotronic Computing",
+                    "Nervous Breakdown"
+                },
+                Values = new List<string>
+                {
+                    "You must not die!",
+                    "Living up to my own greatness",
+                    "Man or machine? Man and machine.",
+                },
+                Focuses = new List<string>
+                {
+                    "Artificial Intelligence Systems", "Duotronic Computers", "Micro-scale Engineering", "Multitronic Computers"
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 7, Daring = 7, Fitness = 9, Insight = 11, Presence = 10, Reason = 12 },
+                Departments = new Departments { Command = 2, Conn = 1, Engineering = 5, Security = 2, Medicine = 1, Science = 5 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                    TalentSelector.GetTalentAsSpecialRule("Studious"),
+                    new()
+                    {
+                        Name = "Sure of Greatness",
+                        Description = new List<string>
+                        {
+                            "For Daystrom’s entire adult life he has been exalted as having one of the greatest minds in the Federation. Any character assisting Daystrom increases their Complication range by 2 (18-20). Any Complication generated by this roll imposes the Beneath Me Trait, increasing the Difficulty of that character working with Daystrom again. This same Special Rule applies to the M-5 computer system itself as it uses the memory engrams of Daystrom himself, and will not directly follow commands from crewmembers if they do not fit with its vision of its base programming."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Testing a Theory"),
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Dr. Zephram Cochrane",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Perhaps the most respected scientist and engineer of Earth in the past 300 years, Zefram Cochrane came to represent humanity’s hope for a better tomorrow. Cochrane grew up during Earth’s Third World War and saw what science and progress had done to the world around him when it was used by people who only wanted to take for themselves. Educated in some of the last functioning universities in North America, Cochrane began using the remnants of cyclotrons to explore possible ways to make a more efficient fusion reactor to help bring electricity back to the millions living in darkness across the continent. His discovery of subspace and his subsequent development of warp theory brought him and some of his followers to an abandoned missile silo in Montana where he began retrofitting an ICBM with what he hoped would be a new propulsion system that would not only allow people to leave Earth for less radioactive and polluted worlds, but also could bring him enough wealth and fame that he could retire to a warm island for the rest of his life. The launch of Phoenix, the First Contact with the Vulcans, and his later self-reflection on who and what he was to the planet after his momentous flight made him change his outlook on life and become the symbol society needed as it rebuilt itself from its near destruction. Through the rest of the 21st and much of the early 22nd centuries, Cochrane continued to develop warp theory against the wishes of the Vulcans, paving the way for his final project, the Warp 5 engine. Cochrane would later disappear on a trip between the Solar System and his shipyards at Proxima Centauri, his fate unknown.",
+                },
+                Traits = new List<string>
+                {
+                    "Human",
+                    "Legendary Scientist",
+                    "Pioneering Warp Engineer",
+                    "Functioning Alcoholic",
+                    "Survivor of World War 3"
+                },
+                Values = new List<string>
+                {
+                    "Don’t be a great man, just be a man",
+                    "Let’s Rock’n’roll!",
+                    "Imagine it, thousands of inhabited planets at our fingertips",
+                },
+                Focuses = new List<string>
+                {
+                    "Aerospace Engineering", "Classical Physics", "Rocketry", "Scavenging", Focus.SubspaceTheory, Focus.WarpTheory
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 10, Fitness = 7, Insight = 12, Presence = 7, Reason = 12 },
+                Departments = new Departments { Command = 2, Conn = 2, Engineering = 5, Security = 2, Medicine = 1, Science = 5 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                    new()
+                    {
+                        Name = "Broken liquor bottle",
+                        Type = WeaponType.Melee,
+                        Injury = InjuryType.Deadly,
+                        Severity = 2,
+                        Size = WeaponSize.OneHanded,
+                        Qualities = new List<WeaponQuality>
+                        {
+                            WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                    new()
+                    {
+                        Name = "Godspeed",
+                        Description = new List<string>
+                        {
+                            "Cochrane is incredibly skilled at making disparate pieces of technology, scavenged parts, and outdated computer systems work together to form a functioning vehicle and cutting-edge technology. This is often accomplished through brute force, removing safeties, or as Cochrane would put it, “Giving it enough slack to tighten up when it needs to.” This means that while a piece of technology built by Doctor Cochrane may look, act, and actually be incredibly dangerous, it tends to work out in the end. Whenever Cochrane has juryrigged a piece of technology, with the Jury-Rig talent, the gamemaster may spend 3 Momentum or Threat to have the item work again once more after its useful scenes have expired."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Jury-Rig"),
+                    TalentSelector.GetTalentAsSpecialRule("Testing a Theory"),
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
+                Name = "Federation Science Councilor",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Members of the Federation Science Council are not appointed based on homeworld or population numbers; rather a Councilor is asked to join based on their field of study and the quality of their work. This means that the Science Council is typically staffed with people who have won the Nobel Prize, Zee-Maganes Prize, and Daystrom Award. These are the people who set the goals of the Federation’s major research facilities, redirect resources from industries to universities, and provide direction to Starfleet in specific mission objectives around important scientific matters. When the Science Council asks Starfleet to explore a specific star system, or to keep an eye out for a strange anomaly, it is because the Council has come to the conclusion that there is a lack of understanding or a possibility of making a significant discovery. The Science Council also provides a judicial function of sorts dealing with scientific ethics and philosophical debates about the application of new technologies, and standing in front of a Councilor attempting to justify ethically questionable methods is something no legitimate scientist ever wishes to have happen to them.",
+                },
+                Traits = new List<string>
+                {
+                    "Tellarite",
+                    "Prominent Xenoanthropoligist",
+                    "Zee-Magnees Laureate",
+                },
+                Values = new List<string>
+                {
+                    "Leading in discovery",
+                    "Nobody has all the answers, but knowing what questions to ask is the next best thing",
+                },
+                Focuses = new List<string>
+                {
+                    Focus.Ethics, "The Prime Directive", "Xenoanthropology", "Xenoarchaeology", Focus.Xenobiology
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 8, Insight = 10, Presence = 10, Reason = 11 },
+                Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 1, Medicine = 3, Science = 5 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Field of Specialty",
+                        Description = new List<string>
+                        {
+                            "A Science Council member always has a specialty in which they are an undisputed expert. Select one of their focuses. When using that focus, the Councilor may double their focus range."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Incisive Scrutiny"),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                    new()
+                    {
+                        Name = "Science on Standby",
+                        Description = new List<string>
+                        {
+                            "The Councilor may increase the amount of Crew Support available to the ship by 2 for a single mission. This Crew Support may only be used to introduce scientists and medical personnel."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition,
+                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Sturdy),
+                },
+                Source = BookSource.ScienceDivision1stEdition,
+            },
+            new()
+            {
                 Name = "Sarek",
                 TypeEnum = NPCType.Major,
                 Description = new List<string>
@@ -1785,15 +2707,7 @@ public class NpcSelector
                     TalentSelector.GetTalentAsSpecialRule("Cold Reading"),
                     TalentSelector.GetTalentAsSpecialRule("Mind Meld"),
                     TalentSelector.GetTalentAsSpecialRule("Nerve Pinch"),
-                    new()
-                    {
-                        Name = "Mental Discipline",
-                        Description = new List<string>
-                        {
-                            "Sarek’s Personal Threat is equal to his Control, and he may suffer 2 Stress to avoid suffering any trait which represents an emotional state. If he becomes Fatigued, he increases the potency of any such emotion-related trait by 1."
-                        },
-                        Source = BookSource.CommandDivision1stEdition,
-                    },
+                    SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                     new()
                     {
                         Name = "Renowned Diplomat",
@@ -2971,6 +3885,354 @@ public class NpcSelector
                         }
                     }
                 },
+            },
+        };
+    }
+
+    private static IEnumerable<NonPlayerCharacter> GetUnusualLifeforms()
+    {
+        return new List<NonPlayerCharacter>
+        {
+            new()
+            {
+                Name = "Dikironium Cloud Creature",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Composed of dikironium gas, these creatures are either invisible or appear as a thin mist. Their presence can be noticed by the sickly-sweet smell they give off. These creatures appear to be intelligent, but utterly hostile to corporeal life. Starfleet has only encountered one of these creatures, but it can breed and there are presumably others. These creatures most likely breed rarely, by fission, potentially producing hundreds or thousands of equally deadly offspring."
+                },
+                Traits = new List<string>
+                {
+                    "Dikironium Cloud",
+                    "Predatory Haemovore",
+                    "Hostile to Corporeal Life"
+                },
+                Values = new List<string>
+                {
+                    "Devourer of Iron-Based Blood"
+                },
+                Focuses = new List<string>
+                {
+                    "Gravity Manipulation"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 11, Daring = 10, Fitness = 12, Insight = 7, Presence = 7, Reason = 7 },
+                Departments = new Departments { Command = 0, Conn = 1, Engineering = 0, Security = 3, Medicine = 0, Science = 0 },
+                Attacks = new List<Weapon>
+                {
+                    new()
+                    {
+                        Name = "Consumption of Blood",
+                        Type = WeaponType.Melee,
+                        Injury = InjuryType.Deadly,
+                        Severity = 8,
+                        Size = WeaponSize.OneHanded,
+                        Qualities = new List<WeaponQuality>
+                        {
+                            WeaponSelector.GetWeaponQuality(WeaponQualityName.Area),
+                            WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Consumption Attack",
+                        Description = new List<string>
+                        {
+                            "The Cloud’s attack relies on physical contact with a living creature’s body, so EV suits and other equipment that protects a creature from the environment renders that creature immune to the Cloud’s attacks. Forcefields, and armour which provides less than total protection has no effect. The Cloud cannot affect creatures who lack Iron-based blood, and it will suffer a complication if it attempts to attack them."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Gaseous Creature",
+                        Description = new List<string>
+                        {
+                            "This ravenous creature is a living cloud of gas that can spread across a space of several meters. As part of a Move minor action, the Cloud can expand to cover an entire zone, putting itself within Reach of all characters within that zone. It can move through any gap that is not air-tight, and it can fly freely through the air, and it can move through space at faster-than-light speeds."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Invulnerable",
+                        Description = new List<string>
+                        {
+                            "The Cloud is impervious to harm, and cannot suffer Injuries except from direct exposure to antimatter."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Molecular Metamorphosis",
+                        Description = new List<string>
+                        {
+                            "When being scanned or searched for, it can spend 2 Threat to alter its molecular composition, blending in with its surroundings and becoming near-impossible to detect."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    }
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
+                Name = "Eizax",
+                TypeEnum = NPCType.Major,
+                Description = new List<string>
+                {
+                    "Dark matter beings that are very hard to detect. They only interact with and perceive the material Galaxy through their manipulation of gravity. They can change the force of gravity, manipulating gravitons into forms that can communicate with beings in the normal Galaxy, the strongest being able to compress and collapse stars."
+                },
+                Traits = new List<string>
+                {
+                    "Eizax",
+                    "Dark Matter Entity"
+                },
+                Focuses = new List<string>
+                {
+                    "Gravity"
+                },
+                PersonalThreat = 8,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 12, Daring = 10, Fitness = 0, Insight = 7, Presence = 8, Reason = 10 },
+                Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 0, Science = 1 },
+                Attacks = new List<Weapon>
+                {
+                    new()
+                    {
+                        Name = "Gravitic Crush",
+                        Type = WeaponType.Melee,
+                        Injury = InjuryType.StunOrDeadly,
+                        Severity = 6,
+                        Size = WeaponSize.OneHanded,
+                        Qualities = new List<WeaponQuality>
+                        {
+                            WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
+                            WeaponSelector.GetWeaponQuality(WeaponQualityName.Piercing),
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Invulerable",
+                        Description = new List<string>
+                        {
+                            "Eizax do not exist in the material universe: they are impervious to harm, and cannot suffer Injuries."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Gravity Sense",
+                        Description = new List<string>
+                        {
+                            "The Eizax perceive and interact with the galaxy through sensing the mass of objects and manipulating gravity. They cannot detect energy waves or radiation."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    }
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
+                Name = "Koinonian",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Unlike many non-corporeal lifeforms, Koinonians evolved in this form, and while they are powerful, their powers are far more limited than some other non-corporeal entities, seeming no wiser or more intelligent than most humanoids. After the corporeal beings they shared their world with destroyed themselves in a genocidal war, these creatures became aware of how fragile corporeal beings are and continue to feel guilt over not preventing the other species’ destruction. Their energy emissions are detectable to ordinary sensors and a starship’s shields can keep them out, although with effort they can briefly overload these shields. They can read minds, move and manipulate matter, cause living beings to fall unconscious, and create temporary constructs similar to those found in a holodeck, but more realistic. However, they cannot revive the dead, create living beings, or teleport themselves or any matter from one location to another. They must instead move their own non-corporeal form from one location to another, which they can do with great speed. Nothing short of a starship’s weapons is likely to affect  these powerful beings. They are peaceful, but also lack understanding of organic lifeforms."
+                },
+                Traits = new List<string>
+                {
+                    "Koinonian",
+                    "Incorporeal Being"
+                },
+                Values = new List<string>
+                {
+                    "We must atone for letting the corporeals destroy themselves",
+                    "Reduce the suffering of others"
+                },
+                Focuses = new List<string>
+                {
+                    "Anti-matter Manipulation", "Telepathy"
+                },
+                PersonalThreat = 3,
+                Protection = 3,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 8, Insight = 7, Presence = 9, Reason = 9 },
+                Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 2, Medicine = 0, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    new()
+                    {
+                        Name = "Matter Manipulation",
+                        Type = WeaponType.Ranged,
+                        Injury = InjuryType.Stun,
+                        Severity = 4,
+                        Size = WeaponSize.TwoHanded,
+                        Qualities = new List<WeaponQuality>(),
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Incorporeal),
+                    new()
+                    {
+                        Name = "Matter/Antimatter Manipulation",
+                        Description = new List<string>
+                        {
+                            "As a major action, with a Control + Engineering or Science task with a Difficulty of 2, a Koinonian can create an object or a replica of an entity that functions almost identically to the original. It cannot create a living being, though it can create realistic-seeming simulacra. This creation is treated as a trait, rather than as a distinct character."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Telepathy"),
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
+                Name = "Organian",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "The Organians are exceptionally powerful entities whose powers can affect thousands of targets many light years away. Millions of years ago, they were corporeal humanoids, but evolved into creatures of pure energy with seemingly limitless powers. When visitors came to their planet, they appeared to be peaceful pre-industrial humanoids and desired only to be left in peace. However, they also abhorred the senseless taking of life and intervened in the affairs of less evolved species. These vastly powerful beings are roughly equal in power to the Q (see p.60 for details of the Q’s power). The Organians are less willing to display the full extent of their powers than the Q, but can do so when they consider it necessary."
+                },
+                Traits = new List<string>
+                {
+                    "Organian",
+                    "Evolved Lifeforms",
+                    "Beings of Pure Thought"
+                },
+                Values = new List<string>
+                {
+                    "Peace and Privacy"
+                },
+                Focuses = new List<string>
+                {
+                    "Astral Projection", Focus.Diplomacy, "Resurrection", "Telepathic Control"
+                },
+                PersonalThreat = 3,
+                Protection = 0,
+                Attributes = new CharacterAttributes { Control = 8, Daring = 7, Fitness = 8, Insight = 10, Presence = 10, Reason = 11 },
+                Departments = new Departments { Command = 3, Conn = 0, Engineering = 1, Security = 1, Medicine = 2, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    new()
+                    {
+                        Name = "Far Sight",
+                        Description = new List<string>
+                        {
+                            "An Organian ignores all penalties for distance when observing distant objects, and can perceive events occurring over many light years’ distance."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Invulnerable",
+                        Description = new List<string>
+                        {
+                            "Organians are impervious to harm, and cannot suffer Injuries. If they have assumed physical bodies, they can choose to appear as if injured or dead, but they cannot suffer actual harm."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Telepathic Control",
+                        Description = new List<string>
+                        {
+                            "An Organian can occupy and control the body of another creature. This is an opposed task, with the Organian rolling Reason + Command against the target’s Reason + Command. Success means that the Organian controls that creature for the remainder of the current scene. They can also use this ability to alter the memories of other beings, often using this to conceal their activities or involvement."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    TalentSelector.GetTalentAsSpecialRule("Telepathic Projection"),
+                    TalentSelector.GetTalentAsSpecialRule("Telepathy"),
+                    new()
+                    {
+                        Name = "Ultimate Truth",
+                        Description = new List<string>
+                        {
+                            "The GM may create any truth about the scene by spending 1 Threat, even if it would not naturally flow form actions in the scene, as the Organians can impose their will upon the universe. Organians do not do this frivolously or recklessly, but can use it to, amongst other things, revive the dead, or temporarily prevent all aggressive actions between two nations."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition
+            },
+            new()
+            {
+                Name = "Transformed Zalkonian",
+                TypeEnum = NPCType.Notable,
+                Description = new List<string>
+                {
+                    "Corporeal Zalkonians are relatively ordinary humanoids belonging to a somewhat aggressive and authoritarian culture which values conformity and isolation and whose technology is slightly ahead of the Federation’s. However, this species is in the process of evolving into powerful non-corporeal entities. No non-corporeal Zalkonians have existed for more than a few years, and while they are relatively powerful now, no one knows how mighty they may eventually become. Currently, no one in the Federation knows if transformed Zalkonians can travel at warp speed or simply transport themselves from one star system to another. Currently their powers seem to be less overwhelming and far-reaching than those of the Organians or the Q, but this may change as they learn the full extent of their powers and continue to evolve. Like the Organians and the Q, Starfleet scientists believe that Federation weapons and shields will have no effect on these impressive beings."
+                },
+                Traits = new List<string>
+                {
+                    "Zalkonian",
+                    "Evolved into Energy Being"
+                },
+                Values = new List<string>
+                {
+                    "Evolve and help others of their kind ascend"
+                },
+                Focuses = new List<string>
+                {
+                    "Recovery"
+                },
+                PersonalThreat = 3,
+                Protection = 3,
+                Attributes = new CharacterAttributes { Control = 7, Daring = 8, Fitness = 8, Insight = 10, Presence = 11, Reason = 10 },
+                Departments = new Departments { Command = 1, Conn = 1, Engineering = 0, Security = 2, Medicine = 3, Science = 2 },
+                Attacks = new List<Weapon>
+                {
+                    new()
+                    {
+                        Name = "Suffocation",
+                        Type = WeaponType.Ranged,
+                        Injury = InjuryType.StunOrDeadly,
+                        Severity = 4,
+                        Size = WeaponSize.OneHanded,
+                        Qualities = new List<WeaponQuality>(),
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                EscalationAttacks = new List<(string, int)>(),
+                SpecialRules = new List<NpcSpecialRule>
+                {
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToVacuum),
+                    NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Incorporeal),
+                    new()
+                    {
+                        Name = "Restoration",
+                        Description = new List<string>
+                        {
+                            "A Transformed Zalkonian can heal with a touch, even to the point of resurrecting the recently dead. A Zalkonian can spend 1 Threat to remove an Injury from a character within reach, or they may spend 3 Threat to restore a recently dead character to life (they must have died in the previous scene or current scene."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                    new()
+                    {
+                        Name = "Teleportation",
+                        Description = new List<string>
+                        {
+                            "A Transformed Zalkonian can transport itself and other creatures thousands of kilometers in an instant, attempting a Control + Science Task with a difficulty of 2. The difficulty increases proportionate to the number of people the Zalkonian wishes to transport."
+                        },
+                        Source = BookSource.ScienceDivision1stEdition
+                    },
+                },
+                Source = BookSource.ScienceDivision1stEdition
             },
         };
     }

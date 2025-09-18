@@ -226,11 +226,7 @@ public static class SpeciesSelector
             AttributeModifiers = new CharacterAttributes(),
             ThreeRandomAttributes = true,
             TraitDescription = "Humans are adaptable and resilient, and their resolve and ambition often allow them to resist great hardship and triumph despite great adversity. However, Humans can also be reckless, stubborn, irrational, and unpredictable.",
-            SpeciesAbility = new SpeciesAbility
-            {
-                Name = "Faith of the Heart",
-                Description = "When you use one of your values to spend or gain Determination, you may also add 1 Momentum to the group pool."
-            },
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.FaithOfTheHeart),
             Weight = 20
         },
         new Species
@@ -307,11 +303,7 @@ public static class SpeciesSelector
                 Control = 1, Fitness = 1, Insight = 1
             },
             TraitDescription = "Tellarites have keen senses of smell and hearing, and excellent spatial awareness, allowing them to judge distance, depth, and dimension with considerable accuracy. They have a high tolerance for many common drugs, toxins, and inebriants (Tellarites don’t get drunk, just ‘feisty’).",
-            SpeciesAbility = new SpeciesAbility
-            {
-                Name = "Sturdy",
-                Description = "You gain +1 Protection against Stun Attacks only. Further, when you suffer a complication that represents a physical hindrance or being stunned, dazed, or disoriented, you may take 1 Stress to ignore that complication (and remove any associated trait)."
-            },
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.Sturdy),
             Weight = 8
         },
         new Species
@@ -348,12 +340,7 @@ public static class SpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "Vulcans have a naturally high tolerance for extremes of heat, are resistant to dehydration, and can shield their eyes from blinding light with a set of secondary eyelids. Their auditory and olfactory senses are extremely keen, and the gravity of their homeworld means an average Vulcan is about three times as strong as a Human of similar size and weight. Vulcans are innately telepathic, and through extensive training since childhood, Vulcan minds can suppress their emotional responses, and even exert influence upon biological processes, though this takes regular meditation to maintain.",
-            SpeciesAbility = new SpeciesAbility
-            {
-                Name = "Mental Discipline",
-                Description = "While Vulcans have some psychic capabilities, they require training to use it effectively (see the Mind Meld talent). Further, your maximum Stress is based on your Control rather than your Fitness, and you may suffer 2 Stress to avoid suffering any trait that represents an emotional state. However, if you become Fatigued, you increase the Potency of any such emotion-related trait by 1.",
-                StressBasedOn = AttributeName.Control
-            },
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.MentalDiscipline),
             Weight = 12
         },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },

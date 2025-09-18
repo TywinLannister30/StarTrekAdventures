@@ -15,6 +15,9 @@ public class SpeciesAbility
     public string Description { get; set; }
 
     [JsonIgnore]
+    public string NpcDescription { get; set; }
+
+    [JsonIgnore]
     public string AddTalent { get; set; }
 
     [JsonIgnore]
