@@ -83,20 +83,25 @@ namespace StarTrekAdventures.Constants
 
     public static class BookSource
     {
+        // 2nd Edition
         public const string Core = "Core Rulebook";
         public const string GameToolkit = "Game Toolkit";
         public const string TechnicalManual = "Technical Manual";
 
-        //1st Edition
+        // 1st Edition - Divisions
         public const string CommandDivision1stEdition = "Command Division - 1st Edition";
         public const string OperationsDivision1stEdition = "Operations Division - 1st Edition";
         public const string ScienceDivision1stEdition = "Science Division - 1st Edition";
+
+        // 1st Edition - Crew Packs
+        public const string NextGenerationCrewPack1stEdition = "Next Generation Crew Pack - 1st Edition";
     }
 
     public static class SpeciesName
     {
         public const string Aenar = "Aenar";
         public const string Andorian = "Andorian";
+        public const string Android = "Android";
         public const string Ankari = "Ankari";
         public const string Arbazan = "Arbazan";
         public const string Ardanan = "Ardanan";
@@ -112,6 +117,7 @@ namespace StarTrekAdventures.Constants
         public const string Caitian = "Caitian";
         public const string Cardassian = "Cardassian";
         public const string Changeling = "Changeling";
+        public const string CoppeliusAndroid = "Coppelius Android";
         public const string CyberneticallyEnhanced = "Cybernetically Enhanced";
         public const string Deltan = "Deltan";
         public const string Denobulan = "Denobulan";
@@ -172,9 +178,11 @@ namespace StarTrekAdventures.Constants
 
     public static class SpeciesAbilityName
     {
+        public const string BrakLul = "Brak'Lul";
         public const string FaithOfTheHeart = "Faith of the Heart";
         public const string MentalDiscipline = "Mental Discipline";
         public const string Sturdy = "Sturdy";
+        public const string SyntheticLifeForm = "Synthetic Life-Form";
     }
 
     public static class AttributeName

@@ -27,6 +27,12 @@ public class ValueSelector
         if (!string.IsNullOrEmpty(value.TraitRequirement) && !character.Traits.Any(x => x == value.TraitRequirement))
             return false;
 
+        if (value.AnyTraitRequirement != null && value.AnyTraitRequirement.Count != 0)
+        {
+            if (!character.Traits.Any(t => value.AnyTraitRequirement.Contains(t)))
+                return false;
+        }
+
         if (!string.IsNullOrEmpty(value.TalentRequirement) && !character.Talents.Any(x => x.Name == value.TalentRequirement))
             return false;
 
@@ -253,12 +259,15 @@ public class ValueSelector
         new Value { Name = "The tide always breaks upon the shore and the shore endures", TraitRequirement = SpeciesName.Skreeaa, Weight = 10 },
         
         new Value { Name = "We do what we must", TraitRequirement = SpeciesName.Sona, Weight = 10 },
-        
-        new Value { Name = "Ethical programming defines my thinking", TraitRequirement = SpeciesName.SoongTypeAndroid, Weight = 10 },
-        new Value { Name = "Know a man by his friends", TraitRequirement = SpeciesName.SoongTypeAndroid, Weight = 10 },
-        new Value { Name = "Vast repository of information", TraitRequirement = SpeciesName.SoongTypeAndroid, Weight = 10 },
-        new Value { Name = "What is it to be human?", TraitRequirement = SpeciesName.SoongTypeAndroid, Weight = 10 },
-        
+
+        new Value { Name = "A whole Galaxy to explore and experience", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "Ethical programming defines my thinking", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "Just because I am synthetic doesn’t mean I’m not a person", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "Know a man by his friends", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "Vast repository of information", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "•\tWhat does it mean to be alive?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "What is it to be human?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+
         new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10 },
         
         new Value { Name = "An idea left unchallenged can be dangerous", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },

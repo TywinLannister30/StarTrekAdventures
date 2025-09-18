@@ -121,8 +121,8 @@ public static class NameGenerator
             return GenerateSkreeaaName(gender);
         if (species == SpeciesName.Sona)
             return GenerateSonaName(gender);
-        if (species == SpeciesName.SoongTypeAndroid)
-            return GenerateSoongTypeAndroidName(gender);
+        if (species == SpeciesName.SoongTypeAndroid || species == SpeciesName.Android || species == SpeciesName.CoppeliusAndroid)
+            return GenerateSoongTypeAndroidName();
         if (species == SpeciesName.Talaxian)
             return GenerateTalaxianName(gender);
         if (species == SpeciesName.Tellarite)
@@ -990,13 +990,13 @@ public static class NameGenerator
         "Var’esheshka", "Tu’la", "Wy’nalido", "Vesh"
     };
 
-    private static string GenerateSoongTypeAndroidName(Gender gender)
+    private static string GenerateSoongTypeAndroidName()
     {
         return SoongTypeAndroidNames.OrderBy(n => Util.GetRandom()).First();
     }
     private static readonly List<string> SoongTypeAndroidNames = new List<string>
     {
-        "Data", "Lore"
+        "B-4", "Data", "Lal", "Lore"
     };
 
     private static string GenerateTalaxianName(Gender gender)

@@ -155,7 +155,8 @@ public class TalentSelector
         return new NpcSpecialRule
         {
             Name = talent.Name + " (Talent)",
-            Description = talent.Description.ToList()
+            Description = talent.Description.ToList(),
+            ProtectionModifier = talent.ProtectionModifier,
         };
     }
 
@@ -587,6 +588,31 @@ public class TalentSelector
                 {
                     "You are experienced in the tradition of honor-dueling known as the Ushaan. When you make a Melee Attack, or are targeted by a Melee Attack, and buy one or more d20s by adding to Threat, you may re-roll any number of dice in your dice pool for the task. Further, you own an Ushaan-tor, a razor-sharp ice-miner’s tool used in these duels. The Ushaan-tor is a blade, and it counts as standard issue for you."
                 }
+            },
+            new()
+            {
+                Name = "Biosynthetic Construction",
+                AnyTraitRequirement = new List<string> { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid },
+                Weight = 20,
+                MayNotTakeWithTalent = "Duranium Polyalloy Construction",
+                Description = new List<string>
+                {
+                    "Though you are an android, your construction is almost indistinguishable from that of a living creature. You gain one additional species trait: this is the species you appear to be. To determine that you are an android, an observer must examine you closely with a tricorder or similar tool, and succeed at a Reason + Engineering or Reason + Medicine task with a Difficulty of 3. Your injuries may be healed using either Engineering or Medicine. You may not take the Duranium Polyalloy Construction talent."
+                },
+                Source = BookSource.NextGenerationCrewPack1stEdition
+            },
+            new()
+            {
+                Name = "Duranium Polyalloy Construction",
+                AnyTraitRequirement = new List<string> { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid },
+                Weight = 20,
+                MayNotTakeWithTalent = "Biosynthetic Construction",
+                ProtectionModifier = 1,
+                Description = new List<string>
+                {
+                    "Your physical form has been constructed from extremely durable materials, and your resilience and physical capabilities are formidable. You have +1 Protection against all attacks (this stacks with the Protection gained from your species ability). In addition, you add 1 automatic success to all task rolls using your Fitness. You may not take the Biosynthetic Construction talent."
+                },
+                Source = BookSource.NextGenerationCrewPack1stEdition
             },
             new()
             {

@@ -64,5 +64,8 @@ public class NpcSpecialRule
     [JsonIgnore]
     public List<string> AddRandomFocus { get; set; }
 
+    [JsonIgnore]
+    public int ProtectionModifier { get; set; }
+
     public string Source { get; set; }
 }

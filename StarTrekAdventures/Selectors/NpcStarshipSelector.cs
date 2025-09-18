@@ -8,14 +8,14 @@ public class NpcStarshipSelector
 {
     public static NpcStarship GetNpcStarship(string name)
     {
-        var selectedNpc = NcpStarships.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+        var selectedNpc = NpcStarships.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
         return CreateNpcStarship(selectedNpc);
     }
 
     internal static List<NpcStarship> GetAllNpcStarships()
     {
-        var selectedNpcs = NcpStarships;
+        var selectedNpcs = NpcStarships;
 
         var npcs = new List<NpcStarship>();
 
@@ -52,10 +52,68 @@ public class NpcStarshipSelector
         return npc;
     }
 
-    private static readonly List<NpcStarship> NcpStarships = new()
+    private static readonly List<NpcStarship> NpcStarships = GetAllNpcStarshipsList();
+
+    private static List<NpcStarship> GetAllNpcStarshipsList()
     {
-        // STARFLEET & FEDERATION STARSHIPs
-        new NpcStarship
+        var allNpcs = new List<NpcStarship>();
+        allNpcs.AddRange(GetStarfleetStarships());
+        allNpcs.AddRange(GetKlingonStarships());
+        allNpcs.AddRange(GetRomulanStarships());
+        allNpcs.AddRange(GetCardassianStarships());
+        allNpcs.AddRange(GetFerengiStarships());
+        allNpcs.AddRange(GetDominionStarships());
+        return allNpcs;
+    }
+
+    private static IEnumerable<NpcStarship> GetStarfleetStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "USS Enterprise NCC-1701-D",
+            Description = new List<string>
+            {
+                "After Kirk’s Enterprise was destroyed, and the subsequent Enterprise-A was decommissioned, Starfleet continued the legacy of ships named Enterprise. In the 2360s, this legacy was borne by the Enterprise-D, under the command of Jean-Luc Picard. As the Federation’s flagship, she bears Starfleet’s best and brightest, and is one of the most prestigious postings in Starfleet.",
+                "The Enterprise-D entered service in a time of relative peace, witnessing the conclusion of the Federation–Cardassian War and the signing of the treaty that created the Demilitarized Zone, but she also faced new challenges and new threats. Her crew had the first known encounters with an entity from the Q Continuum. She was involved in numerous confrontations with the Romulans, the first such encounters with Romulan forces in nearly a century. She made first official contact with the Borg, and was pivotal in their defeat after the disastrous Battle of Wolf 359."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.MultiroleExplorer,
+            Traits = new List<string>
+            {
+                "Federation Starship",
+                "Galaxy class",
+                "A City in Space",
+                "Flagship of the Federation",
+                "Fifth to Bear the Name “Enterprise”",
+                "Legendary"
+            },
+            Scale = 6,
+            Systems = new StarshipSystems { Comms = 9, Computers = 10, Engines = 10, Sensors = 9, Structure = 10, Weapons = 10 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 2, Medicine = 3, Science = 3 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 5,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.CaptainsYacht),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ExtensiveShuttlebays),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsStructure),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel),
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.PrestigiousPosting),
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition
+        },
+        new()
         {
             Name = "Aquarius-class Escort",
             Description = new List<string>
@@ -87,12 +145,12 @@ public class NpcStarshipSelector
             NoCrewSupport = true,
             Source = BookSource.GameToolkit
         },
-        new NpcStarship
+        new()
         {
             Name = "Constitution-Class",
-            Description = new List<string> 
-            { 
-                "In the 23rd century, Constitution-class vessels were Starfleet’s primary exploration vessels. The following represents a standard starship of the class." 
+            Description = new List<string>
+            {
+                "In the 23rd century, Constitution-class vessels were Starfleet’s primary exploration vessels. The following represents a standard starship of the class."
             },
             CrewQualityEnum = CrewQuality.Talented,
             MissionProfile = MissionProfileName.MultiroleExplorer,
@@ -122,7 +180,7 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
             }
         },
-        new NpcStarship
+        new()
         {
             Name = "Galaxy-Class",
             Description = new List<string>
@@ -161,9 +219,11 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
             }
         },
+    };
 
-        // KLINGON STARSHIPs
-        new NpcStarship
+    private static IEnumerable<NpcStarship> GetKlingonStarships() => new List<NpcStarship>
+    {
+        new()
         {
             Name = "D7 Battlecruiser",
             Description = new List<string>
@@ -195,7 +255,7 @@ public class NpcStarshipSelector
                 StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
         },
-        new NpcStarship
+        new()
         {
             Name = "B’rel-class Bird of Prey",
             Description = new List<string>
@@ -231,9 +291,11 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear)
             }
         },
+    };
 
-        // ROMULAN STARSHIPS
-        new NpcStarship
+    private static IEnumerable<NpcStarship> GetRomulanStarships() => new List<NpcStarship>
+    {
+        new()
         {
             Name = "T’Liss-class Bird of Prey",
             Description = new List<string>
@@ -268,7 +330,7 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Prototype)
             }
         },
-        new NpcStarship
+        new()
         {
             Name = "D’Deridex-class Warbird",
             Description = new List<string>
@@ -305,9 +367,11 @@ public class NpcStarshipSelector
                 StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel)
             }
         },
+    };
 
-        // CARDASSIAN STARSHIPS
-        new NpcStarship
+    private static IEnumerable<NpcStarship> GetCardassianStarships() => new List<NpcStarship>
+    {
+        new()
         {
             Name = "Galor-class Cruiser",
             Description = new List<string>
@@ -336,9 +400,11 @@ public class NpcStarshipSelector
                 StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             }
         },
+    };
 
-        // FERENGI STARSHIPS
-        new NpcStarship
+    private static IEnumerable<NpcStarship> GetFerengiStarships() => new List<NpcStarship>
+    {
+        new()
         {
             Name = "D’Kora-class Marauder",
             Description = new List<string>
@@ -372,9 +438,11 @@ public class NpcStarshipSelector
                 StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
             }
         },
+    };
 
-        // DOMINION STARSHIPS
-        new NpcStarship
+    private static IEnumerable<NpcStarship> GetDominionStarships() => new List<NpcStarship>
+    {
+        new()
         {
             Name = "Jem’Hadar Attack Ship",
             Description = new List<string>
@@ -410,7 +478,7 @@ public class NpcStarshipSelector
                 StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem)
             }
         },
-        new NpcStarship
+        new()
         {
             Name = "Jem’Hadar Battlecruiser",
             Description = new List<string>

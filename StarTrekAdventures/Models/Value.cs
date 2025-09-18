@@ -7,11 +7,14 @@ public class Value
     public Value()
     {
         Source = BookSource.Core;
+        AnyTraitRequirement = new List<string>();
     }
 
     public string Name { get; set; }
 
     public string TraitRequirement { get; set; }
+
+    public List<string> AnyTraitRequirement { get; set; }
 
     public string TalentRequirement { get; set; }
 

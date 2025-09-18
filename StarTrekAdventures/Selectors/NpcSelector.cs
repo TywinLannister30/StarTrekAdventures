@@ -42,6 +42,7 @@ public class NpcSelector
     private static List<NonPlayerCharacter> GetAllNonPlayerCharactersList()
     {
         var allNpcs = new List<NonPlayerCharacter>();
+        allNpcs.AddRange(GetNextGenerationCrew());
         allNpcs.AddRange(GetStarfleetNpcs());
         allNpcs.AddRange(GetFederationNpcs());
         allNpcs.AddRange(GetKlingonNpcs());
@@ -53,6 +54,459 @@ public class NpcSelector
         allNpcs.AddRange(GetUnusualLifeforms());
         return allNpcs;
     }
+
+    private static IEnumerable<NonPlayerCharacter> GetNextGenerationCrew() => new List<NonPlayerCharacter>
+    {
+        new()
+        {
+            Name = "Captain Jean-Luc Picard",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“I’ve followed Captain Picard’s career for a long time starting with his days aboard the Stargazer and after his promotion to captain of Starfleet’s flagship. It was almost inevitable that his name would become known across the Federation, unfortunately his involvement in the battle of Wolf 359 has made this for the wrong reasons. Memories are long and the loss of life was devastating, and even I had toq uestion his place within Starfleet. However, where some men would have retreated, Picard has strived forward, continuing Starfleet’s mission of exploration and discovery as well as foiling several significant threats to the Federation, reasserting himself into his past position of trust.”"
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Liberated Borg",
+                "Starfleet Officer",
+                "Artificial Heart",
+                "Captain of the Enterprise"
+            },
+            Values = new List<string>
+            {
+                "Duty before all else",
+                "Haunted by the Borg",
+                "Loyal to the ideals of the Federation",
+                "Living through one life, I realize what I’ve missed"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Astrophysics, Focus.Composure, Focus.Diplomacy, Focus.Infiltration, Focus.StarfleetProtocol, "Xeno-Archaeology"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 9, Fitness = 8, Insight = 10, Presence = 10, Reason = 9 },
+            Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 2, Medicine = 1, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Advisor"),
+                TalentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
+                new()
+                {
+                    Name = "Commanding Officer",
+                    Description = new List<string>
+                    {
+                        "You may spend Determination to grant any other character you can communicate with 1 Determination; this does not have to be linked to using or challenging a value."
+                    },
+                    Source = BookSource.Core,
+                },
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Spirit of Discovery"),
+                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Commander William Riker",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“Judging from reports and the brief contact I’ve had with him, Commander Riker has always struck me as an old-school officer in the vein of Captain Kirk, quick to take action but holds responsibility and care for the Federation.",
+                "“Riker always seems to be up for a challenge, such as distinguishing himself as the first Starfleet officer to serve aboard a Klingon ship, but the several times he has been offered a command of his own have all been turned down. I have a suspicion that he has at least one eye on the Enterprise after Captain Picard steps down.”"
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Starfleet Officer",
+            },
+            Values = new List<string>
+            {
+                "Live life to the full",
+                "One true love, Deanna",
+                "Worth the risk",
+                "When all looks lost, improvise"
+            },
+            Focuses = new List<string>
+            {
+                "Anbo-Jyutsu", Focus.Astrophysics, Focus.Diplomacy, Focus.Gambling, Focus.HandPhasers, Focus.StarshipTactics
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 11, Fitness = 10, Insight = 8, Presence = 10, Reason = 9 },
+            Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 4, Medicine = 1, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Bold (Security)"),
+                new()
+                {
+                    Name = "Executive Officer",
+                    Description = new List<string>
+                    {
+                        "When an allied character in communication with you spends Determination, you may spend 3 Momentum (Immediate) to enable that character to regain the spent point of Determination."
+                    },
+                    Source = BookSource.Core,
+                },
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Follow my Lead"),
+                TalentSelector.GetTalentAsSpecialRule("Mean Right Hook"),
+                TalentSelector.GetTalentAsSpecialRule("Quick to Action"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Commander Deanna Troi",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“Over a thousand people call the Enterprise-D home, Starfleet officers as well as their families, and each and every one is goi ng to need to talk to someone about their experiences. This is where Counselor Troi does a fantastic job, her empathic abilities allow her to truly see how her clients are feeling and help them deal with their problems. On the bridge Counselor Troi has also been invaluable as her empathic abilities coupled with her negotiation skills have helped the Enterprise in numerous encounters.",
+                " “I once had the pleasure of meeting Commander Troi’s mother, Lwaxana, after the Pacifica conference five years ago, but that is another story...”"
+            },
+            Traits = new List<string>
+            {
+                "Betazoid",
+                "Human",
+                "Starfleet Officer",
+                "Psychiatrist"
+            },
+            Values = new List<string>
+            {
+                "I can tell when you’re lying",
+                "My Imzadi, Will",
+                "Mother issues",
+                "Whenever possible, talk it out",
+            },
+            Focuses = new List<string>
+            {
+                Focus.CulturalStudies, Focus.Diplomacy, Focus.Persuasion, Focus.Psychiatry, Focus.Psychology, "Romulan Engineering"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 8, Insight = 12, Presence = 10, Reason = 9 },
+            Departments = new Departments { Command = 4, Conn = 3, Engineering = 1, Security = 1, Medicine = 4, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Cautious (Medicine)"),
+                TalentSelector.GetTalentAsSpecialRule("Defuse the Tension"),
+                TalentSelector.GetTalentAsSpecialRule("Empathy"),
+                TalentSelector.GetTalentAsSpecialRule("Open Book"),
+                new()
+                {
+                    Name = "Ship's Counselor",
+                    Description = new List<string>
+                    {
+                        "When you Assist a character suffering from a trait representing a negative emotional state, you may re-roll your assist die. Additionally, once per mission, you may spend a scene counseling a character who has challenged one of their values during the current mission. At the end of the scene, the character may rewrite their crossed-out value immediately, rather than waiting until the end of the mission. If they do this, they immediately gain 1 Determination as well."
+                    },
+                    Source = BookSource.Core,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Studious"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Doctor Beverly Crusher",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“I’ve only ever had the chance to meet Doctor Crusher once but even in that short time I knew her, she was an exemplary officer. It was just after she had been appointed head of Starfleet Medical and was due to give a talk at the Academy. She told me about her work on the Enterprise, her hope that her son Wesley would be successful when he reapplied to Starfleet Academy after his initial failure and her anticipation that her own experiences could bring something new to Starfleet Medical. Her level of dedication and expertise are an inspiration to everyone doctor, medic or young officer that has had the opportunity to meet her.”",
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Starfleet Officer",
+                "Physician",
+                "Briefly Head of Starfleet Medical"
+            },
+            Values = new List<string>
+            {
+                "I believe in the sanctity of life",
+                "If there’s a problem, I’m going to solve it",
+                "My true family and those that might have been",
+                "The play’s the thing",
+            },
+            Focuses = new List<string>
+            {
+                Focus.Botany, Focus.EmergencyMedicine, Focus.Infiltration, "Pathology", Focus.Surgery, Focus.Xenobiology
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 9, Insight = 11, Presence = 10, Reason = 10 },
+            Departments = new Departments { Command = 4, Conn = 1, Engineering = 1, Security = 1, Medicine = 5, Science = 4 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.AnestheticHypospray),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Chief Medical Offier",
+                    Description = new List<string>
+                    {
+                        "You reduce the opportunity cost of medical equipment and medical teams by 1, to a minimum of 0. Further, when you attempt a task using your Medicine rating, and you have assistance, you generate 1 bonus Momentum (bonus Momentum may not be saved)."
+                    },
+                    Source = BookSource.Core,
+                },
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("First Response"),
+                TalentSelector.GetTalentAsSpecialRule("Quick Study"),
+                TalentSelector.GetTalentAsSpecialRule("Triage"),
+                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Lieutenant Commander Data",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“I was only a Lieutenant when I first heard about Lieutenant Commander Data entering Starfleet Academy but even then I was fascinated by the opportunities he could give the Federation, we could learn so much from him as he learnt about us. It wasn’t until the whole Maddox fiasco that I realized just what Data was, a whole new life form and not just a machine we could observe. Since that shift in perspective I’ve followed Mr. Data’s career not as one views a scientific experiment but as one sees the development of a young officer into someone extraordinary.”",
+            },
+            Traits = new List<string>
+            {
+                "Soong-type Android",
+                "Starfleet Officer",
+                "Unique Artificial Being",
+                "No Emotions"
+            },
+            Values = new List<string>
+            {
+                "Family matters",
+                "Know a man by his friends",
+                "Vast repository of information",
+                "What is it to be Human?",
+            },
+            Focuses = new List<string>
+            {
+                Focus.Astrophysics, Focus.Computers, Focus.Cybernetics, Focus.QuantumMechanics, "Spatial Phenomena,", Focus.WarpFieldDynamics
+            },
+            PersonalThreat = 8,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 9, Fitness = 11, Insight = 7, Presence = 8, Reason = 12 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 4, Security = 2, Medicine = 1, Science = 4 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Duranium Polyalloy Construction"),
+                new()
+                {
+                    Name = "Operations Manager",
+                    Description = new List<string>
+                    {
+                        "Whenever you create a trait representing a piece of equipment, or an alteration made to existing equipment, any character who benefits from that trait while you are present in the scene may re-roll a d20."
+                    },
+                    Source = BookSource.Core,
+                },
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
+                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                TalentSelector.GetTalentAsSpecialRule("The Power of Math"),
+                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Lieutenant Commander Geordi La Forge",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“During his early career, it soon became obvious that Mr. La Forge was an outstanding officer. When his assignment to the Jovian Run brought him into contact with Captain Picard it eventually earned him a position aboard the Enterprise-D as conn officer, but few could have foreseen his promotion to chief engineer a year later. Since then La Forge has shown himself to be essential to the running of the Enterprise, as well as being integral to solving some of the challenges that have faced the crew over the years. Without his expertise the Federation may be a very different place.”",
+            },
+            Traits = new List<string>
+            {
+                "Soong-type Android",
+                "Starfleet Officer",
+                "Blind"
+            },
+            Values = new List<string>
+            {
+                "For every problem, there’s a solution",
+                "Great is not good enough, perfection is what’s needed",
+                "If I can help, I will",
+                "Some friends are built, not born",
+            },
+            Focuses = new List<string>
+            {
+                Focus.HelmOperations, Focus.Improvisation, Focus.Linguistics, Focus.SmallCraft, Focus.TransportersAndReplicators, Focus.WarpEngines
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 9, Fitness = 9, Insight = 9, Presence = 9, Reason = 12 },
+            Departments = new Departments { Command = 2, Conn = 4, Engineering = 5, Security = 1, Medicine = 1, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Chief Engineer",
+                    Description = new List<string>
+                    {
+                        "You reduce the opportunity cost of engineering teams by 1, to a minimum of 0. Further, when you attempt a task to perform repairs to a starship or attempt to push the ship’s capabilities beyond its normal limits, you may spend 1 Momentum (Immediate) to re-roll a d20."
+                    },
+                    Source = BookSource.Core,
+                },
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("I Know my Ship"),
+                TalentSelector.GetTalentAsSpecialRule("In the Nick of Time"),
+                TalentSelector.GetTalentAsSpecialRule("Jury-Rig"),
+                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                new()
+                {
+                    Name = "Visor",
+                    Description = new List<string>
+                    {
+                        "Geordi’s VISOR allows him to ‘see’ despite his blindness, and allows him to perceive a much wider portion of the electromagnetic spectrum, in addition to normal visible light."
+                    },
+                    Source = BookSource.NextGenerationCrewPack1stEdition,
+                },
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Lieutenant Worf",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“I have to be honest; when I first heard that a Klingon had applied to Starfleet I was surprised. Although relations between us had improved significantly I never thought I’d see the day when a Klingon warrior would even want to join us. Worf’s adoptive parents may have been responsible for this initial choice, but as records show, Worf has had several significant encounters with his Klingon heritage, and his ideals and dedication to Starfleet have persisted. I look forward to seeing where his career will take him and hope that he may be able to facilitate better relations between us and the Klingon Empire.”",
+            },
+            Traits = new List<string>
+            {
+                "Klingon",
+                "Starfleet Officer",
+                "Eldest Son of Mogh",
+                "Entangled in Klingon Politics"
+            },
+            Values = new List<string>
+            {
+                "A warrior’s rage",
+                "Always the outsider",
+                "Legacy of the House of Mogh",
+                "Proud and honorable Klingon warrior",
+            },
+            Focuses = new List<string>
+            {
+                Focus.CombatTactics, Focus.HandPhasers, Focus.Infiltration, "Klingon Culture", "Mok’bara", Focus.ShipboardTacticalSystems
+            },
+            PersonalThreat = 8,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 12, Fitness = 11, Insight = 7, Presence = 10, Reason = 8 },
+            Departments = new Departments { Command = 3, Conn = 4, Engineering = 2, Security = 5, Medicine = 1, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.BatLeth),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.BrakLul),
+                new()
+                {
+                    Name = "Chief of Security",
+                    Description = new List<string>
+                    {
+                        "You reduce the opportunity cost of weapons and security teams by 1, to a minimum of 0. Further, when you succeed at an Attack against an enemy during personal combat, you may spend 1 Momentum to increase the Difficulty of that enemy’s next Attack by 1."
+                    },
+                    Source = BookSource.Core,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Constantly Watching"),
+                TalentSelector.GetTalentAsSpecialRule("Dauntless"),
+                TalentSelector.GetTalentAsSpecialRule("No Hesitation"),
+                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Lieutenant Tassha Yar",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "“I never did get a chance to meet Lieutenant Yar. Her brief tenure as chief of security was over quickly and tragically before I had a chance to visit the Enterprise. I’m told she was an incredibly capable officer who may well have gone far if her life had not been cut short. Recent reports from Captain Picard of his most recent encounter with Q, and his return to those early days before Farpoint Station, and the possibility that an alternate Yar may be the mother of one of the Romulan’s most devious and dangerous officers in recent history, Sela, is indeed worrying… but both have brought Lieutenant Yar back to my memory.”",
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Starfleet Officer"
+            },
+            Values = new List<string>
+            {
+                "Duty unto death",
+                "Everyone has a right to freedom",
+                "My crew is my family",
+                "Vigorous training regime",
+            },
+            Focuses = new List<string>
+            {
+                "Aikido", Focus.CombatTactics, Focus.HandPhasers, Focus.ShipboardTacticalSystems, Focus.SmallCraft, Focus.Survival 
+            },
+            PersonalThreat = 8,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 10, Fitness = 10, Insight = 9, Presence = 9, Reason = 9 },
+            Departments = new Departments { Command = 4, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Bold (Security)"),
+                TalentSelector.GetTalentAsSpecialRule("Call out Targets"),
+                new()
+                {
+                    Name = "Chief of Security",
+                    Description = new List<string>
+                    {
+                        "You reduce the opportunity cost of weapons and security teams by 1, to a minimum of 0. Further, when you succeed at an Attack against an enemy during personal combat, you may spend 1 Momentum to increase the Difficulty of that enemy’s next Attack by 1."
+                    },
+                    Source = BookSource.Core,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Extra Effort"),
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Quick Survey"),
+            },
+            Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+    };
 
     private static IEnumerable<NonPlayerCharacter> GetStarfleetNpcs() => new List<NonPlayerCharacter>
     {

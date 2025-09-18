@@ -94,6 +94,23 @@ public static class SpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Android,
+            Description = new List<string>
+            {
+                "Synthetic humanoids—commonly referred to as androids or synths—have been produced by many civilizations throughout the Galaxy, demonstrated by the partly understood remnants of ancient civilizations. In the 24th century, the Human scientist Noonien Soong sought to develop fully sapient androids using a positronic brain, and eventually found success, creating the androids Data and Lore. While Lore was deeply misanthropic and eventually had to be deactivated, Data became a celebrated and renowned Starfleet officer and a pioneer in cybernetics in his own right.",
+                "Soong’s son Altan, along with Starfleet cyberneticist Bruce Maddox, built on theories developed by Data that would allow them to create new androids from positronic neurons taken from Data’s brain, refining the technology to where they could be created from synthetic organic tissues, making them nearly indistinguishable from Humans. These Coppelius androids—named for the planet where they were created—were discovered and their homeworld accepted as a protectorate of the Federation in 2399."
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
+            Weight = 0,
+            Source = BookSource.NextGenerationCrewPack1stEdition
+        },
+        new Species
+        {
             Name = SpeciesName.Aenar,
             Description = new List<string>
             {
@@ -176,6 +193,23 @@ public static class SpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.CoppeliusAndroid,
+            Description = new List<string>
+            {
+                "Synthetic humanoids—commonly referred to as androids or synths—have been produced by many civilizations throughout the Galaxy, demonstrated by the partly understood remnants of ancient civilizations. In the 24th century, the Human scientist Noonien Soong sought to develop fully sapient androids using a positronic brain, and eventually found success, creating the androids Data and Lore. While Lore was deeply misanthropic and eventually had to be deactivated, Data became a celebrated and renowned Starfleet officer and a pioneer in cybernetics in his own right.",
+                "Soong’s son Altan, along with Starfleet cyberneticist Bruce Maddox, built on theories developed by Data that would allow them to create new androids from positronic neurons taken from Data’s brain, refining the technology to where they could be created from synthetic organic tissues, making them nearly indistinguishable from Humans. These Coppelius androids—named for the planet where they were created—were discovered and their homeworld accepted as a protectorate of the Federation in 2399."
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
+            Weight = 0,
+            Source = BookSource.NextGenerationCrewPack1stEdition
+        },
+        new Species
+        {
             Name = SpeciesName.Denobulan,
             Description = new List<string>
             {
@@ -242,12 +276,7 @@ public static class SpeciesSelector
                 Daring = 1, Fitness = 1, Presence = 1
             },
             TraitDescription = "Klingon physiology is hardy, with a reinforced skeleton and many redundant internal organs which allow them to withstand harm and numerous toxins that would be deadly to other species, though this has the potential for medical complications. They are significantly stronger and more resilient than Humans, though they have less tolerance for the cold.",
-            SpeciesAbility = new SpeciesAbility
-            {
-                Name = "Brak'lul",
-                Description = "You gain 1 Protection which stacks with the benefits of any armor worn. Further, when another character attempts First Aid to heal you, they may re-roll a d20.",
-                ProtectionBonus = 1
-            },
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.BrakLul),
             Weight = 1
         },
         new Species
@@ -289,6 +318,23 @@ public static class SpeciesSelector
                 Description = "When an action scene begins, if the gamemaster wishes an adversary to take the first turn, they must spend 1 Threat more than normal."
             },
             Weight = 0
+        },
+        new Species
+        {
+            Name = SpeciesName.SoongTypeAndroid,
+            Description = new List<string>
+            {
+                "Synthetic humanoids—commonly referred to as androids or synths—have been produced by many civilizations throughout the Galaxy, demonstrated by the partly understood remnants of ancient civilizations. In the 24th century, the Human scientist Noonien Soong sought to develop fully sapient androids using a positronic brain, and eventually found success, creating the androids Data and Lore. While Lore was deeply misanthropic and eventually had to be deactivated, Data became a celebrated and renowned Starfleet officer and a pioneer in cybernetics in his own right.",
+                "Soong’s son Altan, along with Starfleet cyberneticist Bruce Maddox, built on theories developed by Data that would allow them to create new androids from positronic neurons taken from Data’s brain, refining the technology to where they could be created from synthetic organic tissues, making them nearly indistinguishable from Humans. These Coppelius androids—named for the planet where they were created—were discovered and their homeworld accepted as a protectorate of the Federation in 2399."
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
+            Weight = 0,
+            Source = BookSource.NextGenerationCrewPack1stEdition
         },
         new Species
         {

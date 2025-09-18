@@ -34,6 +34,13 @@ public static class SpeciesAbilitySelector
     {
         new SpeciesAbility
         {
+            Name = "Brak'lul",
+            Description = "You gain 1 Protection which stacks with the benefits of any armor worn. Further, when another character attempts First Aid to heal you, they may re-roll a d20.",
+            NpcDescription = "This character gains 1 Protection which stacks with the benefits of any armor worn. Further, when another character attempts First Aid to heal them, they may re-roll a d20.",
+            ProtectionBonus = 1
+        },
+        new SpeciesAbility
+        {
             Name = SpeciesAbilityName.FaithOfTheHeart,
             Description = "When you use one of your values to spend or gain Determination, you may also add 1 Momentum to the group pool.",
             NpcDescription = "When this character uses one of it's values, add 1 Threat if they are an adversary or add 1 to the group’s Momentum pool if they are an ally."
@@ -50,6 +57,12 @@ public static class SpeciesAbilitySelector
             Name = SpeciesAbilityName.Sturdy,
             Description = "You gain +1 Protection against Stun Attacks only. Further, when you suffer a complication that represents a physical hindrance or being stunned, dazed, or disoriented, you may take 1 Stress to ignore that complication (and remove any associated trait).",
             NpcDescription = "This character gains +1 Protection against Stun Attacks only. Further, when they suffer a complication that represents a physical hindrance or being stunned, dazed, or disoriented, they may take 1 Stress to ignore that complication (and remove any associated trait)."
+        },
+        new SpeciesAbility
+        {
+            Name = SpeciesAbilityName.SyntheticLifeForm,
+            Description = "You gain +1 Protection against Stun Attacks only. Further, when you suffer a complication that represents a physical hindrance or being stunned, dazed, or disoriented, you may take 1 Stress to ignore that complication (and remove any associated trait).",
+            NpcDescription = "This character is not an organic being, and is not as vulnerable to physical harm: it has +1 Protection against Stun attacks. It recovers from injuries with Engineering tasks, rather than Medicine. In addition, it adds 1 automatic success to any task roll which uses it's Reason, due to it's powerful positronic brain."
         },
     };
 }
