@@ -57,6 +57,7 @@ public class NpcStarshipSelector
     private static List<NpcStarship> GetAllNpcStarshipsList()
     {
         var allNpcs = new List<NpcStarship>();
+        allNpcs.AddRange(GetShowStarships());
         allNpcs.AddRange(GetStarfleetStarships());
         allNpcs.AddRange(GetKlingonStarships());
         allNpcs.AddRange(GetRomulanStarships());
@@ -66,7 +67,7 @@ public class NpcStarshipSelector
         return allNpcs;
     }
 
-    private static IEnumerable<NpcStarship> GetStarfleetStarships() => new List<NpcStarship>
+    private static IEnumerable<NpcStarship> GetShowStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -113,6 +114,47 @@ public class NpcStarshipSelector
             },
             Source = BookSource.NextGenerationCrewPack1stEdition
         },
+        new()
+        {
+            Name = "La Sirena",
+            Description = new List<string>
+            {
+                "Launched from the Hatzeplats colony’s Kaplan shipyards in 2298 and originally named Sheina Meidel, the vessel that would become La Sirena had an unremarkable career as an interstellar merchant vessel serving the colony worlds of Hatzeplats, Ergets Andersh, and Fargesn through the first half of the 24th century. The vessel was transferred to the Yoyodyne Propulsion Systems team at Luna for testing of newly developed warp field generation technologies following the discovery of subspace ruptures formed by warp travel. Rather than being scrapped after decades of testing, the vessel was then given to Cristóbal Rios after his retirement from Starfleet in order to begin a career as a civilian merchant captain. Rios brought the vessel into line with modern Starfleet standards and installed holoemitters across the entire interior volume of the vessel to allow holographic crewmembers to assist him in the operations of the vessel.",
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.MultiroleExplorer,
+            Traits = new List<string>
+            {
+                "Federation Starship",
+                "Kaplan F17 Speed Freighter",
+                "Civilian Transport",
+            },
+            Scale = 2,
+            Systems = new StarshipSystems { Comms = 6, Computers = 8, Engines = 10, Sensors = 8, Structure = 8, Weapons = 11 },
+            Departments = new Departments { Command = 3, Conn = 4, Engineering = 4, Security = 2, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 1,
+            Talents = new List<StarshipTalent>
+            {
+                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedEmergencyCrewHolograms),
+                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign)
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel),
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear),
+                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Reliable)
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition
+        },
+    };
+
+    private static IEnumerable<NpcStarship> GetStarfleetStarships() => new List<NpcStarship>
+    {
         new()
         {
             Name = "Aquarius-class Escort",

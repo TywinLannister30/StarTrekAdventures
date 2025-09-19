@@ -312,11 +312,7 @@ public static class SpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "Romulan physiology is like that of Vulcans, but subtly different in a variety of ways, enough to cause difficulties in using medical techniques designed for Vulcans, and enough that, with difficulty, sensors can distinguish between Vulcan and Romulan life-signs. Psychologically and culturally, Romulans prize cunning and strength of will, and are highly distrustful of outsiders. Romulans have a reputation for manipulation, deception, and betrayal.",
-            SpeciesAbility = new SpeciesAbility
-            {
-                Name = "Paranoia",
-                Description = "When an action scene begins, if the gamemaster wishes an adversary to take the first turn, they must spend 1 Threat more than normal."
-            },
+            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.Paranoia),
             Weight = 0
         },
         new Species

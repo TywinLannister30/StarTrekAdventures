@@ -27,6 +27,7 @@ public static class SpeciesAbilitySelector
             {
                 ability.NpcDescription
             },
+            Source = ability.Source
         };
     }
 
@@ -34,10 +35,17 @@ public static class SpeciesAbilitySelector
     {
         new SpeciesAbility
         {
-            Name = "Brak'lul",
+            Name = SpeciesAbilityName.BrakLul,
             Description = "You gain 1 Protection which stacks with the benefits of any armor worn. Further, when another character attempts First Aid to heal you, they may re-roll a d20.",
             NpcDescription = "This character gains 1 Protection which stacks with the benefits of any armor worn. Further, when another character attempts First Aid to heal them, they may re-roll a d20.",
             ProtectionBonus = 1
+        },
+        new SpeciesAbility
+        {
+            Name = SpeciesAbilityName.BorgImplants,
+            Description = "You are a Cyborg, and may select Cybernetic talents. Further, you have the Borg Implants listed. Medicine tasks performed on you increase their Difficulty by 3, as does the complication range of any tasks related to social interaction. You may remove an implant when you receive a milestone, in addition to any other changes you make to your character.",
+            NpcDescription = "This character is a Cyborg, and may select Cybernetic talents. Further, they possess the Borg Implants listed. Medicine tasks performed on them increase their Difficulty by 3, as does the complication range of any tasks related to social interaction.",
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition
         },
         new SpeciesAbility
         {
@@ -51,6 +59,12 @@ public static class SpeciesAbilitySelector
             Description = "While Vulcans have some psychic capabilities, they require training to use it effectively (see the Mind Meld talent). Further, your maximum Stress is based on your Control rather than your Fitness, and you may suffer 2 Stress to avoid suffering any trait that represents an emotional state. However, if you become Fatigued, you increase the Potency of any such emotion-related trait by 1.",
             NpcDescription = "This character's Personal Threat is equal to their Control (if major) or half their control (otherwise), and they may suffer 2 Stress to avoid suffering any trait which represents an emotional state. If they become Fatigued, they increase the potency of any such emotion-related trait by 1.",
             StressBasedOn = AttributeName.Control
+        },
+        new SpeciesAbility
+        {
+            Name = SpeciesAbilityName.Paranoia,
+            Description = "When an action scene begins, if the gamemaster wishes an adversary to take the first turn, they must spend 1 Threat more than normal.",
+            NpcDescription = "When an action scene begins, if the gamemaster wishes an adversary to take the first turn, they must spend 1 Threat more than normal.",
         },
         new SpeciesAbility
         {

@@ -95,6 +95,7 @@ namespace StarTrekAdventures.Constants
 
         // 1st Edition - Crew Packs
         public const string NextGenerationCrewPack1stEdition = "Next Generation Crew Pack - 1st Edition";
+        public const string PicardSeasonOneCrewPack1stEdition = "Picard Season One Crew Pack - 1st Edition";
     }
 
     public static class SpeciesName
@@ -178,9 +179,11 @@ namespace StarTrekAdventures.Constants
 
     public static class SpeciesAbilityName
     {
+        public const string BorgImplants = "Borg Implants";
         public const string BrakLul = "Brak'Lul";
         public const string FaithOfTheHeart = "Faith of the Heart";
         public const string MentalDiscipline = "Mental Discipline";
+        public const string Paranoia = "Paranoia";
         public const string Sturdy = "Sturdy";
         public const string SyntheticLifeForm = "Synthetic Life-Form";
     }
@@ -366,6 +369,7 @@ namespace StarTrekAdventures.Constants
         public const string AtmosphericFlight = "Atmospheric Flight";
         public const string Bargain = "Bargain";
         public const string Biochemistry = "Biochemistry";
+        public const string Biology = "Biology";
         public const string BiologyOrXenobiology = "Biology/Xenobiology";
         public const string Biotechnology = "Biotechnology";
         public const string BladeWeapons = "Blade Weapons";
@@ -470,6 +474,7 @@ namespace StarTrekAdventures.Constants
         public const string LaboratoryMaintainance = "Laboratory Maintainance";
         public const string Law = "Law";
         public const string LeadByExample = "Lead by Example";
+        public const string Leadership = "Leadership";
         public const string LeadInvestigator = "Lead Investigator";
         public const string Linguistics = "Linguistics";
         public const string Literature = "Literature";

@@ -1,5 +1,6 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
+using System.Diagnostics.Metrics;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
@@ -43,6 +44,7 @@ public class NpcSelector
     {
         var allNpcs = new List<NonPlayerCharacter>();
         allNpcs.AddRange(GetNextGenerationCrew());
+        allNpcs.AddRange(GetPicardSeasonOneCrew());
         allNpcs.AddRange(GetStarfleetNpcs());
         allNpcs.AddRange(GetFederationNpcs());
         allNpcs.AddRange(GetKlingonNpcs());
@@ -54,6 +56,8 @@ public class NpcSelector
         allNpcs.AddRange(GetUnusualLifeforms());
         return allNpcs;
     }
+
+    
 
     private static IEnumerable<NonPlayerCharacter> GetNextGenerationCrew() => new List<NonPlayerCharacter>
     {
@@ -505,6 +509,486 @@ public class NpcSelector
                 TalentSelector.GetTalentAsSpecialRule("Quick Survey"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
+        },
+    };
+
+    private static IEnumerable<NonPlayerCharacter> GetPicardSeasonOneCrew() => new List<NonPlayerCharacter>
+    {
+        new()
+        {
+            Name = "Admiral Jean-Luc Picard (Retired)",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Once a celebrated Starfleet captain, a hero to millions, Jean-Luc Picard’s heralded career ended abruptly after the synth attack on Mars. Resigning from a Starfleet he no longer recognized, he retreated to his family vineyard and took over the family business. Isolated and brooding, visited by troubling dreams of his deceased friend Data, he remained hidden away in France for a decade and a half. That should have been the end of the story. Then he encountered Dahj Asha, a young woman with a mysterious and compelling connection to his old friend."
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Liberated Borg",
+                "Retired Starfleet Flag Officer",
+                "Artificial Heart",
+                "Former Captain of the Enterprise"
+            },
+            Values = new List<string>
+            {
+                "I didn’t abandon Starfleet; Starfleet abandoned me",
+                "I have a mission now",
+                "I may never pass this way again",
+                "I’m still mourning Data"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Diplomacy, Focus.History, Focus.Leadership, "Romulan Customs", Focus.StarfleetProtocol, "Winemaking"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 8, Fitness = 7, Insight = 11, Presence = 10, Reason = 10 },
+            Departments = new Departments { Command = 5, Conn = 2, Engineering = 1, Security = 2, Medicine = 2, Science = 4 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Advisor"),
+                TalentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Reassuring"),
+                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Cristóbal “Cris” Rios",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Rios, former XO of U.S.S. ibn Majid, should never have been a factor in this affair. After learning about his deceased captain’s complicity in the assassination of two of Maddox’s androids and his subsequent actions to cover up the Starfleet-sanctioned crime – orders given by me when I served as the Director of Starfleet Security – he should have been too disillusioned with Starfleet to come back on the scene. His lack of trust in Starfleet had forced him to become a hero-for-hire, as it were. But Picard has a way with words and enlisted Rios to join his vigilante band."
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Former Starfleet Officer",
+                "Independent Transport Captain"
+            },
+            Values = new List<string>
+            {
+                "Cash gift is always appropriate",
+                "Don’t try to get inside my head",
+                "Never again allow a Starfleet captain into my heart",
+                "Starfleet to the core"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Astronavigation, Focus.CriminalOrganizations, Focus.HelmOperations, "Kaplan F17 Speed Freighter Specialist", Focus.Philosophy, Focus.StarfleetProtocol
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 10, Fitness = 9, Insight = 9, Presence = 9, Reason = 9 },
+            Departments = new Departments { Command = 4, Conn = 4, Engineering = 3, Security = 3, Medicine = 1, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType3),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType3, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Fly-By"),
+                new()
+                {
+                    Name = "La Sirena",
+                    Description = new List<string>
+                    {
+                        "A Kaplan F17 Speed Freighter operated by Cris Rios, La Sirena is outfitted with a holodeck, a suite of emergency holograms (patterned on Rios himself, but with different personalities and accents), holographic controls, and a small personal arsenal."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Precise Evasion"),
+                new()
+                {
+                    Name = "Show-Off",
+                    Description = new List<string>
+                    {
+                        "When you attempt a task roll, you may choose to increase the Difficulty by 1. If you succeed, you gain 2 bonus Momentum. Bonus Momentum cannot be saved."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Well Informed"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Raffaela “Raffi” Musiker",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Once Jean-Luc Picard’s executive officer and close friend, Raffi Musiker became one of the victims of his resignation from Starfleet. Her close association with Picard, as well as her vocal assertions regarding Tal Shiar involvement in the Mars attacks, led to her almost immediate dismissal from Starfleet. Her relationships with her husband and son, already strained by the lengthy evacuation efforts, deteriorated, and she fell into a lonely cycle of addiction and humiliation. While not terribly keen on joining Picard on his fool’s errand, she must have seen in it a way to start rebuilding her life."
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Disgraced Starfleet Officer",
+                "Addict"
+            },
+            Values = new List<string>
+            {
+                "I’m a survivor",
+                "Nothing left to lose",
+                "One impossible thing at a time",
+                "Trying to undo the damage I’ve done"
+            },
+            Focuses = new List<string>
+            {
+                "Conspiracy Theories", Focus.Logistics, "Pattern Recognition", "Romulan Affairs", "Security Procedures", Focus.StarfleetProtocol
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 9, Fitness = 8, Insight = 11, Presence = 8, Reason = 11 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 1, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType3),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType3, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Gut Feeling"),
+                TalentSelector.GetTalentAsSpecialRule("Lead Investigator"),
+                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                TalentSelector.GetTalentAsSpecialRule("Well Informed"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Dr. Agnes Jurati",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Dr. Jurati worked in the Division of Advanced Synthetic Research at the Daystrom Institute in Okinawa. She was lured into play by Picard with the possibility that Data had offspring. Yes, I manipulated her into murdering her mentor and lover Bruce Maddox. That should have crushed her. Instead, she accepted responsibility for her actions and quickly lent her genius to Picard’s troupe. In retrospect, I should have erased her from the equation."
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Prominent Cyberneticist",
+                "Fellow of the Daystrom Institute"
+            },
+            Values = new List<string>
+            {
+                "I Can Sense Mistakes While I Am Making Them",
+                "I’m the Earth’s Leading Expert on Synthetic Life",
+                "Never Kill Again",
+                "One Impossible Thing at a Time",
+            },
+            Focuses = new List<string>
+            {
+                Focus.Biology, "Biomechanics", "Neurology", "Research & Development", "Synthetic Life", "Theoretical Cybernetics"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 8, Fitness = 7, Insight = 11, Presence = 8, Reason = 12 },
+            Departments = new Departments { Command = 1, Conn = 1, Engineering = 5, Security = 2, Medicine = 4, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Applied Research"),
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                TalentSelector.GetTalentAsSpecialRule("Quick Study"),
+                TalentSelector.GetTalentAsSpecialRule("Testing a Theory"),
+                TalentSelector.GetTalentAsSpecialRule("Unconventional Thinking"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Dr. Soji Asha",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Soji is a synthetic being created from a single positronic neuron acquired from the terminated android Data. She is the closest thing to a granddaughter that Picard will ever have. During the ban on synthetics, Soji was assigned as an anthropologist to the Borg Reclamation Project on the Romulan-controlled Artifact. We had been tracking her for years as part of our goal to exterminate all synthetic life in the universe. If not for Picard’s manipulations and interference, our operatives would have succeeded in destroying Soji and her synthetic kin."
+            },
+            Traits = new List<string>
+            {
+                "Coppelius Android",
+                "Human",
+                "Anthropologist",
+                "Data’s Daughter"
+            },
+            Values = new List<string>
+            {
+                "I’m a trusting person by default",
+                "I have a story waiting to be claimed",
+                "More cut out for wandering",
+                "Synthetics have rights too",
+            },
+            Focuses = new List<string>
+            {
+                "Androids", Focus.Anthropology, "Artificial Intelligence", "Borg Technology", Focus.Linguistics, "Romulan Culture"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 9, Fitness = 11, Insight = 8, Presence = 8, Reason = 10 },
+            Departments = new Departments { Command = 1, Conn = 1, Engineering = 4, Security = 4, Medicine = 2, Science =4 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = WeaponName.UnarmedStrike,
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Stun,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>(),
+                    Costs = new List<string>()
+                },
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Applied Force"),
+                TalentSelector.GetTalentAsSpecialRule("Biosynthetic Construction"),
+                TalentSelector.GetTalentAsSpecialRule("Computer Expertise"),
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
+                TalentSelector.GetTalentAsSpecialRule("Walking Encyclopedia"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Seven, Fenris Ranger",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Annika “Seven-of-Nine” Hansen is a legend in her own right. Liberated from the Borg by U.S.S. Voyager’s Captain Janeway. Returned from the Delta Quadrant in 2378. Disillusioned with the Federation. Seven eventually joined the Fenris Rangers, a vigilante organization helping individuals along the fractured Federation/Romulan Neutral Zone. She joined Picard’s mission to exact revenge on the criminal Bjayzl for the murder of Icheb, a Starfleet officer who was like a son to her. She was a completely unexpected factor in this entire affair that completely disrupted our best-laid plans."
+            },
+            Traits = new List<string>
+            {
+                "Human",
+                "Liberated Borg",
+                "Fenris Ranger"
+            },
+            Values = new List<string>
+            {
+                "Help people who have no one else to help them",
+                "Never kill someone just because it’s what they deserve",
+                "Working on regaining my humanity",
+                "XBs fall under my protection"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Astrometrics, Focus.Astrophysics, "Borg Collective", Focus.HandPhasers, "Search and Rescue Operations", Focus.SubspaceTheory
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 10, Fitness = 10, Insight = 8, Presence = 8, Reason = 11 },
+            Departments = new Departments { Command = 2, Conn = 2, Engineering = 4, Security = 2, Medicine = 2, Science = 4 },
+            Attacks = new List<Weapon>
+            {
+                new()
+                {
+                    Name = WeaponName.UnarmedStrike,
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.StunOrDeadly,
+                    Severity = 2,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>(),
+                    Costs = new List<string>()
+                },
+                new()
+                {
+                    Name = "Assimilation Tubules",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>
+                    {
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
+                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
+                    },
+                    Costs = new List<string>()
+                },
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                WeaponSelector.GetWeapon(WeaponName.PhaserType3),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType3, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.BorgImplants),
+                new()
+                {
+                    Name = "Borg Implant - Assimilation Tubules",
+                    Description = new List<string>
+                    {
+                        "You have the assimilation tubules weapon, implanted within your arm. This grants the melee weapon listed above. Enemies defeated by assimilation tubules may become assimilated and become Borg Drones. As you have an Interlink Node, you may also use this weapon to directly interface with a computer, as per the Neural Interface talent."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                new()
+                {
+                    Name = "Borg Implant - Cortical Node",
+                    Description = new List<string>
+                    {
+                        "You may suffer 2 Stress to avoid suffering any trait that represents an emotional state, and you have +1 Protection against Stun attacks. However, if you become Fatigued, choose two attributes to shutdown instead of one."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                new()
+                {
+                    Name = "Borg Implant - Interlink Node",
+                    Description = new List<string>
+                    {
+                        "Even disconnected from the Collective, you can still glean insights from other Borg drones nearby. When Borg are present in a scene, you may add 1 Threat to ask a question as per Obtain Information, attempting to gain some knowledge from Borg communications."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                new()
+                {
+                    Name = "Collective Insights",
+                    Description = new List<string>
+                    {
+                        "Once per session, when you attempt a task, you may suffer 1 Stress to gain one additional Focus of your choice for the remainder of the current session. The Focus should reflect some knowledge that the Borg Collective would have assimilated and thus should not be any subject which the Borg would deem irrelevant."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Martial Artist"),
+                TalentSelector.GetTalentAsSpecialRule("Mental Repository"),
+                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                TalentSelector.GetTalentAsSpecialRule("Well Informed"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Elnor",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Orphaned during the Romulan evacuation, Elnor found himself in the care of the Qowat Milat on the planet Vashti. He became very fond of then-Admiral Picard, who visited the planet frequently until the attacks on Mars. After that, Picard didn’t go back at all, leaving Elnor alone without a father figure. As the evacuation effort fell apart, the Qowat Milat were unable to find a better home for the boy, so they raised and trained him as one of their own. When Picard finally returned 15 years later, Elnor had become a formidable warrior. He was an enormous aid to Picard’s mission but may prove an even better asset to the remnants of the Empire."
+            },
+            Traits = new List<string>
+            {
+                "Romulan",
+                "Raised by the Qowat Milat"
+            },
+            Values = new List<string>
+            {
+                "I have bound my sword to your lost cause",
+                "Now is the only moment",
+                "Please, my friend: choose to live",
+                "The galaxy is a far stranger place than I imagined"
+            },
+            Focuses = new List<string>
+            {
+                "Acrobatics", Focus.BladeWeapons, Focus.HandToHandCombat, Focus.Negotiation, "Qowat Milat Teachings", "Vigilance"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 10, Fitness = 11, Insight = 8, Presence = 9, Reason = 8 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 4, Medicine = 3, Science = 2 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                new()
+                {
+                    Name = "Tan qalanq (blade)",
+                    Type = WeaponType.Melee,
+                    Injury = InjuryType.Deadly,
+                    Severity = 3,
+                    Size = WeaponSize.OneHanded,
+                    Qualities = new List<WeaponQuality>(),
+                    Costs = new List<string>()
+                },
+                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Close Protection"),
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
+                new()
+                {
+                    Name = "Qalankhkai",
+                    Description = new List<string>
+                    {
+                        "When you make a melee attack, or are targeted by a melee attack, and you buy one or more d20s by adding Threat, you may re-roll the dice pool for your task roll."
+                    },
+                    Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Untapped Potential"),
+                new()
+                {
+                    Name = "Untapped Potential (Control)",
+                    Description = new List<string>
+                    {
+                        "You’re inexperienced, but talented and with a bright future. You may not have or increase any attribute to above 11, or any department to above 4 while you have this talent. Whenever you succeed at a task for which you bought one or more additional dice (by any means), roll a d20 after the roll. If you roll equal to or less than your Control, gain 1 bonus Momentum; if you roll higher, add 1 Threat instead. While you possess this talent, you cannot gain any higher rank than Lieutenant (junior grade), or a higher enlisted rate than Petty Officer."
+                    },
+                    Source = BookSource.Core,
+                },
+                TalentSelector.GetTalentAsSpecialRule("Wary"),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
+        },
+        new()
+        {
+            Name = "Narek",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "An unorthodox agent, Narek comes from a family of Tal Shiar operatives. He’s considered something of a family failure because he left the Zhat Vash faction, to which his sister Narissa still belongs, although he appears to continue serving their interests. Narek is subtle even for the Tal Shiar, preferring to take his time with his target; seduction, rather than coercion, is his tool of choice, which does not always sit well with his superiors. In his pursuit of Dr. Soji Asha, his sister made no secret of her distaste with his techniques, but Narek was convinced that subtlety was the only way to succeed."
+            },
+            Traits = new List<string>
+            {
+                "Romulan",
+                "Tal Shiar Operative",
+                "Disgraced Member of the Zhat Vash"
+            },
+            Values = new List<string>
+            {
+                "I won’t let my sister down",
+                "I’m sexy and I know it",
+                "My back-up plans have back-up plans",
+                "Violence isn’t my first option, but it is an option"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Espionage, Focus.HandToHandCombat, Focus.Infiltration, Focus.Psychology, "Seduction", "Surveillance"
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 10, Fitness = 9, Insight = 9, Presence = 10, Reason = 8 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 4, Medicine = 3, Science = 2 },
+            Attacks = new List<Weapon>
+            {
+                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                WeaponSelector.GetWeapon(WeaponName.Dagger),
+                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                TalentSelector.GetTalentAsSpecialRule("Back-up Plans"),
+                TalentSelector.GetTalentAsSpecialRule("Constantly Watching"),
+                TalentSelector.GetTalentAsSpecialRule("Defensive Training (Melee)"),
+                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
+            },
+            Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
     };
 
