@@ -108,8 +108,10 @@ public class Starship
         SpecialRules.Add(starshipSpecialRule);
     }
 
-    internal void SetMissionProfileSystems(MissionProfile chosenMissionProfile)
+    internal void SetMissionProfileSystems(MissionProfile chosenMissionProfile, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         if (chosenMissionProfile.AnyOneSystem)
         {
             var choices = new List<string>
@@ -122,7 +124,7 @@ public class Starship
                 SystemName.Weapons
             };
 
-            var choice = choices.OrderBy(n => Util.GetRandom()).First();
+            var choice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (choice == SystemName.Comms) Systems.Comms++;
             if (choice == SystemName.Computers) Systems.Computers++;

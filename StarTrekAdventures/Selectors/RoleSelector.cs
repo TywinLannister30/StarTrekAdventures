@@ -1,13 +1,12 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
-using System.Net.NetworkInformation;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class RoleSelector
+public class RoleSelector: IRoleSelector
 {
-    public static Role ChooseRole(Character character)
+    public Role ChooseRole(Character character)
     {
         var weightedRoleList = new WeightedList<Role>();
 
@@ -161,12 +160,12 @@ public static class RoleSelector
         return weightedRoleList.GetRandom();
     }
 
-    public static Role GetRole(string name)
+    public Role GetRole(string name)
     {
         return Roles.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Role> GetAllRoles()
+    public List<Role> GetAllRoles()
     {
         return Roles;
     }

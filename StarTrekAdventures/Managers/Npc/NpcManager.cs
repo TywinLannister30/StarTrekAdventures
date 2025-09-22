@@ -6,9 +6,20 @@ namespace StarTrekAdventures.Managers;
 
 public class NpcManager : INpcManager
 {
+    private readonly INpcSelector _npcSelector;
+    private readonly ISpeciesSelector _speciesSelector;
+    private readonly ITalentSelector _talentSelector;
+
+    public NpcManager(INpcSelector npcSelector, ISpeciesSelector speciesSelector, ITalentSelector talentSelector)
+    {
+        _npcSelector = npcSelector;
+        _speciesSelector = speciesSelector;
+        _talentSelector = talentSelector;
+    }
+
     public NonPlayerCharacter GenerateNpc(string name)
     {
-        var baseNpc = NpcSelector.GetNonPlayerCharacter(name);
+        var baseNpc = _npcSelector.GetNonPlayerCharacter(name);
 
         var npc = new NonPlayerCharacter(baseNpc);
 
@@ -17,7 +28,7 @@ public class NpcManager : INpcManager
             var oldTrait = baseNpc.Traits.Last();
             npc.Traits.Clear();
 
-            var chosenSpecies = SpeciesSelector.ChooseSpecies(null);
+            var chosenSpecies = _speciesSelector.ChooseSpecies(null);
             
             foreach (var species in chosenSpecies)
                 npc.Traits.Add(species.Name);
@@ -32,7 +43,7 @@ public class NpcManager : INpcManager
             var oldTrait = baseNpc.Traits.Last();
             npc.Traits.Clear();
 
-            var chosenSpecies = SpeciesSelector.GetAnotherRandomSpecies(SpeciesName.Human);
+            var chosenSpecies = _speciesSelector.GetAnotherRandomSpecies(SpeciesName.Human);
 
             npc.Traits.Add(chosenSpecies.Name);
 
@@ -43,7 +54,7 @@ public class NpcManager : INpcManager
 
         if (npc.Name == "Academy Instructor")
         {
-            npc.AdjustForAcademyTeacher();
+            npc.AdjustForAcademyTeacher(_talentSelector);
         }
 
         var specialRulesToRemove = new List<NpcSpecialRule>();
@@ -78,21 +89,21 @@ public class NpcManager : INpcManager
 
     public List<NonPlayerCharacter> GetAll()
     {
-        return NpcSelector.GetAllNonPlayerCharacters();
+        return _npcSelector.GetAllNonPlayerCharacters();
     }
 
     public List<string> GetAllNames()
     {
-        return NpcSelector.GetAllNonPlayerCharacters().Select(x => x.Name).ToList();
+        return _npcSelector.GetAllNonPlayerCharacters().Select(x => x.Name).ToList();
     }
 
     public NonPlayerCharacter Get(string name)
     {
-        return NpcSelector.GetNonPlayerCharacter(name);
+        return _npcSelector.GetNonPlayerCharacter(name);
     }
 
     public List<NonPlayerCharacter> GetAllByTrait(string trait)
     {
-        return NpcSelector.GetAllNonPlayerCharacters().Where(x => x.Traits.Any(t => t.Equals(trait, StringComparison.OrdinalIgnoreCase))).ToList();
+        return _npcSelector.GetAllNonPlayerCharacters().Where(x => x.Traits.Any(t => t.Equals(trait, StringComparison.OrdinalIgnoreCase))).ToList();
     }
 }

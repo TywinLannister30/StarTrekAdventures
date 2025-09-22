@@ -5,9 +5,9 @@ using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public class TalentSelector
+public class TalentSelector : ITalentSelector
 {
-    public static Talent ChooseTalent(Character character)
+    public Talent ChooseTalent(Character character)
     {
         var weightedTalentsList = new WeightedList<Talent>();
 
@@ -138,17 +138,17 @@ public class TalentSelector
         return true;
     }
 
-    public static Talent GetTalent(string name)
+    public Talent GetTalent(string name)
     {
         return Talents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    public static List<Talent> GetAllTalents()
+    public List<Talent> GetAllTalents()
     {
         return Talents;
     }
 
-    public static NpcSpecialRule GetTalentAsSpecialRule(string name)
+    public NpcSpecialRule GetTalentAsSpecialRule(string name)
     {
         var talent = GetTalent(name);
 

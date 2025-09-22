@@ -4,9 +4,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public class ValueSelector
+public class ValueSelector : IValueSelector
 {
-    public static string ChooseValue(Character character)
+    public string ChooseValue(Character character)
     {
         var weightedValuesList = new WeightedList<Value>();
 
@@ -45,12 +45,12 @@ public class ValueSelector
         return true;
     }
 
-    internal static List<Value> GetAllValues()
+    public List<Value> GetAllValues()
     {
         return Values;
     }
 
-    internal static Value GetSpecificValue(string name)
+    public Value GetSpecificValue(string name)
     {
         return Values.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }

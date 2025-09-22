@@ -4,9 +4,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class SpeciesSelector
+public class SpeciesSelector : ISpeciesSelector
 {
-    public static List<Species> ChooseSpecies(string specificSpecies)
+    public List<Species> ChooseSpecies(string specificSpecies)
     {
         var chosenSpecies = new List<Species>();
 
@@ -45,12 +45,12 @@ public static class SpeciesSelector
         return chosenSpecies;
     }
 
-    public static Species GetSpecies(string name)
+    public Species GetSpecies(string name)
     {
         return Species.FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    public static Species GetAnotherRandomSpecies(string name)
+    public Species GetAnotherRandomSpecies(string name)
     {
         var availableSpecies = new List<Species>();
 
@@ -65,7 +65,7 @@ public static class SpeciesSelector
         return availableSpecies.OrderBy(n => Util.GetRandom()).First();
     }
 
-    public static List<Species> GetAllSpecies()
+    public List<Species> GetAllSpecies()
     {
         return Species;
     }

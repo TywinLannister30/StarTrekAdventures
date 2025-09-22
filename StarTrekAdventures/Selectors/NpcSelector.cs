@@ -1,15 +1,21 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
-using System.Diagnostics.Metrics;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public class NpcSelector
+public class NpcSelector : INpcSelector
 {
-    public static NonPlayerCharacter GetNonPlayerCharacter(string name)
+    private readonly ITalentSelector _talentSelector;
+
+    public NpcSelector(ITalentSelector talentSelector)
     {
-        var selectedNpc = NonPlayerCharacters.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+        _talentSelector = talentSelector;
+    }
+
+    public NonPlayerCharacter GetNonPlayerCharacter(string name)
+    {
+        var selectedNpc = GetAllNonPlayerCharactersList().First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
         var npc = new NonPlayerCharacter(selectedNpc);
 
@@ -19,9 +25,9 @@ public class NpcSelector
         return npc;
     }
 
-    internal static List<NonPlayerCharacter> GetAllNonPlayerCharacters()
+    public List<NonPlayerCharacter> GetAllNonPlayerCharacters()
     {
-        var selectedNpcs = NonPlayerCharacters;
+        var selectedNpcs = GetAllNonPlayerCharactersList();
 
         var npcs = new List<NonPlayerCharacter>();
 
@@ -38,9 +44,7 @@ public class NpcSelector
         return npcs;
     }
 
-    private static readonly List<NonPlayerCharacter> NonPlayerCharacters = GetAllNonPlayerCharactersList();
-
-    private static List<NonPlayerCharacter> GetAllNonPlayerCharactersList()
+    private List<NonPlayerCharacter> GetAllNonPlayerCharactersList()
     {
         var allNpcs = new List<NonPlayerCharacter>();
         allNpcs.AddRange(GetNextGenerationCrew());
@@ -59,7 +63,7 @@ public class NpcSelector
 
     
 
-    private static IEnumerable<NonPlayerCharacter> GetNextGenerationCrew() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetNextGenerationCrew() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -100,8 +104,8 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Advisor"),
-                TalentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
+                _talentSelector.GetTalentAsSpecialRule("Advisor"),
+                _talentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
                 new()
                 {
                     Name = "Commanding Officer",
@@ -112,8 +116,8 @@ public class NpcSelector
                     Source = BookSource.Core,
                 },
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Spirit of Discovery"),
-                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+                _talentSelector.GetTalentAsSpecialRule("Spirit of Discovery"),
+                _talentSelector.GetTalentAsSpecialRule("Veteran"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
@@ -154,7 +158,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Bold (Security)"),
+                _talentSelector.GetTalentAsSpecialRule("Bold (Security)"),
                 new()
                 {
                     Name = "Executive Officer",
@@ -165,9 +169,9 @@ public class NpcSelector
                     Source = BookSource.Core,
                 },
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Follow my Lead"),
-                TalentSelector.GetTalentAsSpecialRule("Mean Right Hook"),
-                TalentSelector.GetTalentAsSpecialRule("Quick to Action"),
+                _talentSelector.GetTalentAsSpecialRule("Follow my Lead"),
+                _talentSelector.GetTalentAsSpecialRule("Mean Right Hook"),
+                _talentSelector.GetTalentAsSpecialRule("Quick to Action"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
@@ -210,10 +214,10 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Cautious (Medicine)"),
-                TalentSelector.GetTalentAsSpecialRule("Defuse the Tension"),
-                TalentSelector.GetTalentAsSpecialRule("Empathy"),
-                TalentSelector.GetTalentAsSpecialRule("Open Book"),
+                _talentSelector.GetTalentAsSpecialRule("Cautious (Medicine)"),
+                _talentSelector.GetTalentAsSpecialRule("Defuse the Tension"),
+                _talentSelector.GetTalentAsSpecialRule("Empathy"),
+                _talentSelector.GetTalentAsSpecialRule("Open Book"),
                 new()
                 {
                     Name = "Ship's Counselor",
@@ -223,7 +227,7 @@ public class NpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Studious"),
+                _talentSelector.GetTalentAsSpecialRule("Studious"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
@@ -276,10 +280,10 @@ public class NpcSelector
                     Source = BookSource.Core,
                 },
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("First Response"),
-                TalentSelector.GetTalentAsSpecialRule("Quick Study"),
-                TalentSelector.GetTalentAsSpecialRule("Triage"),
-                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+                _talentSelector.GetTalentAsSpecialRule("First Response"),
+                _talentSelector.GetTalentAsSpecialRule("Quick Study"),
+                _talentSelector.GetTalentAsSpecialRule("Triage"),
+                _talentSelector.GetTalentAsSpecialRule("Veteran"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
@@ -321,7 +325,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Duranium Polyalloy Construction"),
+                _talentSelector.GetTalentAsSpecialRule("Duranium Polyalloy Construction"),
                 new()
                 {
                     Name = "Operations Manager",
@@ -332,9 +336,9 @@ public class NpcSelector
                     Source = BookSource.Core,
                 },
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
-                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
-                TalentSelector.GetTalentAsSpecialRule("The Power of Math"),
-                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+                _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("The Power of Math"),
+                _talentSelector.GetTalentAsSpecialRule("Veteran"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
@@ -385,10 +389,10 @@ public class NpcSelector
                     Source = BookSource.Core,
                 },
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("I Know my Ship"),
-                TalentSelector.GetTalentAsSpecialRule("In the Nick of Time"),
-                TalentSelector.GetTalentAsSpecialRule("Jury-Rig"),
-                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("I Know my Ship"),
+                _talentSelector.GetTalentAsSpecialRule("In the Nick of Time"),
+                _talentSelector.GetTalentAsSpecialRule("Jury-Rig"),
+                _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
                 new()
                 {
                     Name = "Visor",
@@ -450,10 +454,10 @@ public class NpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Constantly Watching"),
-                TalentSelector.GetTalentAsSpecialRule("Dauntless"),
-                TalentSelector.GetTalentAsSpecialRule("No Hesitation"),
-                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+                _talentSelector.GetTalentAsSpecialRule("Constantly Watching"),
+                _talentSelector.GetTalentAsSpecialRule("Dauntless"),
+                _talentSelector.GetTalentAsSpecialRule("No Hesitation"),
+                _talentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
@@ -493,8 +497,8 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Bold (Security)"),
-                TalentSelector.GetTalentAsSpecialRule("Call out Targets"),
+                _talentSelector.GetTalentAsSpecialRule("Bold (Security)"),
+                _talentSelector.GetTalentAsSpecialRule("Call out Targets"),
                 new()
                 {
                     Name = "Chief of Security",
@@ -504,15 +508,15 @@ public class NpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Extra Effort"),
+                _talentSelector.GetTalentAsSpecialRule("Extra Effort"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Quick Survey"),
+                _talentSelector.GetTalentAsSpecialRule("Quick Survey"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetPicardSeasonOneCrew() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetPicardSeasonOneCrew() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -553,11 +557,11 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Advisor"),
-                TalentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
+                _talentSelector.GetTalentAsSpecialRule("Advisor"),
+                _talentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Reassuring"),
-                TalentSelector.GetTalentAsSpecialRule("Veteran"),
+                _talentSelector.GetTalentAsSpecialRule("Reassuring"),
+                _talentSelector.GetTalentAsSpecialRule("Veteran"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -600,7 +604,7 @@ public class NpcSelector
             SpecialRules = new List<NpcSpecialRule>
             {
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Fly-By"),
+                _talentSelector.GetTalentAsSpecialRule("Fly-By"),
                 new()
                 {
                     Name = "La Sirena",
@@ -610,7 +614,7 @@ public class NpcSelector
                     },
                     Source = BookSource.PicardSeasonOneCrewPack1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Precise Evasion"),
+                _talentSelector.GetTalentAsSpecialRule("Precise Evasion"),
                 new()
                 {
                     Name = "Show-Off",
@@ -620,7 +624,7 @@ public class NpcSelector
                     },
                     Source = BookSource.PicardSeasonOneCrewPack1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Well Informed"),
+                _talentSelector.GetTalentAsSpecialRule("Well Informed"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -663,10 +667,10 @@ public class NpcSelector
             SpecialRules = new List<NpcSpecialRule>
             {
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Gut Feeling"),
-                TalentSelector.GetTalentAsSpecialRule("Lead Investigator"),
-                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
-                TalentSelector.GetTalentAsSpecialRule("Well Informed"),
+                _talentSelector.GetTalentAsSpecialRule("Gut Feeling"),
+                _talentSelector.GetTalentAsSpecialRule("Lead Investigator"),
+                _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("Well Informed"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -706,11 +710,11 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Applied Research"),
+                _talentSelector.GetTalentAsSpecialRule("Applied Research"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Quick Study"),
-                TalentSelector.GetTalentAsSpecialRule("Testing a Theory"),
-                TalentSelector.GetTalentAsSpecialRule("Unconventional Thinking"),
+                _talentSelector.GetTalentAsSpecialRule("Quick Study"),
+                _talentSelector.GetTalentAsSpecialRule("Testing a Theory"),
+                _talentSelector.GetTalentAsSpecialRule("Unconventional Thinking"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -760,11 +764,11 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Applied Force"),
-                TalentSelector.GetTalentAsSpecialRule("Biosynthetic Construction"),
-                TalentSelector.GetTalentAsSpecialRule("Computer Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("Applied Force"),
+                _talentSelector.GetTalentAsSpecialRule("Biosynthetic Construction"),
+                _talentSelector.GetTalentAsSpecialRule("Computer Expertise"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
-                TalentSelector.GetTalentAsSpecialRule("Walking Encyclopedia"),
+                _talentSelector.GetTalentAsSpecialRule("Walking Encyclopedia"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -866,10 +870,10 @@ public class NpcSelector
                     },
                     Source = BookSource.PicardSeasonOneCrewPack1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Martial Artist"),
-                TalentSelector.GetTalentAsSpecialRule("Mental Repository"),
-                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
-                TalentSelector.GetTalentAsSpecialRule("Well Informed"),
+                _talentSelector.GetTalentAsSpecialRule("Martial Artist"),
+                _talentSelector.GetTalentAsSpecialRule("Mental Repository"),
+                _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("Well Informed"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -919,7 +923,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Close Protection"),
+                _talentSelector.GetTalentAsSpecialRule("Close Protection"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
                 new()
                 {
@@ -930,7 +934,7 @@ public class NpcSelector
                     },
                     Source = BookSource.PicardSeasonOneCrewPack1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Untapped Potential"),
+                _talentSelector.GetTalentAsSpecialRule("Untapped Potential"),
                 new()
                 {
                     Name = "Untapped Potential (Control)",
@@ -940,7 +944,7 @@ public class NpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Wary"),
+                _talentSelector.GetTalentAsSpecialRule("Wary"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -982,17 +986,17 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Back-up Plans"),
-                TalentSelector.GetTalentAsSpecialRule("Constantly Watching"),
-                TalentSelector.GetTalentAsSpecialRule("Defensive Training (Melee)"),
-                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                _talentSelector.GetTalentAsSpecialRule("Back-up Plans"),
+                _talentSelector.GetTalentAsSpecialRule("Constantly Watching"),
+                _talentSelector.GetTalentAsSpecialRule("Defensive Training (Melee)"),
+                _talentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetStarfleetNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetStarfleetNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -1030,7 +1034,7 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Visit Every Star")
+                _talentSelector.GetTalentAsSpecialRule("Visit Every Star")
             },
             Source = BookSource.ScienceDivision1stEdition,
         },
@@ -1102,7 +1106,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Cold Reading"),
+                _talentSelector.GetTalentAsSpecialRule("Cold Reading"),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             },
             Source = BookSource.ScienceDivision1stEdition,
@@ -1390,7 +1394,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Cautious (Engineering)"),
+                _talentSelector.GetTalentAsSpecialRule("Cautious (Engineering)"),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
@@ -1439,7 +1443,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Advisor"),
+                _talentSelector.GetTalentAsSpecialRule("Advisor"),
                 new()
                 {
                     Name = "Jurisprudence",
@@ -1585,7 +1589,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Field Medicine"),
+                _talentSelector.GetTalentAsSpecialRule("Field Medicine"),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
@@ -1736,7 +1740,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Collaboration (Science)"),
+                _talentSelector.GetTalentAsSpecialRule("Collaboration (Science)"),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                 new()
@@ -1851,7 +1855,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Constantly Watching"),
+                _talentSelector.GetTalentAsSpecialRule("Constantly Watching"),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
@@ -1918,7 +1922,7 @@ public class NpcSelector
                     Source = BookSource.ScienceDivision1stEdition,
                 },
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                TalentSelector.GetTalentAsSpecialRule("Jury-Rig"),
+                _talentSelector.GetTalentAsSpecialRule("Jury-Rig"),
                 new()
                 {
                     Name = "Scientific Method",
@@ -1966,8 +1970,8 @@ public class NpcSelector
             SpecialRules = new List<NpcSpecialRule>
             {
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                TalentSelector.GetTalentAsSpecialRule("Technical Expertise"),
-                TalentSelector.GetTalentAsSpecialRule("Transporter Chief"),
+                _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("Transporter Chief"),
             },
             Source = BookSource.OperationsDivision1stEdition,
         },
@@ -2056,7 +2060,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Advisor"),
+                _talentSelector.GetTalentAsSpecialRule("Advisor"),
                 new()
                 {
                     Name = "Dauntless",
@@ -2199,8 +2203,8 @@ public class NpcSelector
                     Source = BookSource.OperationsDivision1stEdition,
                 },
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                TalentSelector.GetTalentAsSpecialRule("More Power!"),
-                TalentSelector.GetTalentAsSpecialRule("Starship Expert"),
+                _talentSelector.GetTalentAsSpecialRule("More Power!"),
+                _talentSelector.GetTalentAsSpecialRule("Starship Expert"),
                 new()
                 {
                     Name = "Veteran",
@@ -2259,7 +2263,7 @@ public class NpcSelector
                     }
                 },
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                TalentSelector.GetTalentAsSpecialRule("Nerve Pinch")
+                _talentSelector.GetTalentAsSpecialRule("Nerve Pinch")
             }
         },
         new()
@@ -2375,7 +2379,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Proud and Honorable"),
+                _talentSelector.GetTalentAsSpecialRule("Proud and Honorable"),
                 new()
                 {
                     Name = "Accomplished Strategist",
@@ -2596,7 +2600,7 @@ public class NpcSelector
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetFederationNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetFederationNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -2982,7 +2986,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Defuse the Tension"),
+                _talentSelector.GetTalentAsSpecialRule("Defuse the Tension"),
             },
             Source = BookSource.CommandDivision1stEdition,
         },
@@ -3030,7 +3034,7 @@ public class NpcSelector
                     Source = BookSource.OperationsDivision1stEdition,
                 },
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ExtraordinaryReason1),
-                TalentSelector.GetTalentAsSpecialRule("Procedural Compliance"),
+                _talentSelector.GetTalentAsSpecialRule("Procedural Compliance"),
             },
             Source = BookSource.OperationsDivision1stEdition,
         },
@@ -3112,9 +3116,9 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Kohlinar"),
+                _talentSelector.GetTalentAsSpecialRule("Kohlinar"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
-                TalentSelector.GetTalentAsSpecialRule("Teacher"),
+                _talentSelector.GetTalentAsSpecialRule("Teacher"),
                 new()
                 {
                     Name = "Using Reason as our Guide",
@@ -3193,7 +3197,7 @@ public class NpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Telepathy"),
+                _talentSelector.GetTalentAsSpecialRule("Telepathy"),
             },
             Source = BookSource.CommandDivision1stEdition,
         },
@@ -3236,8 +3240,8 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Advisor"),
-                TalentSelector.GetTalentAsSpecialRule("Collaboration (Command)"),
+                _talentSelector.GetTalentAsSpecialRule("Advisor"),
+                _talentSelector.GetTalentAsSpecialRule("Collaboration (Command)"),
                 new()
                 {
                     Name = "Ebullient and Reckless",
@@ -3247,7 +3251,7 @@ public class NpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Joined"),
+                _talentSelector.GetTalentAsSpecialRule("Joined"),
                 new()
                 {
                     Name = "Patient",
@@ -3296,7 +3300,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Doctor's Orders"),
+                _talentSelector.GetTalentAsSpecialRule("Doctor's Orders"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 new()
                 {
@@ -3307,7 +3311,7 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Studious"),
+                _talentSelector.GetTalentAsSpecialRule("Studious"),
             },
             Source = BookSource.ScienceDivision1stEdition,
         },
@@ -3348,9 +3352,9 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Computer Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("Computer Expertise"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Studious"),
+                _talentSelector.GetTalentAsSpecialRule("Studious"),
                 new()
                 {
                     Name = "Zimmerman Zeal",
@@ -3401,7 +3405,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Computer Expertise"),
+                _talentSelector.GetTalentAsSpecialRule("Computer Expertise"),
                 new()
                 {
                     Name = "Deus ex Machina",
@@ -3412,7 +3416,7 @@ public class NpcSelector
                     Source = BookSource.ScienceDivision1stEdition,
                 },
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Studious"),
+                _talentSelector.GetTalentAsSpecialRule("Studious"),
 
             },
             Source = BookSource.ScienceDivision1stEdition,
@@ -3454,7 +3458,7 @@ public class NpcSelector
             SpecialRules = new List<NpcSpecialRule>
             {
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                TalentSelector.GetTalentAsSpecialRule("Studious"),
+                _talentSelector.GetTalentAsSpecialRule("Studious"),
                 new()
                 {
                     Name = "Sure of Greatness",
@@ -3464,7 +3468,7 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Testing a Theory"),
+                _talentSelector.GetTalentAsSpecialRule("Testing a Theory"),
             },
             Source = BookSource.ScienceDivision1stEdition,
         },
@@ -3528,8 +3532,8 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Jury-Rig"),
-                TalentSelector.GetTalentAsSpecialRule("Testing a Theory"),
+                _talentSelector.GetTalentAsSpecialRule("Jury-Rig"),
+                _talentSelector.GetTalentAsSpecialRule("Testing a Theory"),
             },
             Source = BookSource.ScienceDivision1stEdition,
         },
@@ -3576,7 +3580,7 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Incisive Scrutiny"),
+                _talentSelector.GetTalentAsSpecialRule("Incisive Scrutiny"),
                 NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
@@ -3637,9 +3641,9 @@ public class NpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                TalentSelector.GetTalentAsSpecialRule("Cold Reading"),
-                TalentSelector.GetTalentAsSpecialRule("Mind Meld"),
-                TalentSelector.GetTalentAsSpecialRule("Nerve Pinch"),
+                _talentSelector.GetTalentAsSpecialRule("Cold Reading"),
+                _talentSelector.GetTalentAsSpecialRule("Mind Meld"),
+                _talentSelector.GetTalentAsSpecialRule("Nerve Pinch"),
                 SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                 new()
                 {
@@ -3655,7 +3659,7 @@ public class NpcSelector
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetKlingonNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetKlingonNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -3684,7 +3688,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+                _talentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
             }
         },
         new()
@@ -3731,7 +3735,7 @@ public class NpcSelector
                         "When the Klingon Officer makes a successful attack, they may spend 2 Threat to assist another Klingon’s next attack with his Daring + Command."
                     }
                 },
-                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+                _talentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
             }
         },
         new()
@@ -3786,12 +3790,12 @@ public class NpcSelector
                         "When Moq’var makes a successful attack, they may spend 2 Threat to assist another Klingon’s next attack with his Daring + Command."
                     }
                 },
-                TalentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
+                _talentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
             }
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetRomulanNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetRomulanNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -3820,8 +3824,8 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
-                TalentSelector.GetTalentAsSpecialRule("Wary"),
+                _talentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                _talentSelector.GetTalentAsSpecialRule("Wary"),
             }
         },
         new()
@@ -3867,8 +3871,8 @@ public class NpcSelector
                         "When the centurion makes an attack against an enemy who is unaware of their presence, they may spend 2 Threat to increase the severity of this and all other attacks made this round by them and their subordinates by 1."
                     }
                 },
-                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
-                TalentSelector.GetTalentAsSpecialRule("Wary"),
+                _talentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                _talentSelector.GetTalentAsSpecialRule("Wary"),
             }
         },
         new()
@@ -3907,7 +3911,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
+                _talentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
                 new()
                 {
                     Name = "Supreme Authority",
@@ -3916,12 +3920,12 @@ public class NpcSelector
                         "Whenever a Romulan under Major Verohk’s command attempts a task to resist persuasion or intimidation, Verohk may spend 1 Threat to allow that Romulan to re-roll, even if Verohk is not present in the scene herself."
                     }
                 },
-                TalentSelector.GetTalentAsSpecialRule("Wary"),
+                _talentSelector.GetTalentAsSpecialRule("Wary"),
             }
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetCardassianNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetCardassianNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -4098,7 +4102,7 @@ public class NpcSelector
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetFerengiNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetFerengiNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -4125,7 +4129,7 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
+                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
             }
         },
         new()
@@ -4161,8 +4165,8 @@ public class NpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                TalentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
-                TalentSelector.GetTalentAsSpecialRule("Never Place Friendship Above Profit"),
+                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
+                _talentSelector.GetTalentAsSpecialRule("Never Place Friendship Above Profit"),
             }
         },
         new()
@@ -4208,7 +4212,7 @@ public class NpcSelector
                         "Increase the Difficulty of all social conflict tasks to persuade DaiMon Skel by 2. This Difficulty increase is removed as soon as Skel is offered something in trade."
                     }
                 },
-                TalentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
+                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
                 new()
                 {
                     Name = "You Can't Make a Deal if You're Dead",
@@ -4221,7 +4225,7 @@ public class NpcSelector
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetDominionNpcs() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetDominionNpcs() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -4390,7 +4394,7 @@ public class NpcSelector
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetCreatures() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetCreatures() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -4803,7 +4807,7 @@ public class NpcSelector
         },
     };
 
-    private static IEnumerable<NonPlayerCharacter> GetUnusualLifeforms() => new List<NonPlayerCharacter>
+    private IEnumerable<NonPlayerCharacter> GetUnusualLifeforms() => new List<NonPlayerCharacter>
     {
         new()
         {
@@ -5004,7 +5008,7 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition
                 },
-                TalentSelector.GetTalentAsSpecialRule("Telepathy"),
+                _talentSelector.GetTalentAsSpecialRule("Telepathy"),
             },
             Source = BookSource.ScienceDivision1stEdition
         },
@@ -5068,8 +5072,8 @@ public class NpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition
                 },
-                TalentSelector.GetTalentAsSpecialRule("Telepathic Projection"),
-                TalentSelector.GetTalentAsSpecialRule("Telepathy"),
+                _talentSelector.GetTalentAsSpecialRule("Telepathic Projection"),
+                _talentSelector.GetTalentAsSpecialRule("Telepathy"),
                 new()
                 {
                     Name = "Ultimate Truth",

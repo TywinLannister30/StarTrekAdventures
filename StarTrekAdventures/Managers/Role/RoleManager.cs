@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class RoleManager : IRoleManager
 {
+    private readonly IRoleSelector _roleSelector;
+
+    public RoleManager(IRoleSelector roleSelector)
+    {
+        _roleSelector = roleSelector;
+    }
+
     public List<Role> GetAll()
     {
-        return RoleSelector.GetAllRoles();
+        return _roleSelector.GetAllRoles();
     }
 
     public List<string> GetAllNames()
     {
-        return RoleSelector.GetAllRoles().Select(x => x.Name).ToList();
+        return _roleSelector.GetAllRoles().Select(x => x.Name).ToList();
     }
 
     public Role Get(string name)
     {
-        return RoleSelector.GetRole(name);
+        return _roleSelector.GetRole(name);
     }
 }

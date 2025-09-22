@@ -1,8 +1,9 @@
 ﻿namespace StarTrekAdventures.Helpers;
 
+// Phase this out
 public static class Util
 {
-    private static readonly Random rnd = new Random();
+    private static readonly Random rnd = new();
 
     public static int GetRandom()
     {

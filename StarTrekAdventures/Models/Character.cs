@@ -53,6 +53,7 @@ public class Character
     public string CareerPath { get; set; }
 
     public string Experience { get; set; }
+    
     public List<string> CareerEvents { get; set; }
 
     public ICollection<string> Traits { get; set; }
@@ -91,39 +92,39 @@ public class Character
                 return false;
             }
 
-            var disciplineSum = 0;
-            disciplineSum += Departments.Command;
-            disciplineSum += Departments.Conn;
-            disciplineSum += Departments.Engineering;
-            disciplineSum += Departments.Medicine;
-            disciplineSum += Departments.Science;
-            disciplineSum += Departments.Security;
+            var departmentSum = 0;
+            departmentSum += Departments.Command;
+            departmentSum += Departments.Conn;
+            departmentSum += Departments.Engineering;
+            departmentSum += Departments.Medicine;
+            departmentSum += Departments.Science;
+            departmentSum += Departments.Security;
 
-            if (disciplineSum != 16)
+            if (departmentSum != 16)
             {
-                ValidationIssue = $"Sum of disciplines is {disciplineSum}. It should be 16.";
+                ValidationIssue = $"Sum of departments is {departmentSum}. It should be 16.";
                 return false;
             }
 
-            if (Values.Count != 4)
+            if (Values.Count != 4 + Roles.Sum(x => x.AdditionalValues))
             {
-                ValidationIssue = $"The character has {Values.Count} values. It should be 4.";
+                ValidationIssue = $"The character has {Values.Count} values. It should be {4 + Roles.Sum(x => x.AdditionalValues)}.";
                 return false;
             }
 
             if (SpeciesAbility.AddOneOfTheseTalents != null || !string.IsNullOrEmpty(SpeciesAbility.AddTalent))
             {
-                if (Talents.Count != 5 + Roles.Sum(x => x.AdditionalValues))
+                if (Talents.Count != 5)
                 {
-                    ValidationIssue = $"The character has {Talents.Count} talents. It should be {5 + Roles.Sum(x => x.AdditionalValues)}.";
+                    ValidationIssue = $"The character has {Talents.Count} talents. It should be 5.";
                     return false;
                 }
             }
             else
             {
-                if (Talents.Count != 4 + Roles.Sum(x => x.AdditionalValues))
+                if (Talents.Count != 4)
                 {
-                    ValidationIssue = $"The character has {Talents.Count} talents. It should be {4 + Roles.Sum(x => x.AdditionalValues)}.";
+                    ValidationIssue = $"The character has {Talents.Count} talents. It should be 4.";
                     return false;
                 }
             }
@@ -140,7 +141,7 @@ public class Character
 
     public string ValidationIssue { get; set; }
 
-    internal bool AllAttributesLessThanOrEqualTo(int value)
+    public bool AllAttributesLessThanOrEqualTo(int value)
     {
         if (Attributes.Insight > value) return false;
         if (Attributes.Fitness > value) return false;
@@ -152,7 +153,7 @@ public class Character
         return true;
     }
 
-    internal bool AllDepartmentsLessThanOrEqualTo(int value)
+    public bool AllDepartmentsLessThanOrEqualTo(int value)
     {
         if (Departments.Command > value) return false;
         if (Departments.Conn > value) return false;
@@ -164,8 +165,10 @@ public class Character
         return true;
     }
 
-    internal void AdjustAttributesForSpecies(Species species)
+    public void AdjustAttributesForSpecies(Species species, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         Attributes.Control += species.AttributeModifiers.Control;
         Attributes.Daring += species.AttributeModifiers.Daring;
         Attributes.Fitness += species.AttributeModifiers.Fitness;
@@ -177,7 +180,7 @@ public class Character
         {
             var attributes = typeof(CharacterAttributes).GetProperties();
 
-            var picks = attributes.OrderBy(n => Util.GetRandom()).Take(3).ToList();
+            var picks = attributes.OrderBy(n => randomGenerator.GetRandom()).Take(3).ToList();
 
             if (picks.Any(x => x.Name == AttributeName.Control)) Attributes.Control++;
             if (picks.Any(x => x.Name == AttributeName.Daring)) Attributes.Daring++;
@@ -198,7 +201,7 @@ public class Character
             if (species.OneOfTheseModifiers.Presence > 0) attributes.Add(AttributeName.Presence);
             if (species.OneOfTheseModifiers.Reason > 0) attributes.Add(AttributeName.Reason);
 
-            var pick = attributes.OrderBy(n => Util.GetRandom()).First();
+            var pick = attributes.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick == AttributeName.Control) Attributes.Control++;
             if (pick == AttributeName.Daring) Attributes.Daring++;
@@ -209,29 +212,33 @@ public class Character
         }
     }
 
-    internal void AddSpeciesAbility(SpeciesAbility speciesAbility)
+    public void AddSpeciesAbility(SpeciesAbility speciesAbility, ITalentSelector talentSelector, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         if (!string.IsNullOrEmpty(speciesAbility.AddTalent))
         {
-            Talents.Add(TalentSelector.GetTalent(speciesAbility.AddTalent));
+            Talents.Add(talentSelector.GetTalent(speciesAbility.AddTalent));
         }
 
         if (speciesAbility.AddOneOfTheseTalents != null)
         {
-            var pick = speciesAbility.AddOneOfTheseTalents.OrderBy(n => Util.GetRandom()).First();
-            Talents.Add(TalentSelector.GetTalent(pick));
+            var pick = speciesAbility.AddOneOfTheseTalents.OrderBy(n => randomGenerator.GetRandom()).First();
+            Talents.Add(talentSelector.GetTalent(pick));
         }
 
         SpeciesAbility = speciesAbility;
     }
 
-    internal void AddValue()
+    public void AddValue(IValueSelector valueSelector)
     {
-        Values.Add(ValueSelector.ChooseValue(this));
+        Values.Add(valueSelector.ChooseValue(this));
     }
 
-    internal void AdjustAttributesForEnvironment(CharacterEnvironment environment)
+    public void AdjustAttributesForEnvironment(CharacterEnvironment environment, ISpeciesSelector speciesSelector, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         var choices = new List<string>();
 
         if (environment.AttributeChoices != null)
@@ -249,11 +256,11 @@ public class Character
 
             if (environment.SpeciesAttributes)
             {
-                species = SpeciesSelector.GetSpecies(Traits.First());
+                species = speciesSelector.GetSpecies(Traits.First());
             }
             else if (environment.AnotherSpeciesAttributes)
             {
-                species = SpeciesSelector.GetAnotherRandomSpecies(Traits.First());
+                species = speciesSelector.GetAnotherRandomSpecies(Traits.First());
                 Environment += $" ({species.Name})";
             }
 
@@ -278,7 +285,7 @@ public class Character
             }
         }
 
-        var choice = choices.OrderBy(n => Util.GetRandom()).First();
+        var choice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
         if (choice == AttributeName.Control) Attributes.Control++;
         if (choice == AttributeName.Daring) Attributes.Daring++;
@@ -288,8 +295,10 @@ public class Character
         if (choice == AttributeName.Reason) Attributes.Reason++;
     }
 
-    internal void AdjustDepartmentsForEnvironment(CharacterEnvironment environment)
+    public void AdjustDepartmentsForEnvironment(CharacterEnvironment environment, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         var choices = new List<string>();
 
         if (environment.DepartmentChoices != null)
@@ -311,7 +320,7 @@ public class Character
             choices.Add(DepartmentName.Security);
         }
 
-        var choice = choices.OrderBy(n => Util.GetRandom()).First();
+        var choice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
         if (choice == DepartmentName.Command) Departments.Command++;
         if (choice == DepartmentName.Conn) Departments.Conn++;
@@ -321,7 +330,7 @@ public class Character
         if (choice == DepartmentName.Security) Departments.Security++;
     }
 
-    internal void AdjustAttributesForUpbringing(Upbringing upbringing)
+    public void AdjustAttributesForUpbringing(Upbringing upbringing)
     {
         Attributes.Control += upbringing.Attributes.Control;
         Attributes.Daring += upbringing.Attributes.Daring;
@@ -331,8 +340,10 @@ public class Character
         Attributes.Reason += upbringing.Attributes.Reason;
     }
 
-    internal void AdjustDepartmentsForUpbringing(Upbringing upbringing)
+    public void AdjustDepartmentsForUpbringing(Upbringing upbringing, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         var choices = new List<string>();
 
         if (upbringing.DepartmentChoices != null)
@@ -354,7 +365,7 @@ public class Character
             choices.Add(DepartmentName.Security);
         }
 
-        var choice = choices.OrderBy(n => Util.GetRandom()).First();
+        var choice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
         if (choice == DepartmentName.Command) Departments.Command++;
         if (choice == DepartmentName.Conn) Departments.Conn++;
@@ -364,8 +375,10 @@ public class Character
         if (choice == DepartmentName.Security) Departments.Security++;
     }
 
-    internal void AddFocuses(ICollection<string> focusesAvailable, int numToChoose)
+    public void AddFocuses(ICollection<string> focusesAvailable, int numToChoose, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         var choices = new List<string>();
 
         foreach (var focus in focusesAvailable)
@@ -375,21 +388,23 @@ public class Character
 
         for (int i = 0; i < numToChoose; i++)
         {
-            var focus = choices.OrderBy(n => Util.GetRandom()).First();
+            var focus = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
             Focuses.Add(focus);
             choices.Remove(focus);
         }
     }
 
-    internal void AddTalent(string talentName = null)
+    public void AddTalent(ITalentSelector talentSelector, string talentName = null, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         Talent talent;
 
         if (!string.IsNullOrEmpty(talentName))
-            talent = TalentSelector.GetTalent(talentName);
+            talent = talentSelector.GetTalent(talentName);
         else
-            talent = TalentSelector.ChooseTalent(this);
+            talent = talentSelector.ChooseTalent(this);
 
         Talents.Add(talent);
 
@@ -400,28 +415,32 @@ public class Character
         }
 
         if (talent.GainRandomFocus != null)
-            AddFocuses(talent.GainRandomFocus, 1);
+            AddFocuses(talent.GainRandomFocus, 1, randomGenerator);
 
         if (talent.ChooseFocus)
-            talent.Name += " (" + Focuses.OrderBy(n => Util.GetRandom()).First() + ")";
+            talent.Name += " (" + Focuses.OrderBy(n => randomGenerator.GetRandom()).First() + ")";
     }
 
-    internal void AddTraitsForTrack(CareerPath track)
+    public void AddTraitsForCareerPath(CareerPath track, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         if (!string.IsNullOrEmpty(track.Trait))
             Traits.Add(track.Trait);
 
         if (track.RandomTrait != null)
-            Traits.Add(track.RandomTrait.OrderBy(n => Util.GetRandom()).First());
+            Traits.Add(track.RandomTrait.OrderBy(n => randomGenerator.GetRandom()).First());
     }
 
-    internal void AdjustAttributesForTrack(string mustSelectAttribute = null)
+    public void AdjustAttributesForCareerPath(string mustSelectAttribute = null, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         var attributes = typeof(CharacterAttributes).GetProperties();
 
-        var attributesToRaise = Util.GetRandom(2) + 2;
+        var attributesToRaise = randomGenerator.GetRandom(2) + 2;
 
-        var picks = attributes.OrderBy(n => Util.GetRandom()).ToList();
+        var picks = attributes.OrderBy(n => randomGenerator.GetRandom()).ToList();
 
         // If we have a must-select attribute, ensure it's included
         if (!string.IsNullOrWhiteSpace(mustSelectAttribute))
@@ -429,11 +448,8 @@ public class Character
             var mustPick = attributes.FirstOrDefault(x => x.Name == mustSelectAttribute);
             if (mustPick != null)
             {
-                // If we already have it, leave it; otherwise insert it and drop the last pick
-                if (!picks.Contains(mustPick))
-                {
-                    picks.Insert(0, mustPick); // put it first so it has a higher chance of getting +2 if only 2 attributes
-                }
+                picks.Remove(mustPick);
+                picks.Insert(0, mustPick); // put it first so it has a higher chance of getting +2 if only 2 attributes
             }
         }
 
@@ -460,8 +476,10 @@ public class Character
         if (picks.Any(x => x.Name == AttributeName.Reason)) Attributes.Reason++;
     }
 
-    internal void AdjustDepartmentsForTrack(CareerPath careerPath)
+    public void AdjustDepartmentsForCareerPath(CareerPath careerPath, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         Departments.Command += careerPath.DepartmentModifiers.Command;
         Departments.Conn += careerPath.DepartmentModifiers.Conn;
         Departments.Engineering += careerPath.DepartmentModifiers.Engineering;
@@ -469,7 +487,7 @@ public class Character
         Departments.Science += careerPath.DepartmentModifiers.Science;
         Departments.Security += careerPath.DepartmentModifiers.Security;
 
-        var displinesAvailable = new List<string>
+        var departmentsAvailable = new List<string>
         {
             DepartmentName.Command,
             DepartmentName.Conn,
@@ -479,14 +497,14 @@ public class Character
             DepartmentName.Security
         };
 
-        if (careerPath.DepartmentModifiers.Command > 0) displinesAvailable.Remove(DepartmentName.Command);
-        if (careerPath.DepartmentModifiers.Conn > 0) displinesAvailable.Remove(DepartmentName.Conn);
-        if (careerPath.DepartmentModifiers.Engineering > 0) displinesAvailable.Remove(DepartmentName.Engineering);
-        if (careerPath.DepartmentModifiers.Medicine > 0) displinesAvailable.Remove(DepartmentName.Medicine);
-        if (careerPath.DepartmentModifiers.Science > 0) displinesAvailable.Remove(DepartmentName.Science);
-        if (careerPath.DepartmentModifiers.Security > 0) displinesAvailable.Remove(DepartmentName.Security);
+        if (careerPath.DepartmentModifiers.Command > 0) departmentsAvailable.Remove(DepartmentName.Command);
+        if (careerPath.DepartmentModifiers.Conn > 0) departmentsAvailable.Remove(DepartmentName.Conn);
+        if (careerPath.DepartmentModifiers.Engineering > 0) departmentsAvailable.Remove(DepartmentName.Engineering);
+        if (careerPath.DepartmentModifiers.Medicine > 0) departmentsAvailable.Remove(DepartmentName.Medicine);
+        if (careerPath.DepartmentModifiers.Science > 0) departmentsAvailable.Remove(DepartmentName.Science);
+        if (careerPath.DepartmentModifiers.Security > 0) departmentsAvailable.Remove(DepartmentName.Security);
 
-        var choices = displinesAvailable.OrderBy(n => Util.GetRandom()).Take(2);
+        var choices = departmentsAvailable.OrderBy(n => randomGenerator.GetRandom()).Take(2);
 
         foreach (var choice in choices)
         {
@@ -499,33 +517,37 @@ public class Character
         }
     }
 
-    internal void AddCareerEvent(CareerEvent careerEvent)
+    public void AddCareerEvent(CareerEvent careerEvent, ISpeciesSelector speciesSelector, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         CareerEvents.Add(careerEvent.Name);
 
         if (careerEvent.Name == "Lauded by Another Culture")
         {
-            var species = SpeciesSelector.GetAnotherRandomSpecies(Traits.First());
+            var species = speciesSelector.GetAnotherRandomSpecies(Traits.First());
 
             Focuses.Add($"{species.Name} Culture");
             Traits.Add($"Friend to the {species.Name}");
         }
         else
         {
-            AddFocuses(careerEvent.Focuses, 1);
+            AddFocuses(careerEvent.Focuses, 1, randomGenerator);
 
             if (careerEvent.GainARandomTrait != null)
-                Traits.Add(careerEvent.GainARandomTrait.OrderBy(n => Util.GetRandom()).First());
+                Traits.Add(careerEvent.GainARandomTrait.OrderBy(n => randomGenerator.GetRandom()).First());
         }
     }
 
-    internal void AdjustAttributesForCareerEvent(CareerEvent careerEvent)
+    public void AdjustAttributesForCareerEvent(CareerEvent careerEvent, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         if (careerEvent.AnyAttribute)
         {
             var attributes = typeof(CharacterAttributes).GetProperties();
 
-            var pick = attributes.OrderBy(n => Util.GetRandom()).First();
+            var pick = attributes.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick.Name == AttributeName.Control) Attributes.Control++;
             if (pick.Name == AttributeName.Daring) Attributes.Daring++;
@@ -545,7 +567,7 @@ public class Character
             if (careerEvent.AttributeModifierChoices.Presence > 0) choices.Add(AttributeName.Presence);
             if (careerEvent.AttributeModifierChoices.Reason > 0) choices.Add(AttributeName.Reason);
 
-            var pick = choices.OrderBy(n => Util.GetRandom()).First();
+            var pick = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick == AttributeName.Control) Attributes.Control++;
             if (pick == AttributeName.Daring) Attributes.Daring++;
@@ -556,13 +578,15 @@ public class Character
         }
     }
 
-    internal void AdjustDisciplinesForCareerEvent(CareerEvent careerEvent)
+    public void AdjustDisciplinesForCareerEvent(CareerEvent careerEvent, IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         if (careerEvent.AnyDepartment)
         {
             var departments = typeof(Departments).GetProperties();
 
-            var pick = departments.OrderBy(n => Util.GetRandom()).First();
+            var pick = departments.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick.Name == DepartmentName.Command) Departments.Command++;
             if (pick.Name == DepartmentName.Conn) Departments.Conn++;
@@ -583,7 +607,7 @@ public class Character
             if (careerEvent.DepartmentModifierChoices.Science > 0) choices.Add(DepartmentName.Science);
             if (careerEvent.DepartmentModifierChoices.Security > 0) choices.Add(DepartmentName.Security);
 
-            var pick = choices.OrderBy(n => Util.GetRandom()).First();
+            var pick = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick == DepartmentName.Command) Departments.Command++;
             if (pick == DepartmentName.Conn) Departments.Conn++;
@@ -594,8 +618,10 @@ public class Character
         }
     }
 
-    internal void AdjustAttributesForFinishingTouches()
+    public void AdjustAttributesForFinishingTouches(IRandomGenerator randomGenerator = null)
     {
+        randomGenerator ??= new RandomGenerator();
+
         var maxValues = 12;
         var attributeBoosts = 2;
 
@@ -644,7 +670,7 @@ public class Character
             if (Attributes.Presence < maxValues) choices.Add(AttributeName.Presence);
             if (Attributes.Reason < maxValues) choices.Add(AttributeName.Reason);
 
-            var pick = choices.OrderBy(n => Util.GetRandom()).First();
+            var pick = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick == AttributeName.Control) Attributes.Control++;
             if (pick == AttributeName.Daring) Attributes.Daring++;
@@ -655,46 +681,48 @@ public class Character
         }
     }
 
-    internal void AdjustDepartmentsForFinishingTouches()
+    public void AdjustDepartmentsForFinishingTouches(IRandomGenerator randomGenerator = null)
     {
+        randomGenerator = randomGenerator ?? new RandomGenerator();
+
         var maxValues = 5;
-        var disciplineBoosts = 2;
+        var departmentBoosts = 2;
 
         if (Talents.Any(x => x.Name == "Untapped Potential"))
             maxValues = 4;
 
         if (Departments.Command > maxValues)
         {
-            disciplineBoosts += Departments.Command - maxValues;
+            departmentBoosts += Departments.Command - maxValues;
             Departments.Command = maxValues;
         }
         if (Departments.Conn > maxValues)
         {
-            disciplineBoosts += Departments.Conn - maxValues;
+            departmentBoosts += Departments.Conn - maxValues;
             Departments.Conn = maxValues;
         }
         if (Departments.Engineering > maxValues)
         {
-            disciplineBoosts += Departments.Engineering - maxValues;
+            departmentBoosts += Departments.Engineering - maxValues;
             Departments.Engineering = maxValues;
         }
         if (Departments.Medicine > maxValues)
         {
-            disciplineBoosts += Departments.Medicine - maxValues;
+            departmentBoosts += Departments.Medicine - maxValues;
             Departments.Medicine = maxValues;
         }
         if (Departments.Science > maxValues)
         {
-            disciplineBoosts += Departments.Science - maxValues;
+            departmentBoosts += Departments.Science - maxValues;
             Departments.Science = maxValues;
         }
         if (Departments.Security > maxValues)
         {
-            disciplineBoosts += Departments.Security - maxValues;
+            departmentBoosts += Departments.Security - maxValues;
             Departments.Security = maxValues;
         }
 
-        for (var i = 0; i < disciplineBoosts; i++)
+        for (var i = 0; i < departmentBoosts; i++)
         {
             var choices = new List<string>();
 
@@ -705,7 +733,7 @@ public class Character
             if (Departments.Science < maxValues) choices.Add(DepartmentName.Science);
             if (Departments.Security < maxValues) choices.Add(DepartmentName.Security);
 
-            var pick = choices.OrderBy(n => Util.GetRandom()).First();
+            var pick = choices.OrderBy(n => randomGenerator.GetRandom()).First();
 
             if (pick == DepartmentName.Command) Departments.Command++;
             if (pick == DepartmentName.Conn) Departments.Conn++;
@@ -716,7 +744,7 @@ public class Character
         }
     }
 
-    internal void SetStress()
+    public void SetStress()
     {
         if (SpeciesAbility.StressBasedOn == AttributeName.Control) Stress = Attributes.Control;
         if (SpeciesAbility.StressBasedOn == AttributeName.Daring) Stress = Attributes.Daring;
@@ -741,7 +769,7 @@ public class Character
         Stress += Talents.Sum(x => x.StressModifier);
     }
 
-    internal void SetProtection()
+    public void SetProtection()
     {
         Protection = 0;
 
@@ -749,22 +777,24 @@ public class Character
         Protection += SpeciesAbility.ProtectionBonus;
     }
 
-    internal void AddRole()
+    public void AddRole(IRoleSelector roleSelector, IValueSelector valueSelector, IRandomGenerator randomGenerator = null)
     {
-        var role = RoleSelector.ChooseRole(this);
+        randomGenerator ??= new RandomGenerator();
+
+        var role = roleSelector.ChooseRole(this);
         Roles.Add(role);
 
         if (role.AdditionalFocuses > 0)
-            AddFocuses(role.AdditionalFocusesChoices, role.AdditionalFocuses);
+            AddFocuses(role.AdditionalFocusesChoices, role.AdditionalFocuses, randomGenerator);
 
         if (role.AdditionalValues > 0)
         {
             for (int i = 0; i < role.AdditionalValues; i++)
-                AddValue();
+                AddValue(valueSelector);
         }
     }
 
-    internal bool IsStarfleet()
+    public bool IsStarfleet()
     {
         if (CareerPath.StartsWith(TrackName.StarfleetOfficerCommand) || 
             CareerPath.StartsWith(TrackName.StarfleetOfficerOperations) ||
@@ -777,12 +807,12 @@ public class Character
         return false;
     }
 
-    internal bool IsEnlisted()
+    public bool IsEnlisted()
     {
         return CareerPath.StartsWith(TrackName.StarfleetEnlisted);
     }
 
-    internal bool IsCommandingOfficer()
+    public bool IsCommandingOfficer()
     {
         return (
             Rank == Constants.Rank.Captain ||
@@ -795,7 +825,7 @@ public class Character
             );
     }
 
-    internal bool IsFlagOfficer()
+    public bool IsFlagOfficer()
     {
         return (
             Rank == Constants.Rank.RearAdmiral ||
@@ -805,7 +835,7 @@ public class Character
             );
     }
 
-    internal bool HasPsychologyFocus()
+    public bool HasPsychologyFocus()
     {
         foreach (var focus in Focuses)
         {
@@ -815,7 +845,7 @@ public class Character
         return false;
     }
 
-    internal void OrderLists()
+    public void OrderLists()
     {
         CareerEvents = CareerEvents.OrderBy(x => x).ToList();
         Values = Values.OrderBy(x => x).ToList();

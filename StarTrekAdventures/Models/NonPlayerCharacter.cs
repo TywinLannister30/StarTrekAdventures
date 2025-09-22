@@ -1,6 +1,5 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
-using StarTrekAdventures.Models.Version1;
 using StarTrekAdventures.Selectors;
 using System.Text.Json.Serialization;
 using static StarTrekAdventures.Constants.Enums;
@@ -174,7 +173,7 @@ public class NonPlayerCharacter
         }
     }
 
-    internal void AdjustForAcademyTeacher()
+    public void AdjustForAcademyTeacher(ITalentSelector talentSelector)
     {
         var displinesAvailable = new List<string>
         {
@@ -192,31 +191,31 @@ public class NonPlayerCharacter
         if (choice == DepartmentName.Conn)
         {
             Departments.Conn++;
-            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Conn)"));
+            SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Conn)"));
             focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerCommand, DepartmentName.Conn).Focuses.ToList();
         }
         if (choice == DepartmentName.Engineering)
         {
             Departments.Engineering++;
-            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Engineering)"));
+            SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Engineering)"));
             focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Engineering).Focuses.ToList();
         }
         if (choice == DepartmentName.Security)
         {
             Departments.Security++;
-            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Security)"));
+            SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Security)"));
             focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Security).Focuses.ToList();
         }
         if (choice == DepartmentName.Medicine)
         {
             Departments.Medicine++;
-            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Medicine)"));
+            SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Medicine)"));
             focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Medicine).Focuses.ToList();
         }
         if (choice == DepartmentName.Science)
         {
             Departments.Science++;
-            SpecialRules.Add(TalentSelector.GetTalentAsSpecialRule("Collaboration (Science)"));
+            SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Science)"));
             focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Science).Focuses.ToList();
         }
 

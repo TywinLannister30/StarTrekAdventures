@@ -11,15 +11,18 @@ public class CharacterController : ControllerBase
 {
     private readonly ICharacterManager _characterManager;
 
-    public CharacterController(ICharacterManager characterManager)
+    private readonly ISpeciesSelector _speciesSelector;
+
+    public CharacterController(ICharacterManager characterManager, ISpeciesSelector speciesSelector)
     {
         _characterManager = characterManager;
+        _speciesSelector = speciesSelector;
     }
 
     [HttpPost("generate")]
     public ActionResult<Character> GenerateCharacter(string species)
     {
-        if (!string.IsNullOrEmpty(species) && SpeciesSelector.GetSpecies(species) == null)
+        if (!string.IsNullOrEmpty(species) && _speciesSelector.GetSpecies(species) == null)
             return BadRequest($"{species} is not a valid species.");
 
         var character = _characterManager.CreateCharacter(species);

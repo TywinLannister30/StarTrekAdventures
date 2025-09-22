@@ -27,7 +27,7 @@ public class CareerPath
 
     public string Source { get; set; }
 
-    internal string GetName()
+    public string GetName()
     {
         if (string.IsNullOrEmpty(Major))
             return Name;

@@ -5,28 +5,35 @@ namespace StarTrekAdventures.Managers;
 
 public class ValueManager : IValueManager
 {
+    private readonly IValueSelector _valueSelector;
+
+    public ValueManager(IValueSelector valueSelector)
+    {
+        _valueSelector = valueSelector;
+    }
+
     public List<Value> GetAll()
     {
-        return ValueSelector.GetAllValues();
+        return _valueSelector.GetAllValues();
     }
 
     public List<string> GetAllNames()
     {
-        return ValueSelector.GetAllValues().Select(x => x.Name).ToList();
+        return _valueSelector.GetAllValues().Select(x => x.Name).ToList();
     }
 
     public Value Get(string name)
     {
-        return ValueSelector.GetSpecificValue(name);
+        return _valueSelector.GetSpecificValue(name);
     }
 
     public List<Value> GetAllBySpecies(string species)
     {
-        return ValueSelector.GetAllValues().Where(x => x.TraitRequirement != null && x.TraitRequirement.Equals(species, StringComparison.CurrentCultureIgnoreCase)).ToList();
+        return _valueSelector.GetAllValues().Where(x => x.TraitRequirement != null && x.TraitRequirement.Equals(species, StringComparison.CurrentCultureIgnoreCase)).ToList();
     }
 
     public List<string> GetAllNamesBySpecies(string species)
     {
-        return ValueSelector.GetAllValues().Where(x => x.TraitRequirement != null && x.TraitRequirement.Equals(species, StringComparison.CurrentCultureIgnoreCase)).Select(x => x.Name).ToList();
+        return _valueSelector.GetAllValues().Where(x => x.TraitRequirement != null && x.TraitRequirement.Equals(species, StringComparison.CurrentCultureIgnoreCase)).Select(x => x.Name).ToList();
     }
 }

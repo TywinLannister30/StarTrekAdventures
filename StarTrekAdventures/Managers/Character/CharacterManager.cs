@@ -8,12 +8,25 @@ namespace StarTrekAdventures.Managers;
 
 public class CharacterManager : ICharacterManager
 {
+    private readonly IRoleSelector _roleSelector;
+    private readonly ISpeciesSelector _speciesSelector;
+    private readonly ITalentSelector _talentSelector;
+    private readonly IValueSelector _valueSelector;
+
+    public CharacterManager(IRoleSelector roleSelector, ISpeciesSelector speciesSelector, ITalentSelector talentSelector, IValueSelector valueSelector)
+    {
+        _roleSelector = roleSelector;
+        _speciesSelector = speciesSelector;
+        _talentSelector = talentSelector;
+        _valueSelector = valueSelector;
+    }
+
     public Character CreateCharacter(string species)
     {
         return GenerateCharacter(species);
     }
 
-    private static Character GenerateCharacter(string species)
+    private Character GenerateCharacter(string species)
     {
         var character = new Character();
 
@@ -28,9 +41,9 @@ public class CharacterManager : ICharacterManager
         return character;
     }
 
-    private static Character PerformStepOne(Character character, string specificSpecies)
+    private Character PerformStepOne(Character character, string specificSpecies)
     {
-        var chosenSpecies = SpeciesSelector.ChooseSpecies(specificSpecies);
+        var chosenSpecies = _speciesSelector.ChooseSpecies(specificSpecies);
 
         character.Species = chosenSpecies.ToSpeciesName();
 
@@ -38,7 +51,7 @@ public class CharacterManager : ICharacterManager
             character.Traits.Add(species.Name);
 
         character.AdjustAttributesForSpecies(chosenSpecies.First());
-        character.AddSpeciesAbility(chosenSpecies.First().SpeciesAbility);
+        character.AddSpeciesAbility(chosenSpecies.First().SpeciesAbility, _talentSelector);
 
         if (Util.GetRandom(100) == 1)
             character.Traits.Add("Augment");
@@ -49,20 +62,20 @@ public class CharacterManager : ICharacterManager
         return character;
     }
 
-    private static Character PerformStepTwo(Character character)
+    private Character PerformStepTwo(Character character)
     {
         var environment = EnvironmentSelector.ChooseEnvironment();
 
         character.Environment = environment.Name;
 
-        character.AddValue();
-        character.AdjustAttributesForEnvironment(environment);
+        character.AddValue(_valueSelector);
+        character.AdjustAttributesForEnvironment(environment, _speciesSelector);
         character.AdjustDepartmentsForEnvironment(environment);
 
         return character;
     }
 
-    private static Character PerformStepThree(Character character)
+    private Character PerformStepThree(Character character)
     {
         var upbringing = UpbringingSelector.ChooseUpbringing();
 
@@ -71,47 +84,47 @@ public class CharacterManager : ICharacterManager
         character.AdjustAttributesForUpbringing(upbringing);
         character.AdjustDepartmentsForUpbringing(upbringing);
         character.AddFocuses(upbringing.Focuses, 1);
-        character.AddTalent();
+        character.AddTalent(_talentSelector);
 
         return character;
     }
 
-    private static Character PerformStepFour(Character character)
+    private Character PerformStepFour(Character character)
     {
         var track = CareerPathSelector.ChooseCareerPath(character);
 
         character.ChosenTrack = track.Name;
         character.CareerPath = track.GetName();
 
-        character.AddValue();
-        character.AddTraitsForTrack(track);
-        character.AdjustAttributesForTrack();
-        character.AdjustDepartmentsForTrack(track);
+        character.AddValue(_valueSelector);
+        character.AddTraitsForCareerPath(track);
+        character.AdjustAttributesForCareerPath();
+        character.AdjustDepartmentsForCareerPath(track);
         character.AddFocuses(track.Focuses, 3);
-        character.AddTalent();
+        character.AddTalent(_talentSelector);
 
         return character;
     }
 
-    private static Character PerformStepFive(Character character)
+    private Character PerformStepFive(Character character)
     {
         var experience = ExperienceSelector.ChooseExperience(character);
 
         character.Experience = experience.Name;
 
-        character.AddValue();
-        character.AddTalent(experience.Talent);
+        character.AddValue(_valueSelector);
+        character.AddTalent(_talentSelector, experience.Talent);
 
         return character;
     }
 
-    private static Character PerformStepSix(Character character)
+    private Character PerformStepSix(Character character)
     {
         var careerEvents = CareerEventSelector.ChooseCareerEvents();
 
         foreach (var careerEvent in careerEvents)
         {
-            character.AddCareerEvent(careerEvent);
+            character.AddCareerEvent(careerEvent, _speciesSelector);
             character.AdjustAttributesForCareerEvent(careerEvent);
             character.AdjustDisciplinesForCareerEvent(careerEvent);
         }
@@ -119,16 +132,16 @@ public class CharacterManager : ICharacterManager
         return character;
     }
 
-    private static Character PerformStepSeven(Character character)
+    private Character PerformStepSeven(Character character)
     {
-        character.AddValue();
+        character.AddValue(_valueSelector);
         character.AdjustAttributesForFinishingTouches();
         character.AdjustDepartmentsForFinishingTouches();
 
         character.Rank = RankSelector.ChooseRank(character);
-        character.AddRole();
+        character.AddRole(_roleSelector, _valueSelector);
 
-        character.AddTalent();
+        character.AddTalent(_talentSelector);
 
         character.SetStress();
         character.SetProtection();
@@ -145,7 +158,7 @@ public class CharacterManager : ICharacterManager
         }
 
         if (character.Talents.Any(x => x.ExtraRole))
-            character.AddRole();
+            character.AddRole(_roleSelector, _valueSelector);
 
         character.Gender = GenderHelper.GetGender(character).ToString();
         character.Name = NameGenerator.GenerateName(character);
