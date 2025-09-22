@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class ServiceRecordManager : IServiceRecordManager
 {
+    private readonly IServiceRecordSelector _serviceRecordSelector;
+
+    public ServiceRecordManager(IServiceRecordSelector serviceRecordSelector)
+    {
+        _serviceRecordSelector = serviceRecordSelector;
+    }
+
     public List<ServiceRecord> GetAll()
     {
-        return ServiceRecordSelector.GetAllServiceRecords();
+        return _serviceRecordSelector.GetAllServiceRecords();
     }
 
     public List<string> GetAllNames()
     {
-        return ServiceRecordSelector.GetAllServiceRecords().Select(x => x.Name).ToList();
+        return _serviceRecordSelector.GetAllServiceRecords().Select(x => x.Name).ToList();
     }
 
     public ServiceRecord Get(string name)
     {
-        return ServiceRecordSelector.GetServiceRecord(name);
+        return _serviceRecordSelector.GetServiceRecord(name);
     }
 }

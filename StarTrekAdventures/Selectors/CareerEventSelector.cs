@@ -4,19 +4,19 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class CareerEventSelector
+public class CareerEventSelector : ICareerEventSelector
 {
-    public static List<CareerEvent> ChooseCareerEvents()
+    public List<CareerEvent> ChooseCareerEvents()
     {
         return CareerEvents.OrderBy(n => Util.GetRandom()).Take(2).ToList();
     }
 
-    internal static List<CareerEvent> GetAllCareerEvents()
+    public List<CareerEvent> GetAllCareerEvents()
     {
         return CareerEvents;
     }
 
-    internal static CareerEvent GetCareerEvent(string name)
+    public CareerEvent GetCareerEvent(string name)
     {
         return CareerEvents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }

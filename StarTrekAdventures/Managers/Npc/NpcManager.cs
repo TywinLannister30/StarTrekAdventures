@@ -6,12 +6,14 @@ namespace StarTrekAdventures.Managers;
 
 public class NpcManager : INpcManager
 {
+    private readonly ICareerPathSelector _careerPathSelector;
     private readonly INpcSelector _npcSelector;
     private readonly ISpeciesSelector _speciesSelector;
     private readonly ITalentSelector _talentSelector;
 
-    public NpcManager(INpcSelector npcSelector, ISpeciesSelector speciesSelector, ITalentSelector talentSelector)
+    public NpcManager(ICareerPathSelector careerPathSelector, INpcSelector npcSelector, ISpeciesSelector speciesSelector, ITalentSelector talentSelector)
     {
+        _careerPathSelector = careerPathSelector;
         _npcSelector = npcSelector;
         _speciesSelector = speciesSelector;
         _talentSelector = talentSelector;
@@ -54,7 +56,7 @@ public class NpcManager : INpcManager
 
         if (npc.Name == "Academy Instructor")
         {
-            npc.AdjustForAcademyTeacher(_talentSelector);
+            npc.AdjustForAcademyTeacher(_careerPathSelector, _talentSelector);
         }
 
         var specialRulesToRemove = new List<NpcSpecialRule>();

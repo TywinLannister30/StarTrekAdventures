@@ -27,7 +27,7 @@ namespace StarTrekAdventures.Selectors.Version1
 
         private static readonly List<Experience> Careers = new List<Experience>
         {
-            new Experience { Name = CareerName.Young, Talent = "Untapped Potential", Weight = 5 },
+            new Experience { Name = CareerName.Young, Talent = TalentName.UntappedPotential, Weight = 5 },
             new Experience { Name = CareerName.Experienced, AnyTalent = true, Weight = 90 },
             new Experience { Name = CareerName.Veteran, Talent = "Veteran", Weight = 5 }
         };

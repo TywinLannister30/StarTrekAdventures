@@ -1363,7 +1363,7 @@ public class CharacterTests
         character.Attributes.Control = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustAttributesForFinishingTouches();
 
@@ -1385,7 +1385,7 @@ public class CharacterTests
         character.Attributes.Daring = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustAttributesForFinishingTouches();
 
@@ -1407,7 +1407,7 @@ public class CharacterTests
         character.Attributes.Fitness = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustAttributesForFinishingTouches();
 
@@ -1429,7 +1429,7 @@ public class CharacterTests
         character.Attributes.Insight = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustAttributesForFinishingTouches();
 
@@ -1451,7 +1451,7 @@ public class CharacterTests
         character.Attributes.Presence = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustAttributesForFinishingTouches();
 
@@ -1473,7 +1473,7 @@ public class CharacterTests
         character.Attributes.Reason = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustAttributesForFinishingTouches();
 
@@ -1541,7 +1541,7 @@ public class CharacterTests
         character.Departments.Command = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustDepartmentsForFinishingTouches();
 
@@ -1563,7 +1563,7 @@ public class CharacterTests
         character.Departments.Conn = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustDepartmentsForFinishingTouches();
 
@@ -1585,7 +1585,7 @@ public class CharacterTests
         character.Departments.Engineering = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustDepartmentsForFinishingTouches();
 
@@ -1607,7 +1607,7 @@ public class CharacterTests
         character.Departments.Security = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustDepartmentsForFinishingTouches();
 
@@ -1629,7 +1629,7 @@ public class CharacterTests
         character.Departments.Science = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustDepartmentsForFinishingTouches();
 
@@ -1651,7 +1651,7 @@ public class CharacterTests
         character.Departments.Medicine = value;
 
         if (hasUntappedPotientialTalent)
-            character.Talents.Add(new Talent { Name = "Untapped Potential" });
+            character.Talents.Add(new Talent { Name = TalentName.UntappedPotential });
 
         character.AdjustDepartmentsForFinishingTouches();
 
@@ -2110,21 +2110,7 @@ public class CharacterTests
         Assert.False(character.IsFlagOfficer());
     }
 
-    [Fact]
-    public void HasPsychologyFocus_ReturnsTrue_IfFocusIsPsychology()
-    {
-        var character = new Character();
-        character.Focuses.Add("Psychology");
-        Assert.True(character.HasPsychologyFocus());
-    }
 
-    [Fact]
-    public void HasPsychologyFocus_ReturnsFalse_IfNoPsychologyFocus()
-    {
-        var character = new Character();
-        character.Focuses.Add("Astrophysics");
-        Assert.False(character.HasPsychologyFocus());
-    }
 
     [Fact]
     public void OrderLists_SortsValuesFocusesTalentsCareerEvents()

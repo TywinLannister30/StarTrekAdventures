@@ -3,19 +3,19 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class EnvironmentSelector
+public class EnvironmentSelector : IEnvironmentSelector
 {
-    public static CharacterEnvironment ChooseEnvironment()
+    public CharacterEnvironment ChooseEnvironment()
     {
         return Environments.OrderBy(n => Util.GetRandom()).First();
     }
 
-    public static CharacterEnvironment GetEnvironment(string name)
+    public CharacterEnvironment GetEnvironment(string name)
     {
         return Environments.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<CharacterEnvironment> GetAllEnvironments()
+    public List<CharacterEnvironment> GetAllEnvironments()
     {
         return Environments;
     }

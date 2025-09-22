@@ -4,11 +4,11 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class CareerPathSelector
+public class CareerPathSelector : ICareerPathSelector
 {
     private const int MaxDispline = 4;
 
-    public static CareerPath ChooseCareerPath(Character character)
+    public CareerPath ChooseCareerPath(Character character)
     {
         var availableCareerPaths = new WeightedList<CareerPath>();
 
@@ -26,17 +26,17 @@ public static class CareerPathSelector
         return availableCareerPaths.GetRandom();
     }
 
-    internal static List<CareerPath> GetAllCareerPaths()
+    public List<CareerPath> GetAllCareerPaths()
     {
         return CareerPaths;
     }
 
-    internal static CareerPath GetCareerPath(string name)
+    public CareerPath GetCareerPath(string name)
     {
         return CareerPaths.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static CareerPath GetCareerPath(string name, string major)
+    public CareerPath GetCareerPath(string name, string major)
     {
         return CareerPaths.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase) && x.Major.Equals(major, StringComparison.CurrentCultureIgnoreCase));
     }

@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class ExperienceManager : IExperienceManager
 {
+    private readonly IExperienceSelector _experienceSelector;
+
+    public ExperienceManager(IExperienceSelector experienceSelector)
+    {
+        _experienceSelector = experienceSelector;
+    }
+
     public List<Experience> GetAll()
     {
-        return ExperienceSelector.GetAllExperiences();
+        return _experienceSelector.GetAllExperiences();
     }
 
     public List<string> GetAllNames()
     {
-        return ExperienceSelector.GetAllExperiences().Select(x => x.Name).ToList();
+        return _experienceSelector.GetAllExperiences().Select(x => x.Name).ToList();
     }
 
     public Experience Get(string name)
     {
-        return ExperienceSelector.GetExperience(name);
+        return _experienceSelector.GetExperience(name);
     }
 }

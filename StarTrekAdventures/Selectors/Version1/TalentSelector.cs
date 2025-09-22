@@ -384,7 +384,7 @@ namespace StarTrekAdventures.Selectors.Version1
             new Talent { Name = "Sensory Replacement (Smell)", TraitGained = Trait.ArtificalSmell, Weight = 1  },
             new Talent { Name = "Sensory Replacement (Taste)", TraitGained = Trait.ArtificalTaste, Weight = 1  },
 
-            new Talent { Name = "Untapped Potential", MayBeSelected = false, Weight = 1 },
+            new Talent { Name = TalentName.UntappedPotential, MayBeSelected = false, Weight = 1 },
             new Talent { Name = "Veteran", MayBeSelected = false, Weight = 1 },
 
             new Talent { Name = "Advisor", DiscplineRequirements = new DisciplineRequirements { Command = 2 }, Weight = 4 },

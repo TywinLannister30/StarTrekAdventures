@@ -4,9 +4,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class MissionProfileSelector
+public class MissionProfileSelector : IMissionProfileSelector
 {
-    public static MissionProfile ChooseMissionProfile(Starship starship)
+    public MissionProfile ChooseMissionProfile(Starship starship)
     {
         foreach (var specialRule in starship.SpecialRules)
         {
@@ -29,12 +29,12 @@ public static class MissionProfileSelector
         return weightedMissionProfileList.GetRandom();
     }
 
-    internal static List<MissionProfile> GetAllMissionProfiles()
+    public List<MissionProfile> GetAllMissionProfiles()
     {
         return MissionProfiles;
     }
 
-    internal static MissionProfile GetMissionProfile(string name)
+    public MissionProfile GetMissionProfile(string name)
     {
         return MissionProfiles.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }

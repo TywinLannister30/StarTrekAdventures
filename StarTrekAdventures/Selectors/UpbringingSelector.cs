@@ -4,19 +4,19 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public class UpbringingSelector
+public class UpbringingSelector : IUpbringingSelector
 {
-    public static Upbringing ChooseUpbringing()
+    public Upbringing ChooseUpbringing()
     {
         return Upbringings.OrderBy(n => Util.GetRandom()).First();
     }
 
-    public static Upbringing GetUpbringing(string name)
+    public Upbringing GetUpbringing(string name)
     {
         return Upbringings.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Upbringing> GetAllUpbringings()
+    public List<Upbringing> GetAllUpbringings()
     {
         return Upbringings;
     }

@@ -3,9 +3,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public class NpcSpecialRuleSelector
+public class NpcSpecialRuleSelector : INpcSpecialRuleSelector
 {
-    public static NpcSpecialRule GetSpecialRule(string name)
+    public NpcSpecialRule GetSpecialRule(string name)
     {
         return NpcSpecialRules.First(x => x.Name == name);
     }

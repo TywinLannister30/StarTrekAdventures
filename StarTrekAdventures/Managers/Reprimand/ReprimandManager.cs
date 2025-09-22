@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class ReprimandManager : IReprimandManager
 {
+    private readonly IReprimandSelector _reprimandSelector;
+
+    public ReprimandManager(IReprimandSelector reprimandSelector)
+    {
+        _reprimandSelector = reprimandSelector;
+    }
+
     public List<Reprimand> GetAll()
     {
-        return ReprimandSelector.GetAllReprimands();
+        return _reprimandSelector.GetAllReprimands();
     }
 
     public List<string> GetAllNames()
     {
-        return ReprimandSelector.GetAllReprimands().Select(x => x.Name).ToList();
+        return _reprimandSelector.GetAllReprimands().Select(x => x.Name).ToList();
     }
 
     public Reprimand Get(string name)
     {
-        return ReprimandSelector.GetReprimand(name);
+        return _reprimandSelector.GetReprimand(name);
     }
 }

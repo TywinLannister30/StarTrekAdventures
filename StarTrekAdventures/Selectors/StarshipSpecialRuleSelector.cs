@@ -3,9 +3,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public class StarshipSpecialRuleSelector
+public class StarshipSpecialRuleSelector : IStarshipSpecialRuleSelector
 {
-    public static StarshipSpecialRule GetSpecialRule(string name)
+    public StarshipSpecialRule GetSpecialRule(string name)
     {
         return StarshipSpecialRules.First(x => x.Name == name);
     }

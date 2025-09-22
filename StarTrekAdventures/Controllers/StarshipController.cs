@@ -10,16 +10,18 @@ namespace StarTrekAdventures.Controllers;
 public class StarshipController : ControllerBase
 {
     private readonly IStarshipManager _starshipManager;
+    private readonly ISpaceframeSelector _spaceframeSelector;
 
-    public StarshipController(IStarshipManager starshipManager)
+    public StarshipController(IStarshipManager starshipManager, ISpaceframeSelector spaceframeSelector)
     {
         _starshipManager = starshipManager;
+        _spaceframeSelector = spaceframeSelector;
     }
 
     [HttpPost("generate")]
     public ActionResult<Starship> GenerateStarship(string spaceframe)
     {
-        if (!string.IsNullOrEmpty(spaceframe) && SpaceframeSelector.GetSpaceframe(spaceframe) == null)
+        if (!string.IsNullOrEmpty(spaceframe) && _spaceframeSelector.GetSpaceframe(spaceframe) == null)
             return BadRequest($"{spaceframe} is not a valid spaceframe.");
 
         var starship = _starshipManager.CreateStarship(spaceframe);

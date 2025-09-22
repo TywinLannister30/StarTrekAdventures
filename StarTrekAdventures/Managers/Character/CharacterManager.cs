@@ -8,16 +8,38 @@ namespace StarTrekAdventures.Managers;
 
 public class CharacterManager : ICharacterManager
 {
+    private readonly ICareerEventSelector _careerEventSelector;
+    private readonly ICareerPathSelector _careerPathSelector;
+    private readonly IEnvironmentSelector _environmentSelector;
+    private readonly IExperienceSelector _experienceSelector;
+    private readonly IRankSelector _rankSelector;
     private readonly IRoleSelector _roleSelector;
     private readonly ISpeciesSelector _speciesSelector;
     private readonly ITalentSelector _talentSelector;
+    private readonly IUpbringingSelector _upbringSelector;
     private readonly IValueSelector _valueSelector;
 
-    public CharacterManager(IRoleSelector roleSelector, ISpeciesSelector speciesSelector, ITalentSelector talentSelector, IValueSelector valueSelector)
+    public CharacterManager(
+        ICareerEventSelector careerEventSelector, 
+        ICareerPathSelector careerPathSelector,
+        IEnvironmentSelector environmentSelector,
+        IExperienceSelector experienceSelector,
+        IRankSelector rankSelector,
+        IRoleSelector roleSelector, 
+        ISpeciesSelector speciesSelector, 
+        ITalentSelector talentSelector, 
+        IUpbringingSelector upbringSelector,
+        IValueSelector valueSelector)
     {
+        _careerEventSelector = careerEventSelector;
+        _careerPathSelector = careerPathSelector;
+        _environmentSelector = environmentSelector;
+        _experienceSelector = experienceSelector;
+        _rankSelector = rankSelector;
         _roleSelector = roleSelector;
         _speciesSelector = speciesSelector;
         _talentSelector = talentSelector;
+        _upbringSelector= upbringSelector;
         _valueSelector = valueSelector;
     }
 
@@ -64,7 +86,7 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepTwo(Character character)
     {
-        var environment = EnvironmentSelector.ChooseEnvironment();
+        var environment = _environmentSelector.ChooseEnvironment();
 
         character.Environment = environment.Name;
 
@@ -77,7 +99,7 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepThree(Character character)
     {
-        var upbringing = UpbringingSelector.ChooseUpbringing();
+        var upbringing = _upbringSelector.ChooseUpbringing();
 
         character.Upbringing = upbringing.Name;
 
@@ -91,7 +113,7 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepFour(Character character)
     {
-        var track = CareerPathSelector.ChooseCareerPath(character);
+        var track = _careerPathSelector.ChooseCareerPath(character);
 
         character.ChosenTrack = track.Name;
         character.CareerPath = track.GetName();
@@ -108,7 +130,7 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepFive(Character character)
     {
-        var experience = ExperienceSelector.ChooseExperience(character);
+        var experience = _experienceSelector.ChooseExperience(character);
 
         character.Experience = experience.Name;
 
@@ -120,7 +142,7 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepSix(Character character)
     {
-        var careerEvents = CareerEventSelector.ChooseCareerEvents();
+        var careerEvents = _careerEventSelector.ChooseCareerEvents();
 
         foreach (var careerEvent in careerEvents)
         {
@@ -138,7 +160,7 @@ public class CharacterManager : ICharacterManager
         character.AdjustAttributesForFinishingTouches();
         character.AdjustDepartmentsForFinishingTouches();
 
-        character.Rank = RankSelector.ChooseRank(character);
+        character.Rank = _rankSelector.ChooseRank(character);
         character.AddRole(_roleSelector, _valueSelector);
 
         character.AddTalent(_talentSelector);

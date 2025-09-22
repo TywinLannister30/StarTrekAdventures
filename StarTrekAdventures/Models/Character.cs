@@ -625,7 +625,7 @@ public class Character
         var maxValues = 12;
         var attributeBoosts = 2;
 
-        if (Talents.Any(x => x.Name == "Untapped Potential"))
+        if (Talents.Any(x => x.Name == TalentName.UntappedPotential))
             maxValues = 11;
 
         if (Attributes.Control > maxValues)
@@ -688,7 +688,7 @@ public class Character
         var maxValues = 5;
         var departmentBoosts = 2;
 
-        if (Talents.Any(x => x.Name == "Untapped Potential"))
+        if (Talents.Any(x => x.Name == TalentName.UntappedPotential))
             maxValues = 4;
 
         if (Departments.Command > maxValues)

@@ -4,9 +4,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class MissionPodSelector
+public class MissionPodSelector : IMissionPodSelector
 {
-    public static MissionPod ChooseMissionPod()
+    public MissionPod ChooseMissionPod()
     {
         return MissionPods.OrderBy(n => Util.GetRandom()).First();
 

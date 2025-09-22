@@ -56,7 +56,7 @@ public class Weapon
 
     public string Source { get; set; }
 
-    public void SetEffect(NonPlayerCharacter npc)
+    public void SetEffect(NonPlayerCharacter npc, IWeaponSelector weaponSelector)
     {
         if (Name == WeaponName.UnarmedStrike)
         {
@@ -69,7 +69,7 @@ public class Weapon
             {
                 foreach (var quality in specialRule.AddQualitiesToUnarmedStrikes)
                 {
-                    Qualities.Add(WeaponSelector.GetWeaponQuality(quality));
+                    Qualities.Add(weaponSelector.GetWeaponQuality(quality));
                 }
             }
         }

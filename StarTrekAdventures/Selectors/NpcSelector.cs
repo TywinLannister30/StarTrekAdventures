@@ -6,11 +6,21 @@ namespace StarTrekAdventures.Selectors;
 
 public class NpcSelector : INpcSelector
 {
+    private readonly INpcSpecialRuleSelector _npcSpecialRuleSelector;
+    private readonly ISpeciesAbilitySelector _speciesAbilitySelector;
     private readonly ITalentSelector _talentSelector;
+    private readonly IWeaponSelector _weaponSelector;
 
-    public NpcSelector(ITalentSelector talentSelector)
+    public NpcSelector(
+        INpcSpecialRuleSelector npcSpecialRuleSelector,
+        ISpeciesAbilitySelector speciesAbilitySelector,
+        ITalentSelector talentSelector,
+        IWeaponSelector weaponSelector)
     {
+        _npcSpecialRuleSelector = npcSpecialRuleSelector;
+        _speciesAbilitySelector = speciesAbilitySelector;
         _talentSelector = talentSelector;
+        _weaponSelector = weaponSelector;
     }
 
     public NonPlayerCharacter GetNonPlayerCharacter(string name)
@@ -20,7 +30,7 @@ public class NpcSelector : INpcSelector
         var npc = new NonPlayerCharacter(selectedNpc);
 
         foreach (var weapon in npc.Attacks)
-            weapon.SetEffect(npc);
+            weapon.SetEffect(npc, _weaponSelector);
 
         return npc;
     }
@@ -36,7 +46,7 @@ public class NpcSelector : INpcSelector
             var npc = new NonPlayerCharacter(selectedNpc);
 
             foreach (var weapon in npc.Attacks)
-                weapon.SetEffect(npc);
+                weapon.SetEffect(npc, _weaponSelector);
 
             npcs.Add(npc);
         }
@@ -98,8 +108,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 2, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -115,7 +125,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Spirit of Discovery"),
                 _talentSelector.GetTalentAsSpecialRule("Veteran"),
             },
@@ -152,8 +162,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 4, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -168,7 +178,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Follow my Lead"),
                 _talentSelector.GetTalentAsSpecialRule("Mean Right Hook"),
                 _talentSelector.GetTalentAsSpecialRule("Quick to Action"),
@@ -208,8 +218,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 1, Security = 1, Medicine = 4, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -263,9 +273,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 1, Engineering = 1, Security = 1, Medicine = 5, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.AnestheticHypospray),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.AnestheticHypospray),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -279,7 +289,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("First Response"),
                 _talentSelector.GetTalentAsSpecialRule("Quick Study"),
                 _talentSelector.GetTalentAsSpecialRule("Triage"),
@@ -319,8 +329,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 4, Security = 2, Medicine = 1, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -335,7 +345,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
                 _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
                 _talentSelector.GetTalentAsSpecialRule("The Power of Math"),
                 _talentSelector.GetTalentAsSpecialRule("Veteran"),
@@ -373,8 +383,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 4, Engineering = 5, Security = 1, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -388,7 +398,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.Core,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("I Know my Ship"),
                 _talentSelector.GetTalentAsSpecialRule("In the Nick of Time"),
                 _talentSelector.GetTalentAsSpecialRule("Jury-Rig"),
@@ -437,14 +447,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 4, Engineering = 2, Security = 5, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.BatLeth),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.BatLeth),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.BrakLul),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.BrakLul),
                 new()
                 {
                     Name = "Chief of Security",
@@ -491,8 +501,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -509,7 +519,7 @@ public class NpcSelector : INpcSelector
                     Source = BookSource.Core,
                 },
                 _talentSelector.GetTalentAsSpecialRule("Extra Effort"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Quick Survey"),
             },
             Source = BookSource.NextGenerationCrewPack1stEdition,
@@ -551,15 +561,15 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 2, Engineering = 1, Security = 2, Medicine = 2, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Advisor"),
                 _talentSelector.GetTalentAsSpecialRule("Cautious (Command)"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Reassuring"),
                 _talentSelector.GetTalentAsSpecialRule("Veteran"),
             },
@@ -596,14 +606,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 4, Engineering = 3, Security = 3, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType3),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType3),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType3, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Fly-By"),
                 new()
                 {
@@ -659,14 +669,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType3),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType3),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType3, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Gut Feeling"),
                 _talentSelector.GetTalentAsSpecialRule("Lead Investigator"),
                 _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
@@ -705,13 +715,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 5, Security = 2, Medicine = 4, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Applied Research"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Quick Study"),
                 _talentSelector.GetTalentAsSpecialRule("Testing a Theory"),
                 _talentSelector.GetTalentAsSpecialRule("Unconventional Thinking"),
@@ -767,7 +777,7 @@ public class NpcSelector : INpcSelector
                 _talentSelector.GetTalentAsSpecialRule("Applied Force"),
                 _talentSelector.GetTalentAsSpecialRule("Biosynthetic Construction"),
                 _talentSelector.GetTalentAsSpecialRule("Computer Expertise"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.SyntheticLifeForm),
                 _talentSelector.GetTalentAsSpecialRule("Walking Encyclopedia"),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
@@ -822,18 +832,18 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
                     },
                     Costs = new List<string>()
                 },
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType3),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType3),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType3, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.BorgImplants),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.BorgImplants),
                 new()
                 {
                     Name = "Borg Implant - Assimilation Tubules",
@@ -907,7 +917,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 4, Medicine = 3, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
                 new()
                 {
                     Name = "Tan qalanq (blade)",
@@ -918,13 +928,13 @@ public class NpcSelector : INpcSelector
                     Qualities = new List<WeaponQuality>(),
                     Costs = new List<string>()
                 },
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Close Protection"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
                 new()
                 {
                     Name = "Qalankhkai",
@@ -934,7 +944,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.PicardSeasonOneCrewPack1stEdition,
                 },
-                _talentSelector.GetTalentAsSpecialRule("Untapped Potential"),
+                _talentSelector.GetTalentAsSpecialRule(TalentName.UntappedPotential),
                 new()
                 {
                     Name = "Untapped Potential (Control)",
@@ -979,9 +989,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 4, Medicine = 3, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.Dagger),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Dagger),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -990,7 +1000,7 @@ public class NpcSelector : INpcSelector
                 _talentSelector.GetTalentAsSpecialRule("Constantly Watching"),
                 _talentSelector.GetTalentAsSpecialRule("Defensive Training (Melee)"),
                 _talentSelector.GetTalentAsSpecialRule("Guile and Cunning"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Paranoia),
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition,
         },
@@ -1018,13 +1028,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Sector Specialist",
@@ -1058,13 +1068,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 1, Security = 1, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Gamemaster's Note",
@@ -1100,14 +1110,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 1, Security = 1, Medicine = 3, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Cold Reading"),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             },
             Source = BookSource.ScienceDivision1stEdition,
         },
@@ -1131,8 +1141,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 2, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -1151,7 +1161,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             },
             Source = BookSource.OperationsDivision1stEdition,
         },
@@ -1175,14 +1185,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 1, Security = 1, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType2, 1) },
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Gamemaster's Note",
@@ -1224,8 +1234,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 1, Engineering = 1, Security = 1, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -1250,7 +1260,7 @@ public class NpcSelector : INpcSelector
                     HideIfGenerating = true,
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             },
             Source = BookSource.CommandDivision1stEdition,
         },
@@ -1282,14 +1292,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 1, Engineering = 1, Security = 3, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "The Bigger Picture",
@@ -1330,13 +1340,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 2, Engineering = 4, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 new()
                 {
                     Name = "I Know Starfleet Ships",
@@ -1346,7 +1356,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "My Repairs do the Talking",
@@ -1388,14 +1398,14 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 2, Engineering = 3, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Cautious (Engineering)"),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Interpretive Translation",
@@ -1437,8 +1447,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 1, Engineering = 1, Security = 2, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -1453,7 +1463,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             },
             Source = BookSource.CommandDivision1stEdition,
         },
@@ -1486,13 +1496,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 3, Engineering = 2, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Operational Insight",
@@ -1534,8 +1544,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 3, Engineering = 1, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -1549,7 +1559,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             },
             Source = BookSource.CommandDivision1stEdition,
         },
@@ -1582,15 +1592,15 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 1, Medicine = 3, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.AnestheticHypospray),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.AnestheticHypospray),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Field Medicine"),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Interspecies Medical Exchange",
@@ -1631,8 +1641,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 3, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -1646,7 +1656,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Requisitions",
@@ -1687,13 +1697,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 2, Engineering = 3, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Pushing the Deadline",
@@ -1734,15 +1744,15 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 2, Security = 1, Medicine = 2, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Collaboration (Science)"),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                 new()
                 {
                     Name = "Scientific Specialty",
@@ -1794,9 +1804,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 2, Security = 3, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType2, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -1817,7 +1827,7 @@ public class NpcSelector : INpcSelector
                         "Whenever required to attempt a task to conceal their activities for Section 31—including to maintain their cover identity—they may roll an additional d20."
                     }
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
             }
         },
         new()
@@ -1849,15 +1859,15 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 4, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Constantly Watching"),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "Personal Forcefield (Escalation 1)",
@@ -1907,7 +1917,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 2, Security = 1, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -1921,7 +1931,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 _talentSelector.GetTalentAsSpecialRule("Jury-Rig"),
                 new()
                 {
@@ -1963,13 +1973,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 3, Security = 2, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 _talentSelector.GetTalentAsSpecialRule("Technical Expertise"),
                 _talentSelector.GetTalentAsSpecialRule("Transporter Chief"),
             },
@@ -2004,13 +2014,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 1, Medicine = 3, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "On the Final Frotnier",
@@ -2054,8 +2064,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 2, Engineering = 4, Security = 3, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2070,9 +2080,9 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "Sabotage",
@@ -2118,8 +2128,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 2, Engineering = 3, Security = 3, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2133,8 +2143,8 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Lead by Doing",
@@ -2186,13 +2196,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 5, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 new()
                 {
                     Name = "Innovation",
@@ -2202,7 +2212,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 _talentSelector.GetTalentAsSpecialRule("More Power!"),
                 _talentSelector.GetTalentAsSpecialRule("Starship Expert"),
                 new()
@@ -2246,10 +2256,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 2, Security = 2, Medicine = 1, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.VulcanNervePinch),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.VulcanNervePinch),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType2, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -2262,7 +2272,7 @@ public class NpcSelector : INpcSelector
                         "When she succeeds at a Reason + Command task, T’Mek scores one more Momentum than normal."
                     }
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 _talentSelector.GetTalentAsSpecialRule("Nerve Pinch")
             }
         },
@@ -2298,8 +2308,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 2, Engineering = 2, Security = 5, Medicine = 2, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2322,7 +2332,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
                 new()
                 {
                     Name = "Lethal Implant",
@@ -2373,8 +2383,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 3, Security = 3, Medicine = 2, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2396,7 +2406,7 @@ public class NpcSelector : INpcSelector
                         "Whenever an enemy attempts a task to create a trait representing some manner of strategy or tactic, Thyran may spend 1 Threat to increase the Difficulty by 1. Further, if this task then fails, Thyran may immediately spend one additional Threat to create a trait of his own, representing his own stratagem."
                     }
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining)
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining)
             }
         },
         new()
@@ -2428,8 +2438,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 2, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2452,7 +2462,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "Sturdy",
@@ -2497,8 +2507,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 2, Engineering = 1, Security = 4, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2512,8 +2522,8 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "Point of Order",
@@ -2569,8 +2579,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 4, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType2)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType2)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2584,8 +2594,8 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.CommandDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "Paranoia",
@@ -2622,7 +2632,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 0, Engineering = 1, Security = 1, Medicine = 0, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2666,9 +2676,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 3, Security = 0, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
-                WeaponSelector.GetWeapon(WeaponName.ParticleRifle),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.ParticleRifle),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.ParticleRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -2707,9 +2717,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 1, Security = 0, Medicine = 3, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
-                WeaponSelector.GetWeapon(WeaponName.ParticleRifle),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.ParticleRifle),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.ParticleRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -2748,9 +2758,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 0, Conn = 3, Engineering = 1, Security = 1, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
-                WeaponSelector.GetWeapon(WeaponName.ParticleRifle),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.ParticleRifle),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.ParticleRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -2790,7 +2800,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 1, Security = 2, Medicine = 1, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>(),
@@ -2816,7 +2826,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 0, Engineering = 1, Security = 1, Medicine = 0, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2853,8 +2863,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 0, Engineering = 1, Security = 0, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2893,8 +2903,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 0, Engineering = 1, Security = 0, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2933,8 +2943,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 0, Engineering = 1, Security = 0, Medicine = 1, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -2981,7 +2991,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 1, Medicine = 0, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3019,7 +3029,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 4, Security = 1, Medicine = 1, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3033,7 +3043,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.OperationsDivision1stEdition,
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ExtraordinaryReason1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ExtraordinaryReason1),
                 _talentSelector.GetTalentAsSpecialRule("Procedural Compliance"),
             },
             Source = BookSource.OperationsDivision1stEdition,
@@ -3066,7 +3076,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 3, Security = 0, Medicine = 2, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3111,13 +3121,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 0, Medicine = 1, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Kohlinar"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                 _talentSelector.GetTalentAsSpecialRule("Teacher"),
                 new()
                 {
@@ -3165,7 +3175,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 2, Engineering = 2, Security = 1, Medicine = 3, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3235,7 +3245,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 3, Engineering = 2, Security = 3, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3295,13 +3305,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 3, Security = 1, Medicine = 5, Science = 5 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Doctor's Orders"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 new()
                 {
                     Name = "Starfleet Brat",
@@ -3347,13 +3357,13 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 5, Security = 2, Medicine = 3, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
                 _talentSelector.GetTalentAsSpecialRule("Computer Expertise"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Studious"),
                 new()
                 {
@@ -3400,7 +3410,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 1, Engineering = 5, Security = 2, Medicine = 1, Science = 5 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3415,7 +3425,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Studious"),
 
             },
@@ -3452,12 +3462,12 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 5, Security = 2, Medicine = 1, Science = 5 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 _talentSelector.GetTalentAsSpecialRule("Studious"),
                 new()
                 {
@@ -3504,7 +3514,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 2, Engineering = 5, Security = 2, Medicine = 1, Science = 5 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
                 new()
                 {
                     Name = "Broken liquor bottle",
@@ -3514,7 +3524,7 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
                     },
                     Source = BookSource.ScienceDivision1stEdition
                 },
@@ -3522,7 +3532,7 @@ public class NpcSelector : INpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.FaithOfTheHeart),
                 new()
                 {
                     Name = "Godspeed",
@@ -3566,7 +3576,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 1, Medicine = 3, Science = 5 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3581,7 +3591,7 @@ public class NpcSelector : INpcSelector
                     Source = BookSource.ScienceDivision1stEdition,
                 },
                 _talentSelector.GetTalentAsSpecialRule("Incisive Scrutiny"),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Menacing1),
                 new()
                 {
                     Name = "Science on Standby",
@@ -3591,7 +3601,7 @@ public class NpcSelector : INpcSelector
                     },
                     Source = BookSource.ScienceDivision1stEdition,
                 },
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Sturdy),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.Sturdy),
             },
             Source = BookSource.ScienceDivision1stEdition,
         },
@@ -3627,7 +3637,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 5, Conn = 1, Engineering = 2, Security = 1, Medicine = 2, Science = 4 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.VulcanNervePinch)
+                _weaponSelector.GetWeapon(WeaponName.VulcanNervePinch)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -3644,7 +3654,7 @@ public class NpcSelector : INpcSelector
                 _talentSelector.GetTalentAsSpecialRule("Cold Reading"),
                 _talentSelector.GetTalentAsSpecialRule("Mind Meld"),
                 _talentSelector.GetTalentAsSpecialRule("Nerve Pinch"),
-                SpeciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                 new()
                 {
                     Name = "Renowned Diplomat",
@@ -3680,10 +3690,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DkTahgDagger),
-                WeaponSelector.GetWeapon(WeaponName.BatLeth),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DkTahgDagger),
+                _weaponSelector.GetWeapon(WeaponName.BatLeth),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3718,11 +3728,11 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 3, Medicine = 1, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DkTahgDagger),
-                WeaponSelector.GetWeapon(WeaponName.BatLeth),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DkTahgDagger),
+                _weaponSelector.GetWeapon(WeaponName.BatLeth),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1), (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3766,10 +3776,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DkTahgDagger),
-                WeaponSelector.GetWeapon(WeaponName.BatLeth),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DkTahgDagger),
+                _weaponSelector.GetWeapon(WeaponName.BatLeth),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.BatLeth, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3816,10 +3826,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.Dagger),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Dagger),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3855,10 +3865,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.Dagger),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Dagger),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3903,10 +3913,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 2, Engineering = 3, Security = 2, Medicine = 2, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.Dagger),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Dagger),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3946,9 +3956,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 3, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -3998,9 +4008,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 1 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -4059,9 +4069,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 4, Engineering = 2, Security = 2, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -4123,8 +4133,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 1, Medicine = 0, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.PhaserType1)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -4159,8 +4169,8 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 1, Medicine = 0, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -4197,9 +4207,9 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 3, Security = 3, Medicine = 1, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.EnergyWhip),
-                WeaponSelector.GetWeapon(WeaponName.DisruptorPistol)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.EnergyWhip),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -4246,10 +4256,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 2, Medicine = 0, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.Blade),
-                WeaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
-                WeaponSelector.GetWeapon(WeaponName.KarTakin),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Blade),
+                _weaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
+                _weaponSelector.GetWeapon(WeaponName.KarTakin),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.KarTakin, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -4264,8 +4274,8 @@ public class NpcSelector : INpcSelector
                     UnarmedStrikesCanBeDeadly = true,
                     AddQualitiesToUnarmedStrikes = new List<string> { "Intense" }
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
                 new()
                 {
                     Name = "The Shroud",
@@ -4303,10 +4313,10 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 3, Medicine = 1, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                WeaponSelector.GetWeapon(WeaponName.Blade),
-                WeaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
-                WeaponSelector.GetWeapon(WeaponName.KarTakin),
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Blade),
+                _weaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
+                _weaponSelector.GetWeapon(WeaponName.KarTakin),
             },
             EscalationAttacks = new List<(string, int)> { (WeaponName.KarTakin, 1) },
             SpecialRules = new List<NpcSpecialRule>
@@ -4321,8 +4331,8 @@ public class NpcSelector : INpcSelector
                     UnarmedStrikesCanBeDeadly = true,
                     AddQualitiesToUnarmedStrikes = new List<string> { "Intense" }
                 },
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
                 new()
                 {
                     Name = "The Shroud",
@@ -4369,7 +4379,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 4, Conn = 3, Engineering = 2, Security = 2, Medicine = 2, Science = 3 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -4435,7 +4445,7 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Area)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Area)
                     }
                 },
                 new()
@@ -4447,8 +4457,8 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Piercing)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Piercing)
                     }
                 },
                 new()
@@ -4460,7 +4470,7 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Area)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Area)
                     }
                 },
             },
@@ -4511,8 +4521,8 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Piercing),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Piercing),
                     }
                 }
             },
@@ -4566,7 +4576,7 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
                     }
                 },
                 new()
@@ -4578,8 +4588,8 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Cumbersome),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Cumbersome),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
                     }
                 },
             },
@@ -4616,7 +4626,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 1, Conn = 0, Engineering = 0, Security = 1, Medicine = 0, Science = 0 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -4668,8 +4678,8 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Intense),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
                     }
                 },
             },
@@ -4714,7 +4724,7 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
                     }
                 },
             },
@@ -4846,8 +4856,8 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Area),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Area),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating)
                     },
                     Source = BookSource.ScienceDivision1stEdition
                 },
@@ -4926,8 +4936,8 @@ public class NpcSelector : INpcSelector
                     Size = WeaponSize.OneHanded,
                     Qualities = new List<WeaponQuality>
                     {
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
-                        WeaponSelector.GetWeaponQuality(WeaponQualityName.Piercing),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Debilitating),
+                        _weaponSelector.GetWeaponQuality(WeaponQualityName.Piercing),
                     },
                     Source = BookSource.ScienceDivision1stEdition
                 },
@@ -4998,7 +5008,7 @@ public class NpcSelector : INpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Incorporeal),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Incorporeal),
                 new()
                 {
                     Name = "Matter/Antimatter Manipulation",
@@ -5040,7 +5050,7 @@ public class NpcSelector : INpcSelector
             Departments = new Departments { Command = 3, Conn = 0, Engineering = 1, Security = 1, Medicine = 2, Science = 2 },
             Attacks = new List<Weapon>
             {
-                WeaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
             },
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
@@ -5127,8 +5137,8 @@ public class NpcSelector : INpcSelector
             EscalationAttacks = new List<(string, int)>(),
             SpecialRules = new List<NpcSpecialRule>
             {
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToVacuum),
-                NpcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Incorporeal),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToVacuum),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.Incorporeal),
                 new()
                 {
                     Name = "Restoration",

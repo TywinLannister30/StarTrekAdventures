@@ -4,26 +4,26 @@ using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class WeaponSelector
+public class WeaponSelector : IWeaponSelector
 {
-    public static Weapon GetWeapon(string name)
+    public Weapon GetWeapon(string name)
     {
         var weaponSelected = Weapons.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
         return new Weapon(weaponSelected);
     }
 
-    public static WeaponQuality GetWeaponQuality(string name)
+    public WeaponQuality GetWeaponQuality(string name)
     {
         return WeaponQualities.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Weapon> GetAllWeapons()
+    public List<Weapon> GetAllWeapons()
     {
         return Weapons;
     }
 
-    private static readonly List<WeaponQuality> WeaponQualities = new()
+    private List<WeaponQuality> WeaponQualities => new()
     {
         new WeaponQuality
         {
@@ -118,7 +118,7 @@ public static class WeaponSelector
         },
     };
 
-    private static readonly List<Weapon> Weapons = new()
+    private List<Weapon> Weapons => new()
     {
         new Weapon
         {

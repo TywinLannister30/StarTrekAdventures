@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class MissionProfileManager : IMissionProfileManager
 {
+    private readonly IMissionProfileSelector _missionProfileSelector;
+
+    public MissionProfileManager(IMissionProfileSelector missionProfileSelector)
+    {
+        _missionProfileSelector = missionProfileSelector;
+    }
+
     public List<MissionProfile> GetAll()
     {
-        return MissionProfileSelector.GetAllMissionProfiles();
+        return _missionProfileSelector.GetAllMissionProfiles();
     }
 
     public List<string> GetAllNames()
     {
-        return MissionProfileSelector.GetAllMissionProfiles().Select(x => x.Name).ToList();
+        return _missionProfileSelector.GetAllMissionProfiles().Select(x => x.Name).ToList();
     }
 
     public MissionProfile Get(string name)
     {
-        return MissionProfileSelector.GetMissionProfile(name);
+        return _missionProfileSelector.GetMissionProfile(name);
     }
 }

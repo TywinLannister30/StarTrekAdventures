@@ -4,9 +4,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class ExperienceSelector
+public class ExperienceSelector : IExperienceSelector
 {
-    public static Experience ChooseExperience(Character character)
+    public Experience ChooseExperience(Character character)
     {
         var weightedCareersList = new WeightedList<Experience>();
 
@@ -23,20 +23,20 @@ public static class ExperienceSelector
         return weightedCareersList.GetRandom();
     }
 
-    public static Experience GetExperience(string name)
+    public Experience GetExperience(string name)
     {
         return Experiences.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Experience> GetAllExperiences()
+    public List<Experience> GetAllExperiences()
     {
         return Experiences;
     }
 
     private static readonly List<Experience> Experiences = new()
     {
-        new() { Name = ExperienceName.Novice, Talent = "Untapped Potential", MaxAttribute = 11, MaxDepartment = 4, Weight = 25 },
+        new() { Name = ExperienceName.Novice, Talent = TalentName.UntappedPotential, MaxAttribute = 11, MaxDepartment = 4, Weight = 25 },
         new() { Name = ExperienceName.Experienced, AnyTalent = true, Weight = 50 },
-        new() { Name = ExperienceName.Veteran, Talent = "Veteran", Weight = 25 }
+        new() { Name = ExperienceName.Veteran, Talent = TalentName.Veteran, Weight = 25 }
     };
 }

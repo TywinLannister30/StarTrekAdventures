@@ -1,22 +1,21 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
-using System.Xml.Linq;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class SpeciesAbilitySelector
+public class SpeciesAbilitySelector : ISpeciesAbilitySelector
 {
-    public static SpeciesAbility GetSpeciesAbility(string name)
+    public SpeciesAbility GetSpeciesAbility(string name)
     {
         return SpeciesAbilities.FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    public static List<SpeciesAbility> GetAllSpeciesAbilities()
+    public List<SpeciesAbility> GetAllSpeciesAbilities()
     {
         return SpeciesAbilities;
     }
 
-    internal static NpcSpecialRule GetSpeciesAbilityAsSpecialRule(string abilityName)
+    public NpcSpecialRule GetSpeciesAbilityAsSpecialRule(string abilityName)
     {
         var ability = SpeciesAbilities.FirstOrDefault(x => x.Name.Equals(abilityName, StringComparison.CurrentCultureIgnoreCase));
 

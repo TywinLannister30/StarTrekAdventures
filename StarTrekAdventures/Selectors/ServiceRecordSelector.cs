@@ -1,28 +1,29 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
-using StarTrekAdventures.Models.Version1;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class ServiceRecordSelector
+public class ServiceRecordSelector : IServiceRecordSelector
 {
-    public static ServiceRecord ChooseServiceRecord()
+    public ServiceRecord ChooseServiceRecord(IRandomGenerator randomGenerator = null)
     {
-        var shouldTakeServiceRecord = Util.GetRandom(100) <= 75;
+        randomGenerator ??= new RandomGenerator();
+
+        var shouldTakeServiceRecord = randomGenerator.GetRandom(100) <= 75;
 
         if (shouldTakeServiceRecord)
-            return ServiceRecords.OrderBy(n => Util.GetRandom()).First();
+            return ServiceRecords.OrderBy(n => randomGenerator.GetRandom()).First();
 
         return null;
     }
 
-    internal static List<ServiceRecord> GetAllServiceRecords()
+    public List<ServiceRecord> GetAllServiceRecords()
     {
         return ServiceRecords;
     }
 
-    internal static ServiceRecord GetServiceRecord(string name)
+    public ServiceRecord GetServiceRecord(string name)
     {
         return ServiceRecords.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }

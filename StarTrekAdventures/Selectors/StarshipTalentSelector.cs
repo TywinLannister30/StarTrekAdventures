@@ -1,14 +1,13 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
-using StarTrekAdventures.Models.Version1;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public class StarshipTalentSelector
+public class StarshipTalentSelector : IStarshipTalentSelector
 {
-    public static StarshipTalent ChooseTalent(Starship starship)
+    public StarshipTalent ChooseTalent(Starship starship)
     {
         var weightedTalentsList = new WeightedList<StarshipTalent>();
 
@@ -90,12 +89,12 @@ public class StarshipTalentSelector
         return true;
     }
 
-    public static StarshipTalent GetTalent(string name)
+    public StarshipTalent GetTalent(string name)
     {
         return StarshipTalents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static StarshipTalent GetTalentFromList(Starship starship, ICollection<string> talentChoices)
+    public StarshipTalent GetTalentFromList(Starship starship, ICollection<string> talentChoices)
     {
         foreach (var talent in starship.Talents)
         {
@@ -107,7 +106,7 @@ public class StarshipTalentSelector
         return StarshipTalents.First(x => x.Name == choice);
     }
 
-    internal static List<StarshipTalent> GetAllTalents()
+    public List<StarshipTalent> GetAllTalents()
     {
         return StarshipTalents;
     }

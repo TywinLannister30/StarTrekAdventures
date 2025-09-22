@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class CareerEventManager : ICareerEventManager
 {
+    private readonly CareerEventSelector _careerEventSelector;
+
+    public CareerEventManager(ICareerEventSelector careerEventSelector)
+    {
+        _careerEventSelector = (CareerEventSelector)careerEventSelector;
+    }
+
     public List<CareerEvent> GetAll()
     {
-        return CareerEventSelector.GetAllCareerEvents();
+        return _careerEventSelector.GetAllCareerEvents();
     }
 
     public List<string> GetAllNames()
     {
-        return CareerEventSelector.GetAllCareerEvents().Select(x => x.Name).ToList();
+        return _careerEventSelector.GetAllCareerEvents().Select(x => x.Name).ToList();
     }
 
     public CareerEvent Get(string name)
     {
-        return CareerEventSelector.GetCareerEvent(name);
+        return _careerEventSelector.GetCareerEvent(name);
     }
 }

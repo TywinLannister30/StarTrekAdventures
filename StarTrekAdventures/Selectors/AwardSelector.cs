@@ -2,14 +2,14 @@
 
 namespace StarTrekAdventures.Selectors;
 
-public class AwardSelector
+public class AwardSelector : IAwardSelector
 {
-    public static Award GetAward(string name)
+    public Award GetAward(string name)
     {
         return Awards.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Award> GetAllAwards()
+    public List<Award> GetAllAwards()
     {
         return Awards;
     }

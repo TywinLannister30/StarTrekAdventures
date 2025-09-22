@@ -1115,7 +1115,7 @@ public class TalentSelector : ITalentSelector
         {
             new()
             {
-                Name = "Untapped Potential",
+                Name = TalentName.UntappedPotential,
                 Weight = 0,
                 Description = new List<string>
                 {

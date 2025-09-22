@@ -14,11 +14,31 @@ builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ICharacterMan
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ISpeciesManager, StarTrekAdventures.Managers.Version1.SpeciesManager>();
 builder.Services.AddTransient<StarTrekAdventures.Managers.Version1.ITechnobabbleManager, StarTrekAdventures.Managers.Version1.TechnobabbleManager>();
 
+builder.Services.AddTransient<IAwardSelector, AwardSelector>();
+builder.Services.AddTransient<ICareerEventSelector, CareerEventSelector>();
+builder.Services.AddTransient<ICareerPathSelector, CareerPathSelector>();
+builder.Services.AddTransient<IEnvironmentSelector, EnvironmentSelector>();
+builder.Services.AddTransient<IExperienceSelector, ExperienceSelector>();
+builder.Services.AddTransient<IMissionPodSelector, MissionPodSelector>();
+builder.Services.AddTransient<IMissionProfileSelector, MissionProfileSelector>();
 builder.Services.AddTransient<INpcSelector, NpcSelector>();
+builder.Services.AddTransient<INpcSpecialRuleSelector, NpcSpecialRuleSelector>();
+builder.Services.AddTransient<INpcStarshipSelector, NpcStarshipSelector>();
+builder.Services.AddTransient<IRankSelector, RankSelector>();
+builder.Services.AddTransient<IReprimandSelector, ReprimandSelector>();
 builder.Services.AddTransient<IRoleSelector, RoleSelector>();
+builder.Services.AddTransient<IServiceRecordSelector, ServiceRecordSelector>();
+builder.Services.AddTransient<ISmallCraftSelector, SmallCraftSelector>();
+builder.Services.AddTransient<ISpaceframeSelector, SpaceframeSelector>();
+builder.Services.AddTransient<ISpeciesAbilitySelector, SpeciesAbilitySelector>();
 builder.Services.AddTransient<ISpeciesSelector, SpeciesSelector>();
+builder.Services.AddTransient<IStarshipSpecialRuleSelector, StarshipSpecialRuleSelector>();
+builder.Services.AddTransient<IStarshipTalentSelector, StarshipTalentSelector>();
+builder.Services.AddTransient<IStarshipWeaponSelector, StarshipWeaponSelector>();
 builder.Services.AddTransient<ITalentSelector, TalentSelector>();
+builder.Services.AddTransient<IUpbringingSelector, UpbringingSelector>();
 builder.Services.AddTransient<IValueSelector, ValueSelector>();
+builder.Services.AddTransient<IWeaponSelector, WeaponSelector>();
 
 builder.Services.AddTransient<IAwardManager, AwardManager>();
 builder.Services.AddTransient<ICareerEventManager, CareerEventManager>();

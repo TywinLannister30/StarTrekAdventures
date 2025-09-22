@@ -5,9 +5,9 @@ using System.Reflection;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class RankSelector
+public class RankSelector : IRankSelector
 {
-    public static string ChooseRank(Character character)
+    public string ChooseRank(Character character)
     {
         var weightedRankList = new WeightedList<string>();
 

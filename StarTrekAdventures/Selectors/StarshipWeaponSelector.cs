@@ -1,29 +1,28 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
-using StarTrekAdventures.Models.Version1;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class StarshipWeaponSelector
+public class StarshipWeaponSelector : IStarshipWeaponSelector
 {
-    public static StarshipWeapon GetWeapon(string name)
+    public StarshipWeapon GetWeapon(string name)
     {
         return StarshipWeapons.First(x => x.Name == name);
     }
 
-    public static WeaponQuality GetWeaponQuality(string name)
+    public WeaponQuality GetWeaponQuality(string name)
     {
         return StarshipWeaponQualities.First(x => x.Name == name);
     }
 
-    internal static List<StarshipWeapon> GetAllWeapons()
+    public List<StarshipWeapon> GetAllWeapons()
     {
         return StarshipWeapons;
     }
 
-    internal static StarshipWeapon GetRandomWeapon(Starship starship)
+    public StarshipWeapon GetRandomWeapon(Starship starship)
     {
         var weightedWeaponsList = new WeightedList<StarshipWeapon>();
 
@@ -41,7 +40,7 @@ public static class StarshipWeaponSelector
         return weightedWeaponsList.GetRandom();
     }
 
-    internal static StarshipWeapon GetRandomTypedWeapon(Starship starship, StarshipWeaponType weaponType)
+    public StarshipWeapon GetRandomTypedWeapon(Starship starship, StarshipWeaponType weaponType)
     {
         var weightedWeaponsList = new WeightedList<StarshipWeapon>();
 
@@ -57,7 +56,7 @@ public static class StarshipWeaponSelector
         return weightedWeaponsList.GetRandom();
     }
 
-    private static readonly List<WeaponQuality> StarshipWeaponQualities = new()
+    private List<WeaponQuality> StarshipWeaponQualities => new()
     {
         new WeaponQuality
         {
@@ -199,7 +198,7 @@ public static class StarshipWeaponSelector
         },
     };
 
-    private static readonly List<StarshipWeapon> StarshipWeapons = new()
+    private List<StarshipWeapon> StarshipWeapons => new()
     {
         // ENERGY WEAPONS
         new StarshipWeapon

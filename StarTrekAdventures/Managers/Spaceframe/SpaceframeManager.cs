@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class SpaceframeManager : ISpaceframeManager
 {
+    private readonly ISpaceframeSelector _spaceframeSelector;
+
+    public SpaceframeManager(ISpaceframeSelector spaceframeSelector)
+    {
+        _spaceframeSelector = spaceframeSelector;
+    }
+
     public List<Spaceframe> GetAll()
     {
-        return SpaceframeSelector.GetAllSpaceframes();
+        return _spaceframeSelector.GetAllSpaceframes();
     }
 
     public List<string> GetAllNames()
     {
-        return SpaceframeSelector.GetAllSpaceframes().Select(x => x.Name).ToList();
+        return _spaceframeSelector.GetAllSpaceframes().Select(x => x.Name).ToList();
     }
 
     public Spaceframe Get(string name)
     {
-        return SpaceframeSelector.GetSpaceframe(name);
+        return _spaceframeSelector.GetSpaceframe(name);
     }
 }

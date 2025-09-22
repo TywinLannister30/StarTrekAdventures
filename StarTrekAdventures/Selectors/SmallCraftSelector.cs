@@ -4,16 +4,27 @@ using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public class SmallCraftSelector
+public class SmallCraftSelector : ISmallCraftSelector
 {
-    public static SmallCraft GetSmallCraft(string name)
+    private readonly IStarshipTalentSelector _starshipTalentSelector;
+    private readonly IStarshipWeaponSelector _starshipWeaponSelector;
+
+    public SmallCraftSelector(
+        IStarshipTalentSelector starshipTalentSelector, 
+        IStarshipWeaponSelector starshipWeaponSelector  )
+    {
+        _starshipTalentSelector = starshipTalentSelector;
+        _starshipWeaponSelector = starshipWeaponSelector;
+    }
+
+    public SmallCraft GetSmallCraft(string name)
     {
         var selectedSmallCraft = SmallCrafts.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
         return CreateSmallCraft(selectedSmallCraft);
     }
 
-    internal static List<SmallCraft> GetAllSmallCraft()
+    public List<SmallCraft> GetAllSmallCraft()
     {
         var selectedSmallCrafts = SmallCrafts;
 
@@ -40,7 +51,7 @@ public class SmallCraftSelector
         return npc;
     }
 
-    private static readonly List<SmallCraft> SmallCrafts = new()
+    private List<SmallCraft> SmallCrafts => new()
     {
         new SmallCraft
         {
@@ -60,15 +71,10 @@ public class SmallCraftSelector
             Scale = 1,
             Systems = new StarshipSystems { Comms = 3, Computers = 2, Engines = 3, Sensors = 3, Structure = 3, Weapons = 0 },
             Departments = new Departments { Command = 0, Conn = 1, Engineering = 1, Security = 0, Medicine = 0, Science = 1 },
-            //Weapons = new List<StarshipWeapon>
-            //{
-            //    StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-            //    StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
-            //},
             Weapons = new List<StarshipWeapon>(),
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
             SpecialRules = new List<StarshipSpecialRule>()
         },
@@ -90,15 +96,10 @@ public class SmallCraftSelector
             Scale = 1,
             Systems = new StarshipSystems { Comms = 5, Computers = 5, Engines = 5, Sensors = 4, Structure = 5, Weapons = 0 },
             Departments = new Departments { Command = 0, Conn = 1, Engineering = 1, Security = 0, Medicine = 0, Science = 1 },
-            //Weapons = new List<StarshipWeapon>
-            //{
-            //    StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-            //    StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
-            //},
             Weapons = new List<StarshipWeapon>(),
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
@@ -132,11 +133,11 @@ public class SmallCraftSelector
             Departments = new Departments { Command = 0, Conn = 1, Engineering = 1, Security = 0, Medicine = 0, Science = 1 },
             Weapons = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
             },
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
@@ -168,12 +169,12 @@ public class SmallCraftSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 1, Security = 1, Medicine = 0, Science = 0 },
             Weapons = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
             },
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
@@ -211,12 +212,12 @@ public class SmallCraftSelector
             Departments = new Departments { Command = 2, Conn = 1, Engineering = 1, Security = 0, Medicine = 0, Science = 0 },
             Weapons = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
             },
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
             },
             SpecialRules = new List<StarshipSpecialRule>()
         },
@@ -239,12 +240,12 @@ public class SmallCraftSelector
             Departments = new Departments { Command = 0, Conn = 1, Engineering = 0, Security = 2, Medicine = 0, Science = 0 },
             Weapons = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaseCannons),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaseCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
             },
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
             },
             SpecialRules = new List<StarshipSpecialRule>()
         },
@@ -268,12 +269,12 @@ public class SmallCraftSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 0, Security = 2, Medicine = 0, Science = 0 },
             Weapons = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaseBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaseBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
             },
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
@@ -308,8 +309,8 @@ public class SmallCraftSelector
             Departments = new Departments { Command = 0, Conn = 2, Engineering = 0, Security = 1, Medicine = 0, Science = 0 },
             Weapons = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaseBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaseBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MicroTorpedoes),
                 new() 
                 {
                     Name = StarshipWeaponName.QuantumTorpedoes + " (One use only)",
@@ -318,9 +319,9 @@ public class SmallCraftSelector
                     Damage = 4,
                     Qualities = new List<WeaponQuality>
                     {
-                        StarshipWeaponSelector.GetWeaponQuality(WeaponQualityName.Calibration),
-                        StarshipWeaponSelector.GetWeaponQuality(WeaponQualityName.HighYield),
-                        StarshipWeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
+                        _starshipWeaponSelector.GetWeaponQuality(WeaponQualityName.Calibration),
+                        _starshipWeaponSelector.GetWeaponQuality(WeaponQualityName.HighYield),
+                        _starshipWeaponSelector.GetWeaponQuality(WeaponQualityName.Intense)
                     }
                 },
             },

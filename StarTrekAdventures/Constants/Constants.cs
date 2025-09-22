@@ -822,6 +822,13 @@ namespace StarTrekAdventures.Constants
         public const string TransphasicMines = "Transphasic Mines";
     }
 
+    public static class TalentName
+    {
+        // Experience
+        public const string UntappedPotential = "Untapped Potential";
+        public const string Veteran = "Veteran";
+    }
+
     public static class StarshipTalentName
     {
         public const string AblativeArmor = "Ablative Armor";

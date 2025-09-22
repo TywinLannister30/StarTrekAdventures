@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class EnvironmentManager : IEnvironmentManager
 {
+    private readonly IEnvironmentSelector _environmentSelector;
+
+    public EnvironmentManager(IEnvironmentSelector environmentSelector)
+    {
+        _environmentSelector = environmentSelector;
+    }
+
     public List<CharacterEnvironment> GetAll()
     {
-        return EnvironmentSelector.GetAllEnvironments();
+        return _environmentSelector.GetAllEnvironments();
     }
 
     public List<string> GetAllNames()
     {
-        return EnvironmentSelector.GetAllEnvironments().Select(x => x.Name).ToList();
+        return _environmentSelector.GetAllEnvironments().Select(x => x.Name).ToList();
     }
 
     public CharacterEnvironment Get(string name)
     {
-        return EnvironmentSelector.GetEnvironment(name);
+        return _environmentSelector.GetEnvironment(name);
     }
 }

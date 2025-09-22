@@ -506,7 +506,7 @@ namespace StarTrekAdventures.Helpers.Version1
             var maxValues = 12;
             var attributeBoosts = 2;
 
-            if (character.Talents.Any(x => x.Name == "Untapped Potential"))
+            if (character.Talents.Any(x => x.Name == TalentName.UntappedPotential))
                 maxValues = 11;
 
             if (character.Attributes.Control > maxValues)
@@ -591,7 +591,7 @@ namespace StarTrekAdventures.Helpers.Version1
             var maxValues = 5;
             var disciplineBoosts = 2;
 
-            if (character.Talents.Any(x => x.Name == "Untapped Potential"))
+            if (character.Talents.Any(x => x.Name == TalentName.UntappedPotential))
                 maxValues = 4;
 
             if (character.Disciplines.Command > maxValues)

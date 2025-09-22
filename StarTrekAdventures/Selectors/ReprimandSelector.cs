@@ -2,14 +2,14 @@
 
 namespace StarTrekAdventures.Selectors;
 
-public class ReprimandSelector
+public class ReprimandSelector : IReprimandSelector
 {
-    public static Reprimand GetReprimand(string name)
+    public Reprimand GetReprimand(string name)
     {
         return Reprimands.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Reprimand> GetAllReprimands()
+    public List<Reprimand> GetAllReprimands()
     {
         return Reprimands;
     }

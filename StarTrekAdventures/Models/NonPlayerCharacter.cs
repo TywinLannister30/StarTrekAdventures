@@ -173,7 +173,7 @@ public class NonPlayerCharacter
         }
     }
 
-    public void AdjustForAcademyTeacher(ITalentSelector talentSelector)
+    public void AdjustForAcademyTeacher(ICareerPathSelector careerPathSelector, ITalentSelector talentSelector)
     {
         var displinesAvailable = new List<string>
         {
@@ -192,31 +192,31 @@ public class NonPlayerCharacter
         {
             Departments.Conn++;
             SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Conn)"));
-            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerCommand, DepartmentName.Conn).Focuses.ToList();
+            focusChoices = careerPathSelector.GetCareerPath(TrackName.StarfleetOfficerCommand, DepartmentName.Conn).Focuses.ToList();
         }
         if (choice == DepartmentName.Engineering)
         {
             Departments.Engineering++;
             SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Engineering)"));
-            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Engineering).Focuses.ToList();
+            focusChoices = careerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Engineering).Focuses.ToList();
         }
         if (choice == DepartmentName.Security)
         {
             Departments.Security++;
             SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Security)"));
-            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Security).Focuses.ToList();
+            focusChoices = careerPathSelector.GetCareerPath(TrackName.StarfleetOfficerOperations, DepartmentName.Security).Focuses.ToList();
         }
         if (choice == DepartmentName.Medicine)
         {
             Departments.Medicine++;
             SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Medicine)"));
-            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Medicine).Focuses.ToList();
+            focusChoices = careerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Medicine).Focuses.ToList();
         }
         if (choice == DepartmentName.Science)
         {
             Departments.Science++;
             SpecialRules.Add(talentSelector.GetTalentAsSpecialRule("Collaboration (Science)"));
-            focusChoices = CareerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Science).Focuses.ToList();
+            focusChoices = careerPathSelector.GetCareerPath(TrackName.StarfleetOfficerSciences, DepartmentName.Science).Focuses.ToList();
         }
 
         var focus = focusChoices.OrderBy(n => Util.GetRandom()).First();

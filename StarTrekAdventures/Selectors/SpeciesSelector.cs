@@ -6,6 +6,13 @@ namespace StarTrekAdventures.Selectors;
 
 public class SpeciesSelector : ISpeciesSelector
 {
+    private readonly ISpeciesAbilitySelector _speciesAbilitySelector;
+
+    public SpeciesSelector(ISpeciesAbilitySelector speciesAbilitySelector)
+    {
+        _speciesAbilitySelector = speciesAbilitySelector;
+    }
+
     public List<Species> ChooseSpecies(string specificSpecies)
     {
         var chosenSpecies = new List<Species>();
@@ -18,7 +25,7 @@ public class SpeciesSelector : ISpeciesSelector
 
         var weightedSpeciesList = new WeightedList<Species>();
 
-        foreach (var species in Species)
+        foreach (var species in GetSpecies())
             weightedSpeciesList.AddEntry(species, species.Weight);
 
         for (int i = 0; i < speciesChoices; i++)
@@ -47,14 +54,14 @@ public class SpeciesSelector : ISpeciesSelector
 
     public Species GetSpecies(string name)
     {
-        return Species.FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+        return GetSpecies().FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
     public Species GetAnotherRandomSpecies(string name)
     {
         var availableSpecies = new List<Species>();
 
-        foreach (var species in Species)
+        foreach (var species in GetSpecies())
         {
             //if (!species.NonMixed)
                 availableSpecies.Add(species);
@@ -67,10 +74,10 @@ public class SpeciesSelector : ISpeciesSelector
 
     public List<Species> GetAllSpecies()
     {
-        return Species;
+        return GetSpecies();
     }
 
-    private static readonly List<Species> Species = new()
+    private List<Species> GetSpecies() => new()
     {
         new Species
         {
@@ -105,7 +112,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
             Weight = 0,
             Source = BookSource.NextGenerationCrewPack1stEdition
         },
@@ -204,7 +211,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
             Weight = 0,
             Source = BookSource.NextGenerationCrewPack1stEdition
         },
@@ -260,7 +267,7 @@ public class SpeciesSelector : ISpeciesSelector
             AttributeModifiers = new CharacterAttributes(),
             ThreeRandomAttributes = true,
             TraitDescription = "Humans are adaptable and resilient, and their resolve and ambition often allow them to resist great hardship and triumph despite great adversity. However, Humans can also be reckless, stubborn, irrational, and unpredictable.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.FaithOfTheHeart),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.FaithOfTheHeart),
             Weight = 20
         },
         new Species
@@ -276,7 +283,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Daring = 1, Fitness = 1, Presence = 1
             },
             TraitDescription = "Klingon physiology is hardy, with a reinforced skeleton and many redundant internal organs which allow them to withstand harm and numerous toxins that would be deadly to other species, though this has the potential for medical complications. They are significantly stronger and more resilient than Humans, though they have less tolerance for the cold.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.BrakLul),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.BrakLul),
             Weight = 1
         },
         new Species
@@ -312,7 +319,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "Romulan physiology is like that of Vulcans, but subtly different in a variety of ways, enough to cause difficulties in using medical techniques designed for Vulcans, and enough that, with difficulty, sensors can distinguish between Vulcan and Romulan life-signs. Psychologically and culturally, Romulans prize cunning and strength of will, and are highly distrustful of outsiders. Romulans have a reputation for manipulation, deception, and betrayal.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.Paranoia),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.Paranoia),
             Weight = 0
         },
         new Species
@@ -328,7 +335,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
             Weight = 0,
             Source = BookSource.NextGenerationCrewPack1stEdition
         },
@@ -345,7 +352,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Control = 1, Fitness = 1, Insight = 1
             },
             TraitDescription = "Tellarites have keen senses of smell and hearing, and excellent spatial awareness, allowing them to judge distance, depth, and dimension with considerable accuracy. They have a high tolerance for many common drugs, toxins, and inebriants (Tellarites don’t get drunk, just ‘feisty’).",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.Sturdy),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.Sturdy),
             Weight = 8
         },
         new Species
@@ -382,7 +389,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Control = 1, Fitness = 1, Reason = 1
             },
             TraitDescription = "Vulcans have a naturally high tolerance for extremes of heat, are resistant to dehydration, and can shield their eyes from blinding light with a set of secondary eyelids. Their auditory and olfactory senses are extremely keen, and the gravity of their homeworld means an average Vulcan is about three times as strong as a Human of similar size and weight. Vulcans are innately telepathic, and through extensive training since childhood, Vulcan minds can suppress their emotional responses, and even exert influence upon biological processes, though this takes regular meditation to maintain.",
-            SpeciesAbility = SpeciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.MentalDiscipline),
+            SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.MentalDiscipline),
             Weight = 12
         },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },

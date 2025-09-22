@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class UpbringingManager : IUpbringingManager
 {
+    private readonly IUpbringingSelector _upbringingSelector;
+
+    public UpbringingManager(IUpbringingSelector upbringingSelector)
+    {
+        _upbringingSelector = upbringingSelector;
+    }
+
     public List<Upbringing> GetAll()
     {
-        return UpbringingSelector.GetAllUpbringings();
+        return _upbringingSelector.GetAllUpbringings();
     }
 
     public List<string> GetAllNames()
     {
-        return UpbringingSelector.GetAllUpbringings().Select(x => x.Name).ToList();
+        return _upbringingSelector.GetAllUpbringings().Select(x => x.Name).ToList();
     }
 
     public Upbringing Get(string name)
     {
-        return UpbringingSelector.GetUpbringing(name);
+        return _upbringingSelector.GetUpbringing(name);
     }
 }

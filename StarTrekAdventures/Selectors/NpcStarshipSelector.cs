@@ -4,18 +4,32 @@ using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Selectors;
 
-public class NpcStarshipSelector
+public class NpcStarshipSelector : INpcStarshipSelector
 {
-    public static NpcStarship GetNpcStarship(string name)
+    private readonly IStarshipSpecialRuleSelector _starshipSpecialRuleSelector;
+    private readonly IStarshipTalentSelector _starshipTalentSelector;
+    private readonly IStarshipWeaponSelector _starshipWeaponSelector;
+
+    public NpcStarshipSelector(
+        IStarshipSpecialRuleSelector starshipSpecialRuleSelector, 
+        IStarshipTalentSelector starshipTalentSelector,
+        IStarshipWeaponSelector starshipWeaponSelector)
     {
-        var selectedNpc = NpcStarships.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+        _starshipSpecialRuleSelector = starshipSpecialRuleSelector;
+        _starshipTalentSelector = starshipTalentSelector;
+        _starshipWeaponSelector = starshipWeaponSelector;
+    }
+
+    public NpcStarship GetNpcStarship(string name)
+    {
+        var selectedNpc = GetAllNpcStarshipsList().First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
 
         return CreateNpcStarship(selectedNpc);
     }
 
-    internal static List<NpcStarship> GetAllNpcStarships()
+    public List<NpcStarship> GetAllNpcStarships()
     {
-        var selectedNpcs = NpcStarships;
+        var selectedNpcs = GetAllNpcStarshipsList();
 
         var npcs = new List<NpcStarship>();
 
@@ -52,9 +66,7 @@ public class NpcStarshipSelector
         return npc;
     }
 
-    private static readonly List<NpcStarship> NpcStarships = GetAllNpcStarshipsList();
-
-    private static List<NpcStarship> GetAllNpcStarshipsList()
+    private List<NpcStarship> GetAllNpcStarshipsList()
     {
         var allNpcs = new List<NpcStarship>();
         allNpcs.AddRange(GetShowStarships());
@@ -67,7 +79,7 @@ public class NpcStarshipSelector
         return allNpcs;
     }
 
-    private static IEnumerable<NpcStarship> GetShowStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetShowStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -93,24 +105,24 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 2, Medicine = 3, Science = 3 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 5,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.CaptainsYacht),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ExtensiveShuttlebays),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsStructure),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.CaptainsYacht),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ExtensiveShuttlebays),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsStructure),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel),
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.PrestigiousPosting),
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel),
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.PrestigiousPosting),
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
             },
             Source = BookSource.NextGenerationCrewPack1stEdition
         },
@@ -134,26 +146,26 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 3, Conn = 4, Engineering = 4, Security = 2, Medicine = 1, Science = 1 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 1,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedEmergencyCrewHolograms),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign)
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedEmergencyCrewHolograms),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign)
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel),
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear),
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Reliable)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel),
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear),
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Reliable)
             },
             Source = BookSource.PicardSeasonOneCrewPack1stEdition
         },
     };
 
-    private static IEnumerable<NpcStarship> GetStarfleetStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetStarfleetStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -175,14 +187,14 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 1, Conn = 4, Engineering = 2, Security = 4, Medicine = 1, Science = 2 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserCannons),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             Talents = new List<StarshipTalent>(),
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel)
             },
             NoCrewSupport = true,
             Source = BookSource.GameToolkit
@@ -206,20 +218,20 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 3, Medicine = 2, Science = 3 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 3,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedHullIntegrity),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsEngines),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedHullIntegrity),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsEngines),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
             }
         },
         new()
@@ -242,28 +254,28 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 2, Medicine = 3, Science = 3 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserArrays),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 5,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedResearchFacilities),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsStructure),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedResearchFacilities),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ModularLaboratories),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsStructure),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel),
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel),
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.SaucerSeperation)
             }
         },
     };
 
-    private static IEnumerable<NpcStarship> GetKlingonStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetKlingonStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -284,17 +296,17 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 2 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 3,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             },
         },
         new()
@@ -318,24 +330,24 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 1, Conn = 4, Engineering = 1, Security = 5, Medicine = 2, Science = 2 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 2,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.LandingGear)
             }
         },
     };
 
-    private static IEnumerable<NpcStarship> GetRomulanStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetRomulanStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -356,20 +368,20 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 2, Conn = 4, Engineering = 3, Security = 3, Medicine = 1, Science = 2 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
             },
             TractorBeamStrength = 3,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ReducedSensorSilhouette),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ReducedSensorSilhouette),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Prototype)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.Prototype)
             }
         },
         new()
@@ -391,27 +403,27 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 4, Medicine = 1, Science = 3 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
             },
             TractorBeamStrength = 5,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedDamageControl),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ReducedSensorSilhouette),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.CloakingDevice),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.FastTargetingSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedDamageControl),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ReducedSensorSilhouette),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
             },
             SpecialRules = new List<StarshipSpecialRule>
             {
-                StarshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel)
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel)
             }
         },
     };
 
-    private static IEnumerable<NpcStarship> GetCardassianStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetCardassianStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -432,19 +444,19 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 4, Medicine = 2, Science = 2 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorSpinalLance),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorSpinalLance),
             },
             TractorBeamStrength = 3,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
             }
         },
     };
 
-    private static IEnumerable<NpcStarship> GetFerengiStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetFerengiStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -466,23 +478,23 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 4, Conn = 1, Engineering = 3, Security = 3, Medicine = 1, Science = 3 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannons),
             },
             TractorBeamStrength = 4,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedShields),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.DeluxeGalley),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedShields),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DeluxeGalley),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
             }
         },
     };
 
-    private static IEnumerable<NpcStarship> GetDominionStarships() => new List<NpcStarship>
+    private IEnumerable<NpcStarship> GetDominionStarships() => new List<NpcStarship>
     {
         new()
         {
@@ -501,9 +513,9 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 1, Conn = 5, Engineering = 2, Security = 4, Medicine = 1, Science = 1 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamBanks),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 2,
             Talents = new List<StarshipTalent>
@@ -516,8 +528,8 @@ public class NpcStarshipSelector
                         "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
                     }
                 },
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem)
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem)
             }
         },
         new()
@@ -537,13 +549,13 @@ public class NpcStarshipSelector
             Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 0, Science = 1 },
             Attacks = new List<StarshipWeapon>
             {
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamArray),
-                StarshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamArray),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
             },
             TractorBeamStrength = 5,
             Talents = new List<StarshipTalent>
             {
-                StarshipTalentSelector.GetTalent(StarshipTalentName.AdvancedTransporters),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedTransporters),
                 new()
                 {
                     Name = "Anti-Cloak Sensors",
@@ -552,10 +564,10 @@ public class NpcStarshipSelector
                         "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
                     }
                 },
-                StarshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.HighIntensityEnergyWeapons),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
-                StarshipTalentSelector.GetTalent(StarshipTalentName.RapidFireTorpedoLauncher),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighIntensityEnergyWeapons),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RapidFireTorpedoLauncher),
             }
         },
     };

@@ -5,18 +5,25 @@ namespace StarTrekAdventures.Managers;
 
 public class CareerPathManager : ICareerPathManager
 {
+    private readonly ICareerPathSelector _careerPathSelector;
+
+    public CareerPathManager(ICareerPathSelector careerPathSelector)
+    {
+        _careerPathSelector = careerPathSelector;
+    }
+
     public List<CareerPath> GetAll()
     {
-        return CareerPathSelector.GetAllCareerPaths();
+        return _careerPathSelector.GetAllCareerPaths();
     }
 
     public List<string> GetAllNames()
     {
-        return CareerPathSelector.GetAllCareerPaths().Select(x => x.Name).ToList();
+        return _careerPathSelector.GetAllCareerPaths().Select(x => x.Name).ToList();
     }
 
     public CareerPath Get(string name)
     {
-        return CareerPathSelector.GetCareerPath(name);
+        return _careerPathSelector.GetCareerPath(name);
     }
 }

@@ -4,9 +4,9 @@ using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
-public static class SpaceframeSelector
+public class SpaceframeSelector : ISpaceframeSelector
 {
-    public static Spaceframe ChooseSpaceframe(string specificSpaceframe)
+    public Spaceframe ChooseSpaceframe(string specificSpaceframe)
     {
         if (!string.IsNullOrEmpty(specificSpaceframe))
             return GetSpaceframe(specificSpaceframe);
@@ -19,12 +19,12 @@ public static class SpaceframeSelector
         return weightedSpaceframeList.GetRandom();
     }
 
-    public static Spaceframe GetSpaceframe(string name)
+    public Spaceframe GetSpaceframe(string name)
     {
         return Spaceframes.FirstOrDefault(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal static List<Spaceframe> GetAllSpaceframes()
+    public List<Spaceframe> GetAllSpaceframes()
     {
         return Spaceframes.ToList();
     }
