@@ -118,6 +118,15 @@ public class Talent
 
             }
 
+            if (CharacterCreationOnly)
+            {
+                if (requirementsCount > 0)
+                    retVal += ", may only be selected at character creation";
+                else
+                    retVal += "May only be selected at character creation";
+
+            }
+
             return retVal;
         }
     }
@@ -198,6 +207,9 @@ public class Talent
 
     [JsonIgnore]
     public bool RequiresPsychologyFocus { get; set; }
+
+    [JsonIgnore]
+    public bool CharacterCreationOnly { get; set; }
 
     [JsonIgnore]
     public int Weight { get; set; }

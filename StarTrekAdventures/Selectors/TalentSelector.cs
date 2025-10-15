@@ -406,6 +406,16 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Evasion",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "When someone is searching for you, you’ll take any opportunity to evade them. When an enemy suffers a complication on a task attempt to detect or locate you, you may immediately move one zone without them noticing you."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
                 Name = "Extra Effort",
                 Weight = 1,
                 AttributeRequirements = new CharacterAttributes { Fitness = 9 },
@@ -426,6 +436,16 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Go to Ground",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "Exploration often puts you in danger, and you know how to keep yourself safe. When you attempt a task to hide from an enemy, the first bonus d20 you purchase is free as long as you remain prone and do not move. In combat, if you are the target of a ranged attack while in Cover, you may gain one bonus success on your opposed task, but if you do so, you may not counterattack."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
                 Name = "Gut Feeling",
                 Weight = 1,
                 AttributeRequirements = new CharacterAttributes { Insight = 11 },
@@ -433,6 +453,58 @@ public class TalentSelector : ITalentSelector
                 {
                     "When the gamemaster spends Threat to introduce reinforcements or to cause a Reversal, they must spend 2 additional Threat to do so. This is 2 extra Threat in total, not per reinforcement."
                 }
+            },
+            new()
+            {
+                Name = "Head on a Swivel",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You’re always on the lookout for trouble, and ready to duck when it shows up. When you’re the target of a ranged attack, and you are not in Cover, you may suffer 1 Stress to react to the attack. If you do so, you may immediately move to any Cover within your current zone, or you may drop prone and count as being in Cover against the current attack."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Just a Scratch",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You have a knack for getting out of trouble with only minor scrapes and scratches. Once per scene, when you would suffer an Injury, you may avoid that Injury by adding to Threat instead of suffering Stress. The amount of Threat added is the same as the amount of Stress you would have suffered."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = TalentName.LifeLessons,
+                Weight = 0,
+                GMPermission = true,
+                Description = new List<string>
+                {
+                    "Wisdom is the aftereffect of experience, and you’ve become adept at using your experiences to guide others. Whenever you use one of your values to gain or spend Momentum, and make a call back to a previous adventure in which you used that value, you may immediately add 3 Momentum to the group pool.",
+                    "During Step 5 of lifepath character creation, if you select the Veteran option, you may select this talent instead of the Veteran talent."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Make Youre Own Luck",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You don’t rely on chance or fortune to guide you. When you attempt a task, after rolling, you may suffer 1 Stress to change any one die to be equal to the target number you used on the roll (guaranteeing one success). You may do this only once per task, and if you do this, you cannot re-roll any dice on that task roll.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Mercurial",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "Your mood is quick to change. When you attempt a task and you are affected by any traits that represent emotions such as Fear, Doubt, or Panic, you may suffer 1 Stress to remove one of those traits before you make the task roll.",
+                },
+                Source = BookSource.ExplorationGuide
             },
             new()
             {
@@ -466,6 +538,26 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Objective Focused",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "Once you have an objective in sight, little can deter you from pursuing it. Once per adventure, at the start of an action scene, you may define an immediate goal by adding 2 Threat. This goal must relate to the mission and your duties, such as reaching a particular location or character, obtaining an important item, or similar. During the scene, you may re-roll one d20 on any task attempt which would bring you closer to achieving your goal.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Persistent",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You don’t let trivial things like failure deter you, and you’d rather succeed messily than fail cleanly. When you attempt a task, you may choose to suffer a single automatic complication in exchange for gaining one automatic success.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
                 Name = "Personal Effects",
                 Weight = 1,
                 Description = new List<string>
@@ -473,6 +565,40 @@ public class TalentSelector : ITalentSelector
                     "You possess some significant and uncommon item or device which is not standard issue, but which is nevertheless useful for missions. You may select this talent multiple times, gaining a different item each time."
                 },
                 MainCharacterOnly = true,
+            },
+            new()
+            {
+                Name = "Preperation",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You thrive when there’s a clear plan of action. When you attempt a task, and there are one or more traits which would affect the task positively, you may re-roll one d20.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Prestigious Career",
+                Weight = 1,
+                MainCharacterOnly = true,
+                CharacterCreationOnly = true,
+                Description = new List<string>
+                {
+                    "You’ve had an impressive career, and it has earned you accolades and good standing. You begin play with a Reputation rating of 4, or you may begin play with a single award with a cost of 3 or less without needing to meet the conditions.",
+                    "You may replace this talent with another without losing the benefits of it, but only if you can spend three or more Acclaim (from a successful Reputation roll) at the end of that mission."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Protector",
+                Weight = 2,
+                AttributeRequirements = new CharacterAttributes { Daring = 11 },
+                Description = new List<string>
+                {
+                    "You put the safety of your crew and comrades first, and will push yourself further to defend them. If an ally in the same scene as you is Defeated, you immediately recover up to 3 Stress as you push yourself harder to defend them.",
+                },
+                Source = BookSource.ExplorationGuide
             },
             new()
             {
@@ -486,6 +612,17 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Ransack",
+                Weight = 2,
+                AttributeRequirements = new CharacterAttributes { Daring = 9 },
+                Description = new List<string>
+                {
+                    "Sometimes it pays to search an area quickly and messily rather than methodically. When you attempt a task to search an area, you may add 2 Threat to reduce the Difficulty by 1 (to a minimum of 0), and you halve how long it takes to search that area.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
                 Name = "Reassuring",
                 Weight = 1,
                 AttributeRequirements = new CharacterAttributes { Presence = 9 },
@@ -493,6 +630,17 @@ public class TalentSelector : ITalentSelector
                 {
                     "When you succeed at a task using your Presence, you may spend Momentum to reassure your allies, so long as they are able to hear you. You may spend 1 Momentum (Repeatable) to allow one ally who can see and hear you to recover 1 Stress. That ally may not recover more than 3 Stress from one use of this talent."
                 }
+            },
+            new()
+            {
+                Name = "Rivalry",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You have a fierce rivalry with another character, and you constantly push yourself to outdo them. Select one other Main Character in the group. Whenever they add 1 or more Threat to purchase bonus d20s, you recover 1 Stress for each die they purchase.",
+                    "You may select this talent multiple times, selecting a different character each time. You may not select the same character for both Rivalry and Supportive."
+                },
+                Source = BookSource.ExplorationGuide
             },
             new()
             {
@@ -515,12 +663,65 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Shared Joy",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "When you take a break to recover Stress (see page 278 of the core rulebook) and engage in an activity related to your pastime, you may invite an ally to join you. If you do so, you both may regain up to 10 Stress (instead of the normal 8), and immediately add 2 points to the group Momentum pool due to boosted morale.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Show-Off",
+                Weight = 2,
+                AttributeRequirements = new CharacterAttributes { Presence = 9 },
+                Description = new List<string>
+                {
+                    "You tend to show off, sometimes doing things the hard way just to demonstrate that you can. When you attempt a task, you may choose to increase the Difficulty by 1. If you succeed, you gain 2 bonus Momentum. Bonus Momentum cannot be saved.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
                 Name = "Studious",
                 Weight = 1,
                 Description = new List<string>
                 {
                     "Whenever you spend 1 or more Momentum to Obtain Information, you may ask one additional question (in total, not per Momentum spent on Obtain Information)."
                 }
+            },
+            new()
+            {
+                Name = "Supportive",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You have a close bond with another character, and will support them through any hardship. Select one other Main Character in the group. Whenever you spend Momentum to recover their Stress, you reduce the Momentum cost to 1 (allowing you to recover 1 of their Stress by spending 1 Momentum).",
+                    "You may select this talent multiple times, selecting a different character each time. You may not select the same character for both Rivalry and Supportive."
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Suppressive Fire",
+                Weight = 1,
+                Description = new List<string>
+                {
+                    "You know a few shots from a phaser can keep the enemy’s head down, even if they’re off-target. When you miss with a ranged attack, you may add 1 Threat to add a Suppressed trait (or similar effect) on the target. The target can only remove this trait if they are in Cover.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Swift",
+                Weight = 2,
+                AttributeRequirements = new CharacterAttributes { Fitness = 9 },
+                Description = new List<string>
+                {
+                    "You’re quick on your feet. When you take the Movement minor action or the Sprint major action, you may spend 1 Momentum (Immediate) to move up to one additional zone.",
+                },
+                Source = BookSource.ExplorationGuide
             },
             new()
             {
@@ -543,13 +744,34 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Voice of Authority",
+                Name = "True North",
                 Weight = 1,
+                Description = new List<string>
+                {
+                    "You rarely lose your way. When on a planet, or within a ship or space station, you always retain an accurate sense of your direction (on a planet, you always know which direction is north; on a ship, you can tell which way is forward; on a station, you can tell which way is the center), and the Difficulty of any task for you to determine your location is reduced by 2, to a minimum of 0, just by observing visible landmarks or other signs.",
+                },
+                Source = BookSource.ExplorationGuide
+            },
+            new()
+            {
+                Name = "Voice of Authority",
+                Weight = 2,
                 AttributeRequirements = new CharacterAttributes { Presence = 11 },
                 Description = new List<string>
                 {
                     "When you Assist someone, and use your Presence to do so, you may add 2 Threat to treat your assistance die as if it had rolled a 1 instead of rolling it."
                 }
+            },
+            new()
+            {
+                Name = "Walk it Off",
+                Weight = 2,
+                AttributeRequirements = new CharacterAttributes { Fitness = 11 },
+                Description = new List<string>
+                {
+                    "You don’t let injuries bother you. The first time each adventure you avoid an Injury, the Injury’s severity is treated as 1: the injury was just a flesh wound, and not worth your attention.",
+                },
+                Source = BookSource.ExplorationGuide
             },
             new()
             {
@@ -1125,7 +1347,7 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Veteran",
+                Name = TalentName.Veteran,
                 Weight = 0,
                 Description = new List<string>
                 {

@@ -147,7 +147,16 @@ public class CharacterManager : ICharacterManager
         character.Experience = experience.Name;
 
         character.AddValue(_valueSelector);
-        character.AddTalent(_talentSelector, experience.Talent);
+
+        var talentName = experience.Talent;
+
+        if (experience.Talent == TalentName.Veteran)
+        {
+            if (Util.GetRandom(100) <= 25)
+                talentName = TalentName.LifeLessons;
+        }
+
+        character.AddTalent(_talentSelector, talentName);
 
         return character;
     }
