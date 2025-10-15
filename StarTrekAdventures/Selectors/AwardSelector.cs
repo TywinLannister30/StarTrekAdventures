@@ -1,4 +1,5 @@
-﻿using StarTrekAdventures.Models;
+﻿using StarTrekAdventures.Constants;
+using StarTrekAdventures.Models;
 
 namespace StarTrekAdventures.Selectors;
 
@@ -17,6 +18,14 @@ public class AwardSelector : IAwardSelector
     private static readonly List<Award> Awards = new()
     {
         new Award {
+            Name = "Carrington Award",
+            Description = "The Carrington Award is one of the highest honors the Federation can bestow in the field of medicine. It is widely considered to be a lifetime achievement award for physicians, but there are a handful of examples of nominees and even winners from outside the medical field, particularly for humanitarian work. Each year, the Federation Medical Council selects five nominees and then chooses a winner from among them.",
+            CostString = "When you select this award, choose whether you are a nominee or a winner. The cost is 2 for nominees, and 5 for winners.",
+            Conditions = "The character has a prestigious career in medicine, or a long history of humanitarian work, and has recently made a significant breakthrough or contribution to medical science.",
+            Benefit = "Whenever you attempt a Medicine task to overcome an extended task, you may increase your Impact by 1. If you are a winner, then you may also select a single Medicine talent. You gain the trait Carrington Winner or Carrington Nominee, as appropriate.",
+            Source = BookSource.ExplorationGuide},
+
+        new Award {
             Name = "Christopher Pike Medal of Valor",
             Description = "A prestigious medal awarded to Starfleet officers in recognition of remarkable leadership, meritorious conduct, and acts of personal bravery, named for legendary Starfleet officer Christopher Pike. Prior to the 2260s, similar medals existed under different names.",
             Cost = 4,
@@ -29,6 +38,14 @@ public class AwardSelector : IAwardSelector
             Cost = 3,
             Conditions = "The character must have significantly contributed to a field of scientific study or engineering, such as making and documenting an important discovery, or finding a solution to a long-standing problem. ",
             Benefit = "Select a single focus the character possesses, which must relate to the scientific or engineering field they earned the medal for. Once per mission, when the character spends a point of Determination on a task involving that focus, the character may select two benefits of spending a point of Determination instead of one." },
+
+        new Award {
+            Name = "Daystrom Award",
+            Description = "Also known as the Daystrom Prize, the Daystrom Award is given to individuals who have made significant scientific or technical achievements. It is named for Dr. Richard Daystrom, administered by the Daystrom Institute on Earth, and is commonly awarded to pioneering breakthroughs or technological ‘firsts’.",
+            Cost = 4,
+            Conditions = "The character must have made a major contribution to a field of scientific study or engineering.",
+            Benefit = "Select a single focus you possess, which must relate to the scientific or technical field you received the award for. Once per mission, when you succeed at a task using that focus, you gain 3 bonus Momentum. Bonus Momentum may not be saved.",
+            Source = BookSource.ExplorationGuide},
 
         new Award {
             Name = "Grankite Order of Tactics",
@@ -52,11 +69,27 @@ public class AwardSelector : IAwardSelector
             Benefit = "Once per mission, the character may perform one of the following: gain 2 bonus Momentum on a successful task (bonus Momentum may not be saved), or ignore a single complication suffered on a task (choose to do this before the gamemaster announces the complication’s effect)." },
 
         new Award {
+            Name = "Nobel Prize",
+            Description = "A traditional United Earth award, established in 1895 by the Human chemist, engineer, and industrialist Alfred Nobel in his will to celebrate those who have conferred the greatest benefit to humankind. Originally, there were five prizes given annually for achievements in the fields of physics, chemistry, medicine, literature, and peace: they have since been joined by additional prizes, including economics and archaeology.",
+            Cost = 3,
+            Conditions = "The character must have made a meaningful contribution to the good of humanity (specifically, not just the Federation as a whole) in the fields of physics, chemistry, medicine, literature, economics, archaeology, or peace. Most, but not all Nobel prizes are awarded to Humans, as the award is specific to Earth.",
+            Benefit = "The character may take the trait Nobel Laureate. Select a single focus when you receive this award, which relates to the prize you won. Once per mission, when you succeed at a task using that focus, you may spend 3 Momentum to immediately gain 1 Determination.",
+            Source = BookSource.ExplorationGuide},
+
+        new Award {
             Name = "Palm Leaf of (X)",
             Description = "Peace Mission Palm Leaves of this sort are commendations awarded to Starfleet officers who participate in successful peace missions, such as that to the planet Axanar in the 23rd century. In each case, the award includes the name of the peace mission.",
             Cost = 3,
             Conditions = "The mission in which this award was earned must have involved securing peace between warring nations, or the signing of a peace treaty. All characters involved in the mission are eligible.",
             Benefit = "Once per mission, when attempting a Persuade task to prevent violence, the character may automatically succeed at the task by spending Momentum equal to the task’s Difficulty." },
+
+        new Award {
+            Name = "Rigel Cup",
+            Description = "In the Federation, this is an award won for exceptional sublight piloting skills. Many younger Starfleet officers have won the award as a demonstration of their skill at the helm of a starship.",
+            Cost = 3,
+            Conditions = "The character has demonstrated exceptional proficiency when piloting a starship, shuttlecraft, or other vessel at sublight speeds through difficult conditions.",
+            Benefit = "When the character attempts a task to maneuver a vessel at sublight speeds, they may re-roll one d20; Further, they may ignore the first complication rolled.",
+            Source = BookSource.ExplorationGuide},
 
         new Award {
             Name = "Star Cross",
@@ -91,6 +124,14 @@ public class AwardSelector : IAwardSelector
             Description = "This is a special medal for valor awarded exclusively to Starfleet medical personnel for acts above and beyond the call of duty.",
             Cost = 3,
             Conditions = "The character must be a Medical officer of some description, who acted above and beyond the call of duty in an attempt to save a patient or patients or otherwise alleviate some medical crisis.",
-            Benefit = "Once per mission, the character may reduce the Difficulty of a single Medical task by 2, to a minimum of 1." },            
+            Benefit = "Once per mission, the character may reduce the Difficulty of a single Medical task by 2, to a minimum of 1." },
+
+        new Award {
+            Name = "Zee-Magnees Prize",
+            Description = "A prestigious award comparable to Earth’s Nobel prize, awarded to those who have contributed significant advancements to the United Federation of Planets. The award originated from Alpha Centauri, and has been expanded over the centuries to include new fields and disciplines that did not exist when the awards were originally conceived.",
+            Cost = 4,
+            Conditions = "The character must have made a meaningful scientific contribution to the benefit of the Federation.",
+            Benefit = "The character may take the trait Zee- Magnees Laureate. Select a single focus when you receive this award, which relates to the reason you won the award. Once per mission, you may automatically succeed at a task using that focus by spending Momentum (Immediate) equal to the Difficulty.",
+            Source = BookSource.ExplorationGuide},
     };
 }

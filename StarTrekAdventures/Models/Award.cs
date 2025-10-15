@@ -15,6 +15,8 @@ public class Award
 
     public int Cost { get; set; }
 
+    public string CostString { get; set; }
+
     public string Conditions { get; set; }
 
     public string Benefit { get; set; }
