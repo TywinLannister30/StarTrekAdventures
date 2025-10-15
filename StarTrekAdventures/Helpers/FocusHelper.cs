@@ -1,4 +1,5 @@
 ﻿using StarTrekAdventures.Constants;
+using System.Reflection;
 
 namespace StarTrekAdventures.Helpers;
 
@@ -18,5 +19,14 @@ public static class FocusHelper
             return true;
 
         return false;
+    }
+
+    public static List<string> GetAllFocuses()
+    {
+        return typeof(Focus)
+            .GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            .Where(fi => fi.IsLiteral && !fi.IsInitOnly && fi.FieldType == typeof(string))
+            .Select(fi => (string)fi.GetRawConstantValue()!)
+            .ToList();
     }
 }

@@ -21,6 +21,9 @@ public class CareerPath
 
     public Departments DepartmentModifiers { get; set; }
 
+    public ICollection<string> MustTakeFocuses { get; set; }
+
+
     public ICollection<string> Focuses { get; set; }
 
     public int Weight { get; set; }

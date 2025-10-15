@@ -50,10 +50,28 @@ public class CareerEventSelector : ICareerEventSelector
 
         new()
         {
+            Name = "Charting Unexplored Space",
+            AttributeModifierChoices = new CharacterAttributes { Daring = 1, Reason = 1 },
+            DepartmentModifierChoices = new Departments { Conn = 1, Science = 1 },
+            Focuses = new List<string> { Focus.Astrophysics, Focus.Geology, Focus.StellarCartography },
+            Source = BookSource.ExplorationGuide
+        },
+
+        new()
+        {
             Name = "Conflict with a Hostile Culture",
             AttributeModifierChoices = new CharacterAttributes { Fitness = 1 },
             DepartmentModifierChoices = new Departments { Security = 1 },
             Focuses = new List<string> { Focus.HandPhasers, Focus.HandToHandCombat, Focus.TacticalSystems }
+        },
+
+        new()
+        {
+            Name = "Cultural Exchange Program",
+            AttributeModifierChoices = new CharacterAttributes { Presence = 1, Insight = 1 },
+            DepartmentModifierChoices = new Departments { Command = 1, Conn = 1 },
+            RandomFocus = true,
+            Source = BookSource.ExplorationGuide
         },
 
         new()
@@ -72,12 +90,21 @@ public class CareerEventSelector : ICareerEventSelector
             Focuses = new List<string> { Focus.Councelling }
         },
 
-        new() 
-        { 
-           Name = "Discovered an Artefact", 
+        new()
+        {
+           Name = "Discovered an Artefact",
            AttributeModifierChoices = new CharacterAttributes { Reason = 1 },
            DepartmentModifierChoices = new Departments { Engineering = 1 },
-           Focuses = new List<string> { Focus.AncientTechnology, Focus.Computers, Focus.ReverseEngineering } 
+           Focuses = new List<string> { Focus.AncientTechnology, Focus.Computers, Focus.ReverseEngineering }
+        },
+
+        new()
+        {
+            Name = "Encountered a New Species",
+            AttributeModifierChoices = new CharacterAttributes { Daring = 1, Insight = 1 },
+            DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
+            Focuses = new List<string> { Focus.Anthropology, Focus.Composure, Focus.Linguistics },
+            Source = BookSource.ExplorationGuide
         },
 
         new()
@@ -87,6 +114,15 @@ public class CareerEventSelector : ICareerEventSelector
            DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
            Focuses = new List<string> { Focus.Computers, Focus.Cybernetics, Focus.Holoprogramming },
            Source = BookSource.TechnicalManual
+        },
+
+        new()
+        {
+            Name = "Encountered a Spaceborne Organism",
+            AttributeModifierChoices = new CharacterAttributes { Reason = 1, Insight = 1 },
+            DepartmentModifierChoices = new Departments { Conn = 1, Medicine = 1 },
+            Focuses = new List<string> { Focus.Astronavigation, Focus.ExtraVehicularActivity, Focus.Xenobiology },
+            Source = BookSource.ExplorationGuide
         },
 
         new()
@@ -108,12 +144,12 @@ public class CareerEventSelector : ICareerEventSelector
            Source = BookSource.TechnicalManual
         },
 
-        new() 
-        { 
-            Name = "Encountered a Truly Alien Being", 
+        new()
+        {
+            Name = "Encountered a Truly Alien Being",
             AttributeModifierChoices = new CharacterAttributes { Reason = 1 },
             DepartmentModifierChoices = new Departments { Science = 1 },
-            Focuses = new List<string> { Focus.Empathy, Focus.Philosophy, Focus.Xenobiology } 
+            Focuses = new List<string> { Focus.Empathy, Focus.Philosophy, Focus.Xenobiology }
         },
 
         new()
@@ -135,12 +171,39 @@ public class CareerEventSelector : ICareerEventSelector
            Source = BookSource.TechnicalManual
         },
 
-        new() 
-        { 
-            Name = "First Contact", 
-            AttributeModifierChoices = new CharacterAttributes { Presence = 1 }, 
+        new()
+        {
+            Name = "First Contact",
+            AttributeModifierChoices = new CharacterAttributes { Presence = 1 },
             AnyDepartment = true,
-            Focuses = new List<string> { Focus.CulturalStudies, Focus.Diplomacy, Focus.Infiltration } 
+            Focuses = new List<string> { Focus.CulturalStudies, Focus.Diplomacy, Focus.Infiltration }
+        },
+
+        new()
+        {
+            Name = "Galactic Mystery",
+            AttributeModifierChoices = new CharacterAttributes { Insight = 1, Reason = 1 },
+            AnyDepartment = true,
+            Focuses = new List<string> { Focus.HazardAwareness, Focus.MythsAndLegends, Focus.UnifiedFieldTheory },
+            Source = BookSource.ExplorationGuide
+        },
+
+        new()
+        {
+            Name = "Historical Exploration",
+            AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+            DepartmentModifierChoices = new Departments { Security = 1, Science = 1 },
+            Focuses = new List<string> { Focus.CovertOperations, Focus.History, Focus.TemporalMechanics },
+            Source = BookSource.ExplorationGuide
+        },
+
+        new()
+        {
+            Name = "Invited to Witness Cultural Event",
+            AttributeModifierChoices = new CharacterAttributes { Insight = 1, Presence = 1 },
+            DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
+            Focuses = new List<string> { Focus.Anthropology, Focus.CulturalExpert, Focus.Etiquette },
+            Source = BookSource.ExplorationGuide
         },
 
         new()
@@ -150,87 +213,105 @@ public class CareerEventSelector : ICareerEventSelector
             DepartmentModifierChoices = new Departments { Science = 1 }
         },
 
-        new() 
-        { 
-            Name = "Learned Unique Language", 
+        new()
+        {
+            Name = "Learned Unique Language",
             AttributeModifierChoices = new CharacterAttributes { Insight = 1 },
             DepartmentModifierChoices = new Departments { Science = 1 },
-            Focuses = new List<string> { Focus.Linguistics, Focus.CulturalStudies, Focus.Negotiation } 
+            Focuses = new List<string> { Focus.Linguistics, Focus.CulturalStudies, Focus.Negotiation }
         },
 
-        new() 
-        { 
-            Name = "Mentored", 
+        new()
+        {
+            Name = "Long-Term Deep Space Mission",
+            AttributeModifierChoices = new CharacterAttributes { Presence = 1, Fitness = 1 },
+            DepartmentModifierChoices = new Departments { Command = 1, Conn = 1 },
+            Focuses = new List<string> { Focus.Astronavigation, Focus.CrisisManagement, Focus.Diplomacy },
+            Source = BookSource.ExplorationGuide
+        },
+
+        new()
+        {
+            Name = "Mentored",
             AnyAttribute = true,
             DepartmentModifierChoices = new Departments { Conn = 1 },
-            Focuses = new List<string> { Focus.Composure, Focus.Etiquette } 
+            Focuses = new List<string> { Focus.Composure, Focus.Etiquette }
         },
 
-        new() 
-        { 
-            Name = "Negotiate a Treaty", 
+        new()
+        {
+            Name = "Negotiate a Treaty",
             AttributeModifierChoices = new CharacterAttributes { Control = 1 },
             DepartmentModifierChoices = new Departments { Command = 1 },
-            Focuses = new List<string> { Focus.Diplomacy, Focus.GalacticPolitics, Focus.Negotiation } 
+            Focuses = new List<string> { Focus.Diplomacy, Focus.GalacticPolitics, Focus.Negotiation }
         },
 
-        new() 
-        { 
-            Name = "New Battle Strategy", 
+        new()
+        {
+            Name = "New Battle Strategy",
             AttributeModifierChoices = new CharacterAttributes { Daring = 1 },
             DepartmentModifierChoices = new Departments { Security = 1 },
-            Focuses = new List<string> { Focus.CombatTactics, Focus.HazardAwareness } 
+            Focuses = new List<string> { Focus.CombatTactics, Focus.HazardAwareness }
         },
 
-        new() 
-        { 
-            Name = "Recruited to Starfleet Intelligence", 
+        new()
+        {
+            Name = "Planetary Survey",
+            AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+            DepartmentModifierChoices = new Departments { Science = 1, Engineering = 1 },
+            Focuses = new List<string> { Focus.Ecology, Focus.Geology, Focus.MiningOperations },
+            Source = BookSource.ExplorationGuide
+        },
+
+        new()
+        {
+            Name = "Recruited to Starfleet Intelligence",
             AttributeModifierChoices = new CharacterAttributes { Daring = 1 },
             DepartmentModifierChoices = new Departments { Security = 1 },
-            Focuses = new List<string> { Focus.Composure, Focus.Infiltration, Focus.Persuasion } 
+            Focuses = new List<string> { Focus.Composure, Focus.Infiltration, Focus.Persuasion }
         },
 
-        new() 
-        { 
-            Name = "Required to Take Command", 
+        new()
+        {
+            Name = "Required to Take Command",
             AttributeModifierChoices = new CharacterAttributes { Daring = 1 },
             DepartmentModifierChoices = new Departments { Command = 1 },
-            Focuses = new List<string> { Focus.Inspiration, Focus.Composure } 
+            Focuses = new List<string> { Focus.Inspiration, Focus.Composure }
         },
 
-        new() 
-        { 
-            Name = "Serious Injury", 
+        new()
+        {
+            Name = "Serious Injury",
             AttributeModifierChoices = new CharacterAttributes { Fitness = 1 },
             DepartmentModifierChoices = new Departments { Medicine = 1 },
             Focuses = new List<string> { Focus.Athletics, Focus.Art, Focus.Philosophy },
-            GainARandomTrait = new List<string> { 
+            GainARandomTrait = new List<string> {
                 "Prosthetic Arm", "Prosthetic Arms", "Prosthetic Leg", "Prosthetic Legs",
                 "Prosthetic Lung", "Prosthetic Lungs", "Prosthetic Eye", "Prosthetic Eyes", "Prosthetic Heart"}
         },
 
-        new() 
-        { 
-            Name = "Ship Destroyed", 
+        new()
+        {
+            Name = "Ship Destroyed",
             AttributeModifierChoices = new CharacterAttributes { Daring = 1 },
             DepartmentModifierChoices = new Departments { Security = 1 },
-            Focuses = new List<string> { Focus.ExtraVehicularActivity, Focus.SmallCraft, Focus.Survival} 
+            Focuses = new List<string> { Focus.ExtraVehicularActivity, Focus.SmallCraft, Focus.Survival}
         },
 
-        new() 
-        { 
-            Name = "Solved an Engineering Crisis", 
+        new()
+        {
+            Name = "Solved an Engineering Crisis",
             AttributeModifierChoices = new CharacterAttributes { Control = 1 },
             DepartmentModifierChoices = new Departments { Engineering = 1 },
-            Focuses = new List<string> { Focus.ElectroPlasmaPowerSystems, Focus.FusionReactors, Focus.WarpEngines } 
+            Focuses = new List<string> { Focus.ElectroPlasmaPowerSystems, Focus.FusionReactors, Focus.WarpEngines }
         },
 
-        new() 
-        { 
-            Name = "Special Commendation", 
-            AttributeModifierChoices = new CharacterAttributes { Fitness = 1 }, 
+        new()
+        {
+            Name = "Special Commendation",
+            AttributeModifierChoices = new CharacterAttributes { Fitness = 1 },
             AnyDepartment = true,
-            Focuses = new List<string> { Focus.Athletics, Focus.Survival, Focus.EmergencyMedicine } 
+            Focuses = new List<string> { Focus.Athletics, Focus.Survival, Focus.EmergencyMedicine }
         },
 
         new()
@@ -253,6 +334,15 @@ public class CareerEventSelector : ICareerEventSelector
 
         new()
         {
+            Name = "Studied a Pre-Warp Culture",
+            AttributeModifierChoices = new CharacterAttributes { Insight = 1, Fitness = 1 },
+            DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
+            Focuses = new List<string> { Focus.Anthropology, Focus.Linguistics, Focus.Xenobiology },
+            Source = BookSource.ExplorationGuide
+        },
+
+        new()
+        {
            Name = "Technological Catastrophe",
            AttributeModifierChoices = new CharacterAttributes { Daring = 1, Fitness = 1 },
            DepartmentModifierChoices = new Departments { Command = 1, Medicine = 1 },
@@ -269,12 +359,12 @@ public class CareerEventSelector : ICareerEventSelector
            Source = BookSource.TechnicalManual
         },
 
-        new() 
-        { 
-            Name = "Transporter Accident", 
+        new()
+        {
+            Name = "Transporter Accident",
             AttributeModifierChoices = new CharacterAttributes { Control = 1 },
             DepartmentModifierChoices = new Departments { Conn = 1 },
-            Focuses = new List<string> { Focus.TransportersAndReplicators, Focus.SmallCraft, Focus.QuantumMechanics } 
+            Focuses = new List<string> { Focus.TransportersAndReplicators, Focus.SmallCraft, Focus.QuantumMechanics }
         },
 
         new()

@@ -15,6 +15,8 @@ public class CareerEvent
 
     public Departments DepartmentModifierChoices { get; set; }
 
+    public bool RandomFocus { get; set; }
+
     public List<string> Focuses { get; set; }
 
     public bool AnyAttribute { get; set; }

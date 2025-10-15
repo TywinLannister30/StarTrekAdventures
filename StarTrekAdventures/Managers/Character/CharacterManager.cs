@@ -113,16 +113,28 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepFour(Character character)
     {
-        var track = _careerPathSelector.ChooseCareerPath(character);
+        var careerPath = _careerPathSelector.ChooseCareerPath(character);
 
-        character.ChosenTrack = track.Name;
-        character.CareerPath = track.GetName();
+        character.ChosenTrack = careerPath.Name;
+        character.CareerPath = careerPath.GetName();
 
         character.AddValue(_valueSelector);
-        character.AddTraitsForCareerPath(track);
+        character.AddTraitsForCareerPath(careerPath);
         character.AdjustAttributesForCareerPath();
-        character.AdjustDepartmentsForCareerPath(track);
-        character.AddFocuses(track.Focuses, 3);
+        character.AdjustDepartmentsForCareerPath(careerPath);
+
+        var focusesToChoose = 3;
+
+        if (careerPath.MustTakeFocuses != null)
+        {
+            foreach (var focus in careerPath.MustTakeFocuses)
+            {
+                character.AddFocus(focus);
+                focusesToChoose--;
+            }
+        }
+
+        character.AddFocuses(careerPath.Focuses, focusesToChoose);
         character.AddTalent(_talentSelector);
 
         return character;

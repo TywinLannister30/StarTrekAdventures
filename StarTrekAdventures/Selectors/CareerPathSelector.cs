@@ -339,5 +339,75 @@ public class CareerPathSelector : ICareerPathSelector
                 Focus.Tailoring, Focus.Disruptors 
             },
             Weight = 1 },
+
+        new CareerPath {
+            Name = TrackName.IndependentArchaeologist,
+            Major = DepartmentName.Conn,
+            Trait = "Independent Archaeologist",
+            DepartmentModifiers = new Departments { Conn = 2 },
+            MustTakeFocuses = new List<string> { Focus.Archaeology },
+            Focuses = new List<string>
+            {
+                Focus.Archaeotechnology, Focus.Astronavigation, Focus.FirstAid, Focus.Forensics, Focus.Geology, Focus.HazardousEnvironments, 
+                Focus.History, Focus.RapidAnalysis, Focus.Research, Focus.SurvivalTraining
+            },
+            Source = BookSource.ExplorationGuide,
+            Weight = 1 },
+
+        new CareerPath {
+            Name = TrackName.IndependentArchaeologist,
+            Major = DepartmentName.Science,
+            Trait = "Independent Archaeologist",
+            DepartmentModifiers = new Departments { Science = 2 },
+            MustTakeFocuses = new List<string> { Focus.Archaeology },
+            Focuses = new List<string>
+            {
+                Focus.Archaeotechnology, Focus.Astronavigation, Focus.FirstAid, Focus.Forensics, Focus.Geology, Focus.HazardousEnvironments,
+                Focus.History, Focus.RapidAnalysis, Focus.Research, Focus.SurvivalTraining
+            },
+            Source = BookSource.ExplorationGuide,
+            Weight = 1 },
+
+        new CareerPath {
+            Name = TrackName.OutpostScientist,
+            Major = DepartmentName.Science,
+            Trait = "Outpost Scientist",
+            DepartmentModifiers = new Departments { Science = 2 },
+            MustSelectAttribute = AttributeName.Reason,
+            Focuses = new List<string>
+            {
+                Focus.Anthropology, Focus.Biochemistry, Focus.Ecology, Focus.EsotericPowerSources, Focus.ExperimentalTechnology, Focus.Genetics,
+                Focus.Geology, Focus.QuantumMechanics, Focus.Xenobiology, Focus.Xenobotany
+            },
+            Source = BookSource.ExplorationGuide,
+            Weight = 1 },
+
+        new CareerPath {
+            Name = TrackName.OutpostScientist,
+            Major = DepartmentName.Engineering,
+            Trait = "Outpost Scientist",
+            DepartmentModifiers = new Departments { Engineering = 2 },
+            MustSelectAttribute = AttributeName.Reason,
+            Focuses = new List<string>
+            {
+                Focus.Anthropology, Focus.Biochemistry, Focus.Ecology, Focus.EsotericPowerSources, Focus.ExperimentalTechnology, Focus.Genetics,
+                Focus.Geology, Focus.QuantumMechanics, Focus.Xenobiology, Focus.Xenobotany
+            },
+            Source = BookSource.ExplorationGuide,
+            Weight = 1 },
+
+        new CareerPath {
+            Name = TrackName.OutpostScientist,
+            Major = DepartmentName.Medicine,
+            Trait = "Outpost Scientist",
+            DepartmentModifiers = new Departments { Medicine = 2 },
+            MustSelectAttribute = AttributeName.Reason,
+            Focuses = new List<string>
+            {
+                Focus.Anthropology, Focus.Biochemistry, Focus.Ecology, Focus.EsotericPowerSources, Focus.ExperimentalTechnology, Focus.Genetics,
+                Focus.Geology, Focus.QuantumMechanics, Focus.Xenobiology, Focus.Xenobotany
+            },
+            Source = BookSource.ExplorationGuide,
+            Weight = 1 },
     };
 }

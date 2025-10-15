@@ -351,7 +351,15 @@ public class ValueSelector : IValueSelector
         new Value { Name = "When all your needs are met, it’s the experience that matters", TrackRequirement = TrackName.CivilianTrader, Weight = 10 },
         new Value { Name = "Today’s strangers are tomorrow’s customers", TrackRequirement = TrackName.CivilianTrader, Weight = 10 },
         new Value { Name = "You wouldn’t begrudge me a little profit in this venture?", TrackRequirement = TrackName.CivilianTrader, Weight = 10 },
-        
+
+        new Value { Name = "The past informs our future", TrackRequirement = TrackName.IndependentArchaeologist, Weight = 10 },
+        new Value { Name = "These artifacts belong in a museum!", TrackRequirement = TrackName.IndependentArchaeologist, Weight = 10 },
+        new Value { Name = "You need to be quick to secure history’s treasures", TrackRequirement = TrackName.IndependentArchaeologist, Weight = 10 },
+
+        new Value { Name = "I prefer research to dealing with people", TrackRequirement = TrackName.OutpostScientist, Weight = 10 },
+        new Value { Name = "These creatures are fascinating", TrackRequirement = TrackName.OutpostScientist, Weight = 10 },
+        new Value { Name = "My research will change the world!", TrackRequirement = TrackName.OutpostScientist, Weight = 10 },
+
         new Value { Name = "I can’t wait to see what’s out there", ExperienceRequirement = ExperienceName.Novice, Weight = 10 },
         new Value { Name = "I must prove myself", ExperienceRequirement = ExperienceName.Novice, Weight = 10 },
         new Value { Name = "The galaxy isn’t what I expected", ExperienceRequirement = ExperienceName.Novice, Weight = 10 },

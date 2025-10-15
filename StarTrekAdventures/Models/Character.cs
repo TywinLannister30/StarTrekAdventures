@@ -1,6 +1,7 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Selectors;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
@@ -395,6 +396,11 @@ public class Character
         }
     }
 
+    public void AddFocus(string focus)
+    {
+        Focuses.Add(focus);
+    }
+
     public void AddTalent(ITalentSelector talentSelector, string talentName = null, IRandomGenerator randomGenerator = null)
     {
         randomGenerator ??= new RandomGenerator();
@@ -532,10 +538,17 @@ public class Character
         }
         else
         {
-            AddFocuses(careerEvent.Focuses, 1, randomGenerator);
+            if (careerEvent.RandomFocus)
+            {
+                AddFocuses(FocusHelper.GetAllFocuses(), 1, randomGenerator);
+            }
+            else
+            {
+                AddFocuses(careerEvent.Focuses, 1, randomGenerator);
 
-            if (careerEvent.GainARandomTrait != null)
-                Traits.Add(careerEvent.GainARandomTrait.OrderBy(n => randomGenerator.GetRandom()).First());
+                if (careerEvent.GainARandomTrait != null)
+                    Traits.Add(careerEvent.GainARandomTrait.OrderBy(n => randomGenerator.GetRandom()).First());
+            }
         }
     }
 
