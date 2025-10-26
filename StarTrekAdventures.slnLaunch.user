@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "StarTrekAdventures\\StarTrekAdventures.csproj",
+        "Action": "Start",
+        "DebugTarget": "StarTrekAdventures"
+      },
+      {
+        "Path": "StarTrekAdventures.FrontEnd\\StarTrekAdventures.FrontEnd.csproj",
+        "Action": "Start",
+        "DebugTarget": "StarTrekAdventures.FrontEnd"
+      }
+    ]
+  }
+]

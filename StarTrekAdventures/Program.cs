@@ -68,6 +68,14 @@ builder.Services.AddTransient<IRandomGenerator, RandomGenerator>();
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalBlazor", policy =>
+        policy.WithOrigins("https://localhost:5001", "https://localhost:7186", "http://localhost:5042/") // your frontend ports
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

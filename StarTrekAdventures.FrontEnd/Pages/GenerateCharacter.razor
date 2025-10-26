@@ -1,0 +1,315 @@
+﻿@page "/generate-character"
+@inject StarTrekApiClient Api
+@inject NavigationManager NavManager
+@using StarTrekAdventures.FrontEnd.Services
+@using StarTrekAdventures.Models
+
+<PageTitle>Starfleet Personnel File</PageTitle>
+
+<div class="min-h-screen bg-gray-900 flex flex-col items-center p-6 font-sans text-gray-200">
+    <div class="w-full max-w-5xl bg-gray-800/70 rounded-2xl shadow-2xl border border-blue-500/60 p-8">
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-blue-500/50 pb-3 mb-6">
+            <h1 class="text-3xl font-extrabold text-blue-400 tracking-wide uppercase"
+                style="text-shadow: 0 0 12px rgba(60,150,255,0.6)">
+                Starfleet Personnel File
+            </h1>
+            <span class="text-4xl text-yellow-400 drop-shadow-lg">🖖</span>
+        </div>
+
+        @if (loading)
+        {
+            <div class="text-center py-10">
+                <div class="animate-spin rounded-full border-8 border-t-blue-400 border-gray-600 h-12 w-12 mb-4 mx-auto"></div>
+                <p class="text-gray-400">Accessing personnel database...</p>
+            </div>
+        }
+        else if (character == null)
+        {
+            <p class="text-center text-red-500">Error: Character generation failed.</p>
+        }
+        else
+        {
+            <!-- Personnel Information -->
+            <section class="mb-10">
+                <h2 class="text-lg font-semibold text-blue-300 border-b border-blue-600 pb-1 mb-4 uppercase tracking-widest">
+                    Personnel Information
+                </h2>
+
+                @if (character is not null)
+                {
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-blue-700/40 shadow-md">
+                        <!-- Header: Name + Rank -->
+                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6">
+                            <div>
+                                <h3 class="text-3xl font-extrabold text-blue-200 tracking-wide">@character.Name</h3>
+                                <p class="text-blue-400 font-medium text-lg">@character.Rank</p>
+                            </div>
+                            <div class="mt-3 sm:mt-0 text-right">
+                                <p class="text-sm text-gray-400 italic">Personnel Record</p>
+                                <p class="text-xs text-gray-500">Starfleet Database Entry</p>
+                            </div>
+                        </div>
+
+                        <!-- Core Details Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+                            <div>
+                                <p><span class="font-semibold text-blue-300">Gender:</span> @character.Gender</p>
+                                <p><span class="font-semibold text-blue-300">Species:</span> @character.Species</p>
+                                <p><span class="font-semibold text-blue-300">Environment:</span> @character.Environment</p>
+                            </div>
+                            <div>
+                                <p><span class="font-semibold text-blue-300">Upbringing:</span> @character.Upbringing</p>
+                                <p><span class="font-semibold text-blue-300">Assignment:</span> @character.CareerPath</p>
+                            </div>
+                        </div>
+
+                        <!-- Career Events -->
+                        <div class="mt-6">
+                            <h4 class="text-md font-semibold text-blue-300 border-b border-blue-600 pb-1 mb-3 uppercase tracking-widest">
+                                Career Events
+                            </h4>
+
+                            @if (character.CareerEvents?.Any() == true)
+                            {
+                                <div class="space-y-3">
+                                    @foreach (var e in character.CareerEvents)
+                                    {
+                                        <div class="bg-gray-700/40 border border-blue-700/40 rounded-lg p-3 text-sm text-gray-200
+                                            transition-all duration-300 hover:bg-blue-800/30 hover:shadow-[0_0_15px_rgba(60,150,255,0.4)] hover:scale-[1.01]">
+                                            <div class="flex items-center justify-between">
+                                                <span class="font-semibold text-blue-200">• @e</span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-gray-400 text-sm italic">No recorded career events.</p>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-gray-400 text-sm italic">No personnel data available.</p>
+                }
+            </section>
+
+            <!-- Attributes + Departments + Stress/Protection -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Attributes -->
+                <div>
+                    <h2 class="text-lg font-semibold text-yellow-300 border-b border-yellow-600 pb-1 mb-3 uppercase tracking-widest">
+                        Attributes
+                    </h2>
+                    <div class="bg-gray-700/40 rounded-lg p-4 border border-yellow-700/40 text-sm space-y-1">
+                        <p><strong>Control:</strong> @character.Attributes.Control</p>
+                        <p><strong>Daring:</strong> @character.Attributes.Daring</p>
+                        <p><strong>Fitness:</strong> @character.Attributes.Fitness</p>
+                        <p><strong>Insight:</strong> @character.Attributes.Insight</p>
+                        <p><strong>Presence:</strong> @character.Attributes.Presence</p>
+                        <p><strong>Reason:</strong> @character.Attributes.Reason</p>
+                    </div>
+                </div>
+
+                <!-- Departments -->
+                <div>
+                    <h2 class="text-lg font-semibold text-green-300 border-b border-green-600 pb-1 mb-3 uppercase tracking-widest">
+                        Departments
+                    </h2>
+                    <div class="bg-gray-700/40 rounded-lg p-4 border border-green-700/40 text-sm space-y-1">
+                        <p><strong>Command:</strong> @character.Departments.Command</p>
+                        <p><strong>Conn:</strong> @character.Departments.Conn</p>
+                        <p><strong>Engineering:</strong> @character.Departments.Engineering</p>
+                        <p><strong>Security:</strong> @character.Departments.Security</p>
+                        <p><strong>Medicine:</strong> @character.Departments.Medicine</p>
+                        <p><strong>Science:</strong> @character.Departments.Science</p>
+                    </div>
+                </div>
+
+                <!-- Stress & Protection -->
+                <div>
+                    <h2 class="text-lg font-semibold text-blue-300 border-b border-blue-600 pb-1 mb-3 uppercase tracking-widest">
+                        Vital Statistics
+                    </h2>
+                    <div class="flex flex-col items-center justify-center bg-gray-800/50 rounded-xl border border-blue-700/40 p-6 shadow-md space-y-6">
+                        <!-- Stress -->
+                        <div class="flex flex-col items-center">
+                            <p class="text-sm uppercase tracking-widest text-gray-400 mb-1">Stress</p>
+                            <div class="px-6 py-2 bg-red-700/40 rounded-lg border border-red-600 text-3xl font-extrabold text-red-300
+                                shadow-[0_0_15px_rgba(255,0,0,0.3)]">
+                                @character.Stress
+                            </div>
+                        </div>
+
+                        <!-- Protection -->
+                        <div class="flex flex-col items-center">
+                            <p class="text-sm uppercase tracking-widest text-gray-400 mb-1">Protection</p>
+                            <div class="px-6 py-2 bg-blue-700/40 rounded-lg border border-blue-600 text-3xl font-extrabold text-blue-300
+                                shadow-[0_0_15px_rgba(60,150,255,0.3)]">
+                                @character.Protection
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Species Ability -->
+            <section class="mb-10">
+                <h2 class="text-lg font-semibold text-cyan-300 border-b border-cyan-600 pb-1 mb-3 uppercase tracking-widest">
+                    Species Ability
+                </h2>
+                @if (character.SpeciesAbility is not null)
+                {
+                    <div class="bg-gray-700/40 rounded-lg p-4 border border-cyan-700/40 text-sm">
+                        <p class="text-lg font-bold text-cyan-200 mb-2">@character.SpeciesAbility.Name</p>
+                        <p class="text-gray-300 leading-relaxed">@character.SpeciesAbility.Description</p>
+                        @if (!string.IsNullOrWhiteSpace(character.SpeciesAbility.Source))
+                        {
+                            <p class="mt-2 text-xs text-gray-500 italic">Source: @character.SpeciesAbility.Source</p>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-gray-400 text-sm italic">No species ability assigned.</p>
+                }
+            </section>
+
+            <!-- Values & Focuses -->
+            <section class="mb-10">
+                <h2 class="text-lg font-semibold text-pink-300 border-b border-pink-600 pb-1 mb-3 uppercase tracking-widest">
+                    Values & Focuses
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Values -->
+                    <div>
+                        <h3 class="text-md font-semibold text-pink-300 mb-3 border-b border-pink-700/50 uppercase tracking-wide">
+                            Values
+                        </h3>
+
+                        @if (character.Values?.Any() == true)
+                        {
+                            <div class="bg-gray-700/40 rounded-lg p-4 border border-pink-700/40 text-sm space-y-2">
+                                @foreach (var v in character.Values)
+                                {
+                                    <p class="text-gray-200 leading-snug">• @v</p>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-gray-400 text-sm italic">No values recorded.</p>
+                        }
+                    </div>
+
+                    <!-- Focuses -->
+                    <div>
+                        <h3 class="text-md font-semibold text-orange-300 mb-3 border-b border-orange-700/50 uppercase tracking-wide">
+                            Focuses
+                        </h3>
+
+                        @if (character.Focuses?.Any() == true)
+                        {
+                            <div class="bg-gray-700/40 rounded-lg p-4 border border-orange-700/40 text-sm space-y-2">
+                                @foreach (var f in character.Focuses)
+                                {
+                                    <p class="text-gray-200 leading-snug">• @f</p>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-gray-400 text-sm italic">No focuses recorded.</p>
+                        }
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Talents -->
+            <section>
+                <h2 class="text-lg font-semibold text-purple-300 border-b border-purple-600 pb-1 mb-3 uppercase tracking-widest">
+                    Talents
+                </h2>
+
+                @if (character.Talents?.Any() == true)
+                {
+                    <div class="space-y-6">
+                        @foreach (var t in character.Talents)
+                        {
+                            <div class="bg-gray-700/40 rounded-lg p-4 border border-purple-700/40 text-sm">
+                                <p class="text-lg font-bold text-purple-200 mb-1">@t.Name</p>
+
+                                @if (!string.IsNullOrWhiteSpace(t.Requirement))
+                                {
+                                    <p class="text-xs italic text-gray-400 mb-2">
+                                        Requirement: @t.Requirement
+                                    </p>
+                                }
+
+                                @if (t.Description?.Any() == true)
+                                {
+                                    @foreach (var line in t.Description)
+                                    {
+                                        <p class="text-gray-300 leading-relaxed">@line</p>
+                                    }
+                                }
+
+                                @if (!string.IsNullOrWhiteSpace(t.Source))
+                                {
+                                    <p class="mt-2 text-xs text-gray-500 italic">Source: @t.Source</p>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-gray-400 text-sm italic">No talents recorded.</p>
+                }
+            </section>
+
+        }
+    </div>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <!-- Return Button -->
+        <button @onclick="GoBack"
+                class="px-6 py-3 bg-gray-700 text-white rounded-lg shadow-xl hover:bg-gray-600
+                   border border-gray-500 transition duration-200 flex items-center justify-center">
+            ← Return to Operations
+        </button>
+
+        <!-- Generate Another Button -->
+        <button @onclick="GenerateAnother"
+                class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow-xl hover:bg-blue-600
+                   border border-blue-500 transition duration-200 flex items-center justify-center">
+            🔁 Generate Another Character
+        </button>
+    </div>
+
+</div>
+
+@code {
+    private Character? character;
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        character = await Api.GenerateCharacterAsync("auto");
+        loading = false;
+    }
+
+    private async Task GenerateAnother()
+    {
+        loading = true;
+        character = await Api.GenerateCharacterAsync("auto");
+        loading = false;
+    }
+
+    private void GoBack() => NavManager.NavigateTo("/main");
+}

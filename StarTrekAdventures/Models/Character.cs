@@ -1,7 +1,6 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Selectors;
-using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
