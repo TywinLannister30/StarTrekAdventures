@@ -59,14 +59,18 @@ public class ValueSelector : IValueSelector
     {
         new Value { Name = "Do not mistake my blindness for helplessness", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
         new Value { Name = "I perceive things your eyes do not", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
+        new Value { Name = "Ice runs in my veins, but that doesn’t mean I’m cold-hearted", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
         new Value { Name = "Life is incomplete without purpose", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
         new Value { Name = "Pacifism is not passive", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
-        
+        new Value { Name = "Stubborn as a glacier", TraitRequirement = SpeciesName.Aenar, Weight = 10 },
+
         new Value { Name = "I always repay my debts", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
+        new Value { Name = "Ice runs in my veins, but that doesn’t mean I’m cold-hearted", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
         new Value { Name = "No challenge unmet", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
         new Value { Name = "Proud child of Andoria", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
         new Value { Name = "Question my word, question my honor", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
-        
+        new Value { Name = "Stubborn as a glacier", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
+
         new Value { Name = "Fortune favors the faithful", TraitRequirement = SpeciesName.Ankari, Weight = 10 },
         
         new Value { Name = "Propriety first and always", TraitRequirement = SpeciesName.Arbazan, Weight = 10 },
@@ -98,7 +102,9 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Do not be what others expect you to be", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
         new Value { Name = "I can feel your pain", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
         new Value { Name = "I’m just saying what you’re thinking", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
-        
+        new Value { Name = "Openness and honesty are just easier ways to live", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
+        new Value { Name = "Privacy is a luxury among telepaths", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
+
         new Value { Name = "A broad smile and warm heart", TraitRequirement = SpeciesName.Bolian, Weight = 10 },
         
         new Value { Name = "All others are meant to serve us", TraitRequirement = SpeciesName.Breen, Weight = 5 },
@@ -128,8 +134,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Artificial but still alive", TraitRequirement = SpeciesName.CyberneticallyEnhanced, Weight = 10 },
         
         new Value { Name = "Bodies and minds as one", TraitRequirement = SpeciesName.Deltan, Weight = 10 },
-        
+
+        new Value { Name = "A new neighbor is a potential friend", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
         new Value { Name = "Comfort in numbers", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
+        new Value { Name = "Everyone is connected somehow", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
         new Value { Name = "My patience exceeds your stubbornness", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
         new Value { Name = "There's always someone new to meet", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
         new Value { Name = "You cannot truly learn about people unless you talk to them", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
@@ -167,11 +175,13 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Patient study yields the best results", TraitRequirement = SpeciesName.Grazerite, Weight = 10 },
         
         new Value { Name = "Many sides to every tale", TraitRequirement = SpeciesName.Haliian, Weight = 10 },
-        
+
+        new Value { Name = "Earth is a paradise, but not everywhere is so fortunate", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "I believe in what the Federation stands for", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "Learn something new every day", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "Seek out new life and new civilizations", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "The drive for exploration", TraitRequirement = SpeciesName.Human, Weight = 10 },
+        new Value { Name = "The Federation has brought peace to countless worlds", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "We are stronger together", TraitRequirement = SpeciesName.Human, Weight = 10 },
         
         new Value { Name = "All traitors must be accounted for", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
@@ -190,7 +200,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I am a Klingon warrior; if you doubt it, a demonstration can be arranged!", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
         new Value { Name = "Own the day!", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
         new Value { Name = "Revenge is a dish best served cold", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
+        new Value { Name = "The strong will prosper, but what they do with that strength is what matters", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
+        new Value { Name = "The Galaxy is a dangerous place for the unwary", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
         new Value { Name = "Today is a good day to die!", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
+
         new Value { Name = "Burn it all", TraitRequirement = SpeciesName.Klingon, Weight = 5 },
         new Value { Name = "Death before dishonor", TraitRequirement = SpeciesName.Klingon, Weight = 5 },
         new Value { Name = "Defeat makes my wounds ache", TraitRequirement = SpeciesName.Klingon, Weight = 5 },
@@ -238,13 +251,18 @@ public class ValueSelector : IValueSelector
         
         new Value { Name = "Real power is in the service of others", TraitRequirement = SpeciesName.RigellianChelon, Weight = 10 },
         new Value { Name = "Governance and trade for the prosperity of all", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10 },
-        
+
         new Value { Name = "All that is ours is yours", TraitRequirement = SpeciesName.Risian, Weight = 10 },
-        
+        new Value { Name = "Everyone deserves relief from their burdens", TraitRequirement = SpeciesName.Risian, Weight = 10 },
+        new Value { Name = "Joy is as noble a pursuit as truth, duty, or glory", TraitRequirement = SpeciesName.Risian, Weight = 10 },
+
         new Value { Name = "Even my secrets have secrets!", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
         new Value { Name = "Every secret I discover is another weapon in my arsenal", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
+        new Value { Name = "For the triumph of the Romulan Empire", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
         new Value { Name = "I give my life to the service of the empire", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
         new Value { Name = "Secrecy is a shield against betrayal", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
+        new Value { Name = "To survive, I must keep my secrets and discover yours", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
+
         new Value { Name = "Everything I do, I do for Romulus", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
         new Value { Name = "I will not fail in my duty to the Empire", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
         new Value { Name = "My people should be free", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
@@ -269,18 +287,22 @@ public class ValueSelector : IValueSelector
         new Value { Name = "What is it to be human?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
 
         new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10 },
-        
+
         new Value { Name = "An idea left unchallenged can be dangerous", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
+        new Value { Name = "Even the best ideas need to be re-examined occasionally", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
         new Value { Name = "No notion is above proper scrutiny", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
         new Value { Name = "No voice silenced, no perspective unheard", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
+        new Value { Name = "The truth can be painful, but I take no joy in your pain", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
         new Value { Name = "You’ll never get an answer if you don’t ask questions", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
-        
+
         new Value { Name = "Several lifetimes of adventure", TraitRequirement = SpeciesName.Trill, TalentRequirement = "Joined", Weight = 20 },
         new Value { Name = "Even a 400-year-old explorer can find something new", TraitRequirement = SpeciesName.Trill, TalentRequirement = "Joined", Weight = 5 },
+        new Value { Name = "The Galaxy contains more than you can see in a lifetime", TraitRequirement = SpeciesName.Trill, Weight = 10 },
         new Value { Name = "What will this mean a century from now?", TraitRequirement = SpeciesName.Trill, Weight = 10 },
         new Value { Name = "What can I discover today?", TraitRequirement = SpeciesName.Trill, Weight = 10 },
         new Value { Name = "Who I was is only part of who I am", TraitRequirement = SpeciesName.Trill, TalentRequirement = "Joined", Weight = 10 },
-        
+        new Value { Name = "Why argue when you can seek understanding", TraitRequirement = SpeciesName.Trill, Weight = 10 },
+
         new Value { Name = "I am tosk", TraitRequirement = SpeciesName.Tosk, Weight = 10 },
         
         new Value { Name = "No one shall be my master", TraitRequirement = SpeciesName.Turei, Weight = 10 },
@@ -295,8 +317,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Logic is the beginning of wisdom, not the end", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
         new Value { Name = "Nothing that is, is unimportant", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
         new Value { Name = "The needs of the many outweigh the needs of the few, or the one", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
-        new Value { Name = "Proud of the Vulcan way", TraitRequirement = SpeciesName.Vulcan, Weight = 5 },
-        
+        new Value { Name = "Proud of the Vulcan way", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
+        new Value { Name = "Service to the betterment of all gives purpose", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
+        new Value { Name = "We may choose to be guided by logic, but the real world isn’t always reasonable", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
+
         new Value { Name = "Allamaraine!, shall we play again?", TraitRequirement = SpeciesName.Wadi, Weight = 10 },
         
         new Value { Name = "Balance between oneself and the world around you.", TraitRequirement = SpeciesName.Xahean, Weight = 10 },

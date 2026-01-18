@@ -39,6 +39,7 @@ public static class SpeciesName
     public const string KelpianPostVaharai = "Kelpian (Post-Vahar'ai)";
     public const string Klingon = "Klingon";
     public const string Ktarian = "Ktarian";
+    public const string Lanthanite = "Lanthanite";
     public const string LiberatedBorg = "Liberated Borg";
     public const string Lokirrim = "Lokirrim";
     public const string Lurian = "Lurian";

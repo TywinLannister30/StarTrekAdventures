@@ -11,6 +11,10 @@ public class CareerEvent
 
     public string Name { get; set; }
 
+    public int? YearMin { get; set; }
+
+    public int? YearMax { get; set; }
+
     public CharacterAttributes AttributeModifierChoices { get; set; }
 
     public Departments DepartmentModifierChoices { get; set; }

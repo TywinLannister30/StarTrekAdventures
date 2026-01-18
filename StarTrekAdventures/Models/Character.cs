@@ -43,6 +43,7 @@ public class Character
     public List<Role> Roles { get; set; }
 
     public string Species { get; set; }
+    public string SecondarySpecies { get; set; }
     public SpeciesAbility SpeciesAbility { get; set; }
     public string Environment { get; set; }
     public string Upbringing { get; set; }

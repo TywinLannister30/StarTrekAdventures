@@ -26,4 +26,9 @@ public class SpeciesManager : ISpeciesManager
     {
         return _speciesSelector.GetSpecies(name);
     }
+
+    public SpeciesAbility GetSpeciesAbility(string name)
+    {
+        return _speciesSelector.GetSpecies(name).SpeciesAbility;
+    }
 }

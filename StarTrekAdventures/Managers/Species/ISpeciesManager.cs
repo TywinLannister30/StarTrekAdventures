@@ -9,4 +9,6 @@ public interface ISpeciesManager
     List<string> GetAllNames();
 
     Species Get(string name);
+
+    SpeciesAbility GetSpeciesAbility(string name);
 }

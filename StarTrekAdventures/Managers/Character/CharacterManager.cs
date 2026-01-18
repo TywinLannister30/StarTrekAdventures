@@ -86,7 +86,7 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepTwo(Character character)
     {
-        var environment = _environmentSelector.ChooseEnvironment();
+        var environment = _environmentSelector.ChooseEnvironment(character.Species);
 
         character.Environment = environment.Name;
 

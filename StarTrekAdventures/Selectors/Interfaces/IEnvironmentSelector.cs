@@ -4,7 +4,7 @@ namespace StarTrekAdventures.Selectors;
 
 public interface IEnvironmentSelector
 {
-    CharacterEnvironment ChooseEnvironment();
+    CharacterEnvironment ChooseEnvironment(string species);
 
     CharacterEnvironment GetEnvironment(string name);
 

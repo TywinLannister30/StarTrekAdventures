@@ -341,6 +341,30 @@ public class CareerPathSelector : ICareerPathSelector
             Weight = 1 },
 
         new CareerPath {
+            Name = TrackName.FreeTrader,
+            Major = DepartmentName.Command,
+            RandomTrait = new List<string> { "Free Trader", "Freighter Captain", "Independent Scout", "Smuggler" },
+            DepartmentModifiers = new Departments { Command = 2 },
+            Focuses = new List<string>
+            {
+                Focus.Astrometrics, Focus.Bargain, Focus.CulturalExpert, Focus.Ecology, Focus.Geology, Focus.HelmOperations,
+                Focus.Negotiation, Focus.RepairsAndMaintenance, Focus.Survival
+            },
+            Weight = 1 },
+
+        new CareerPath {
+            Name = TrackName.FreeTrader,
+            Major = DepartmentName.Conn,
+            RandomTrait = new List<string> { "Free Trader", "Freighter Captain", "Independent Scout", "Smuggler" },
+            DepartmentModifiers = new Departments { Conn = 2 },
+            Focuses = new List<string>
+            {
+                Focus.Astrometrics, Focus.Bargain, Focus.CulturalExpert, Focus.Ecology, Focus.Geology, Focus.HelmOperations,
+                Focus.Negotiation, Focus.RepairsAndMaintenance, Focus.Survival
+            },
+            Weight = 1 },
+
+        new CareerPath {
             Name = TrackName.IndependentArchaeologist,
             Major = DepartmentName.Conn,
             Trait = "Independent Archaeologist",

@@ -1,6 +1,7 @@
 ﻿@page "/generate-character"
 @inject StarTrekApiClient Api
 @inject NavigationManager NavManager
+@using Microsoft.AspNetCore.WebUtilities
 @using StarTrekAdventures.FrontEnd.Services
 @using StarTrekAdventures.Models
 
@@ -52,7 +53,7 @@
                         </div>
 
                         <!-- Core Details Grid -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300 mb-6">
                             <div>
                                 <p><span class="font-semibold text-blue-300">Gender:</span> @character.Gender</p>
                                 <p><span class="font-semibold text-blue-300">Species:</span> @character.Species</p>
@@ -64,8 +65,32 @@
                             </div>
                         </div>
 
+                        <!-- Traits -->
+                        <div class="mb-8">
+                            <h4 class="text-md font-semibold text-blue-300 border-b border-blue-600 pb-1 mb-3 uppercase tracking-widest">
+                                Traits
+                            </h4>
+
+                            @if (character.Traits?.Any() == true)
+                            {
+                                <div class="flex flex-wrap gap-2">
+                                    @foreach (var t in character.Traits)
+                                    {
+                                        <span class="bg-blue-900/40 text-blue-200 border border-blue-700/40 px-3 py-1 rounded-full text-sm font-medium
+                                                         hover:bg-blue-800/50 hover:shadow-[0_0_10px_rgba(60,150,255,0.5)] transition-all duration-200">
+                                            @t
+                                        </span>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <p class="text-gray-400 text-sm italic">No traits recorded.</p>
+                            }
+                        </div>
+
                         <!-- Career Events -->
-                        <div class="mt-6">
+                        <div>
                             <h4 class="text-md font-semibold text-blue-300 border-b border-blue-600 pb-1 mb-3 uppercase tracking-widest">
                                 Career Events
                             </h4>
@@ -76,7 +101,7 @@
                                     @foreach (var e in character.CareerEvents)
                                     {
                                         <div class="bg-gray-700/40 border border-blue-700/40 rounded-lg p-3 text-sm text-gray-200
-                                            transition-all duration-300 hover:bg-blue-800/30 hover:shadow-[0_0_15px_rgba(60,150,255,0.4)] hover:scale-[1.01]">
+                                                        transition-all duration-300 hover:bg-blue-800/30 hover:shadow-[0_0_15px_rgba(60,150,255,0.4)] hover:scale-[1.01]">
                                             <div class="flex items-center justify-between">
                                                 <span class="font-semibold text-blue-200">• @e</span>
                                             </div>
@@ -96,6 +121,7 @@
                     <p class="text-gray-400 text-sm italic">No personnel data available.</p>
                 }
             </section>
+
 
             <!-- Attributes + Departments + Stress/Protection -->
             <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
@@ -156,28 +182,6 @@
                 </div>
             </section>
 
-            <!-- Species Ability -->
-            <section class="mb-10">
-                <h2 class="text-lg font-semibold text-cyan-300 border-b border-cyan-600 pb-1 mb-3 uppercase tracking-widest">
-                    Species Ability
-                </h2>
-                @if (character.SpeciesAbility is not null)
-                {
-                    <div class="bg-gray-700/40 rounded-lg p-4 border border-cyan-700/40 text-sm">
-                        <p class="text-lg font-bold text-cyan-200 mb-2">@character.SpeciesAbility.Name</p>
-                        <p class="text-gray-300 leading-relaxed">@character.SpeciesAbility.Description</p>
-                        @if (!string.IsNullOrWhiteSpace(character.SpeciesAbility.Source))
-                        {
-                            <p class="mt-2 text-xs text-gray-500 italic">Source: @character.SpeciesAbility.Source</p>
-                        }
-                    </div>
-                }
-                else
-                {
-                    <p class="text-gray-400 text-sm italic">No species ability assigned.</p>
-                }
-            </section>
-
             <!-- Values & Focuses -->
             <section class="mb-10">
                 <h2 class="text-lg font-semibold text-pink-300 border-b border-pink-600 pb-1 mb-3 uppercase tracking-widest">
@@ -229,6 +233,27 @@
                 </div>
             </section>
 
+            <!-- Species Ability -->
+            <section class="mb-10">
+                <h2 class="text-lg font-semibold text-cyan-300 border-b border-cyan-600 pb-1 mb-3 uppercase tracking-widest">
+                    Species Ability
+                </h2>
+                @if (character.SpeciesAbility is not null)
+                {
+                    <div class="bg-gray-700/40 rounded-lg p-4 border border-cyan-700/40 text-sm">
+                        <p class="text-lg font-bold text-cyan-200 mb-2">@character.SpeciesAbility.Name</p>
+                        <p class="text-gray-300 leading-relaxed">@character.SpeciesAbility.Description</p>
+                        @if (!string.IsNullOrWhiteSpace(character.SpeciesAbility.Source))
+                        {
+                            <p class="mt-2 text-xs text-gray-500 italic">Source: @character.SpeciesAbility.Source</p>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-gray-400 text-sm italic">No species ability assigned.</p>
+                }
+            </section>
 
             <!-- Talents -->
             <section>
@@ -276,7 +301,7 @@
         }
     </div>
 
-    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <!-- Return Button -->
         <button @onclick="GoBack"
                 class="px-6 py-3 bg-gray-700 text-white rounded-lg shadow-xl hover:bg-gray-600
@@ -284,32 +309,52 @@
             ← Return to Operations
         </button>
 
-        <!-- Generate Another Button -->
-        <button @onclick="GenerateAnother"
-                class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow-xl hover:bg-blue-600
-                   border border-blue-500 transition duration-200 flex items-center justify-center">
-            🔁 Generate Another Character
-        </button>
+        <!-- Species input + Generate Another -->
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+            <input @bind="selectedSpecies"
+                   placeholder="Enter species (e.g. Vulcan, Andorian)..."
+                   class="px-4 py-2 rounded-lg border border-blue-500 bg-gray-800/60 text-white
+                      focus:outline-none focus:ring-2 focus:ring-blue-400 w-64" />
+
+            <button @onclick="GenerateAnother"
+                    class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow-xl hover:bg-blue-600
+                       border border-blue-500 transition duration-200 flex items-center justify-center">
+                🔁 Generate Another Character
+            </button>
+        </div>
     </div>
+
 
 </div>
 
 @code {
     private Character? character;
     private bool loading = true;
+    private string? selectedSpecies;
 
     protected override async Task OnInitializedAsync()
     {
-        character = await Api.GenerateCharacterAsync("auto");
+        var uri = NavManager.ToAbsoluteUri(NavManager.Uri);
+
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("species", out var species))
+            selectedSpecies = species.ToString();
+
+        await FetchCharacterAsync(selectedSpecies);
+    }
+
+    private async Task FetchCharacterAsync(string? species)
+    {
+        loading = true;
+        character = await Api.GenerateCharacterAsync(species);
         loading = false;
     }
 
     private async Task GenerateAnother()
     {
-        loading = true;
-        character = await Api.GenerateCharacterAsync("auto");
-        loading = false;
+        await FetchCharacterAsync(selectedSpecies);
     }
 
     private void GoBack() => NavManager.NavigateTo("/main");
 }
+
+

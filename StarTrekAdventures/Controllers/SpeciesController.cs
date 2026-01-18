@@ -36,4 +36,14 @@ public class SpeciesController : ControllerBase
 
         return Ok(species);
     }
+
+    [HttpGet("{name}/ability")]
+    public ActionResult<SpeciesAbility> GetSpeciesAbility(string name)
+    {
+        var species = _speciesManager.GetSpeciesAbility(name);
+
+        if (species == null) return NotFound("No species found.");
+
+        return Ok(species);
+    }
 }

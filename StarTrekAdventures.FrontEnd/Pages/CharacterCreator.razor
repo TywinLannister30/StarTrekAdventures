@@ -1,0 +1,366 @@
+﻿@page "/character-creator"
+@using StarTrekAdventures.FrontEnd.Services
+@using StarTrekAdventures.Models
+@inject NavigationManager Nav
+@inject StarTrekApiClient Api
+
+<PageTitle>Character Lifepath: Step 1 — Species</PageTitle>
+
+<div class="min-h-screen bg-gray-900 text-gray-200 p-6">
+    <h1 class="text-3xl font-bold text-blue-400 mb-2">Character Lifepath: Step 1</h1>
+    <h2 class="text-lg text-blue-300 mb-8">Species</h2>
+
+    <div class="grid grid-cols-12 gap-6">
+
+        <!-- LEFT: Species List -->
+        <div class="col-span-3 bg-gray-800/40 border border-blue-600/40 rounded-xl p-4">
+            <h3 class="text-blue-300 font-semibold mb-3">Available Species</h3>
+
+            @if (speciesList == null)
+            {
+                <p>Loading...</p>
+            }
+            else
+            {
+                @foreach (var sp in speciesList)
+                {
+                    <button class="block w-full text-left px-3 py-2 mb-1 rounded
+                                           hover:bg-blue-700/30 hover:text-white transition"
+                            @onclick="() => SelectSpecies(sp)">
+                        @sp
+                    </button>
+                }
+            }
+
+            <label class="flex items-center gap-2 mt-3">
+                <input type="checkbox" @bind="isMixedHeritage" />
+                Mixed-Heritage Character
+            </label>
+
+            @if (isMixedHeritage)
+            {
+                <div class="mt-4 p-3 rounded bg-gray-800/60 border border-blue-700">
+                    <h4 class="text-blue-300 font-semibold mb-2">Select Secondary Species</h4>
+
+                    @foreach (var sp in speciesList.Where(s => s != selectedSpecies))
+                    {
+                        <button class="block w-full text-left px-3 py-2 mb-1 rounded
+                                   hover:bg-blue-700/30 hover:text-white transition"
+                                @onclick="() => SelectSecondarySpecies(sp)">
+                            @sp
+                        </button>
+                    }
+                </div>
+            }
+
+        </div>
+
+        <!-- CENTER: Species Details -->
+        <div class="col-span-5 bg-gray-800/40 border border-cyan-600/40 rounded-xl p-6 space-y-4">
+
+            @if (selectedSpeciesInfo == null)
+            {
+                <p class="text-gray-400 italic">Select a species to view details.</p>
+            }
+            else
+            {
+                <h2 class="text-2xl font-bold text-cyan-300">@selectedSpeciesInfo.Name</h2>
+
+                @if (selectedSpeciesInfo.Description != null && selectedSpeciesInfo.Description.Any())
+                {
+                    @foreach (var paragraph in selectedSpeciesInfo.Description)
+                    {
+                        <p class="text-gray-300 text-sm leading-relaxed mb-2">
+                            @paragraph
+                        </p>
+                    }
+                }
+
+                <div>
+                    <h4 class="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Example Characters</h4>
+                    <p class="text-gray-300 text-sm">@string.Join(", ", selectedSpeciesInfo.ExampleCharacters)</p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Attribute Bonuses</h4>
+
+                    @if (selectedSpeciesInfo.ThreeRandomAttributes)
+                    {
+                        <p class="text-gray-300 text-sm italic">
+                            Add 1 each to any three attributes (select below).
+                        </p>
+
+                        @if (showAttributePicker)
+                        {
+                            <div class="mt-2 text-xs text-cyan-300 italic">
+                                ✅ Select 3 attributes to apply bonuses.
+                            </div>
+                        }
+                    }
+                    else if (selectedSpeciesInfo.AttributeModifiers is not null)
+                    {
+                        <ul class="text-gray-200 text-sm space-y-1">
+                            @if (selectedSpeciesInfo.AttributeModifiers.Control != 0)
+                            {
+                                <li>Control +@selectedSpeciesInfo.AttributeModifiers.Control</li>
+                            }
+                            @if (selectedSpeciesInfo.AttributeModifiers.Daring != 0)
+                            {
+                                <li>Daring +@selectedSpeciesInfo.AttributeModifiers.Daring</li>
+                            }
+                            @if (selectedSpeciesInfo.AttributeModifiers.Fitness != 0)
+                            {
+                                <li>Fitness +@selectedSpeciesInfo.AttributeModifiers.Fitness</li>
+                            }
+                            @if (selectedSpeciesInfo.AttributeModifiers.Insight != 0)
+                            {
+                                <li>Insight +@selectedSpeciesInfo.AttributeModifiers.Insight</li>
+                            }
+                            @if (selectedSpeciesInfo.AttributeModifiers.Presence != 0)
+                            {
+                                <li>Presence +@selectedSpeciesInfo.AttributeModifiers.Presence</li>
+                            }
+                            @if (selectedSpeciesInfo.AttributeModifiers.Reason != 0)
+                            {
+                                <li>Reason +@selectedSpeciesInfo.AttributeModifiers.Reason</li>
+                            }
+                        </ul>
+                    }
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Trait</h4>
+                    <p class="font-bold text-cyan-200">@selectedSpeciesInfo.Name</p>
+                    <p class="text-gray-300 text-sm">@selectedSpeciesInfo.TraitDescription</p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Species Ability</h4>
+                    <p class="font-bold text-cyan-200">@selectedSpeciesInfo.SpeciesAbility.Name</p>
+                    <p class="text-gray-300 text-sm">@selectedSpeciesInfo.SpeciesAbility.Description</p>
+                </div>
+            }
+
+            <!-- Attribute Picker (If 3-choice species) -->
+            @if (showAttributePicker)
+            {
+                <div class="bg-gray-800/70 p-4 rounded-lg border border-blue-600 mt-4">
+                    <h4 class="text-blue-300 font-semibold uppercase text-sm mb-2">
+                        Select 3 Attributes to Increase by +1
+                    </h4>
+
+                    <div class="grid grid-cols-3 gap-2 text-sm">
+                        @foreach (var attr in new[] { "Control", "Daring", "Fitness", "Insight", "Presence", "Reason" })
+                        {
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox"
+                                       disabled="@(!chosenAttributes.Contains(attr) && chosenAttributes.Count >= 3)"
+                                       checked="@chosenAttributes.Contains(attr)"
+                                       @onchange="@(() => ToggleAttribute(attr))" />
+                                @attr
+                            </label>
+                        }
+                    </div>
+
+                    @if (chosenAttributes.Count > 0)
+                    {
+                        <div class="mt-2 text-sm text-blue-300">
+                            Selected: @string.Join(", ", chosenAttributes)
+                        </div>
+                    }
+
+                    @if (chosenAttributes.Count == 3)
+                    {
+                        <button @onclick="ApplyChosenAttributes"
+                                class="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded text-white font-bold text-xs">
+                            Apply Choices
+                        </button>
+                    }
+                </div>
+            }
+
+        </div>
+
+        <!-- RIGHT: Character Summary -->
+        <div class="col-span-4 bg-gray-800/40 border border-green-600/40 rounded-xl p-4">
+            <h3 class="text-green-300 font-semibold mb-2">Character Summary</h3>
+
+            <p class="text-sm">
+                <strong>Species:</strong>
+                @character.Species
+                @if (character.SecondarySpecies != null)
+                {
+                    <span class="text-sm"> - @character.SecondarySpecies (mixed-heritage)</span>
+                }
+            </p>
+
+            <p class="text-sm">
+                <strong>Traits:</strong>
+                @(
+                                character.Traits != null && character.Traits.Any()
+                                ? string.Join(", ", character.Traits)
+                                : "None"
+                                )
+            </p>
+
+
+
+            <div class="mt-4">
+                <h4 class="font-semibold text-green-400 mb-1">Attributes</h4>
+                <p class="text-sm">Control: @character.Attributes.Control</p>
+                <p class="text-sm">Daring: @character.Attributes.Daring</p>
+                <p class="text-sm">Fitness: @character.Attributes.Fitness</p>
+                <p class="text-sm">Insight: @character.Attributes.Insight</p>
+                <p class="text-sm">Presence: @character.Attributes.Presence</p>
+                <p class="text-sm">Reason: @character.Attributes.Reason</p>
+
+                @if (selectedSpeciesInfo?.ThreeRandomAttributes == true && !showAttributePicker && chosenAttributes.Count == 3)
+                {
+                    <p class="text-xs text-green-400 italic mt-1">
+                        Applied +1 to: @string.Join(", ", chosenAttributes)
+                    </p>
+                }
+            </div>
+
+            <div class="mt-4">
+                <h4 class="font-semibold text-green-400 mb-1">Departments</h4>
+                <p class="text-sm">Command: @character.Departments.Command</p>
+                <p class="text-sm">Conn: @character.Departments.Conn</p>
+                <p class="text-sm">Engineering: @character.Departments.Engineering</p>
+                <p class="text-sm">Security: @character.Departments.Security</p>
+                <p class="text-sm">Medicine: @character.Departments.Medicine</p>
+                <p class="text-sm">Science: @character.Departments.Science</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Character character = new();
+    private List<string>? speciesList;
+    private string? selectedSpecies;
+    private Species? selectedSpeciesInfo;
+    private bool showAttributePicker = false;
+    private HashSet<string> chosenAttributes = new();
+    private bool isMixedHeritage = false;
+    private string? selectedSecondarySpecies;
+
+    protected override async Task OnInitializedAsync()
+    {
+        character = CreateBaseCharacter();
+        speciesList = (await Api.GetSpeciesNames())?.OrderBy(x => x).ToList() ?? new List<string> { "Human" };
+    }
+
+    Character CreateBaseCharacter() =>
+        new Character
+        {
+            Attributes = new() { Control = 7, Daring = 7, Fitness = 7, Insight = 7, Presence = 7, Reason = 7 },
+            Departments = new() { Command = 1, Conn = 1, Engineering = 1, Security = 1, Medicine = 1, Science = 1 }
+        };
+
+    private async Task SelectSpecies(string species)
+    {
+        selectedSpecies = species;
+        character = CreateBaseCharacter();
+        character.Species = species;
+        character.SecondarySpecies = null;
+        character.Traits = new List<string>();
+        chosenAttributes.Clear();
+
+        character.Traits.Add(species);
+
+        selectedSpeciesInfo = await Api.GetSpeciesAsync(species);
+
+        // Primary Species logic
+        if (selectedSpeciesInfo.ThreeRandomAttributes)
+        {
+            showAttributePicker = true;
+            StateHasChanged();
+            return;
+        }
+
+        if (selectedSpeciesInfo.AttributeModifiers != null)
+        {
+            var mods = selectedSpeciesInfo.AttributeModifiers;
+
+            character.Attributes.Control += mods.Control;
+            character.Attributes.Daring += mods.Daring;
+            character.Attributes.Fitness += mods.Fitness;
+            character.Attributes.Insight += mods.Insight;
+            character.Attributes.Presence += mods.Presence;
+            character.Attributes.Reason += mods.Reason;
+        }
+
+        showAttributePicker = false;
+
+        // If mixed heritage AND second species already chosen, apply secondary trait
+        if (isMixedHeritage && !string.IsNullOrWhiteSpace(selectedSecondarySpecies))
+        {
+            await ApplySecondarySpecies();
+        }
+
+        StateHasChanged();
+    }
+
+    private async Task SelectSecondarySpecies(string species)
+    {
+        selectedSecondarySpecies = species;
+
+        // Load the second species' data
+        var secondaryInfo = await Api.GetSpeciesAsync(species);
+
+        // Apply secondary trait (but NOT attributes or ability)
+        if (secondaryInfo != null)
+        {
+            character.Traits ??= new List<string>();
+
+            // Add the TRAIT label (species name)
+            if (!character.Traits.Contains(secondaryInfo.Name))
+                character.Traits.Add(secondaryInfo.Name);
+        }
+
+        // ✅ Actually apply the secondary species to character record
+        character.SecondarySpecies = species;
+
+        StateHasChanged();
+    }
+
+    private async Task ApplySecondarySpecies()
+    {
+        if (string.IsNullOrWhiteSpace(selectedSecondarySpecies)) return;
+
+        var secondaryInfo = await Api.GetSpeciesAsync(selectedSecondarySpecies);
+
+        character.SecondarySpecies = selectedSecondarySpecies;
+        character.Traits ??= new List<string>();
+
+        if (!character.Traits.Contains(secondaryInfo.Name))
+            character.Traits.Add(secondaryInfo.Name);
+
+        if (!string.IsNullOrWhiteSpace(secondaryInfo.TraitDescription) &&
+            !character.Traits.Contains(secondaryInfo.TraitDescription))
+            character.Traits.Add(secondaryInfo.TraitDescription);
+    }
+
+    private void ToggleAttribute(string attr)
+    {
+        if (chosenAttributes.Contains(attr))
+            chosenAttributes.Remove(attr);
+        else if (chosenAttributes.Count < 3)
+            chosenAttributes.Add(attr);
+
+        StateHasChanged();
+    }
+
+    private void ApplyChosenAttributes()
+    {
+        foreach (var attr in chosenAttributes)
+        {
+            var prop = typeof(CharacterAttributes).GetProperty(attr);
+            prop!.SetValue(character.Attributes, (int)prop.GetValue(character.Attributes)! + 1);
+        }
+
+        showAttributePicker = false;
+        StateHasChanged();
+    }
+}

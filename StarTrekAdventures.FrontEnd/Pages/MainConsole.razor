@@ -4,10 +4,12 @@
 <PageTitle>Starfleet Operations</PageTitle>
 
 <div class="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-6 font-sans">
-    <h1 class="text-5xl font-extrabold text-blue-400 mb-12 tracking-wide"
-        style="text-shadow: 0 0 20px rgba(60, 150, 255, 0.8);">
+    <h1 class="tng-header text-5xl font-bold text-blue-400 mb-12"
+        style="text-shadow: 0 0 15px rgba(60,150,255,0.6);">
         Starfleet Command
     </h1>
+
+
 
     <p class="text-lg text-gray-300 mb-10 text-center">
         Select an operation to proceed.
@@ -16,22 +18,43 @@
     <div class="flex flex-col items-stretch space-y-6 w-full max-w-md mx-auto">
 
         <!-- ⭐ Generate Character -->
-        <button @onclick="GoToGenerate"
-                class="p-6 rounded-xl border border-blue-500 bg-gray-800/40 text-left
-                       transition-all duration-300 ease-in-out hover:scale-[1.02]
-                       hover:bg-blue-700/30 hover:border-blue-400 hover:shadow-[0_0_25px_rgba(0,200,255,0.6)]
-                       focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <h2 class="text-2xl font-bold text-blue-300 mb-2 flex items-center">
-                <span class="mr-3 text-3xl animate-pulse">⭐</span> Generate Character
-            </h2>
-            <p class="text-gray-200">Create a new random Starfleet officer.</p>
-        </button>
+        <div class="flex flex-col items-stretch w-full max-w-md mx-auto text-center">
+            <button @onclick="GoToGenerate"
+                    class="p-6 rounded-xl border border-blue-500 bg-gray-800/40 text-left
+                   transition-all duration-300 ease-in-out hover:scale-[1.02]
+                   hover:bg-blue-700/30 hover:border-blue-400 hover:shadow-[0_0_25px_rgba(0,200,255,0.6)]
+                   focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <h2 class="text-2xl font-bold text-blue-300 mb-2 flex items-center justify-center sm:justify-start">
+                    <span class="mr-3 text-3xl animate-pulse">⭐</span> Generate Character
+                </h2>
+                <p class="text-gray-200 text-center sm:text-left">Create a Starfleet officer by species.</p>
+            </button>
 
-        <!-- 🗓️ Mission Log -->
-        <button disabled
-                class="p-6 rounded-xl border border-indigo-700 bg-indigo-800/30 text-left opacity-60 cursor-not-allowed">
-            <h2 class="text-2xl font-bold text-indigo-300 mb-2">Character Builder</h2>
-            <p class="text-gray-300">Coming soon - Build a character</p>
+            <div class="mt-3 flex flex-col items-stretch">
+                <label for="speciesInput"
+                       class="text-sm text-gray-400 mb-1 italic tracking-wide text-left">
+                    Specify species (optional):
+                </label>
+
+                <input id="speciesInput"
+                       @bind="selectedSpecies"
+                       placeholder="Enter species (e.g. Vulcan, Andorian)..."
+                       class="px-4 py-2 rounded-lg border border-blue-500 bg-gray-800/60 text-white
+                      focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200" />
+            </div>
+        </div>
+
+
+        <!-- 🧬 Character Creator -->
+        <button @onclick="GoToCreator"
+                class="p-6 rounded-xl border border-indigo-500 bg-gray-800/40 text-left
+               transition-all duration-300 ease-in-out hover:scale-[1.02]
+               hover:bg-indigo-700/30 hover:border-indigo-400 hover:shadow-[0_0_25px_rgba(140,100,255,0.6)]
+               focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <h2 class="text-2xl font-bold text-indigo-300 mb-2 flex items-center">
+                <span class="mr-3 text-3xl">🧬</span> Character Creator
+            </h2>
+            <p class="text-gray-200">Begin lifepath character creation.</p>
         </button>
 
         <!-- 🧑‍🚀 Ship Roster -->
@@ -51,5 +74,18 @@
 </div>
 
 @code {
-    private void GoToGenerate() => NavManager.NavigateTo("/generate-character");
+    private string selectedSpecies = string.Empty;
+
+    private void GoToGenerate()
+    {
+        var speciesParam = string.IsNullOrWhiteSpace(selectedSpecies)
+            ? ""
+            : $"?species={Uri.EscapeDataString(selectedSpecies.Trim())}";
+
+        NavManager.NavigateTo($"/generate-character{speciesParam}");
+    }
+
+    private void GoToCreator() => NavManager.NavigateTo("/character-creator");
 }
+
+

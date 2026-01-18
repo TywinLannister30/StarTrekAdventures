@@ -16,9 +16,13 @@
     <!-- ✅ Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Optional: keep component-specific styles -->
+    <!-- ✅ Your global styles (including fonts) -->
+    <link href="css/site.css" rel="stylesheet" />
+
+    <!-- Optional: component-specific styles -->
     <link href="StarTrekAdventures.FrontEnd.styles.css" rel="stylesheet" />
 </head>
+
 <body class="bg-gray-900 text-white min-h-screen">
     <div id="app">
         <component type="typeof(App)" render-mode="ServerPrerendered" />

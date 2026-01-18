@@ -87,6 +87,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "An aggressive, passionate people from the frozen moon Andoria, the Andorians have been part of the Federation since its foundation. Their blue skin, pale hair, and antennae give them a distinctive appearance, and while the Andorian Imperial Guard was demobilized when the Federation was founded, they still maintain strong military traditions, and a tradition of ritualized honor-duels known as Ushaan, using razor-sharp ice-mining tools.",
                 "Andorians have developed powerful traditions of ritual, convention, and personal honor to help direct their intensity and energy towards constructive ends."
             },
+            ExampleCharacters= "Thy’lek Shran (Enterprise), Jennifer Sh’reyan (Lower Decks), Ryn (Discovery)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Daring = 1, Presence = 1
@@ -107,6 +108,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Synthetic humanoids—commonly referred to as androids or synths—have been produced by many civilizations throughout the Galaxy, demonstrated by the partly understood remnants of ancient civilizations. In the 24th century, the Human scientist Noonien Soong sought to develop fully sapient androids using a positronic brain, and eventually found success, creating the androids Data and Lore. While Lore was deeply misanthropic and eventually had to be deactivated, Data became a celebrated and renowned Starfleet officer and a pioneer in cybernetics in his own right.",
                 "Soong’s son Altan, along with Starfleet cyberneticist Bruce Maddox, built on theories developed by Data that would allow them to create new androids from positronic neurons taken from Data’s brain, refining the technology to where they could be created from synthetic organic tissues, making them nearly indistinguishable from Humans. These Coppelius androids—named for the planet where they were created—were discovered and their homeworld accepted as a protectorate of the Federation in 2399."
             },
+            ExampleCharacters = "Data (The Next Generation), Soji Asha (Picard), Fred (Discovery)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Reason = 1
@@ -124,6 +126,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "The Aenar are a subspecies of Andorians originally native to an isolated region of the northern wastes of Andoria. Though typically blind, they are telepathic, and their other senses are heightened. Once believed to be a myth, the Aenar are few and most prefer to remain within their isolated settlements, and they rarely bother themselves with matters outside their own communities. They lack the distinctive blue skin pigmentation of other Andorians, instead having skin tones that range from white, to ice blue, to pale gray. Aenar deplore violence, and commonly follow a strictly pacifist ideology.",
                 "Compared to their Andorian kin, Aenar often seem calm and restrained. They are no less proud of their heritage, but they express that pride differently, often taking great pride in their skills and the work they do. The few Aenar who leave their homeworld often come off as highly motivated and sure of themselves, maintaining their sense of self even when far from their families."
             },
+            ExampleCharacters = "Jhamel (Enterprise), Hemmer (Strange New Worlds)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Insight = 1, Presence = 1
@@ -145,6 +148,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "A spiritual, dauntless people from the planet Bajor, the Bajorans lost much after decades of occupation by the Cardassian Union. Many Bajorans were scattered across the Alpha Quadrant as they fled the Occupation, while those who remained on Bajor often toiled in labor camps or fought as insurgents. The Occupation ended in 2369, but the scars it left will take generations to heal. Bajor sought membership in the Federation soon afterwards (though this application was delayed by the Dominion War), but many Bajorans have found their way into Starfleet. Bajoran culture places a strong belief in the Prophets, celestial beings who are said to have watched over Bajor for millennia; modern religious doctrine states the Bajoran wormhole is the Prophets’ Celestial Temple.",
                 "Bajoran spirituality has long been a powerful factor in their lives, even for Bajorans who did not believe strongly in the Prophets. The unifying presence of their religion provided a source of hope and courage. A common sign of this faith is the D’ja pagh, a symbolic earring."
             },
+            ExampleCharacters = "Kira Nerys (Deep Space Nine), Lt. Shaxs (Lower Decks)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Daring = 1, Insight = 1
@@ -165,6 +169,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "The peaceful Betazoid people hail from the idyllic, verdant world Betazed. The world has long been a valued member of the Federation, and its people can be found across Federation space, including Starfleet. Betazoids appear almost identical to Humans but differ in one major way: they are naturally telepathic, developing mental abilities during adolescence. The potency of this ability varies between individuals.",
                 "Due to their widespread telepathy, Betazoids have a culture of honesty and directness—there is little reason to be evasive or deceitful in a culture where everyone can read your mind and sense your emotions. Among non-telepaths, and even telepaths of other species, this can result in some Betazoids seeming blunt or even rude. Betazoids who spend a lot of time among other cultures tend to either lean into this notion or choose to temper their honesty with tact."
             },
+            ExampleCharacters = "Deanna Troi (The Next Generation), Lon Suder (Voyager)",
             AttributeModifiers = new CharacterAttributes
             {
                 Insight = 1, Presence = 1, Reason = 1
@@ -186,6 +191,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Often vilified and distrusted due to the actions of their government, Cardassians have a reputation for being ruthless, deceitful, and aggressive. Due to a dearth of natural resources and an economic collapse, Cardassian culture was overtaken by an oppressive authoritarian regime dominated by the military, which began a decades-long campaign of expansion, conquest, and exploitation, including the occupation of Bajor and a lengthy border conflict with the Federation. In the aftermath of the Dominion War, with the military government overthrown, the rebuilding of Cardassia was a difficult process, not least because of long-held feelings of resentment towards the Cardassians.",
                 "Cardassians are a creative, dedicated people, with a strong cultural fascination with intrigue. Cardassians are inclined to keep secrets, and to regard suspicion as wisdom, and the uncovering of secrets is regarded as a valuable skill."
             },
+            ExampleCharacters = "Elim Garak (Deep Space Nine), Seska (Voyager)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Presence = 1, Reason = 1
@@ -206,6 +212,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Synthetic humanoids—commonly referred to as androids or synths—have been produced by many civilizations throughout the Galaxy, demonstrated by the partly understood remnants of ancient civilizations. In the 24th century, the Human scientist Noonien Soong sought to develop fully sapient androids using a positronic brain, and eventually found success, creating the androids Data and Lore. While Lore was deeply misanthropic and eventually had to be deactivated, Data became a celebrated and renowned Starfleet officer and a pioneer in cybernetics in his own right.",
                 "Soong’s son Altan, along with Starfleet cyberneticist Bruce Maddox, built on theories developed by Data that would allow them to create new androids from positronic neurons taken from Data’s brain, refining the technology to where they could be created from synthetic organic tissues, making them nearly indistinguishable from Humans. These Coppelius androids—named for the planet where they were created—were discovered and their homeworld accepted as a protectorate of the Federation in 2399."
             },
+            ExampleCharacters = "Data (The Next Generation), Soji Asha (Picard), Fred (Discovery)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Reason = 1
@@ -223,6 +230,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Hailing from the planet Denobula, Denobulans are a gregarious, inquisitive people who have been allies of humanity since the 2130s. Denobulans are long-lived and highly sociable, with large families—Denobulans are typically polyamorous, with individuals potentially having several spouses, each of whom may have several spouses of their own, and dozens of children between them—living in relatively close, communal environments. Culturally, Denobulans are an intellectually curious people, highly perceptive, and interested in a wide range of philosophies, with their long lives allowing them to pursue a wide range of fields of study, often granting them unusual perspectives on the different philosophies and fields of expertise they’ve studied.",
                 "Denobulans enjoy learning new things, meeting new people, and they revel in the drama, intrigue, and gossip that come from a rich and complex social environment. They are extraordinarily patient, taking a long view of the changes that happen in life, but they dislike solitude, and even a busy starship or starbase can sometimes seem a little empty to a Denobulan."
             },
+            ExampleCharacters = "Phlox (Enterprise)",
             AttributeModifiers = new CharacterAttributes
             {
                 Fitness = 1, Insight = 1, Reason = 1
@@ -244,6 +252,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "An acquisitive species native to Ferenginar, the Ferengi are unimposing beings, known mostly as merchants and traders. Their culture promotes the accumulation of material wealth, and their society is capitalistic, with most routine activities accompanied by an exchange of money, typically in the form of gold-pressed latinum (a non-replicable liquid metal, suspended within “slips,” “strips,” “bars,” and “bricks” of gold). Ferengi society is strongly patriarchal, with female Ferengi traditionally disallowed from owning property or even wearing clothing (and male Ferengi often having deeply unpleasant attitudes towards non-Ferengi women), though these attitudes start to change by the late 24th century.",
                 "Ferengi pride themselves on their ability to acquire wealth, though there are many different approaches to this. For centuries, Ferengi culture has been dominated by the philosophies and lessons of the Rules of Acquisition, though these can be interpreted in a variety of different ways and applied to a Ferengi’s life."
             },
+            ExampleCharacters = "Quark (Deep Space Nine), Nog (Deep Space Nine)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Insight = 1, Presence = 1
@@ -264,6 +273,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Originating on the planet Earth in the Sol system, Humans are a hardy and ambitious species, who went from the brink of mutual annihilation to a united peaceful society in less than a century. A century after that, humanity had established itself as part of an interplanetary alliance, the United Federation of Planets, bringing former rivals together as allies. Humans often exhibit a dichotomy in their nature—sometimes strongly emotional and passionate like Klingons or Andorians, yet at others highly analytical and rational like Tellarites or Vulcans—which has allowed them to grow beyond their warlike and fractious past, but their capacity for ambition and aggression are as much a part of their success as their curiosity and analytical minds.",
                 "Humans tend to draw upon two sets of cultural values. As a central and founding member of the Federation, the traditions and ideals of the Federation (or even those of Starfleet) are often regarded as synonymous with “Human culture” (though the Federation draws a lot from each of its members), to the point where nobody is entirely sure where Earth ends and the Federation begins. Yet, conversely, this can also lead to Humans finding value in preserving the traditions and cultures of their pre-warp ancestors."
             },
+            ExampleCharacters = "Ben Sisko (Deep Space Nine), Kathryn Janeway (Voyager)",
             AttributeModifiers = new CharacterAttributes(),
             ThreeRandomAttributes = true,
             TraitDescription = "Humans are adaptable and resilient, and their resolve and ambition often allow them to resist great hardship and triumph despite great adversity. However, Humans can also be reckless, stubborn, irrational, and unpredictable.",
@@ -278,6 +288,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Klingons are a proud, martial people, native to the planet Qo’noS in the Beta Quadrant. Their tall, strong physiques, sharp teeth, and the distinctive dense crest that runs from their brow, over their heads, and down their spines, all contribute to an appearance that is synonymous with martial prowess and ferocity. Hardy and aggressive, Klingons combine a sense of pride and personal conviction with a fatalistic streak, regarding honorable death to be preferable to what they would deem a shameful or cowardly life.",
                 "Klingons embrace life and death alike without fear. They are also a people with a powerful sense of honor, both personal and familial, and they are quick to anger when attacked; the greatest slights can result in generations- long blood feuds."
             },
+            ExampleCharacters = "Worf (The Next Generation), B’Elanna Torres (Voyager)",
             AttributeModifiers = new CharacterAttributes
             {
                 Daring = 1, Fitness = 1, Presence = 1
@@ -294,6 +305,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "A species with a colorful reputation, the Orions are subject to rumor, speculation, and flights of fancy, to the point where there are numerous common misconceptions about their species and culture. This seems to be at least partially by design. Orions are accustomed to taking full advantage of any opportunity that passes their way, and the uncertainty and misdirection that surrounds them is a considerable advantage. The influence of Orion traders and the Orion Syndicate can be felt across the Alpha and Beta Quadrants, often in ways that flout the laws of other cultures, and often employing agents of other species.",
                 "Orion culture appears to be divided along gender lines, and there is evidence to suggest they have a broadly matriarchal culture, with the women serving in leadership roles, while Orion males more often serving as muscle, laborers, and minor operatives, though this has shifted somewhat over the centuries. This appears to be due to a trait of some Orion females, who have been observed to produce pheromones that can make male Orions (and males of some other species, including Humans) compliant. It isn’t known how widespread this trait is."
             },
+            ExampleCharacters= "D’Vana Tendi (Lower Decks), Osyraa (Discovery)",
             AttributeModifiers = new CharacterAttributes
             {
                 Daring = 1, Fitness = 1, Presence = 1
@@ -314,6 +326,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "A divergent offshoot of the Vulcan species, Romulans fled their original homeworld millennia ago. These Vulcans, “those who marched beneath the Raptor’s wings,” refused to accept the teachings of Surak, and thus did not embrace logic or stoicism, and eventually their ships would reach the worlds known as Romulus and Remus. Much of what is known about the Romulans has been pieced together from secondary and tertiary sources, as the Romulans themselves are secretive bordering on paranoia and do not disclose any information about themselves unless they deem it vital. Indeed, the Federation didn’t even know what Romulans looked like until a century after the Earth-Romulan War.",
                 "To the Romulans, trust is something to be placed in only a few, for misplaced trust can be a deadly weapon. A Romulan trusts only their closest family members, and places increasing layers of secrecy, obfuscation, and misdirection as relationships grow more distant. There are exceptions to this, such as the scrupulously candid order Qowat Milat, but most Romulans are highly guarded and suspicious of everyone."
             },
+            ExampleCharacters = "Elnor (Picard), T’Rul (Deep Space Nine)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Reason = 1
@@ -330,6 +343,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Synthetic humanoids—commonly referred to as androids or synths—have been produced by many civilizations throughout the Galaxy, demonstrated by the partly understood remnants of ancient civilizations. In the 24th century, the Human scientist Noonien Soong sought to develop fully sapient androids using a positronic brain, and eventually found success, creating the androids Data and Lore. While Lore was deeply misanthropic and eventually had to be deactivated, Data became a celebrated and renowned Starfleet officer and a pioneer in cybernetics in his own right.",
                 "Soong’s son Altan, along with Starfleet cyberneticist Bruce Maddox, built on theories developed by Data that would allow them to create new androids from positronic neurons taken from Data’s brain, refining the technology to where they could be created from synthetic organic tissues, making them nearly indistinguishable from Humans. These Coppelius androids—named for the planet where they were created—were discovered and their homeworld accepted as a protectorate of the Federation in 2399."
             },
+            ExampleCharacters = "Data (The Next Generation), Soji Asha (Picard), Fred (Discovery)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Reason = 1
@@ -347,6 +361,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "The stubborn, argumentative Tellarite species originated upon Tellar Prime, a temperate planet in the Alpha Quadrant. Their bodies are thick-set and covered in dense hair, and they stand a little shorter than Humans on average. Many male Tellarites possess tusks to some degree, though they vary in size and prominence.",
                 "Tellarites are known to be highly argumentative, even rude by the standards of other cultures, often complaining frequently or insulting others as part of social interactions. In truth, this comes from a sense of intellectual honesty and rigorous skepticism. To a Tellarite, no idea, concept or person is beyond challenge or analysis, and any notion that cannot stand up to scrutiny is an unworthy one. Tellarites revel in debates, and enjoy arguing, and the criticisms, complaints, and insults issued during conversations are intended to be met in kind: to do otherwise is to display a weak character, an inability to stand up for oneself, or an unwillingness to confront one’s own flaws."
             },
+            ExampleCharacters= "Jankom Pog (Prodigy), Zus Tlaggul (Strange New Worlds)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Insight = 1
@@ -364,6 +379,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "While not a secret, it is not widely discussed that a small portion of humanoid Trill are capable of bonding with the invertebrates, commonly referred to as symbionts, and in this bond—called a Joining—creates a gestalt person, a combination of the minds, memories, and personalities of both creatures. While a symbiont cannot be removed without killing its host, upon a host’s death, a symbiont will be passed to a new host, preserving knowledge and memory over generations.",
                 "Trill society has been shaped by the Joined, with Trill culture tending to take a long view of social development, and pursuing intellectual and philosophical development over interpersonal conflict. The Trill are a firm and dedicated member of the Federation.",
             },
+            ExampleCharacters = "Jadzia Dax (Deep Space Nine), Gray Tal (Discovery)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Presence = 1, Reason = 1
@@ -384,6 +400,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "The first species to contact Humans, Vulcans are stoic, rational people. Widely claimed to be emotionless, Vulcans in fact feel emotions deeply and intensely, to their own detriment. Ancient Vulcans were prone to murderous rage and fits of paranoia, and nearly destroyed themselves millennia ago, before Surak taught logic and the purging of emotion. His teachings led to peace among the Vulcans and the establishment of a culture driven by reason.",
                 "Vulcans embrace science and logic, but their lives are not purely devoted to such things: they have a deeply philosophical and spiritual side, with art and music as vital to their culture as logic. They are also an intensely private people, with many aspects of their culture largely kept secret from outsiders."
             },
+            ExampleCharacters = "Spock (Star Trek), T’Pol (Enterprise), Tuvok (Voyager)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Reason = 1

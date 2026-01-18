@@ -13,6 +13,8 @@ public class Species
 
     public ICollection<string> Description { get; set; }
 
+    public string ExampleCharacters { get; set; }
+
     public CharacterAttributes AttributeModifiers { get; set; }
     
     public bool ThreeRandomAttributes { get; set; }

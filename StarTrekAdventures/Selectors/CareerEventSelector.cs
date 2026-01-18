@@ -373,6 +373,131 @@ public class CareerEventSelector : ICareerEventSelector
            AttributeModifierChoices = new CharacterAttributes { Reason = 1, Insight = 1 },
            DepartmentModifierChoices = new Departments { Conn = 1, Engineering = 1 },
            Focuses = new List<string> { Focus.Astromycology, Focus.QuantumMechanics, Focus.SubspaceTheory  },
-        }
+        },
+
+        // 23rd CENTURY EVENTS
+        new()
+        {
+           Name = "Invention of Duotronic Computing (2243)",
+           YearMin = 2243,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Engineering = 1, Science = 1 },
+           Focuses = new List<string> { Focus.Computers, Focus.ReverseEngineering, Focus.SubspaceFields },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Logic Extremist Attacks (2230s to 2250s)",
+           YearMin = 2230,
+           YearMax = 2259,
+           AttributeModifierChoices = new CharacterAttributes { Reason = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Medicine = 1, Security = 1 },
+           Focuses = new List<string> { Focus.Bioweaponry, Focus.Demolitions, Focus.Interrogation },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Tarsus IV Massacre (2246)",
+           YearMin = 2246,
+           AttributeModifierChoices = new CharacterAttributes { Fitness = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Medicine = 1 },
+           Focuses = new List<string> { Focus.Agriculture, Focus.CriminalInvestigation, Focus.EvacuationProcedures },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Gorn Conflict (2240s to 2260s)",
+           YearMin = 2240,
+           YearMax = 2269,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Control = 1 },
+           DepartmentModifierChoices = new Departments { Security = 1, Science = 1 },
+           Focuses = new List<string> { Focus.AmbushTactics, Focus.Xenobiology, Focus.Xenolinguistics },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Federation-Klingon War (2256-2257)",
+           YearMin = 2256,
+           YearMax = 2257,
+           AttributeModifierChoices = new CharacterAttributes { Presence = 1, Fitness = 1 },
+           DepartmentModifierChoices = new Departments { Conn = 1, Security = 1 },
+           Focuses = new List<string> { Focus.CloakingTechnology, Focus.CombatMedic, Focus.EvasiveAction },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Romulan Border Skirmishes (2260s)",
+           YearMin = 2260,
+           YearMax = 2269,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Fitness = 1 },
+           DepartmentModifierChoices = new Departments { Science = 1, Security = 1 },
+           Focuses = new List<string> { Focus.AmbushTactics, Focus.CloakingTechnology, Focus.EmergencyRepairs },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Treaty of Organia (2267)",
+           YearMin = 2267,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Presence = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Conn = 1 },
+           Focuses = new List<string> { Focus.Composure, Focus.CrisisManagement, Focus.Diplomacy },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Establishment of Nimbus III Colony (2267)",
+           YearMin = 2267,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
+           Focuses = new List<string> { Focus.Bargain, Focus.Gambling, Focus.WildernessSurvival },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "The Babel Conference (2268)",
+           YearMin = 2268,
+           AttributeModifierChoices = new CharacterAttributes { Presence = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Science = 1 },
+           Focuses = new List<string> { Focus.Anthropology, Focus.Diplomacy, Focus.Politics },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Memory Alpha Disaster (2269)",
+           YearMin = 2269,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Engineering = 1, Science = 1 },
+           Focuses = new List<string> { Focus.Archaeology, Focus.History, Focus.Research },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Whale Probe Crisis (2286)",
+           YearMin = 2286,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Engineering = 1 },
+           Focuses = new List<string> { Focus.AnimalBehaviour, Focus.ElectroPlasmaPowerSystems, Focus.MarineBiology },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
+
+        new()
+        {
+           Name = "Destruction of Praxis and the Khitomer Accords (2293)",
+           YearMin = 2293,
+           AttributeModifierChoices = new CharacterAttributes { Presence = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Security = 1 },
+           Focuses = new List<string> { Focus.Catastrophism, Focus.Diplomacy, Focus.Ecology },
+           Source = BookSource.CampiagnGuide23rdCentury
+        },
     };
 }

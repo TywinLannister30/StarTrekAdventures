@@ -3,6 +3,7 @@
 public static class Focus
 {
     public const string AdvancedHolograms = "Advanced Holograms";
+    public const string Agriculture = "Agriculture";
     public const string AlternateHistories = "AlternateHistories";
     public const string AlternativeMedicine = "Alternative Medicine";
     public const string AmbushTactics = "Ambush Tactics";
@@ -27,6 +28,7 @@ public static class Focus
     public const string Biology = "Biology";
     public const string BiologyOrXenobiology = "Biology/Xenobiology";
     public const string Biotechnology = "Biotechnology";
+    public const string Bioweaponry = "Bioweaponry";
     public const string BladeWeapons = "Blade Weapons";
     public const string BoatPilotOrSubmersibles = "Boat Pilot/Submersibles";
     public const string Botany = "Botany";
@@ -37,6 +39,7 @@ public static class Focus
     public const string ChemicalAndBiologicalWeapons = "Chemical and Biological Weapons";
     public const string Chemistry = "Chemistry";
     public const string Climbing = "Climbing";
+    public const string CloakingTechnology = "Cloaking Technology";
     public const string CombatMedic = "Combat Medic";
     public const string CombatTactics = "Combat Tactics";
     public const string CombatManeuvers = "Combat Maneuvers";
@@ -48,6 +51,7 @@ public static class Focus
     public const string Councelling = "Councelling";
     public const string CourtingRituals = "Courting Rituals";
     public const string CovertOperations = "Covert Operations";
+    public const string CriminalInvestigation = "Criminal Investigation";
     public const string CriminalOrganizations = "Criminal Organizations";
     public const string CrisisManagement = "Crisis Management";
     public const string CulturalExpert = "Cultural Expert";
@@ -221,6 +225,7 @@ public static class Focus
     public const string StructuralEngineering = "Structural Engineering";
     public const string SubspaceCommunications = "Subspace Communications";
     public const string SubspaceDynamics = "Subspace Dynamics";
+    public const string SubspaceFields = "Subspace Fields";
     public const string SubspaceMechanics = "Subspace Mechanics";
     public const string SubspacePhysics = "Subspace Physics";
     public const string SubspaceTheory = "Subspace Theory";
@@ -253,11 +258,13 @@ public static class Focus
     public const string Virology = "Virology";
     public const string Xenobiology = "Xenobiology";
     public const string Xenobotany = "Xenobotany";
+    public const string Xenolinguistics = "Xenolinguistics";
     public const string WarpDrive = "Warp Drive";
     public const string WarpCoreMechanics = "Warp Core Mechanics";
     public const string WarpEngines = "Warp Engines";
     public const string WarpFieldDynamics = "Warp Field Dynamics";
     public const string WarpTheory = "Warp Theory";
+    public const string WildernessSurvival = "Wilderness Survival";
     public const string Willpower = "Willpower";
     public const string ZeroGCombat = "Zero-G Combat";
 }

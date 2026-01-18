@@ -52,6 +52,7 @@
         public const string CivilianScientist = "Civilian (Scientist)";
         public const string CivilianOfficial = "Civilian (Official)";
         public const string CivilianTrader = "Civilian (Trader)";
+        public const string FreeTrader = "Free Trader";
         public const string IndependentArchaeologist = "Independent Archaeologist";
         public const string OutpostScientist = "Outpost Scientist";
     }
