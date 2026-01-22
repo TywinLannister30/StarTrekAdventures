@@ -386,6 +386,27 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 1,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species 
+        { 
+            Name = SpeciesName.Caitian,
+            Description = new List<string>
+            {
+                "A species of felinoid bipeds with a long history of involvement in the Federation and service to Starfleet, Caitians originate from the Class-M planet Cait, a world of plains and grasslands with sprawling cities that respect and integrate with the natural environment. It’s believed that Caitians and the Kzinti have a common ancestor, much as Romulans and Vulcans do. Caitians have a proud military history, and evolved from predatory ancestors, but they also have great appreciation for art and philosophy. Caitians have contributed greatly to the culture of the Federation since they became members.",
+            },
+            ExampleCharacters = "M’Ress (The Animated Series), T’Ana (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Daring = 1, Fitness = 1, Insight = 1 
+            },
+            TraitDescription = "Caitians are smaller and slighter than is common for humanoids, but are significantly more flexible and dexterous, with a flexible tail aiding them in balance. They can hear low-frequency sounds below the normal Human range of hearing. Caitians are broadly carnivorous, and have no difficulty consuming raw meat (or its replicated equivalent).",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Feline Form",
+                Description = "You have a prehensile tail, and retractable claws in your fingertips, useful for climbing and hunting. Whenever you attempt a task to maintain your balance or to climb, the first d20 you purchase is free. Further, you may grasp objects with your tail, though not as tightly or easily as with your hands. Due to your claws, your unarmed attacks may inflict both Stun and Deadly Injuries.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2 
+        },
         new Species
         {
             Name = SpeciesName.Cardassian,
@@ -617,7 +638,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Caitian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Changeling, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Morphogenic Matrix", Weight = 0 },
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
         //new Species { Name = SpeciesName.Deltan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },

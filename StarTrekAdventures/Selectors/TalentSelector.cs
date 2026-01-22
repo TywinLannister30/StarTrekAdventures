@@ -1096,6 +1096,31 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Disarming Nature",
+                TraitRequirement = SpeciesName.Caitian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Some Caitians are extremely social beings, adept at putting others at ease. Whenever you attempt a task to make another creature relax or trust you, you may reduce the Difficulty by 1. If this is part of an extended task, your Impact is increased by 1.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Feral Aggression",
+                TraitRequirement = SpeciesName.Caitian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Some Caitians tend towards a territorial manner, reacting to threats with anger, and pain with defiance. You gain 1 Protection, and whenever you suffer a trait that represents pain or fear, you may add 1 Threat to remove that trait immediately.",
+                },
+                ProtectionModifier = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,

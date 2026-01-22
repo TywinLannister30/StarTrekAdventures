@@ -151,7 +151,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "All that we are will remain forever in the central computer", TraitRequirement = SpeciesName.Bynar, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "The group endures better than any individual", TraitRequirement = SpeciesName.Bynar, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "War is instinct, conflict an art", TraitRequirement = SpeciesName.Caitian, Weight = 10 },
+        new Value { Name = "Don’t cross me; I do not hold back if pressed", TraitRequirement = SpeciesName.Caitian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Family, whether born or found, is the strongest bond", TraitRequirement = SpeciesName.Caitian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I may not need to hunt, but it pays to keep my senses sharp", TraitRequirement = SpeciesName.Caitian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "War is instinct, conflict an art", TraitRequirement = SpeciesName.Caitian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "All my stories are true, especially the lies", TraitRequirement = SpeciesName.Cardassian, Weight = 10 },
         new Value { Name = "Everyone is guilty of something, but who and of what?", TraitRequirement = SpeciesName.Cardassian, Weight = 10 },
