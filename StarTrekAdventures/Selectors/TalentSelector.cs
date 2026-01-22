@@ -1047,6 +1047,31 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Ablative Hide",
+                TraitRequirement = SpeciesName.Brikar,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your hide is especially dense and resilient, allowing you to endure severe impacts; further, even against severe impacts that could hurt you, surface layers of your rocky hide flake away, diffusing the blow. Your Protection is increased to 3, and your maximum Stress is increased by 3.",
+                },
+                ProtectionModifier = 1,
+                StressModifier = 3,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Massive",
+                TraitRequirement = SpeciesName.Brikar,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’ve grown larger and rockier with age. Whenever you attempt a Fitness-related task, you add one automatic success due to your sheer size and physical presence. You also increase the Severity of all melee attacks by 1. Additionally, you carry a Gravity Compensator (equipment trait) to aid your movement, and if this is lost or damaged, you suffer difficulties moving around easily in non-Brikar gravity levels.",
+                },
+                TraitGained = "Gravity Compensator (equipment)",
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,

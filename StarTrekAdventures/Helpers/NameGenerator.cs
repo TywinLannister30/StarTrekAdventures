@@ -3,6 +3,7 @@ using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Helpers;
@@ -48,6 +49,8 @@ public static class NameGenerator
             return GenerateBolianName(gender);
         if (species == SpeciesName.Breen)
             return GenerateBreenName();
+        if (species == SpeciesName.Brikar)
+            return GenerateBrikarName(gender);
         if (species == SpeciesName.Caitian)
             return GenerateCaitianName(gender);
         if (species == SpeciesName.Cardassian)
@@ -413,6 +416,29 @@ public static class NameGenerator
     private static readonly List<string> BreenNames = new List<string>
     {
         "Arisar", "Gor", "Gren", "L’ak", "Lok", "Pran", "Rong", "Ruhn", "Sar", "Tahal", "Trel", "Vart", "Vog", "Za’dag"
+    };
+
+    private static string GenerateBrikarName(Gender gender)
+    {
+        var firstName = gender == Gender.Male
+            ? BrikarMaleNames.OrderBy(n => Util.GetRandom()).First()
+            : BrikarFemaleNames.OrderBy(n => Util.GetRandom()).First();
+
+        var familyName = BrikarFamilyNames.OrderBy(n => Util.GetRandom()).First();
+
+        return $"{firstName} {familyName}";
+    }
+    private static readonly List<string> BrikarMaleNames = new List<string>
+    {
+         "Cal", "Kelner", "Nyll", "Roakn", "Zak"
+    };
+    private static readonly List<string> BrikarFemaleNames = new List<string>
+    {
+        "Rok-Tahk", "Mirg"
+    };
+    private static readonly List<string> BrikarFamilyNames = new List<string>
+    {
+        "Kebron", "Saygur"
     };
 
     private static string GenerateCaitianName(Gender gender)

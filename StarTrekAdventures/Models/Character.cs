@@ -425,6 +425,9 @@ public class Character
 
         if (talent.ChooseFocus)
             talent.Name += " (" + Focuses.OrderBy(n => randomGenerator.GetRandom()).First() + ")";
+
+        if (!string.IsNullOrEmpty(talent.TraitGained))
+            Traits.Add(talent.TraitGained);
     }
 
     public void AddTraitsForCareerPath(CareerPath track, IRandomGenerator randomGenerator = null)

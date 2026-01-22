@@ -140,9 +140,14 @@ public class ValueSelector : IValueSelector
         new Value { Name = "All others are meant to serve us", TraitRequirement = SpeciesName.Breen, Weight = 5 },
         new Value { Name = "Brutally effective", TraitRequirement = SpeciesName.Breen, Weight = 5 },
         new Value { Name = "My soldiers are my tools", TraitRequirement = SpeciesName.Breen, Weight = 5 },
-        
+
+        new Value { Name = "I do not want to fight, but I will resist you if I must", TraitRequirement = SpeciesName.Brikar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Galaxy’s a perilous place, but we can make it less so", TraitRequirement = SpeciesName.Brikar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Patience and curiosity are more valuable than aggression", TraitRequirement = SpeciesName.Brikar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Your fear of my appearance blinds you to who I am", TraitRequirement = SpeciesName.Brikar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "War is instinct, conflict an art", TraitRequirement = SpeciesName.Caitian, Weight = 10 },
-        
+
         new Value { Name = "All my stories are true, especially the lies", TraitRequirement = SpeciesName.Cardassian, Weight = 10 },
         new Value { Name = "Everyone is guilty of something, but who and of what?", TraitRequirement = SpeciesName.Cardassian, Weight = 10 },
         new Value { Name = "If you don't want me knowing, hide it better", TraitRequirement = SpeciesName.Cardassian, Weight = 10 },

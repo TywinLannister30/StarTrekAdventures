@@ -336,7 +336,31 @@ public class SpeciesSelector : ISpeciesSelector
                 Description = "In your natural gelatinous state, you may reroll 1d20 on any task roll using Control. You may assume a solid state by suffering 2 Stress, gaining 1 Protection, but losing the reroll from your gelatinous form. While wearing a refrigeration suit, you gain 1 Protection without the need to suffer Stress, and may remain in your gelatinous state.",
                 Source = BookSource.SpeciesSourcebook
             },
-            Weight = 4,
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Brikar,
+            Description = new List<string>
+            {
+                "Also sometimes called Brikarians, the Brikar are an unusual species who originate from the planet Brikar in the Beta Quadrant, near the Federation-Klingon border. Brikar are large, powerfully built creatures whose bodies are covered in dense silicate growths that appear like rocks. Brikar skin comes in a variety of colors and patterns, similar to those seen in geological formations. Younger Brikar molt their original rocky skin periodically through their lives as they grow, and older Brikar often require gravity compensators to allow them to move effectively in non-Brikar gravity levels.",
+                "For all that their appearance can be intimidating to others, Brikar are generally a curious, thoughtful people, and while they can be formidable in battle, they have no particular inclination towards violence. Indeed, a long history of struggles with the Klingons mean that many Brikar think poorly of warrior cultures, and have a strong drive for fairness and justice.    "
+            },
+            ExampleCharacters = "Rok-Tahk (Prodigy)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Fitness = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Brikar are large, powerfully built, stoneskinned humanoids, whose dense silicate hides are highly resistant to impact and even energy weapons. Their size and mass can make them somewhat cumbersome, especially as they age and grow—but they are incredibly strong and durable. Their physical resistance does not extend to extreme cold, however. Brikar are imposing, intimidating creatures due to their size and rocky appearance, which often makes people underestimate their quiet wisdom.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Rock Hard",
+                Description = "Your body is huge, heavy, and rocky. You have 2 Protection against all attacks. However, you add 1 Threat whenever you take an action where your mass and size would be a potential risk ",
+                ProtectionBonus = 2,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
             Source = BookSource.SpeciesSourcebook
         },
         new Species
