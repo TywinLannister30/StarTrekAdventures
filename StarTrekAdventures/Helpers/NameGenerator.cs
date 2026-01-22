@@ -1,4 +1,5 @@
-﻿using RandomNameGeneratorLibrary;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
 using System.Runtime.InteropServices;
@@ -45,6 +46,8 @@ public static class NameGenerator
             return GenerateBetelgeusianName();
         if (species == SpeciesName.Bolian)
             return GenerateBolianName(gender);
+        if (species == SpeciesName.Breen)
+            return GenerateBreenName();
         if (species == SpeciesName.Caitian)
             return GenerateCaitianName(gender);
         if (species == SpeciesName.Cardassian)
@@ -401,6 +404,15 @@ public static class NameGenerator
     private static readonly List<string> BolianFamilyNames = new List<string>
     {
         "Adislo", "Arlin", "Boq’ta", "Broht", "Haro", "Rixx", "V’Sal", "Vadosia", "Zier"
+    };
+
+    private static string GenerateBreenName()
+    {
+        return BreenNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> BreenNames = new List<string>
+    {
+        "Arisar", "Gor", "Gren", "L’ak", "Lok", "Pran", "Rong", "Ruhn", "Sar", "Tahal", "Trel", "Vart", "Vog", "Za’dag"
     };
 
     private static string GenerateCaitianName(Gender gender)

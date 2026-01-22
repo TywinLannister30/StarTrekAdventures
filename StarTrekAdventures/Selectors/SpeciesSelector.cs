@@ -310,9 +310,34 @@ public class SpeciesSelector : ISpeciesSelector
             SpeciesAbility = new SpeciesAbility
             {
                 Name = "Amiable",
-                Description = "You’re outspoken and sociable, always with a supportive word to ease your comrades’ burdens. Whenever you succeed at a Presence-based task roll, the Momentum cost to remove an ally’s Stress is reduced to 1. Whenever you and an ally both rest, and spend a meaningful part of that rest together (the entire breather, at least half of a break, or at least one hour of a longer rest), you each recover 1 more Stress than normal."
+                Description = "You’re outspoken and sociable, always with a supportive word to ease your comrades’ burdens. Whenever you succeed at a Presence-based task roll, the Momentum cost to remove an ally’s Stress is reduced to 1. Whenever you and an ally both rest, and spend a meaningful part of that rest together (the entire breather, at least half of a break, or at least one hour of a longer rest), you each recover 1 more Stress than normal.",
+                Source = BookSource.SpeciesSourcebook
             },
-            Weight = 4 
+            Weight = 4,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Breen,
+            Description = new List<string>
+            {
+                "A species with an isolationist, militaristic culture, the Breen have been an enigma for centuries; indeed, few had seen a Breen outside of their refrigeration suits and lived to tell of it prior to the 32nd century. Their territory is deep within the Alpha Quadrant, beyond the Cardassian Union and Ferengi Alliance. Contact with the Federation and other Beta Quadrant polities is rare and typically violent, though they are regarded as secretive and untrustworthy even to the Romulans, who have a saying: “Never turn your back on a Breen.”",
+                "During the 24th century, little was known of the Breen Confederacy, but they were considered to be one of the most warlike cultures in the Galaxy. They came into wider contact with the other powers of the Alpha and Beta Quadrants when they aligned themselves with the Dominion. Centuries later, the Breen Imperium was similarly militaristic, but also highly territorial and expansionist, though just as secretive about themselves. Among the few facts known was that some Breen technology was based on biotechnology, cultivating engineered strains of algae to possess properties similar to other useful materials, and allowing them to grow technological components."
+            },
+            ExampleCharacters = "Gor (Deep Space Nine), L’ak (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "Breen physiology is semi-gelatinous in nature, but with effort and concentration they can assume a more solid form with a hardened outer shell, though they dislike doing this: young Breen are taught that solid state was a sign of weakness. Breen are accustomed to extremely low temperatures, and they customarily wear all-concealing refrigeration suits. Breen do not have blood or other bodily fluids, only their natural gelatinous substance, and few non-Breen have any understanding of Breen physiology. The thoughts and emotions of Breen are not detectable by telepaths or empaths.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Gelatinous Form",
+                Description = "In your natural gelatinous state, you may reroll 1d20 on any task roll using Control. You may assume a solid state by suffering 2 Stress, gaining 1 Protection, but losing the reroll from your gelatinous form. While wearing a refrigeration suit, you gain 1 Protection without the need to suffer Stress, and may remain in your gelatinous state.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 4,
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {

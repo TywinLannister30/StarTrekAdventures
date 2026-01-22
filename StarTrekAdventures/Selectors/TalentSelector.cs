@@ -1023,6 +1023,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Cold Warrior",
+                TraitRequirement = SpeciesName.Breen,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your use of a refrigeration suit is a great asset. When you attempt a task to conceal yourself from technological forms of detection, you may select one d20 and treat it as though you had rolled a 1, as your refrigeration suit masks your thermal signature and disrupts other signals you may give off."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Disregard for Hardship",
+                TraitRequirement = SpeciesName.Breen,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are ruthless and determined, and hold little regard for the pain it takes to achieve your goals. Whenever you use a value or Directive positively, recover 4 Stress. You may regain Stress in this way even if you are Fatigued."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,

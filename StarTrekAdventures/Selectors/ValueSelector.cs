@@ -133,6 +133,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "If you don’t speak your mind, how can anyone know you?", TraitRequirement = SpeciesName.Bolian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Who am I going to meet today?", TraitRequirement = SpeciesName.Bolian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "I do not care what happens as long as I achieve my objectives", TraitRequirement = SpeciesName.Breen, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My code of honor is for me and mine; I’m not obliged to treat you honorably", TraitRequirement = SpeciesName.Breen, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My regard for you lasts only as long as I benefit", TraitRequirement = SpeciesName.Breen, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Your pain does not concern me", TraitRequirement = SpeciesName.Breen, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "All others are meant to serve us", TraitRequirement = SpeciesName.Breen, Weight = 5 },
         new Value { Name = "Brutally effective", TraitRequirement = SpeciesName.Breen, Weight = 5 },
         new Value { Name = "My soldiers are my tools", TraitRequirement = SpeciesName.Breen, Weight = 5 },
