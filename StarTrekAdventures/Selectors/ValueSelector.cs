@@ -110,8 +110,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "My skill and resolve are the only resources I need", TraitRequirement = SpeciesName.Barzan, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "What is required of me that others may survive?", TraitRequirement = SpeciesName.Barzan, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Report only what you know", TraitRequirement = SpeciesName.Benzite, Weight = 10 },
-        
+        new Value { Name = "Devise a solution for any problem you discover", TraitRequirement = SpeciesName.Benzite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Information is only worth sharing if it’s useful", TraitRequirement = SpeciesName.Benzite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Report only what you know", TraitRequirement = SpeciesName.Benzite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Rushing to conclusions is a sure path to disaster", TraitRequirement = SpeciesName.Benzite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "A lie is a story told in bad faith", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
         new Value { Name = "Compassion through understanding", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
         new Value { Name = "Do not be what others expect you to be", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },

@@ -930,6 +930,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Meticulous Analysis",
+                TraitRequirement = SpeciesName.Benzite,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When you succeed at a task to scan or study unidentified phenomena, you may spend 2 Momentum to immediately make an additional Difficulty 0 task roll using the Reason + same department, and the same focus. You may not purchase additional dice on this task roll, and any successes you generate immediately become Momentum added to your previous task’s result."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Thorough and Methodical",
+                TraitRequirement = SpeciesName.Benzite,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’re careful in everything you do, and do not stray from the proper way of doing things lightly. When you attempt a task using Reason, and purchase one or more dice by spending Momentum, you may pick a single die in your dice pool and treat it as if it had rolled equal to your target number for that task (and is thus a success) instead of rolling it. However, you may not spend any Momentum to reduce the amount of time the task took to perform. You cannot use this talent’s benefit if you are the first character to act during a round in combat."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Open Book",
                 TraitRequirement = SpeciesName.Betazoid,
                 GMPermission = true,

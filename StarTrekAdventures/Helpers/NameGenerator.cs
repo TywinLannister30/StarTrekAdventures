@@ -1,6 +1,7 @@
 ﻿using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
+using System.Runtime.InteropServices;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Helpers;
@@ -338,11 +339,11 @@ public static class NameGenerator
     }
     private static readonly List<string> BenziteMaleNames = new List<string>
     {
-        "Mendon", "Mordock"
+        "Cardok", "Kamis", "Laporin", "Mendon", "Monyodin", "Mordock", "Oorv", "Selidok"
     };
     private static readonly List<string> BenziteFemaleNames = new List<string>
     {
-        "Hoya"
+        "Dralia", "Hava", "Hoya", "Magark", "Mardral", "Marya", "N’Verix", "Salmak", "Shelzane", "Veldon"
     };
 
     private static string GenerateBetazoidName(Gender gender)

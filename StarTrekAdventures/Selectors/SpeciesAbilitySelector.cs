@@ -75,7 +75,8 @@ public class SpeciesAbilitySelector : ISpeciesAbilitySelector
         {
             Name = SpeciesAbilityName.SyntheticLifeForm,
             Description = "You gain +1 Protection against Stun Attacks only. Further, when you suffer a complication that represents a physical hindrance or being stunned, dazed, or disoriented, you may take 1 Stress to ignore that complication (and remove any associated trait).",
-            NpcDescription = "This character is not an organic being, and is not as vulnerable to physical harm: it has +1 Protection against Stun attacks. It recovers from injuries with Engineering tasks, rather than Medicine. In addition, it adds 1 automatic success to any task roll which uses it's Reason, due to it's powerful positronic brain."
+            NpcDescription = "This character is not an organic being, and is not as vulnerable to physical harm: it has +1 Protection against Stun attacks. It recovers from injuries with Engineering tasks, rather than Medicine. In addition, it adds 1 automatic success to any task roll which uses it's Reason, due to it's powerful positronic brain.",
+            Source = BookSource.SpeciesSourcebook
         },
     };
 }
