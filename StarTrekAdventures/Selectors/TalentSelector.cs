@@ -821,7 +821,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Though you are an android, your construction is almost indistinguishable from that of a living creature. You gain one additional species trait: this is the species you appear to be. To determine that you are an android, an observer must examine you closely with a tricorder or similar tool, and succeed at a Reason + Engineering or Reason + Medicine task with a Difficulty of 3. Your injuries may be healed using either Engineering or Medicine. You may not take the Duranium Polyalloy Construction talent."
                 },
-                Source = BookSource.NextGenerationCrewPack1stEdition
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {
@@ -834,7 +834,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Your physical form has been constructed from extremely durable materials, and your resilience and physical capabilities are formidable. You have +1 Protection against all attacks (this stacks with the Protection gained from your species ability). In addition, you add 1 automatic success to all task rolls using your Fitness. You may not take the Biosynthetic Construction talent."
                 },
-                Source = BookSource.NextGenerationCrewPack1stEdition
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {
@@ -857,6 +857,30 @@ public class TalentSelector : ITalentSelector
                 {
                     "Among Aenar communities, leaders and mediators are chosen as and when the need arises, nominating an individual to serve as Speaker. You’ve been chosen for this role often and are adept at using your senses and your telepathy to aid communication. When attempting a task to communicate telepathically with a willing being, you may re-roll 1d20."
                 }
+            },
+            new()
+            {
+                Name = "Airborne Advantage",
+                AnyTraitRequirement = new List<string> { SpeciesName.Aurelian, SpeciesName.AurelianNovolare },
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’re quick to take advantage of the fact that most other sapient species are stuck on the ground and seldom look up. When you make an attack against an enemy who is below you, you may reroll 1d20, and you score 1 bonus Momentum if your attack succeeds. Bonus Momentum cannot be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "An Eye on the Horizon",
+                AnyTraitRequirement = new List<string> { SpeciesName.Aurelian, SpeciesName.AurelianNovolare },
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Aurelians’ keen eyesight allows them to discern distant details when flying overhead. This mindset often influences Aurelians in other ways, giving them a tendency to try and anticipate problems a long way off. Each time you or another player character in the same scene as you attempt a task roll where the complication range has been increased, you may spend 1 Momentum to negate that complication range increase: the complication range of that task reverts to normal (i.e., a complication arises on a result of 20)."
+                },
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {

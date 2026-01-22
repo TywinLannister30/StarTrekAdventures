@@ -116,7 +116,7 @@ public class SpeciesSelector : ISpeciesSelector
             TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
             SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
             Weight = 0,
-            Source = BookSource.NextGenerationCrewPack1stEdition
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {
@@ -139,6 +139,69 @@ public class SpeciesSelector : ISpeciesSelector
                 AddTalent = "Telepathy"
             },
             Weight = 1
+        },
+        new Species 
+        { 
+            Name = SpeciesName.Aurelian,
+            Description = new List<string>
+            {
+                "One of the few avian species to be represented within the Federation, the Aurelians are renowned for their study of history and service within the Federation Science Council. While not un  heard of, there are a few Aurelians serving in Starfleet, most commonly as science officers. Aurelians dislike enclosed spaces and many suffer from mild claustrophobia, which makes long-term service aboard a starship difficult.",
+                "Most Aurelians pursuing a career in Starfleet request assignments at planetary installations, allowing them to spend their off-duty time outdoors, though some enjoy postings on larger vessels or starbases with sufficiently large recreational spaces. Their homeworld of Aurelia is an abnormally large Class-M planet covered by large expanses of scrub lands and mild deserts. Aurelians on Aurelia make their homes in natural mesa formations. Though they did not join the Federation until several decades after its formation, Aurelians were known to early Human deep space explorers."
+            },
+            ExampleCharacters = "Aleek-Om (The Animated Series), Adreek-Hu (Prodigy)",
+            AttributeModifiers = new CharacterAttributes 
+            {
+                Daring = 1, Fitness = 1, Insight = 1 
+            },
+            TraitDescription = "Aurelians are capable of flight, thanks to large and muscular wings. This allows them to quickly traverse distances and avoid obstacles on the ground. They also possess keen eyesight, and a natural directional sense based on the magnetic field of planetary bodies. Nearly all Aurelians suffer from claustrophobia, though the severity of the affliction differs from individual to individual.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Airborne Avian",
+                Description = "Your powerful wings allow you to maneuver easily through the air. When you take a Movement minor action or Sprint major action, you may choose to fly; if you fly, you move one additional zone, and you ignore any difficult terrain or obstacles on the ground. However, weather conditions, such as strong winds, can act as difficult terrain when you fly. When in any enclosed space, including the interior of a starship, increase the complication range of all tasks you attempt by 2, as you feel agitated and claustrophobic.",
+            },
+            Weight = 2 
+        },
+        new Species
+        {
+            Name = SpeciesName.Aurelian,
+            Description = new List<string>
+            {
+                "One of the few avian species to be represented within the Federation, the Aurelians are renowned for their study of history and service within the Federation Science Council. While not un  heard of, there are a few Aurelians serving in Starfleet, most commonly as science officers. Aurelians dislike enclosed spaces and many suffer from mild claustrophobia, which makes long-term service aboard a starship difficult.",
+                "Most Aurelians pursuing a career in Starfleet request assignments at planetary installations, allowing them to spend their off-duty time outdoors, though some enjoy postings on larger vessels or starbases with sufficiently large recreational spaces. Their homeworld of Aurelia is an abnormally large Class-M planet covered by large expanses of scrub lands and mild deserts. Aurelians on Aurelia make their homes in natural mesa formations. Though they did not join the Federation until several decades after its formation, Aurelians were known to early Human deep space explorers."
+            },
+            ExampleCharacters = "Aleek-Om (The Animated Series), Adreek-Hu (Prodigy)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "Aurelians are capable of flight, thanks to large and muscular wings. This allows them to quickly traverse distances and avoid obstacles on the ground. They also possess keen eyesight, and a natural directional sense based on the magnetic field of planetary bodies. Nearly all Aurelians suffer from claustrophobia, though the severity of the affliction differs from individual to individual.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Airborne Avian",
+                Description = "Your powerful wings allow you to maneuver easily through the air. When you take a Movement minor action or Sprint major action, you may choose to fly; if you fly, you move one additional zone, and you ignore any difficult terrain or obstacles on the ground. However, weather conditions, such as strong winds, can act as difficult terrain when you fly. When in any enclosed space, including the interior of a starship, increase the complication range of all tasks you attempt by 2, as you feel agitated and claustrophobic.",
+            },
+            Weight = 2
+        },
+        new Species
+        {
+            Name = SpeciesName.AurelianNovolare,
+            Description = new List<string>
+            {
+                "One of the few avian species to be represented within the Federation, the Aurelians are renowned for their study of history and service within the Federation Science Council. While not un  heard of, there are a few Aurelians serving in Starfleet, most commonly as science officers. Aurelians dislike enclosed spaces and many suffer from mild claustrophobia, which makes long-term service aboard a starship difficult.",
+                "Most Aurelians pursuing a career in Starfleet request assignments at planetary installations, allowing them to spend their off-duty time outdoors, though some enjoy postings on larger vessels or starbases with sufficiently large recreational spaces. Their homeworld of Aurelia is an abnormally large Class-M planet covered by large expanses of scrub lands and mild deserts. Aurelians on Aurelia make their homes in natural mesa formations. Though they did not join the Federation until several decades after its formation, Aurelians were known to early Human deep space explorers."
+            },
+            ExampleCharacters = "Aleek-Om (The Animated Series), Adreek-Hu (Prodigy)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "Aurelians are capable of flight, thanks to large and muscular wings. This allows them to quickly traverse distances and avoid obstacles on the ground. They also possess keen eyesight, and a natural directional sense based on the magnetic field of planetary bodies. Nearly all Aurelians suffer from claustrophobia, though the severity of the affliction differs from individual to individual.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Nimble Avian",
+                Description = "Your agile body allows you to navigate your environment more efficiently. When you encounter difficult terrain during movement, you may reduce the Momentum cost of that terrain by 1. You may also reroll 1d20 on any Fitness + Conn task attempted when you take the Sprint major action.",
+            },
+            Weight = 2
         },
         new Species
         {
@@ -414,7 +477,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Aurelian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Barzan, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Benzite, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Bolian, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 4 },

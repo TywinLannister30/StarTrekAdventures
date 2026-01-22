@@ -30,6 +30,8 @@ public static class NameGenerator
             return GenerateArkarianName(gender);
         if (species == SpeciesName.Aurelian)
             return GenerateAurelianName(gender);
+        if (species == SpeciesName.AurelianNovolare)
+            return GenerateAurelianName(gender);
         if (species == SpeciesName.Bajoran)
             return GenerateBajoranName(gender);
         if (species == SpeciesName.Barzan)
@@ -289,7 +291,7 @@ public static class NameGenerator
     }
     private static readonly List<string> AurelianMaleNames = new List<string>
     {
-        "Jorenber-Le", "Aleek-Om", "Pealo-Dix", "Tarieel-Er", "Lovalga-Li", "Dueyyit-Ne"
+        "Jorenber-Le", "Aleek-Om", "Pealo-Dix", "Tarieel-Er", "Lovalga-Li", "Dueyyit-Ne",
     };
     private static readonly List<string> AurelianFemaleNames = new List<string>
     {

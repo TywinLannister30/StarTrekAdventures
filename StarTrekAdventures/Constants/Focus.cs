@@ -4,7 +4,7 @@ public static class Focus
 {
     public const string AdvancedHolograms = "Advanced Holograms";
     public const string Agriculture = "Agriculture";
-    public const string AlternateHistories = "AlternateHistories";
+    public const string AlternateHistories = "Alternate Histories";
     public const string AlternativeMedicine = "Alternative Medicine";
     public const string AmbushTactics = "Ambush Tactics";
     public const string AncientTechnology = "Ancient Technology";

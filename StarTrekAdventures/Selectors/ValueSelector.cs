@@ -71,6 +71,14 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Question my word, question my honor", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
         new Value { Name = "Stubborn as a glacier", TraitRequirement = SpeciesName.Andorian, Weight = 10 },
 
+        new Value { Name = "A whole Galaxy to explore and experience", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Ethical programming defines my thinking", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Just because I am synthetic doesn’t mean I’m not a person", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Know a man by his friends", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "Vast repository of information", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+        new Value { Name = "What does it mean to be alive?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "What is it to be human?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
+
         new Value { Name = "Fortune favors the faithful", TraitRequirement = SpeciesName.Ankari, Weight = 10 },
         
         new Value { Name = "Propriety first and always", TraitRequirement = SpeciesName.Arbazan, Weight = 10 },
@@ -80,9 +88,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The law is blind but also fair", TraitRequirement = SpeciesName.Argrathi, Weight = 10 },
         
         new Value { Name = "Dedication and diligence", TraitRequirement = SpeciesName.Arkarian, Weight = 10 },
-        
-        new Value { Name = "Soar high and achieve greatness", TraitRequirement = SpeciesName.Aurelian, Weight = 10 },
-        
+
+        new Value { Name = "By knowing our past, we can see better what’s coming", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I need an open sky and the wind in my feathers", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Soar high and achieve greatness", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "There is always something more to explore", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Faith in the prophets", TraitRequirement = SpeciesName.Bajoran, Weight = 10 },
         new Value { Name = "I help others to be closer to the prophets", TraitRequirement = SpeciesName.Bajoran, Weight = 10 },
         new Value { Name = "Survival at any cost", TraitRequirement = SpeciesName.Bajoran, Weight = 10 },
@@ -277,14 +288,6 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The tide always breaks upon the shore and the shore endures", TraitRequirement = SpeciesName.Skreeaa, Weight = 10 },
         
         new Value { Name = "We do what we must", TraitRequirement = SpeciesName.Sona, Weight = 10 },
-
-        new Value { Name = "A whole Galaxy to explore and experience", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
-        new Value { Name = "Ethical programming defines my thinking", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
-        new Value { Name = "Just because I am synthetic doesn’t mean I’m not a person", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
-        new Value { Name = "Know a man by his friends", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
-        new Value { Name = "Vast repository of information", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
-        new Value { Name = "•\tWhat does it mean to be alive?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
-        new Value { Name = "What is it to be human?", AnyTraitRequirement = { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid }, Weight = 10 },
 
         new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10 },
 

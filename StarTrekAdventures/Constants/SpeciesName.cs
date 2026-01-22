@@ -11,6 +11,7 @@ public static class SpeciesName
     public const string Argrathi = "Argrathi";
     public const string Arkarian = "Arkarian";
     public const string Aurelian = "Aurelian";
+    public const string AurelianNovolare = "Aurelian (Novolare)";
     public const string Bajoran = "Bajoran";
     public const string Barzan = "Barzan";
     public const string Benzite = "Benzite";

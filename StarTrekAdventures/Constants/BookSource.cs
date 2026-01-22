@@ -8,6 +8,7 @@ public static class BookSource
     public const string TechnicalManual = "Technical Manual";
     public const string ExplorationGuide = "Exploration Guide";
     public const string CampiagnGuide23rdCentury = "23rd Century Campaign Guide";
+    public const string SpeciesSourcebook = "Species Sourcebook";
 
     // 1st Edition - Divisions
     public const string CommandDivision1stEdition = "Command Division - 1st Edition";
