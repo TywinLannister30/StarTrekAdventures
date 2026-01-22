@@ -224,6 +224,27 @@ public class SpeciesSelector : ISpeciesSelector
             },
             Weight = 4
         },
+        new Species 
+        { 
+            Name = SpeciesName.Barzan,
+            Description = new List<string>
+            {
+                "A hardy and dauntless species from the resource-poor world of Barzan II, the Barzan have long emphasized community, duty, and solidarity as survival strategies, knowing that they cannot endure or thrive if they do not strive together. While known to the Federation as early as the 23rd century, the Barzan civilization lacked its own spaceflight program due to the scarcity of resources on their homeworld to spare on such a project; their early space exploration was limited to automated probes. Barzan II—and the Barzan Planetary Republic—joined the Federation during the 25th century.",
+            },
+            ExampleCharacters = "Nhan (Discovery), Bhavani (The Next Generation)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Daring = 1, Fitness = 1, Presence = 1 
+            },
+            TraitDescription = "Barzans cannot breathe without the particular gases present on their homeworld, gases which are toxic to most other species; any Barzan who leaves their homeworld makes use of breather implants to aid their respiration. Barzan culture is used to hardship, placing emphasis on duty, diligence, and sacrifice for the good of many over the desires of the individual.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Unyielding Resolve",
+                Description = "You give 100% as often as you are able, and you will not allow setbacks to deter you. When you spend a point of Determination on a task roll, if the task still fails, you regain that spent Determination."
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         new Species
         {
             Name = SpeciesName.Betazoid,
@@ -477,7 +498,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Barzan, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Benzite, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Bolian, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 4 },
         //new Species { Name = SpeciesName.Caitian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 2 },

@@ -906,6 +906,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Expert Quartermaster",
+                TraitRequirement = SpeciesName.Barzan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Barzan people have long had to make do with less, and this has taught them to be especially considerate of all resources at their command. When attempting a task to salvage resources, materials, or components from existing items, you may reroll 1d20. Further, once per session, when you obtain equipment with an opportunity cost, you may reduce that cost by 1, to a minimum of 0."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Strive and Sacrifice",
+                TraitRequirement = SpeciesName.Barzan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You push yourself harder when your effort makes the difference between your kin or crew succeeding or failing. When you assist an ally, you may suffer 1 Stress to reroll your assistance die."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Open Book",
                 TraitRequirement = SpeciesName.Betazoid,
                 GMPermission = true,

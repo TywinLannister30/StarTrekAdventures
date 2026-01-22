@@ -103,9 +103,13 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The prophets have never spoken to me", TraitRequirement = SpeciesName.Bajoran, Weight = 5 },
         new Value { Name = "True independence for Bajor", TraitRequirement = SpeciesName.Bajoran, Weight = 5 },
         new Value { Name = "Walk with the prophets, child", TraitRequirement = SpeciesName.Bajoran, Weight = 5 },
-        
+
         new Value { Name = "My greatest resource is myself, and I will use it wisely", TraitRequirement = SpeciesName.Barzan, Weight = 10 },
-        
+        new Value { Name = "Anything less than my best is a waste", TraitRequirement = SpeciesName.Barzan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Duty above all", TraitRequirement = SpeciesName.Barzan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My skill and resolve are the only resources I need", TraitRequirement = SpeciesName.Barzan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "What is required of me that others may survive?", TraitRequirement = SpeciesName.Barzan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Report only what you know", TraitRequirement = SpeciesName.Benzite, Weight = 10 },
         
         new Value { Name = "A lie is a story told in bad faith", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
