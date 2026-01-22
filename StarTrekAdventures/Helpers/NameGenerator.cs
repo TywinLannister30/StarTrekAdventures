@@ -392,7 +392,7 @@ public static class NameGenerator
     }
     private static readonly List<string> BolianMaleNames = new List<string>
     {
-        "Ardon", "Hars", "Boq’ta", "Brathaw", "Chell", "Rixx", "Zim"
+         "Ardon", "Hars", "Boq’ta", "Brathaw", "Chell", "Rixx", "Zim"
     };
     private static readonly List<string> BolianFemaleNames = new List<string>
     {
@@ -400,7 +400,7 @@ public static class NameGenerator
     };
     private static readonly List<string> BolianFamilyNames = new List<string>
     {
-        "Adislo", "Arlin", "Brott"
+        "Adislo", "Arlin", "Boq’ta", "Broht", "Haro", "Rixx", "V’Sal", "Vadosia", "Zier"
     };
 
     private static string GenerateCaitianName(Gender gender)

@@ -999,6 +999,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Born Near a Warp Core",
+                TraitRequirement = SpeciesName.Bolian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Bolian traditions say that a child born near an active warp core has an improved, more positive, disposition. Optimism and an upbeat attitude certainly lends credence to this tradition, allowing the Bolian to weather misfortune. When you suffer a complication from a task, roll a d20; if the result is equal to or under your Presence rating, ignore the complication. You may ignore one complication per scene in this way."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Warm Welcome",
+                TraitRequirement = SpeciesName.Bolian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "A cheerful, outgoing personality is the perfect thing to put diplomatic guests at ease. Whenever you assist another character on a social task, the ally being assisted may use your Presence rating instead of their own. Further, you may reduce the Threat cost to assist for that task by 1, to a minimum of 0."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,

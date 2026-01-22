@@ -294,6 +294,26 @@ public class SpeciesSelector : ISpeciesSelector
             },
             Weight = 8
         },
+        new Species 
+        { 
+            Name = SpeciesName.Bolian,
+            Description = new List<string>
+            {
+                "Bolians are a good-natured, sociable, even garrulous species native to Bolarus IX in the Beta Quadrant. A long-time ally of the Federation, Bolians see great value in hard work and cooperation, and they are often drawn to environments and professions that allow them to mingle with a variety of other peoples. As a result, Bolians can be found in all walks of life and on countless worlds, including Earth, and they are a common sight throughout Starfleet and civilian life in the Federation. Beyond that, Bolian trading institutions, such as the Bank of Bolias, often serve as intermediaries for trade between other polities such as the Federation and the Ferengi Alliance.",
+            },
+            ExampleCharacters = "Mot (The Next Generation), Chell (Voyager)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Control = 1, Insight = 1, Presence = 1 
+            },
+            TraitDescription = "Bolians have a reputation as a gregarious, hospitable people, and they’re commonly found in public-facing roles. Bolian bodily fluids are highly toxic to other species, while their anatomy allows them to consume and withstand foodstuffs that would be inedible to anyone else.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Amiable",
+                Description = "You’re outspoken and sociable, always with a supportive word to ease your comrades’ burdens. Whenever you succeed at a Presence-based task roll, the Momentum cost to remove an ally’s Stress is reduced to 1. Whenever you and an ally both rest, and spend a meaningful part of that rest together (the entire breather, at least half of a break, or at least one hour of a longer rest), you each recover 1 more Stress than normal."
+            },
+            Weight = 4 
+        },
         new Species
         {
             Name = SpeciesName.Cardassian,
@@ -525,7 +545,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Bolian, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 4 },
         //new Species { Name = SpeciesName.Caitian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Changeling, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Morphogenic Matrix", Weight = 0 },
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
