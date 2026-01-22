@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using RandomNameGeneratorLibrary;
+﻿using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Helpers;
@@ -51,6 +48,8 @@ public static class NameGenerator
             return GenerateBreenName();
         if (species == SpeciesName.Brikar)
             return GenerateBrikarName(gender);
+        if (species == SpeciesName.Bynar)
+            return GenerateBynarName();
         if (species == SpeciesName.Caitian)
             return GenerateCaitianName(gender);
         if (species == SpeciesName.Cardassian)
@@ -440,6 +439,17 @@ public static class NameGenerator
     {
         "Kebron", "Saygur"
     };
+
+    private static string GenerateBynarName()
+    {
+        var rng = new Random();
+        char[] chars = new char[8];
+
+        for (int i = 0; i < chars.Length; i++)
+            chars[i] = (char)('0' + rng.Next(2)); // 0 or 1
+
+        return new string(chars);
+    }
 
     private static string GenerateCaitianName(Gender gender)
     {

@@ -75,10 +75,13 @@ public class CharacterManager : ICharacterManager
         character.AdjustAttributesForSpecies(chosenSpecies.First());
         character.AddSpeciesAbility(chosenSpecies.First().SpeciesAbility, _talentSelector);
 
+        if (!string.IsNullOrEmpty(chosenSpecies.First().SpeciesAbility.TraitGained))
+            character.Traits.Add(chosenSpecies.First().SpeciesAbility.TraitGained);
+
         if (Util.GetRandom(100) == 1)
             character.Traits.Add("Augment");
 
-        if (Util.GetRandom(100) == 1)
+        if (!character.Traits.Contains("Cyborg") && Util.GetRandom(100) == 1)
             character.Traits.Add("Cyborg");
 
         return character;

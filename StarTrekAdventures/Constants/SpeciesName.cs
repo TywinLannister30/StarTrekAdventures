@@ -20,6 +20,7 @@ public static class SpeciesName
     public const string Bolian = "Bolian";
     public const string Breen = "Breen";
     public const string Brikar = "Brikar";
+    public const string Bynar = "Bynar";
     public const string Caitian = "Caitian";
     public const string Cardassian = "Cardassian";
     public const string Changeling = "Changeling";

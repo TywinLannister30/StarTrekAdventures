@@ -32,5 +32,8 @@ public class SpeciesAbility
     [JsonIgnore]
     public string StressBasedOn { get; set; } = AttributeName.Fitness;
 
+    [JsonIgnore]
+    public string TraitGained { get; set; }
+
     public string Source { get; set; }
 }

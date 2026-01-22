@@ -146,6 +146,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Patience and curiosity are more valuable than aggression", TraitRequirement = SpeciesName.Brikar, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Your fear of my appearance blinds you to who I am", TraitRequirement = SpeciesName.Brikar, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "Two minds are…", TraitRequirement = SpeciesName.Bynar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "…Better than one", TraitRequirement = SpeciesName.Bynar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "All that we are will remain forever in the central computer", TraitRequirement = SpeciesName.Bynar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The group endures better than any individual", TraitRequirement = SpeciesName.Bynar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "War is instinct, conflict an art", TraitRequirement = SpeciesName.Caitian, Weight = 10 },
 
         new Value { Name = "All my stories are true, especially the lies", TraitRequirement = SpeciesName.Cardassian, Weight = 10 },

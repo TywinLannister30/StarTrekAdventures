@@ -365,6 +365,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Bynar,
+            Description = new List<string>
+            {
+                "The Bynars are a species of humanoids known for being cybernetically enhanced; shortly after birth, every Bynar child has the parietal lobe of their brain replaced with a powerful synaptic processor, linking them to the central computer of their homeworld, Bynaus, and to other Bynars. Bynars live and work in pairs, their cybernetic link connecting them so closely that their thought patterns naturally flow from one to another: two minds thinking the same thoughts. While they can speak when conversing with other species, Bynars communicate among each other via a binary machine language, transmitted as a high-frequency burst of sound that they can receive using their implants. This form of communication is far more efficient than speech, allowing them to convey far more detailed information in a very short time.",
+            },
+            ExampleCharacters = "Zero-Zero, Zero-One, One-Zero, One-One (The Next Generation)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Reason = 1
+            },
+            TraitDescription = "Despite their small stature and slight build, Bynars are surprisingly resistant to harsh environments, due to generations of cybernetic enhancement and genetic engineering performed upon their ancestors millennia ago. Their cybernetics and machinelike thought processes allow them to understand and interact effectively with almost any computer system, even ones unfamiliar to them.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Bynar Pair",
+                Description = "You are a Cyborg, and may select cybernetic talents. You always operate in a pair with another Bynar who has been with you since you were both children. Create a Bynar supporting character as your partner; this supporting character starts with one value, which must either be the same as one of yours, or directly reference it. You do not need to use Crew Support to introduce this supporting character each session, and they always accompany you (following the rules for uncontrolled supporting characters on page 144 of the core rulebook).",
+                TraitGained = "Cyborg",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Cardassian,
             Description = new List<string>
             {

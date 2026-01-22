@@ -1072,6 +1072,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Entangled Consciousness",
+                TraitRequirement = SpeciesName.Bynar,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your mind and that of your partner are so connected that you can draw on their expertise almost without effort. When you attempt a task, you may spend 1 Momentum (Immediate) to use one of your partner’s focuses instead of one of your own. Alternatively, you may spend 2 Momentum (Immediate) to use one of your partner’s talents for the remainder of the scene.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Synchronistic Operation",
+                TraitRequirement = SpeciesName.Bynar,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You work in perfect concert with your partner. When you attempt a task and your partner assists you (or vice versa), each of you may reroll one d20. Further, if you are task leader and your partner is assisting (or vice versa), then the assistant’s successes still count even if the task leader scores no successes of their own.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,
