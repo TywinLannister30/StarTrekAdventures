@@ -37,10 +37,12 @@ public static class NameGenerator
             return GenerateBajoranName(gender);
         if (species == SpeciesName.Barzan)
             return GenerateBarzanName();
-        if (species == SpeciesName.Betazoid)
-            return GenerateBetazoidName(gender);
         if (species == SpeciesName.Benzite)
             return GenerateBenziteName(gender);
+        if (species == SpeciesName.Betazoid)
+            return GenerateBetazoidName(gender);
+        if (species == SpeciesName.Betelgeusian)
+            return GenerateBetelgeusianName();
         if (species == SpeciesName.Bolian)
             return GenerateBolianName(gender);
         if (species == SpeciesName.Caitian)
@@ -367,6 +369,15 @@ public static class NameGenerator
     private static readonly List<string> BetazoidFamilyNames = new List<string>
     {
         "Grax", "Hagen", "Morganth", "Stadi", "Dutrax", "Odutan", "Nelan", "Onovren", "Kader", "Nostrun", "Dulas", "Konin", "Ebesin"
+    };
+
+    private static string GenerateBetelgeusianName()
+    {
+        return BetelgeusianNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> BetelgeusianNames = new List<string>
+    {
+        "Cosmo Traitt", "Yor", "Jelfrit", "Badakar", "Shor", "Malkune"
     };
 
     private static string GenerateBolianName(Gender gender)

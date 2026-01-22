@@ -123,6 +123,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Openness and honesty are just easier ways to live", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
         new Value { Name = "Privacy is a luxury among telepaths", TraitRequirement = SpeciesName.Betazoid, Weight = 10 },
 
+        new Value { Name = "I am nothing without my conduct", TraitRequirement = SpeciesName.Betelgeusian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My foe deserves every respect as a fellow warrior", TraitRequirement = SpeciesName.Betelgeusian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My word is absolute, and I will not break it", TraitRequirement = SpeciesName.Betelgeusian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "There will be one victor here, and it shall be me", TraitRequirement = SpeciesName.Betelgeusian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "A broad smile and warm heart", TraitRequirement = SpeciesName.Bolian, Weight = 10 },
         
         new Value { Name = "All others are meant to serve us", TraitRequirement = SpeciesName.Breen, Weight = 5 },

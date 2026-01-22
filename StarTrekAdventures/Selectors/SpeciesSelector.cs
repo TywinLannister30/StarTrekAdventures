@@ -252,6 +252,28 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Betelgeusian,
+            Description = new List<string>
+            {
+                "Due to their quick reflexes and great physical strength, Betelgeusians are known for their martial abilities and discipline. Their culture prizes honor, discipline, and loyalty to one’s family. Betelgeusian bones are laced with heavy mineral deposits which make them resilient to energy weapons fire, making them ideal soldiers for the battlefields of any war. Though they are known for being mercenaries, the Betelgeusians have a strict code of honor where they will honor their contracts to the letter but refuse to engage in dishonorable cruelty. During the Federation-Klingon War of the mid-23rd century, Klingons were said to enjoy fighting Betelgeusians in battle because they represented a greater challenge than other members of the Federation.",
+            },
+            ExampleCharacters = "Cosmo Traitt (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Betelgeusians appreciate the study of combat in all its forms. In their culture, survival is never guaranteed and a wise Betelgeusian knows the importance of training their body, their mind, and their soul for all forms of conflict. Though martial, they do not engage in warfare indiscriminately and never take risks unless they are justified. Betelgeusians consider debate to be one of the highest forms of warfare because it can be used to defeat an opponent without having to strike them.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Hardened for Battle",
+                Description = "Your body is hardened against harm, and your mind is hardened against fear. You have +1 Protection against any ranged attack from a phaser, disruptor, or comparable energy weapon. In addition, whenever you would suffer a trait or other effect representing fear or panic, you may suffer 1 Stress to ignore that trait or effect.    ",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Betazoid,
             Description = new List<string>
             {

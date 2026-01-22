@@ -976,6 +976,29 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Strength of the Elders",
+                TraitRequirement = SpeciesName.Betelgeusian,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Betelgeusians are descended from predators who used speed and ferocity to overwhelm their prey. In modern times, Betelgeusian martial traditions emphasize swift, precise strikes to overwhelm a foe. A Betelgeusian may use Fitness + Security rather than Daring + Security to make melee attacks. In addition, the injuries inflicted by their melee attacks increase in Severity by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Verbal Warfare",
+                TraitRequirement = SpeciesName.Betelgeusian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Engaging in debate is one of the highest forms of expression in Betelgeusian culture, and a Betelgeusian who deigns to engage someone in argument is considered to be giving them a great gift. When you win an opposed task during a social conflict, you generate 2 bonus Momentum. Bonus Momentum cannot be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,

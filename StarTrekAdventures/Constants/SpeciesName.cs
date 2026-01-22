@@ -16,6 +16,7 @@ public static class SpeciesName
     public const string Barzan = "Barzan";
     public const string Benzite = "Benzite";
     public const string Betazoid = "Betazoid";
+    public const string Betelgeusian = "Betelgeusian";
     public const string Bolian = "Bolian";
     public const string Breen = "Breen";
     public const string Caitian = "Caitian";
