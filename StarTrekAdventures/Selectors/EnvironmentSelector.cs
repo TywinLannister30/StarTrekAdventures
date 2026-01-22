@@ -6,7 +6,7 @@ namespace StarTrekAdventures.Selectors;
 
 public class EnvironmentSelector : IEnvironmentSelector
 {
-    private const int HomeworldWeight = 5;
+    private const int HomeworldWeight = 10;
 
     public CharacterEnvironment ChooseEnvironment(string species)
     {
@@ -36,10 +36,10 @@ public class EnvironmentSelector : IEnvironmentSelector
     private static readonly List<CharacterEnvironment> Environments = new()
     {
         new() { Name = "Homeworld", DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesAttributes = true, Weight = HomeworldWeight },
-        new() { Name = "Busy Colony", AttributeChoices = new CharacterAttributes { Daring = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, Weight = 2 },
-        new() { Name = "Isolated Colony", AttributeChoices = new CharacterAttributes { Reason = 1, Insight = 1 }, DepartmentChoices = new Departments { Engineering = 1, Science = 1, Medicine = 1 }, Weight = 2 },
-        new() { Name = "Frontier Colony", AttributeChoices = new CharacterAttributes { Control = 1, Fitness = 1 }, DepartmentChoices = new Departments { Conn = 1, Security = 1, Medicine = 1 }, Weight = 2 },
-        new() { Name = "Starship or Stabase", AttributeChoices = new CharacterAttributes { Control = 1, Insight = 1 }, DepartmentChoices = new Departments { Command = 1, Conn = 1, Engineering = 1 }, Weight = 2 },
+        new() { Name = "Busy Colony", AttributeChoices = new CharacterAttributes { Daring = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, Weight = 5 },
+        new() { Name = "Isolated Colony", AttributeChoices = new CharacterAttributes { Reason = 1, Insight = 1 }, DepartmentChoices = new Departments { Engineering = 1, Science = 1, Medicine = 1 }, Weight = 5 },
+        new() { Name = "Frontier Colony", AttributeChoices = new CharacterAttributes { Control = 1, Fitness = 1 }, DepartmentChoices = new Departments { Conn = 1, Security = 1, Medicine = 1 }, Weight = 5 },
+        new() { Name = "Starship or Stabase", AttributeChoices = new CharacterAttributes { Control = 1, Insight = 1 }, DepartmentChoices = new Departments { Command = 1, Conn = 1, Engineering = 1 }, Weight = 5 },
         new() { Name = "Another Species' World", AnotherSpeciesAttributes = true, AnyDepartment = true, Weight = 1 },
 
         new() { Name = "Andoria", AttributeChoices = new CharacterAttributes { Control = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Aenar, SpeciesName.Andorian }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
