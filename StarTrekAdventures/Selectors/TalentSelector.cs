@@ -1376,6 +1376,29 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Communal",
+                TraitRequirement = SpeciesName.Grazerite,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’re used to communal effort, and you work well in coordination with others. Whenever you assist another character, you always count as having an applicable focus. If you do have an applicable focus, you may reroll your assistance die.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Horn-Sense",
+                TraitRequirement = SpeciesName.Grazerite,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "A small minority of Grazerites are born with a genetic variance that causes their horns to be hollow. This gives them a highly sensitive organ that can detect subtle changes in air pressure, sound, and all manner of vibrations. When you attempt a task that involves the detection or analysis of sound or vibrations of any kind, the first additional d20 you purchase is free.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Resolute",
                 TraitRequirement = SpeciesName.Human,
                 GMPermission = true,

@@ -246,9 +246,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "263rd rule of acquisition – never allow doubt to tarnish your lust for latinum", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
         new Value { Name = "285th rule of acquisition – no good deed ever goes unpunished", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
         new Value { Name = "Profit above all else", TraitRequirement = SpeciesName.Ferengi, Weight = 5 },
-        
-        new Value { Name = "Patient study yields the best results", TraitRequirement = SpeciesName.Grazerite, Weight = 10 },
-        
+
+        new Value { Name = "A community shares its boons and burdens alike", TraitRequirement = SpeciesName.Grazerite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Anger never led to constructive decisions", TraitRequirement = SpeciesName.Grazerite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Patient study yields the best results", TraitRequirement = SpeciesName.Grazerite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The best way to resolve conflict is to prevent it arising", TraitRequirement = SpeciesName.Grazerite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Many sides to every tale", TraitRequirement = SpeciesName.Haliian, Weight = 10 },
 
         new Value { Name = "Earth is a paradise, but not everywhere is so fortunate", TraitRequirement = SpeciesName.Human, Weight = 10 },

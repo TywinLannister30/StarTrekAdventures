@@ -679,6 +679,28 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Grazerite,
+            Description = new List<string>
+            {
+                "The Grazerite are a peaceful people whose homeworld, Grazer, is one of the harsher examples of the far ends of the Class-M classification. The three main continents are predominately covered by extensive mountain ranges that reach as far as 10 kilometers above sea level. The Grazerites’ evolutionary development has incorporated not only traditional humanoid traits—but also those of Bovidae—giving them goatlike physical features. Grazerites are a peaceful people with a natural sense of curiosity. Grazerites have a deep dislike of conflict and actively avoid it if possible. Grazerite officers in Starfleet pursue careers in most fields—but it is nearly unheard of to see them serving as tactical or security officers. In Grazerite society, it is considered impolite (bordering on indecent) to leave one’s horns and hands uncovered, and thus Grazerites are usually seen with gloves and a headwrap.",
+            },
+            ExampleCharacters = "President Jaresh-Inyo (Deep Space Nine) ",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Grazerites possess powerful jaws and durable teeth—allowing them to chew through a surprising number of hardened substances. They cannot, however, digest inorganic materials, despite being able to chew through them, and as evolutionary vegetarians, have a difficult time digesting meats. Their brows are adorned with a pair of durable horns, which slope back in the vast majority. Further, Grazerite fingers evolved from hooves and their fingernails remain extremely dense, and are capable of supporting their full weight, making them excellent climbers.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Agreeable",
+                Description = "You are inclined to seek agreement and cooperation in everything you do. When you succeed at an Insight-based task to discern another creature’s mood, or a Presence-based task to try and defuse a conflict or confrontation, you may immediately recover 1 Stress.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Human,
             Description = new List<string>
             {
@@ -852,7 +874,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
         //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Drai, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Grazerite, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.JemHadar, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Jye, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 0 },
