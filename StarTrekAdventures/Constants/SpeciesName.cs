@@ -69,6 +69,7 @@ public static class SpeciesName
     public const string Sona = "Son'a";
     public const string SoongTypeAndroid = "Soong-Type Android";
     public const string Talaxian = "Talaxian";
+    public const string Tamarian = "Tamarian";
     public const string Tellarite = "Tellarite";
     public const string Tosk = "Tosk";
     public const string Trill = "Trill";

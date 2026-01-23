@@ -140,6 +140,8 @@ public static class NameGenerator
             return GenerateSoongTypeAndroidName();
         if (species == SpeciesName.Talaxian)
             return GenerateTalaxianName(gender);
+        if (species == SpeciesName.Tamarian)
+            return GenerateTamarianName();
         if (species == SpeciesName.Tellarite)
             return GenerateTellariteName(gender);
         if (species == SpeciesName.Tosk)
@@ -1094,6 +1096,15 @@ public static class NameGenerator
     private static readonly List<string> TalaxianFemaleNames = new List<string>
     {
         "Xoma", "Karixa", "Palax", "Graxe", "Jonaxa", "Mitxi", "Adrinax", "Dexa", "Palaxia", "Naxie", "Alaxa", "Terexi", "Millex", "Lanexi", "Axina", "Emaxa", "Jexa"
+    };
+
+    private static string GenerateTamarianName()
+    {
+        return TamarianNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> TamarianNames = new List<string>
+    {
+        "Varlok", "Trayshun", "Rinduk", "Shileez", "Grandor", "Norak"
     };
 
     private static string GenerateTellariteName(Gender gender)

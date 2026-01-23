@@ -336,6 +336,11 @@ public class ValueSelector : IValueSelector
 
         new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10 },
 
+        new Value { Name = "Kailash, when it rises (referencing the necessity of sacrifice for a greater cause)", TraitRequirement = SpeciesName.Tamarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Kiazi’s Children, Their Faces Wet (downplaying injury or hardship)", TraitRequirement = SpeciesName.Tamarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Life in the Cave of Garanoga (describing a place where one feels a sense of belonging)", TraitRequirement = SpeciesName.Tamarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The River Temarc, in Winter (resistance to being swayed from a decision)", TraitRequirement = SpeciesName.Tamarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "An idea left unchallenged can be dangerous", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
         new Value { Name = "Even the best ideas need to be re-examined occasionally", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
         new Value { Name = "No notion is above proper scrutiny", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },

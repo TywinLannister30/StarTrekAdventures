@@ -1348,6 +1348,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Learn from the Past",
+                TraitRequirement = SpeciesName.Tamarian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Children of Tama use stories from their past and their mythology to teach lessons for the future. When you succeed at a task to research or recall historical events, you generate 1 bonus Momentum. Bonus Momentum cannot be saved.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Storyteller",
+                TraitRequirement = SpeciesName.Tamarian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Tamarian teachers use stories to pass on knowledge to others. These Tamarians are experts at weaving body language, words, and music into lessons that motivate and inspire. When you take a break rest with one or more other characters, roll 1d20. When you take a breather rest with one or more other characters, roll 2d20. For each of these dice that roll equal to or under your Presence, add 1 Momentum to the group pool.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Incisive Scrutiny",
                 TraitRequirement = SpeciesName.Tellarite,
                 GMPermission = true,

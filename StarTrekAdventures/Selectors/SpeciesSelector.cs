@@ -647,7 +647,30 @@ public class SpeciesSelector : ISpeciesSelector
             TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
             SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
             Weight = 0,
-            Source = BookSource.NextGenerationCrewPack1stEdition
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Tamarian,
+            Description = new List<string>
+            {
+                "The Children of Tama, also known as Tamarians, are bipedal humanoids with long nostrils and ear holes on the sides of their heads. A bony ridge runs from the top of their nose and over the top of their heads. Two smaller ridges usually run along the side of their heads, over their ear holes. Tamarians are hairless and have thick, milky-white blood. Their thumbs are long in proportion to the rest of their fingers and have a sucker-like tip on the end.",
+                "Tamarians have a complex language that uses historical and mythological metaphors to describe their feelings and to explain their actions. This language shows a tremendous connection to the stories and actions of their ancestors. In addition, Tamarians participate in sleeping rituals and death rituals that pay homage to their ancestors. These rituals include objects that Tamarians carry with them, including a ceremonial dagger."
+            },
+            ExampleCharacters = "Dathon (The Next Generation), Kayshon (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "The Children of Tama are solid, sturdy humanoids with thick skin that tends towards shades of orange or ochre, with red or red-brown markings. They are most notable for their distinctive form of communication, which relies on idiom and metaphor to an extreme degree, even compared to many other known languages. The sucker-like tip of their thumbs gives them a particularly secure grip, especially on objects of Tamarian design.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Sokath, His Eyes Uncovered",
+                Description = "You derive wisdom and understanding from the lessons and stories of the past. When you make a reference to a previous use of one of your values, you may also add 1 Momentum to the group pool.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {
