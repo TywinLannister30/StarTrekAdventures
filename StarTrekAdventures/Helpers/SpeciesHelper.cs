@@ -13,6 +13,9 @@ public static class SpeciesHelper
         if (chosenSpecies.First().Name == SpeciesName.LiberatedBorg)
             return $"{chosenSpecies.First().Name} ({chosenSpecies.Last().Name})";
 
+        if (chosenSpecies.First().Name == SpeciesName.Hologram)
+            return $"{chosenSpecies.First().Name} ({chosenSpecies.Last().Name})";
+
         var retVal = string.Join("-", chosenSpecies.Select(x => x.Name));
 
         if (chosenSpecies.Count > 1)

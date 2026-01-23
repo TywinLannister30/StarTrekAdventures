@@ -44,10 +44,10 @@ public class SpeciesSelector : ISpeciesSelector
             }
         }
 
-        //if (chosenSpecies.First().SecondSpecies)
-        //{
-        //    chosenSpecies.Add(GetAnotherRandomSpecies(SpeciesName.LiberatedBorg));
-        //}
+        if (chosenSpecies.First().HasSecondarySpeciesTrait)
+        {
+            chosenSpecies.Add(GetAnotherRandomSpecies(chosenSpecies.First().Name));
+        }
 
         return chosenSpecies;
     }
@@ -697,6 +697,30 @@ public class SpeciesSelector : ISpeciesSelector
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Hologram,
+            Description = new List<string>
+            {
+                "While more primitive forms of holotechnology has existed in numerous forms in the Federation and its neighbors as far back as the mid-22nd century, advances—as well as some accidental discoveries—in the late 24th century allow for increasingly-sophisticated holograms that blur the line between simulated behavior and true self-awareness. The introduction of the Emergency Medical Hologram to Starfleet vessels in the 2370s was a major step forward, and though plagued with a few false starts, independent holograms became increasingly common over the decades that followed.",
+                "True self-awareness is relatively rare in holograms, and seems to occur as much through the conditions and circumstances they experience as through any intentional programming: many advanced holograms have the potential to become truly sapient, but only a few of them ever do. These few, however, are often staunch advocates for both their own independence and the rights of holographic or photonic beings. As they’re normally programmed to emulate humanoid behavior (and often modelled on individuals), sapient holograms don’t tend to have the same difficulty relating to organic beings that other artificial intelligences do."
+            },
+            ExampleCharacters = "Professor James Moriarty (The Next Generation), Vic Fontaine (Deep Space Nine), The Doctor (Voyager), Kathryn Janeway (Prodigy)",
+            AttributeModifiers = new CharacterAttributes(),
+            ThreeRandomAttributes = true,
+            TraitDescription = "A hologram can be programmed to any specification, and while they may appear indistinguishable from an organic being, a hologram’s physical presence—or holomatrix—is a combination of light and energy suspended in a force field, colloquially called “holomatter,” which is projected from a holo-emitter. Holograms cannot truly be subject to physical harm (though they can certainly simulate it), though their holomatrix can become disrupted, and holo-emitters can be damaged. A hologram can only exist in locations where there are holo-emitters present. Holograms are often disrespected by flesh-and-blood people, who tend to regard them as tools more than people. Holograms may have a second species trait, to reflect the species they were designed to emulate",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Photonic",
+                Description = "You are not an organic being, and are not vulnerable to physical harm as they are: you have 2 Protection. Injuries and fatigue you suffer represent disruption to your holomatrix or damage to holo- emitters. You recover from injuries with Engineering tasks, rather than Medicine. You cannot be present in any scene where there are no holo-emitters. In addition, because you were programmed for a specific purpose, you do not have a pastime.",
+                ProtectionBonus = 2,
+                HasPastime = false,
+                Source = BookSource.SpeciesSourcebook
+            },
+            HasSecondarySpeciesTrait = true,
+            Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
         new Species

@@ -86,6 +86,8 @@ public static class NameGenerator
             return GenerateGrazeriteName(gender);
         if (species == SpeciesName.Haliian)
             return GenerateHaliianName(gender);
+        if (species == SpeciesName.Hologram)
+            return GenerateHologramName(character);
         if (species == SpeciesName.Human)
             return GenerateHumanName(gender);
         if (species == SpeciesName.JemHadar)
@@ -703,6 +705,11 @@ public static class NameGenerator
     {
         "Mahki", "Santosi", "Uhnari", "Kinge", "Rozenn", "Terzi", "Abeln", "Kedzi", "Albini", "Nani", "Apito"
     };
+
+    private static string GenerateHologramName(Character character)
+    {
+        return GenerateName(character, secondSpecies: true);
+    }
 
     private static string GenerateJemHadarName(Gender gender)
     {

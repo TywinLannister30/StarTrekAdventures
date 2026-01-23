@@ -217,6 +217,9 @@ public class Talent
     [JsonIgnore]
     public int AdditionalFocuses { get; set; }
 
+    [JsonIgnore]
+    public bool GainPastime { get; set; } = false;
+
     public string Source { get; set; }
 
     private static string AddValue(string value, bool leadWithComma)

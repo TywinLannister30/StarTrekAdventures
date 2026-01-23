@@ -1399,6 +1399,31 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Expanded Programming",
+                TraitRequirement = SpeciesName.Hologram,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your program has been expanded considerably, and even includes interests beyond the scope of your original programming. You may select up to two additional focuses. In addition, you may select a pastime.",
+                },
+                AdditionalFocuses = 2,
+                GainPastime = true,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Mobile Emitter",
+                TraitRequirement = SpeciesName.Hologram,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a device that allows you a degree of autonomy from fixed holo-emitters. Most of these mobile emitters are bulky, awkward pieces of equipment with a limited amount of power, making them useful only for short periods and emergencies, but the technology is improving. While you have your mobile emitter, you can move freely in places that lack holo-emitters. However, the device is vulnerable, which reduces your Protection by 1.",
+                },
+                ProtectionModifier = -1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Resolute",
                 TraitRequirement = SpeciesName.Human,
                 GMPermission = true,

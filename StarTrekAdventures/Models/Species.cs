@@ -29,5 +29,7 @@ public class Species
 
     public bool HasGender { get; set; } = true;
 
+    public bool HasSecondarySpeciesTrait{ get; set; } = false;
+
     public string Source { get; set; }
 }

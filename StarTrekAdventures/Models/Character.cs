@@ -48,7 +48,9 @@ public class Character
     public SpeciesAbility SpeciesAbility { get; set; }
     public string Environment { get; set; }
     public string Upbringing { get; set; }
-    
+
+    [JsonIgnore]
+    public string PrimarySpecies { get; set; }
     [JsonIgnore]
     public string ChosenTrack { get; set; }
 

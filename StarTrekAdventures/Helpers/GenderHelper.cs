@@ -8,7 +8,7 @@ public static class GenderHelper
 {
     public static Gender GetGender(Character character, ISpeciesSelector speciesSelector)
     {
-        var species = speciesSelector.GetSpecies(character.Species);
+        var species = speciesSelector.GetSpecies(character.PrimarySpecies);
 
         if (!species.HasGender)
             return Gender.None;

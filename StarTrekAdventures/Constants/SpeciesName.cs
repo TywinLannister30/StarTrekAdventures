@@ -39,6 +39,7 @@ public static class SpeciesName
     public const string Ferengi = "Ferengi";
     public const string Grazerite = "Grazerite";
     public const string Haliian = "Haliian";
+    public const string Hologram = "Hologram";
     public const string Human = "Human";
     public const string JemHadar = "Jem'Hadar";
     public const string Jye = "Jye";

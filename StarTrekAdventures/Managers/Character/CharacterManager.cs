@@ -67,6 +67,7 @@ public class CharacterManager : ICharacterManager
     {
         var chosenSpecies = _speciesSelector.ChooseSpecies(specificSpecies);
 
+        character.PrimarySpecies = chosenSpecies.First().Name;
         character.Species = chosenSpecies.ToSpeciesName();
 
         foreach (var species in chosenSpecies)

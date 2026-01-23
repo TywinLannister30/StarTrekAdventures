@@ -254,6 +254,11 @@ public class ValueSelector : IValueSelector
 
         new Value { Name = "Many sides to every tale", TraitRequirement = SpeciesName.Haliian, Weight = 10 },
 
+        new Value { Name = "Few organics pay a hologram much mind", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I am not flesh and blood, but I am real", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Photons be free!", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Where does my programming end and my personality begin?", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Earth is a paradise, but not everywhere is so fortunate", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "I believe in what the Federation stands for", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "Learn something new every day", TraitRequirement = SpeciesName.Human, Weight = 10 },
