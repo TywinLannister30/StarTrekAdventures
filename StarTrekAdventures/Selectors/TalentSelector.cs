@@ -1143,6 +1143,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Song of the Ocean",
+                TraitRequirement = SpeciesName.Cetacean,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your innate echolocation capabilities—sometimes called biosonar—are especially well-honed and precise. When attempting to detect fine details of your environment, notice the movement of other objects or creatures, or navigate a complex path through that environment, or communicate with other aquatic creatures capable of echolocation, you ignore all normal penalties for distance: you can perceive and communicate clearly up to 100 kilometers away.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Three-Dimensional Thinking",
+                TraitRequirement = SpeciesName.Cetacean,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You possess a knack for navigating in three-dimensional spaces which terrestrial species tend to lack, and you’ve trained to adapt that capability to starship navigation. Whenever you attempt a task to pilot or navigate a starship (normally using Conn), and suffer any complications, you may spend 1 Momentum (Immediate, Repeatable) to ignore a complication.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Cultural Flexibility",
                 TraitRequirement = SpeciesName.Denobulan,
                 GMPermission = true,

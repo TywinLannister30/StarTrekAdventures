@@ -167,7 +167,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Cardassians did not choose to be superior, fate made us this way", TraitRequirement = SpeciesName.Cardassian, Weight = 5 },
         new Value { Name = "Loyal defender of Cardassia", TraitRequirement = SpeciesName.Cardassian, Weight = 5 },
         new Value { Name = "They don’t know what it means to be my enemy", TraitRequirement = SpeciesName.Cardassian, Weight = 5 },
-        
+
+        new Value { Name = "I do this for curiosity, duty, honor, and unlimited fish", TraitRequirement = SpeciesName.Cetacean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "No thumbs, but I’m still a member of this crew", TraitRequirement = SpeciesName.Cetacean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "To seek out strange new oceans", TraitRequirement = SpeciesName.Cetacean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Work can be fun and rewarding with the right attitude", TraitRequirement = SpeciesName.Cetacean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "The founders are the will of the Dominion", TraitRequirement = SpeciesName.Changeling, Weight = 10 },
         new Value { Name = "My terms are not open to negotiation", TraitRequirement = SpeciesName.Changeling, Weight = 5 },
         new Value { Name = "The Changelings are the Dominion", TraitRequirement = SpeciesName.Changeling, Weight = 5 },

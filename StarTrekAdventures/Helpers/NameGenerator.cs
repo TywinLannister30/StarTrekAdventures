@@ -1,6 +1,8 @@
 ﻿using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
+using System;
+using System.Text.RegularExpressions;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Helpers;
@@ -58,6 +60,8 @@ public static class NameGenerator
             return GenerateChangelingName(gender);
         if (species == SpeciesName.CyberneticallyEnhanced)
             return GenerateCyberneticallyEnhancedName(character);
+        if (species == SpeciesName.Cetacean)
+            return GenerateCetaceanName();
         if (species == SpeciesName.Deltan)
             return GenerateDeltanName(gender);
         if (species == SpeciesName.Denobulan)
@@ -508,6 +512,15 @@ public static class NameGenerator
     {
         return GenerateName(character, secondSpecies: true);
     }
+
+    private static string GenerateCetaceanName()
+    {
+        return CetaceanNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> CetaceanNames = new List<string>
+    {
+        "Gillian", "Kimolu", "Matt", "Regis", "Jogani", "Nickie"
+    };
 
     private static string GenerateDeltanName(Gender gender)
     {

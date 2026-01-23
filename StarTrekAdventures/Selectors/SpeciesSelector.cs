@@ -405,7 +405,8 @@ public class SpeciesSelector : ISpeciesSelector
                 Description = "You have a prehensile tail, and retractable claws in your fingertips, useful for climbing and hunting. Whenever you attempt a task to maintain your balance or to climb, the first d20 you purchase is free. Further, you may grasp objects with your tail, though not as tightly or easily as with your hands. Due to your claws, your unarmed attacks may inflict both Stun and Deadly Injuries.",
                 Source = BookSource.SpeciesSourcebook
             },
-            Weight = 2 
+            Weight = 2 ,
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {
@@ -427,6 +428,29 @@ public class SpeciesSelector : ISpeciesSelector
                 Description = "You may add 1 Threat when interacting with an NPC to ask the gamemaster if that NPC is lying about something. The gamemaster must answer either Yes or No, and this answer must be accurate, but the gamemaster does not have to specify what the NPC is lying about."
             },
             Weight = 0
+        },
+        new Species
+        {
+            Name = SpeciesName.Cetacean,
+            Description = new List<string>
+            {
+                "Cetaceans are not a single species; rather, it is a term for several species of warm-blooded, air-breathing mammals native to Earth, including various species of whale, dolphin, and porpoise. While highly intelligent, they were regarded more as animals than as sapient beings for much of Human history due to significant communication barriers between Cetacean species and Humans. Major breakthroughs involving those communications problems were made in the late 23rd century when Admiral Kirk and his crew brought two humpback whales to the present from the 20th century to communicate with an alien probe.",
+                "Still, Cetaceans are somewhat rare in the Federation, partly due to many species becoming endangered in Earth’s past, and partly because few Federation or Starfleet facilities are built to accommodate aquatic species. Despite this, several larger classes of Starfleet vessels in the 24th century and onwards incorporate Cetacean Operations departments, crewed by a small number of Cetacean officers (and personnel from other aquatic species) using their aquatic perspective and distinct sensory processing abilities to aid interstellar navigation."
+            },
+            ExampleCharacters = "Matt (Lower Decks), Gillian (Prodigy)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Insight = 1, Reason = 1
+            },
+            TraitDescription = "This character is a member of one of several species of Cetaceans. You’re an aquatic mammal, adapted to living underwater and efficient swimming, but you have difficulty operating outside of water without adaptive technology. You require air to breath, but can hold your breath for an extended period. You can accurately perceive aquatic environments, and navigate within them, using echolocation. At your discretion, you may replace the name of this trait with the name of a specific species of Cetacean. It is recommended to only play Cetaceans who are approximately Human-sized, rather than larger species of whale.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Aquatic Mammal",
+                Description = "You can move freely and without hindrance through the water. You may ignore any traits or injuries caused by exposure to extremely cold aquatic conditions. However, when on land you are always considered to be Prone (core rulebook, page 288).",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {
