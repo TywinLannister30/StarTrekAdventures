@@ -78,6 +78,8 @@ public static class NameGenerator
             return GenerateEdosianName(gender);
         if (species == SpeciesName.Efrosian)
             return GenerateEfrosianName(gender);
+        if (species == SpeciesName.ElAurian)
+            return GenerateElAurianName(gender);
         if (species == SpeciesName.Ferengi)
             return GenerateFerengiName(gender);
         if (species == SpeciesName.Grazerite)
@@ -624,6 +626,29 @@ public static class NameGenerator
     private static readonly List<string> EfrosianFemaleNames = new List<string>
     {
         "Hu’Ghrovlatrei", "Fellen Ni-Yaleii"
+    };
+
+    private static string GenerateElAurianName(Gender gender)
+    {
+        var firstName = gender == Gender.Male
+            ? ElAurianMaleNames.OrderBy(n => Util.GetRandom()).First()
+            : ElAurianFemaleNames.OrderBy(n => Util.GetRandom()).First();
+
+        var familyName = ElAurianFamilyNames.OrderBy(n => Util.GetRandom()).First();
+
+        return $"{firstName} {familyName}";
+    }
+    private static readonly List<string> ElAurianMaleNames = new List<string>
+    {
+        "Doqtis", "Martus", "Tolian", "Yuriel"
+    };
+    private static readonly List<string> ElAurianFemaleNames = new List<string>
+    {
+        "Eylen", "Guinan", "Kassia", "Leandra"
+    };
+    private static readonly List<string> ElAurianFamilyNames = new List<string>
+    {
+        "Ilum", "Mazur", "Nox", "Soran", "Tyvan"
     };
 
     private static string GenerateFerengiName(Gender gender)

@@ -610,6 +610,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.ElAurian,
+            Description = new List<string>
+            {
+                "Appearing similar to Humans in many ways, El-Aurians are an enigmatic species, a culture of “listeners” who travel far and wide across the Galaxy learning about other cultures and offering advice. Many of their kind had travelled as far as Earth even as early as the 19th century. They seem to possess an unknown perceptive capability which extends beyond the normal boundaries of space-time. The El-Aurians’ homeworld was conquered by the Borg in the mid-22nd century.",
+                "While they are biologically very similar to Humans, El- Aurians are notable for their extremely long lifespans, allowing them to remain vital and active for centuries or longer. Further, older El-Aurians have demonstrated the ability to influence the visible signs of their own aging, allowing them to remain unchanging for centuries or superficially age among shorter-lived species to help blend in among them: it’s been said that El-Aurians only age when they choose to. However, young El-Aurians reach maturity at around the same time as Humans."
+            },
+            ExampleCharacters = "Guinan (The Next Generation), Tolian Soran (Star Trek Generations), Kassia Nox (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Insight = 1, Reason = 1, Presence = 1
+            },
+            TraitDescription = "While they appear almost indistinguishable from a Human, El-Aurian physiology allows them to live for several centuries, and gives them an awareness that transcends the normal bounds of space, time, and dimensions. El-Aurians have a long-standing treaty with the extradimensional entities known as the Q Continuum, and the Q tend to treat El-Aurians warily.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Transtemporal Awareness",
+                Description = "You are aware of shifts and changes in the fabric of space-time in ways that few other beings are. Whenever there is a phenomenon present in a scene which was caused by alterations to the timeline, or the influence of alternate dimensions or extradimensional entities, the gamemaster must immediately inform you that something is wrong (though they do not have to specify what). You may add 1, 2, or 3 Threat to ask that many questions (as per Obtain Information) to try and discern details about the phenomenon.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Ferengi,
             Description = new List<string>
             {

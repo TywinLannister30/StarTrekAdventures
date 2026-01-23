@@ -1,5 +1,6 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
+using StarTrekAdventures.Models.Version1;
 using StarTrekAdventures.Selectors;
 using System.Text.Json.Serialization;
 
@@ -385,6 +386,14 @@ public class Character
         foreach (var focus in focusesAvailable)
         {
             if (!Focuses.Any(x => x == focus)) choices.Add(focus);
+        }
+
+        if (choices.Count == 0)
+        {
+            foreach (var focus in FocusHelper.GetAllFocuses())
+            {
+                if (!Focuses.Any(x => x == focus)) choices.Add(focus);
+            }
         }
 
         for (int i = 0; i < numToChoose; i++)

@@ -1307,6 +1307,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Listener",
+                TraitRequirement = SpeciesName.ElAurian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Even among a species known for listening to others, you’re practiced at gleaning insights from the smallest interactions. Once per scene, when you have observed or conversed with another person, you may spend 1 Momentum (Immediate) to ask one question about them, as per Obtain Information. This question must be about their mental state, emotions, or a dilemma they are currently grappling with. Further, if a character spends a breather or break rest talking to you about their problems, they recover 1 additional Stress.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Touched the Nexus",
+                TraitRequirement = SpeciesName.ElAurian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "In 2293, you and 46 other El-Aurians aboard the S.S. Lakul were rescued from an extradimensional energy ribbon known as the Nexus by the U.S.S. Enterprise-B. While you were physically pulled from the Nexus by the Enterprise’s transporters, an echo of you still lingers within the Nexus: a tiny piece of yourself left behind which you remain aware of. This has heightened your awareness of changes in time and space: when you use your Transtemporal Awareness ability, the first question you ask is free, and you may purchase up to two additional questions by adding Threat.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Greed is Eternal",
                 TraitRequirement = SpeciesName.Ferengi,
                 GMPermission = true,
