@@ -24,6 +24,7 @@ public static class SpeciesName
     public const string Caitian = "Caitian";
     public const string Cardassian = "Cardassian";
     public const string Cetacean = "Cetacean";
+    public const string Chameloid = "Chameloid";
     public const string Changeling = "Changeling";
     public const string CoppeliusAndroid = "Coppelius Android";
     public const string CyberneticallyEnhanced = "Cybernetically Enhanced";

@@ -1167,6 +1167,53 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Anatomical Expertise",
+                TraitRequirement = SpeciesName.Chameloid,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’re well-versed in the anatomical strengths and weaknesses of different species, as only someone who has worn many skins can. When you create a trait that represents knowing a particular anatomical or physiological weakness possessed by a specific species, the Difficulty of the task to create that trait is reduced by 1, or the Momentum cost of that trait is reduced by 1.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Rapid Shift",
+                TraitRequirement = SpeciesName.Chameloid,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are especially swift and efficient at shapeshifting, and no longer suffer Stress to assume another form. Further, you do not require a minor action to shapeshift, but you may only assume a new form at most twice per round when action order is being used.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Altered Changeling",
+                TraitRequirement = SpeciesName.Changeling,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Through torturous experimentation and exposure to thelomium-847, the nature of your morphogenic matrix has been altered. When you adopt the form of a living being, you may mimic the form of a specific individual, taking their appearance and personality to a degree that it is nearly impossible for others to determine your nature, even with blood tests or extensive bio-screening, and you may retain that form indefinitely. Increase the Potency of the trait you gain when you assume that form by 2. However, it costs 2 Stress for you to change form, and you are no longer immune to exposure to vacuum.",
+                },
+                MayNotTakeWithTalent = "Morphogenic Mastery",
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Morphogenic Mastery",
+                TraitRequirement = SpeciesName.Changeling,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When you assume an alternate form, you may mimic the form of a specific individual, taking their appearance and personality sufficiently that even close friends may not be able to discern the truth: increase the Potency of the trait you gain when you assume that form by 1. You are no longer required to revert to a liquid state to rest.",
+                },
+                MayNotTakeWithTalent = "Altered Changeling",
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Cultural Flexibility",
                 TraitRequirement = SpeciesName.Denobulan,
                 GMPermission = true,

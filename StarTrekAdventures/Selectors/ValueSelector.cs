@@ -173,7 +173,15 @@ public class ValueSelector : IValueSelector
         new Value { Name = "To seek out strange new oceans", TraitRequirement = SpeciesName.Cetacean, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Work can be fun and rewarding with the right attitude", TraitRequirement = SpeciesName.Cetacean, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "The founders are the will of the Dominion", TraitRequirement = SpeciesName.Changeling, Weight = 10 },
+        new Value { Name = "I am safest when I’m anonymous", TraitRequirement = SpeciesName.Chameloid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I lie to keep myself alive", TraitRequirement = SpeciesName.Chameloid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Keep everyone guessing about who you really are", TraitRequirement = SpeciesName.Chameloid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Which face would you like to meet today?", TraitRequirement = SpeciesName.Chameloid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
+        new Value { Name = "Solids will never understand us", TraitRequirement = SpeciesName.Changeling, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Founders’ will defines the Dominion", TraitRequirement = SpeciesName.Changeling, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Galaxy is dangerous, and safety comes from order", TraitRequirement = SpeciesName.Changeling, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The ocean becomes the drop, and the drop becomes the ocean", TraitRequirement = SpeciesName.Changeling, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "My terms are not open to negotiation", TraitRequirement = SpeciesName.Changeling, Weight = 5 },
         new Value { Name = "The Changelings are the Dominion", TraitRequirement = SpeciesName.Changeling, Weight = 5 },
         new Value { Name = "There’s very little that escapes our attention", TraitRequirement = SpeciesName.Changeling, Weight = 5 },

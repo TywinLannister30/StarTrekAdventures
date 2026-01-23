@@ -454,6 +454,54 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Chameloid,
+            Description = new List<string>
+            {
+                "A semi-amorphous species, Chameloids are shapeshifters, able to assume the appearance of a variety of other species, or even specific individuals, right down to their clothing. Without the use of advanced scanning technology, it’s extremely difficult to detect a disguised Chameloid. For this reason, Chameloids are often regarded with suspicion and even fear, though encounters with them are rare enough that many people doubt the existence of Chameloids entirely.",
+                "Chameloid culture is little known, and the Chameloids themselves are secretive and elusive at the best of times, often finding themselves involved in criminal activities or covert work where their abilities are most useful, and where the distrust directed at their kind is less of a concern. Chameloids may choose to favor one common form over others for interacting regularly with friends, allies, or colleagues, or even with one specific group of marks. They do not have a physical sex, and they only have a sense of gender within the context of specific adopted forms."
+            },
+            ExampleCharacters = "Martia (Star Trek VI: The Undiscovered Country), Quasi (Section 31)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Chameloids are a species of shapeshifters, whose rarely-seen natural form is a writhing mass of tubules and tendrils. They can quickly alter their cellular structure to adopt the appearance of other individuals from other species, including their clothing, and it seems to take little effort or cause them little strain to do so. Telling a disguised Chameloid apart from a true member of a species is extremely difficult without technological scanning methods.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Natural Shapeshifter",
+                Description = "You commonly exist in a form other than your natural state. At the start of a mission, you gain an additional trait to reflect the form you’ve chosen, which may be the form of a specific individual. You may suffer 1 Stress as a minor action once per turn to change this form. It is difficult (requiring a successful Difficulty 3 task) to detect a disguised Chameloid without technological assistance.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            HasGender = false,
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Changeling,
+            Description = new List<string>
+            {
+                "Also known as the Founders of the Dominion, the Changelings are deeply wreathed in myth, legend, and hearsay. They generally dislike “solids”—their term for other species—and they founded the Dominion in order to protect themselves from what they perceived as the brutality and hostility of other species. Changelings themselves are composed of a morphogenic substance that allows them to adopt the appearance and properties of other creatures and objects. At their most basic level, this allows them to blend into their surroundings, mimicking rocks, plant life, and simple animal life. With practice and experience, they can perfectly mimic the likeness and manner of sapient beings, or even take the form of luminescent displays or even complex cosmozoans able to travel through space on solar winds or by entering subspace. Their shapeshifting is on a molecular level, making them extraordinarily difficult to detect without specially calibrated sensors.",
+                "Changelings seldom allow themselves to be seen by outsiders, due to many experiences of being hunted or attacked. They are more willing to appear in disguise, but they prefer to act through proxies, such as the Vorta and Jem’Hadar."
+            },
+            ExampleCharacters = "Odo (Deep Space Nine), Vadic (Picard)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "A Changeling is a mass of viscous orange-brown fluid, which can arrange its molecular structure to adopt the form of other objects, from living creatures to diffuse substances such as fog. While they cannot become energy, given sufficient skill and practice, a Changeling can adopt almost any other form: it is theorized that they transfer energy and mass to and from subspace to alter size and mass. They are deeply distrustful of “solids,” and often find themselves persecuted for their abilities.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Morphogenic Matrix",
+                Description = "You may suffer 1 Stress as a minor action once per turn to assume a different form, gaining one additional trait to reflect whatever form you have chosen. You cannot yet mimic a specific individual, and you must revert to a liquid state for a few hours after sixteen hours in a solid form. While in an alternate form, it is next to impossible (requiring a Difficulty 5 task roll) to detect a hidden Changeling. Your body is highly resistant to physical harm and energy weapons, giving you Protection 2, and your thoughts and emotions cannot be detected by telepaths or empaths. You are immune to extremes of heat, cold, and exposure to vacuum.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            HasGender = false,
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.CoppeliusAndroid,
             Description = new List<string>
             {
@@ -468,7 +516,7 @@ public class SpeciesSelector : ISpeciesSelector
             TraitDescription = "The physical and mental capabilities of an android are enhanced compared to that of many organic or cybernetic life-forms. They are highly resistant to the effects of hard vacuum, disease, radiation, suffocation, toxins, and telepathy. Some environmental conditions, such as highly ionized atmospheres, intense electromagnetic discharges, and the like can have a severe effect. The legal personhood of androids has been a controversial matter, and many people look on androids with suspicion or doubt.",
             SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.SyntheticLifeForm),
             Weight = 0,
-            Source = BookSource.NextGenerationCrewPack1stEdition
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {
@@ -662,7 +710,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Changeling, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Morphogenic Matrix", Weight = 0 },
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
         //new Species { Name = SpeciesName.Deltan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },

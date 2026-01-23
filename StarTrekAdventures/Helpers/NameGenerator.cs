@@ -62,6 +62,10 @@ public static class NameGenerator
             return GenerateCyberneticallyEnhancedName(character);
         if (species == SpeciesName.Cetacean)
             return GenerateCetaceanName();
+        if (species == SpeciesName.Chameloid)
+            return GenerateShapeshifterName();
+        if (species == SpeciesName.Changeling)
+            return GenerateShapeshifterName();
         if (species == SpeciesName.Deltan)
             return GenerateDeltanName(gender);
         if (species == SpeciesName.Denobulan)
@@ -1009,6 +1013,12 @@ public static class NameGenerator
         "Vk’chk’tk (Victoria)", "Sh’larlst (Shae)", "Gr’hsk-ha’sha (Gaius)", "Lss’t-kel’sar (Linus)"
     };
 
+    private static string GenerateShapeshifterName()
+    {
+        var personGenerator = new PersonNameGenerator();
+
+        return personGenerator.GenerateRandomFirstName();
+    }
     private static string GenerateSikarianName(Gender gender)
     {
         var firstName = gender == Gender.Male

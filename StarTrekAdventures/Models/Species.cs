@@ -27,5 +27,7 @@ public class Species
 
     public CharacterAttributes OneOfTheseModifiers { get; set; }
 
+    public bool HasGender { get; set; } = true;
+
     public string Source { get; set; }
 }
