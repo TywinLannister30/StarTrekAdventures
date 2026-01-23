@@ -208,9 +208,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The hunt is everything", TraitRequirement = SpeciesName.Drai, Weight = 5 },
         new Value { Name = "They are insignificant in the eyes of the Dominion", TraitRequirement = SpeciesName.Drai, Weight = 5 },
         new Value { Name = "We shall succeed at all costs", TraitRequirement = SpeciesName.Drai, Weight = 5 },
-        
-        new Value { Name = "Perspective brings understanding", TraitRequirement = SpeciesName.Edosian, Weight = 10 },
-        
+
+        new Value { Name = "Do not mistake contemplation for hesitation", TraitRequirement = SpeciesName.Edosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Perspective brings understanding", TraitRequirement = SpeciesName.Edosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Preserve the present, for our future is shaped by its past", TraitRequirement = SpeciesName.Edosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The differences between our fields of study are lines we draw ourselves", TraitRequirement = SpeciesName.Edosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Specialization furthers knowledge", TraitRequirement = SpeciesName.Efrosian, Weight = 10 },
         
         new Value { Name = "1st rule of acquisition — once you have their money, never give it back", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },

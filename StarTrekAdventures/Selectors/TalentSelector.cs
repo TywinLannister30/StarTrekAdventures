@@ -1258,6 +1258,31 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "The Long View",
+                TraitRequirement = SpeciesName.Edosian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Due to their extremely long lifespans, Edosians often accumulate a wealth of knowledge. When you select this talent, gain two additional focuses.",
+                },
+                AdditionalFocuses = 2,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Multi-Tasking",
+                TraitRequirement = SpeciesName.Edosian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have much greater ease with performing multiple simultaneous tasks. You may perform one additional minor action per turn for free.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Greed is Eternal",
                 TraitRequirement = SpeciesName.Ferengi,
                 GMPermission = true,

@@ -214,6 +214,9 @@ public class Talent
     [JsonIgnore]
     public int Weight { get; set; }
 
+    [JsonIgnore]
+    public int AdditionalFocuses { get; set; }
+
     public string Source { get; set; }
 
     private static string AddValue(string value, bool leadWithComma)

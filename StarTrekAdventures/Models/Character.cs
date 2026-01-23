@@ -130,7 +130,7 @@ public class Character
                 }
             }
 
-            if (Focuses.Count != 6 + SpeciesAbility.AdditionalFocuses + Roles.Sum(x => x.AdditionalFocuses) + Talents.Where(x => x.GainRandomFocus != null).Count())
+            if (Focuses.Count != 6 + SpeciesAbility.AdditionalFocuses + Roles.Sum(x => x.AdditionalFocuses) + Talents.Sum(x => x.AdditionalFocuses) + Talents.Where(x => x.GainRandomFocus != null).Count())
             {
                 ValidationIssue = $"The character has {Focuses.Count} focuses. It should be {6 + SpeciesAbility.AdditionalFocuses + Roles.Sum(x => x.AdditionalFocuses) + Talents.Where(x => x.GainRandomFocus != null).Count()}.";
                 return false;
@@ -428,6 +428,9 @@ public class Character
 
         if (!string.IsNullOrEmpty(talent.TraitGained))
             Traits.Add(talent.TraitGained);
+
+        if (talent.AdditionalFocuses > 0)
+            AddFocuses(FocusHelper.GetAllFocuses(), talent.AdditionalFocuses, randomGenerator);
     }
 
     public void AddTraitsForCareerPath(CareerPath track, IRandomGenerator randomGenerator = null)

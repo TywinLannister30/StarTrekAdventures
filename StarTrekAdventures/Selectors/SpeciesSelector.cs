@@ -564,6 +564,28 @@ public class SpeciesSelector : ISpeciesSelector
             },
             Weight = 2
         },
+        new Species 
+        { 
+            Name = SpeciesName.Edosian,
+            Description = new List<string>
+            {
+                "Edosians are a tripedal species with three arms and three legs. While not a member of the Federation, the Edosians have had a long-standing, loose alliance with the Federation since their first contact. It is rare, though not unknown, for Edosians to serve in Starfleet. Edosian culture tends toward inner reflection and a meticulousness with historical records. Genealogy has a much larger focus than in many other cultures, and Edosians are able to trace their individual family lines back thousands of years. Being a species that lives longer than even Vulcans, an Edosian may spend decades focused on a particular area of study before moving on to a new interest. With practice, an Edosian becomes capable of allocating sections of their brain to each arm, operating independently with nearly full focus and capability.",
+            },
+            ExampleCharacters = "Arex (The Animated Series), Toz (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Fitness = 1, Insight = 1, Reason = 1 
+            },
+            TraitDescription = "With three legs, Edosians are somewhat slower than most humanoids, but far more stable. With three multi-dextrous arms, they are able to operate multiple stations or controls at the same time. They are long-lived and capable of deep thought—which others often mistake as antisocial behavior. Their long lives grant them a perspective most others lack, and they are often able to recall details and facts from disciplines outside their areas of focus due to decades of exposure and broad study.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Trilateral Symmetry",
+                Description = "Edosians are capable, with effort and practice, of compartmentalizing their thoughts and operating each arm completely independently, performing multiple complex tasks simultaneously. When you spend Momentum on the Swift Action option, you may suffer 1 Stress to ignore the normal Difficulty increase of your second action. You may also suffer 1 Stress to ignore the Difficulty increase from the Override starship conflict action.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         new Species
         {
             Name = SpeciesName.Ferengi,
@@ -760,7 +782,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
         //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Drai, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Edosian, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Efrosian, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 4 },
         //new Species { Name = SpeciesName.Grazerite, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
