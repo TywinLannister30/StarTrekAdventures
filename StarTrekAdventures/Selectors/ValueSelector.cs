@@ -188,8 +188,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "What you control can’t hurt you", TraitRequirement = SpeciesName.Changeling, Weight = 5 },
         
         new Value { Name = "Artificial but still alive", TraitRequirement = SpeciesName.CyberneticallyEnhanced, Weight = 10 },
-        
-        new Value { Name = "Bodies and minds as one", TraitRequirement = SpeciesName.Deltan, Weight = 10 },
+
+        new Value { Name = "Bodies and minds as one", TraitRequirement = SpeciesName.Deltan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Emotions are central to how we experience life", TraitRequirement = SpeciesName.Deltan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Peace is only possible if we’re honest with one another", TraitRequirement = SpeciesName.Deltan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "You are not ready to feel as deeply as I do", TraitRequirement = SpeciesName.Deltan, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "A new neighbor is a potential friend", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },
         new Value { Name = "Comfort in numbers", TraitRequirement = SpeciesName.Denobulan, Weight = 10 },

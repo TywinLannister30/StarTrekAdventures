@@ -1214,6 +1214,28 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Deltan Pheromones",
+                TraitRequirement = SpeciesName.Deltan,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You emit aphrodisiac pheromones which can influence or distract others. When dealing with creatures affected by your pheromones, you gain 3 bonus Momentum on all tasks to persuade them, but you increase the complication range of that task roll by 2, as their behavior can become unpredictable. Bonus Momentum cannot be saved. Most species are affected, but gamemaster’s discretion applies as to which species may be resistant or affected. Deltans without this talent are assumed to regularly take biochemical suppressants to counteract their pheromones.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Empathic Touch",
+                TraitRequirement = SpeciesName.Deltan,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’ve practiced your empathic abilities, and you can influence the emotions of others in close proximity, and can even relieve physical pain. When you attempt a task to try and persuade, provoke, or manipulate a living creature, you may suffer 2 Stress to create or remove an emotion-related trait from them before you roll. Further, if you spend Momentum to recover an ally’s Stress, the cost is reduced to 1 as long as you’re touching them.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Cultural Flexibility",
                 TraitRequirement = SpeciesName.Denobulan,
                 GMPermission = true,
@@ -1633,6 +1655,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Telepathy",
+                TraitRequirement = SpeciesName.Deltan,
                 GMPermission = true,
                 Weight = 10,
                 Description = new List<string>

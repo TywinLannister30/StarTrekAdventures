@@ -518,6 +518,30 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species 
+        { 
+            Name = SpeciesName.Deltan,
+            Description = new List<string>
+            {
+                "These humanoids from the Delta system differ in appearance only slightly from Humans, with very little hair across their bodies, aside from eyebrows and lashes. As a telepathic and empathic species, Deltans rank themselves alongside the Vulcans and Betazoids as able to read and communicate via thoughts and feelings. Indeed, some Deltan genealogists have theorized Betazoids are a distant cousin species.",
+                "With some of the most potent pheromones the Federation has ever encountered, many other species find the Deltans very sexually appealing. The vast majority of Deltans in Starfleet, therefore, take an oath of celibacy, ensuring their sexuality is not a distraction to their colleagues. By all accounts this is a good thing, as the Deltan act of intimacy involves not only their bodies but also their telepathic minds, which can be overwhelming, or even hazardous, to an unprepared mind."
+            },
+            ExampleCharacters = "Ilia (Star Trek: The Motion Picture), Melle (Section 31)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Control = 1, Insight = 1, Presence = 1 
+            },
+            TraitDescription = "Deltans are considered to be beautiful individuals, with powerful empathic abilities and heightened sensuality. The pheromones they excrete are a natural aphrodisiac in most species throughout the Federation, and while serving in Starfleet, they must be very careful with their natural physiology, using chemical suppressants to cancel the effect.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Empath",
+                Description = "You have the Empathy talent, described on page 155 of the core rulebook. You may develop this ability further by selecting the Telepathy talent during the course of character advancement.",
+                AddTalent = "Empathy",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         new Species
         {
             Name = SpeciesName.Denobulan,
@@ -538,7 +562,7 @@ public class SpeciesSelector : ISpeciesSelector
                 Description = "You may select two additional focuses.",
                 AdditionalFocuses = 2
             },
-            Weight = 8
+            Weight = 2
         },
         new Species
         {
@@ -734,7 +758,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
-        //new Species { Name = SpeciesName.Deltan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Drai, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Edosian, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 2 },
