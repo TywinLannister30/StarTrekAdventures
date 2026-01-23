@@ -1424,6 +1424,28 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Old as Dirt",
+                TraitRequirement = SpeciesName.Horta,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Horta can live to be thousands of years old, and while few have any experiences of the wider universe prior to first contact with them in 2267, their potential for accumulated wisdom is considerable. When you attempt a task for which you have an applicable focus, you may spend Determination to automatically succeed at that task roll, as long as the task’s Difficulty is lower than the department you would use on that roll (for example, if you attempt a task using Science, and you have Science rating of 4, you may spend Determination to auto-succeed at the task if it has a Difficulty of 3 or less).",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+             new()
+            {
+                Name = "Tunnel-Wise",
+                TraitRequirement = SpeciesName.Horta,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "All Horta can sense the chemical and mineral composition of the rocks and other objects around them, using a mixture of olfactory and vibrational senses. You’ve honed your senses to a masterful degree, allowing you to discern oddities, impurities, and other abnormal phenomena. Your sense of smell and your vibrational senses can discern fine details that other living creatures cannot detect without the use of high-tech scanners, and when you attempt to discern hidden or obscured details while within a subterranean environment, you may reroll 1d20.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Resolute",
                 TraitRequirement = SpeciesName.Human,
                 GMPermission = true,

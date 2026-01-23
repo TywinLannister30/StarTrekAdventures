@@ -158,6 +158,9 @@ public class CharacterManager : ICharacterManager
         {
             if (Util.GetRandom(100) <= 25)
                 talentName = TalentName.LifeLessons;
+
+            if (character.PrimarySpecies == SpeciesName.Horta)
+                talentName = "Old as Dirt"; 
         }
 
         character.AddTalent(_talentSelector, talentName);

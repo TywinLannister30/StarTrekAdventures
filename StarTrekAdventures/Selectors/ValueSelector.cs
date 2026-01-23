@@ -259,6 +259,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Photons be free!", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Where does my programming end and my personality begin?", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "All things, even rocks and stones, grow and change with time", TraitRequirement = SpeciesName.Horta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Be your best, so that all may thrive", TraitRequirement = SpeciesName.Horta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I am not a monster", TraitRequirement = SpeciesName.Horta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We may not resemble what you think of as life, but we are alive", TraitRequirement = SpeciesName.Horta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Earth is a paradise, but not everywhere is so fortunate", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "I believe in what the Federation stands for", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "Learn something new every day", TraitRequirement = SpeciesName.Human, Weight = 10 },

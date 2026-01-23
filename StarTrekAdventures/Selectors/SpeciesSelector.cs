@@ -725,6 +725,31 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Horta,
+            Description = new List<string>
+            {
+                "Horta are sapient, silicate life-forms native to the Alpha Quadrant planet Janus VI. Appearing as an amorphous rocky mass, Horta have little in common with carbon- based life, and they were not identified as being sapient until encountered by the crew of the U.S.S. Enterprise NCC-1701 in 2267, after conflict had arisen between a Human mining colony and the native Horta. Indeed, silicon- based life was deemed purely theoretical prior to first contact with the Horta. The Horta have an extraordinarily long life cycle, spanning almost fifty thousand years, at the end of which time a single mother Horta will remain to guard over the eggs for a new generation.",
+                "Horta feed upon mineral deposits found within rock, and they absorb these minerals while tunnelling through rock: their bodies secrete a highly potent acid that dissolves rock, metal, and even organic matter with ease, allowing them to tunnel through dense stone as easily as a Human might walk through an empty room. They are, however, highly intelligent and compassionate beings, and once communication was established between the Horta and the miners on Janus VI, they were able to cooperate extremely effectively. Horta cannot speak, but communicate through scent, vibration, and a limited psionic communion; among humanoids, they rely on universal translators, but in an emergency, they can etch writing into solid surfaces with their acid.",
+                "Since then, small numbers of Horta have travelled to other worlds, often as part of mining cooperatives, and a handful have even joined Starfleet."
+            },
+            ExampleCharacters = "Dahai Iohor Naraht (Star Trek novels), Chwolkk (Star Trek: Titan novels)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Fitness = 1, Insight = 1, Reason = 1
+            },
+            TraitDescription = "A Horta is a large amorphous mass of orange-brown silicate biomatter. They are silicon- based life, rather than carbon-based, and difficult for conventional scanners and sensors to detect as life, and an immobile Horta is nearly impossible to distinguish from a pile of rock or rubble. They are non-humanoid, but their bodies are flexible enough to allow them to grasp objects and manipulate tools with pseudopod-like projections, though humanoid tools are not always easy for them to wield. They have poor eyesight, and see mainly in the infrared range, but instead navigate by a vibrational sense and a multispectral olfactory sense that can detect the chemical compositions of objects, gases, and terrain in their vicinity. Horta player characters seldom use more physical tools than are absolutely necessary, as their natural acids risk damaging any objects not specially modified for them. They will still carry a communicator and universal translator.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Silicon-Based Burrower",
+                Description = "You are nigh-impervious to harm, having Protection 3, and you can move freely through solid rock with little difficulty (very dense rock might count as difficult terrain). Your acidic secretions give you a melee attack which inflicts Deadly 4 Injuries with the Debilitating and Piercing qualities.",
+                ProtectionBonus = 3,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Human,
             Description = new List<string>
             {

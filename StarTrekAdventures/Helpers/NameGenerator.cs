@@ -88,6 +88,8 @@ public static class NameGenerator
             return GenerateHaliianName(gender);
         if (species == SpeciesName.Hologram)
             return GenerateHologramName(character);
+        if (species == SpeciesName.Horta)
+            return GenerateCommonName();
         if (species == SpeciesName.Human)
             return GenerateHumanName(gender);
         if (species == SpeciesName.JemHadar)
