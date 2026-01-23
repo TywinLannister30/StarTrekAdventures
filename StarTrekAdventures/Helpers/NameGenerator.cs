@@ -1,8 +1,6 @@
 ﻿using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
-using System;
-using System.Text.RegularExpressions;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Helpers;
@@ -63,9 +61,9 @@ public static class NameGenerator
         if (species == SpeciesName.Cetacean)
             return GenerateCetaceanName();
         if (species == SpeciesName.Chameloid)
-            return GenerateShapeshifterName();
+            return GenerateCommonName();
         if (species == SpeciesName.Changeling)
-            return GenerateShapeshifterName();
+            return GenerateCommonName();
         if (species == SpeciesName.Deltan)
             return GenerateDeltanName(gender);
         if (species == SpeciesName.Denobulan)
@@ -80,6 +78,8 @@ public static class NameGenerator
             return GenerateEfrosianName(gender);
         if (species == SpeciesName.ElAurian)
             return GenerateElAurianName(gender);
+        if (species == SpeciesName.Exocomp)
+            return GenerateCommonName();
         if (species == SpeciesName.Ferengi)
             return GenerateFerengiName(gender);
         if (species == SpeciesName.Grazerite)
@@ -1040,12 +1040,6 @@ public static class NameGenerator
         "Vk’chk’tk (Victoria)", "Sh’larlst (Shae)", "Gr’hsk-ha’sha (Gaius)", "Lss’t-kel’sar (Linus)"
     };
 
-    private static string GenerateShapeshifterName()
-    {
-        var personGenerator = new PersonNameGenerator();
-
-        return personGenerator.GenerateRandomFirstName();
-    }
     private static string GenerateSikarianName(Gender gender)
     {
         var firstName = gender == Gender.Male
@@ -1394,4 +1388,11 @@ public static class NameGenerator
     {
         "Doraki", "Neelu", "Ayami", "Karis", "Elensa", "Irinu", "Kiran", "Tristi", "Lyudmi", "Natelani", "Adelyna"
     };
+
+    private static string GenerateCommonName()
+    {
+        var personGenerator = new PersonNameGenerator();
+
+        return personGenerator.GenerateRandomFirstName();
+    }
 }

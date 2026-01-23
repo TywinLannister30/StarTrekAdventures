@@ -35,6 +35,7 @@ public static class SpeciesName
     public const string Edosian = "Edosian";
     public const string Efrosian = "Efrosian";
     public const string ElAurian = "El-Aurian";
+    public const string Exocomp = "Exocomp";
     public const string Ferengi = "Ferengi";
     public const string Grazerite = "Grazerite";
     public const string Haliian = "Haliian";

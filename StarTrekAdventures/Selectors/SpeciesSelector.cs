@@ -633,6 +633,31 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Exocomp,
+            Description = new List<string>
+            {
+                "Sapient machines, Exocomps began as semi-autonomous industrial devices on Tyrus VII, but after being experimentally upgraded by Dr. Farallon grew in complexity and sophistication until they achieved self-awareness by modifying their own programming for greater efficiency. There was resistance to the idea that Exocomps were living, intelligent beings, in part due to their utility as autonomous tools, but also due to the difficulty of communicating effectively with them, and it took the efforts of another artificial life-form—Lieutenant Commander Data—to realize the truth.",
+                "Exocomps were designed with an adaptive intellect which could physically construct new circuit pathways to adapt themselves to new assignments. They were also built around a potent, compact micro-replicator which could fabricate whatever tools necessary for a given repair job. Because of these factors, Exocomps are extremely capable when it comes to performing precise, delicate tasks.",
+                "With some struggle, Exocomps were eventually recognized as sapient, with sophisticated intelligence, complex social structures, and something equivalent to families. Exocomps can even have children, with groups using their replicators to produce the parts to build a new one of their kind. Though they’ve developed the ability to speak and understand language, they don’t always interact well with humanoid life, as their understanding of humanoid emotion is limited, and they lack the body language and other social cues that humanoids typically use to communicate."
+            },
+            ExampleCharacters = "Peanut Hamper (Lower Decks), Kevin (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Daring = 1, Reason = 1
+            },
+            TraitDescription = "Exocomps are technological lifeforms which can crawl across the ground or hover for short periods of time. They are extremely capable of performing fine, complex tasks, and can replicate any tools needed to complete the job in front of them. As technological beings originally created for dangerous industrial tasks, an Exocomp is unaffected by vacuum and does not need to breathe, and is highly resistant to extremes of temperature and other hostile environments.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Technological Life",
+                Description = "You are not an organic being, and are not vulnerable to physical harm as they are: you have +1 Protection against Stun Attacks. You recover from injuries with Engineering, rather than Medicine. In addition, your onboard micro- replicator allows you to produce small tools and one-handed items for your own use with opportunity cost 1 by suffering 1 Stress for each such item created. Due to your lack of hands, you cannot use tools made for other creatures.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            HasGender = false,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Ferengi,
             Description = new List<string>
             {

@@ -1331,6 +1331,29 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Enhanced Thrusters",
+                TraitRequirement = SpeciesName.Exocomp,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have upgraded your motive systems to help you maneuver more effectively. When you move across difficult terrain or obstacles, you may reduce the Momentum cost of that terrain by 1, to a minimum of 0. Further, you may suffer Stress—representing depleting your own internal power supply—to cross difficult terrain or obstacles instead of spending Momentum.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Extra Power Supply",
+                TraitRequirement = SpeciesName.Exocomp,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’ve installed a supplementary power supply to help you remain functional for longer and perform more challenging tasks. Your Maximum Stress is increased by your Engineering rating.",
+                },
+                AddDepartmentToStress = DepartmentName.Engineering,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Greed is Eternal",
                 TraitRequirement = SpeciesName.Ferengi,
                 GMPermission = true,

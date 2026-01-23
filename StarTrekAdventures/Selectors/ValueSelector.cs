@@ -224,6 +224,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The sound of the universe is always there", TraitRequirement = SpeciesName.ElAurian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "You can learn anything if you just pay attention", TraitRequirement = SpeciesName.ElAurian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "I am alive and I am a machine; this is not a contradiction", TraitRequirement = SpeciesName.Exocomp, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I am the right tool for the job", TraitRequirement = SpeciesName.Exocomp, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I can always adapt", TraitRequirement = SpeciesName.Exocomp, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My life is my own to build, and mine to give", TraitRequirement = SpeciesName.Exocomp, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "1st rule of acquisition — once you have their money, never give it back", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
         new Value { Name = "6th rule of acquisition – never let family stand in the way of profit", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
         new Value { Name = "9th rule of acquisition – opportunity plus instinct equals profit", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
