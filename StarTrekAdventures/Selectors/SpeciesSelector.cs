@@ -586,6 +586,28 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 2,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species 
+        { 
+            Name = SpeciesName.Efrosian,
+            Description = new List<string>
+            {
+                "Hailing from the planet Efros Delta, Efrosians are renowned musicians and historians. Their society is dedicated to oral teaching, most notably in the form of a musical language that all Efrosian children are taught in some form or another. They are also excellent navigators and are often sought out as helm and navigation officers, as well as translators, thanks to being natural linguists and communications experts. While their cranial ridges bear some similarity to Klingon physiology (though less pronounced), a male’s hair is almost always white from birth while females exhibit darker colors. Males often grow long moustaches and both male and female Efrosians grow their hair long.",
+            },
+            ExampleCharacters = "President Ra-ghoratreii (Star Trek IV: The Undiscovered Country), Hy’Rell (Discovery)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Fitness = 1, Presence = 1, Reason = 1
+            },
+            TraitDescription = "As the natives to a planet of harsh, freezing storms, Efrosians have natural resilience and survival instincts. They have two stomachs to break down any tough foodstuffs and protect them from infection, while their naturally poor eyesight is made up for by their enhanced senses of smell and taste. Interestingly, even though they have poor vision compared to other humanoids, they can perceive a greater portion of the light spectrum than most.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Visual Spectrum",
+                Description = "An Efrosian can see beyond the normal Human visual spectrum, from some infrared to ultraviolet light. Any task in which detecting those parts of the spectrum is useful reduce in Difficulty by 1. Location or situation traits such as low light levels, do not affect the Difficulty of tasks for an Efrosian.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         new Species
         {
             Name = SpeciesName.Ferengi,
@@ -782,7 +804,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
         //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Drai, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Efrosian, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 4 },
         //new Species { Name = SpeciesName.Grazerite, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.JemHadar, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 0 },

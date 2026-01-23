@@ -1283,6 +1283,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Geospatial Awareness",
+                TraitRequirement = SpeciesName.Efrosian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Efrosians are believed to have evolved a keen sense of direction from a need to navigate the blinding snowstorms of their homeworld. Whether this is true or not, you have an especially keen sense of spatial awareness. When attempting to determine a course or path through an unknown territory—whether on a planetary surface, within an artificial environment (such as a ship, city, or space station), or when navigating through space, you may always reroll 1d20, and you may ignore the first complication suffered.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Oral Scholar",
+                TraitRequirement = SpeciesName.Efrosian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Efrosians pass on much of their knowledge through oral practices or by rote. Whenever you spend 1 or more Momentum to Obtain Information after a successful task using one of your focuses, you may ask one additional question for free.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Greed is Eternal",
                 TraitRequirement = SpeciesName.Ferengi,
                 GMPermission = true,

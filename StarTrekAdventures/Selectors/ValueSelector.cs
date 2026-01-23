@@ -214,8 +214,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Preserve the present, for our future is shaped by its past", TraitRequirement = SpeciesName.Edosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "The differences between our fields of study are lines we draw ourselves", TraitRequirement = SpeciesName.Edosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Specialization furthers knowledge", TraitRequirement = SpeciesName.Efrosian, Weight = 10 },
-        
+        new Value { Name = "Music and stories are how we appreciate the universe more deeply", TraitRequirement = SpeciesName.Efrosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Specialization furthers knowledge", TraitRequirement = SpeciesName.Efrosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The universe shows you the way, as long as you’re paying attention", TraitRequirement = SpeciesName.Efrosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "True knowledge takes understanding, not merely reading from a PADD", TraitRequirement = SpeciesName.Efrosian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "1st rule of acquisition — once you have their money, never give it back", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
         new Value { Name = "6th rule of acquisition – never let family stand in the way of profit", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
         new Value { Name = "9th rule of acquisition – opportunity plus instinct equals profit", TraitRequirement = SpeciesName.Ferengi, Weight = 10 },
