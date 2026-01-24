@@ -112,6 +112,8 @@ public static class NameGenerator
             return GenerateKtarianName(gender);
         if (species == SpeciesName.Kwejian)
             return GenerateKwejianName();
+        if (species == SpeciesName.Kzinti)
+            return GenerateCommonName();
         if (species == SpeciesName.LiberatedBorg)
             return GenerateLiberatedBorgName(character);
         if (species == SpeciesName.Lokirrim)

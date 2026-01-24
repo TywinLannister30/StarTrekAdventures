@@ -348,6 +348,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The world gives back what we put into it", TraitRequirement = SpeciesName.Kwejian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "We few carry the legacy of the lost", TraitRequirement = SpeciesName.Kwejian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "I need to make a name for myself", TraitRequirement = SpeciesName.Kzinti, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "If you wound me but do not kill me, expect retaliation", TraitRequirement = SpeciesName.Kzinti, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Once you smell blood, you finish the job", TraitRequirement = SpeciesName.Kzinti, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Plant-eaters do not deserve my respect", TraitRequirement = SpeciesName.Kzinti, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "What does it mean to be an individual?", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 10 },
         new Value { Name = "Borg are more than the collective, and I will show them", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
         new Value { Name = "I have known freedom and will have it again", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },

@@ -1010,6 +1010,30 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Kzinti,
+            Description = new List<string>
+            {
+                "Kzinti (singular, Kzin) are humanoid felines who typically have orange fur and yellow eyes. With sharp fangs and claws along with ears that resemble the structure of bat wings, Kzinti are amazing hunters and obligate carnivores who regard omnivorous and herbivorous species with disdain. A species with a highly aggressive culture, the Kzinti have waged numerous border wars with neighboring cultures for centuries, including Earth in the decades before the Federation. These conflicts ended with the Treaty of Sirius, forcing the Kzinti Patriarchy to demilitarize aside from limited peacekeeping and law enforcement vessels, though Kzinti privateers remained a problem for centuries after.",
+                "The Kzinti largely isolated themselves from the wider Galaxy, but suffered greatly during the Dominion War. With no other options, the Kzinti signed additional treaties with their former enemies, destabilizing their government and causing serious shifts in their culture. This time of societal upheaval also included a female rights movement where their women were no longer thought of as “dumb animals” and began to attain both political and military positions, and a small number of Kzinti have even been seen in the Federation and Klingon Defense Forces. Nevertheless, Kzinti aggression and privateering continue to be a threat to Federation worlds to the end of the 24th century.",
+            },
+            ExampleCharacters = "Ensign Taylor (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Kzinti physiology is honed towards making them exceptional predators, and they are tall, powerfully-built beings with multiple hearts, providing them with exceptional endurance during times of stress. As obligate carnivores, they cannot digest plant matter, and it can make them sick. Kzinti possess superior hearing and balance compared to many other species, and a small percentage of their population have limited telepathic capabilities.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Feline Predator",
+                Description = "You have retractable claws on your fingertips, useful for hunting. Due to your claws, your unarmed attacks may inflict both Stun and Deadly Injuries. Further, your maximum Stress is increased by 2, and when you attempt a Fitness test, you may suffer 1 Stress to reroll 1d20.",
+                StressModifier = 2,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {

@@ -897,6 +897,7 @@ public class Character
         }
 
         Stress += Talents.Sum(x => x.StressModifier);
+        Stress += SpeciesAbility.StressModifier;
     }
 
     public void SetProtection()

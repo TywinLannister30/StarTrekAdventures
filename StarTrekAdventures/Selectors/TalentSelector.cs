@@ -1671,6 +1671,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Kzinti Telepath",
+                TraitRequirement = SpeciesName.Kzinti,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You belong to the portion of Kzinti who have limited telepathic abilities. This functions as per the Telepathy talent (page 156 of the core rulebook), but each time you attempt to read the thoughts of another creature, you suffer 1 Stress. Further, when you attempt to read the mind of an enemy, they may suffer 2 Stress (or, for NPCs, spend 2 Threat) to force you out of their mind by concentrating on thoughts, imagery, and feelings which disgust you: commonly, this is the memory of eating fruits and vegetables, as these are inedible and unpalatable to Kzinti."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Predatory Posture",
+                TraitRequirement = SpeciesName.Kzinti,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your size, fangs, and body language all contribute to an aura of danger and menace which you can wield as well as any weapon. You may adopt a predatory stance, hunched and looming menacingly over others, during any scene by adding 2 Threat. For the remainder of the scene, you may reroll 1d20 on any task roll to threaten, coerce, or intimidate others, and when you make a Deadly Attack, you reduce the amount you add to Threat to 0."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),

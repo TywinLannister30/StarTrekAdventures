@@ -44,5 +44,8 @@ public class SpeciesAbility
     [JsonIgnore]
     public int ChanceForAugmentTrait { get; set; } = 1;
 
+    [JsonIgnore]
+    public int StressModifier { get; set; }
+
     public string Source { get; set; }
 }
