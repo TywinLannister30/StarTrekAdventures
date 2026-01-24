@@ -8,6 +8,7 @@ public class Talent
     public Talent()
     {
         Source = BookSource.Core;
+        MayNotTakeWithTalents = new List<string>();
     }
 
     public string Name { get; set; }
@@ -161,7 +162,7 @@ public class Talent
     public bool GMPermission { get; set; }
 
     [JsonIgnore]
-    public string MayNotTakeWithTalent { get; set; }
+    public List<string> MayNotTakeWithTalents { get; set; }
 
     [JsonIgnore]
     public DepartmentRequirements DepartmentRequirements { get; set; }

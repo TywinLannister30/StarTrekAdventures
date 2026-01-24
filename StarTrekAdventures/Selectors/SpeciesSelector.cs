@@ -765,6 +765,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.HumanAugment,
+            Description = new List<string>
+            {
+                "While genetic engineering is not a science limited to humanity, Humans have a particular history with genetically engineered people, commonly referred to as Augments. In the latter years of the 20th century or the early years of the 21st century—historical records from this era are patchy and sometimes contradictory—scientists on Earth created a number of Augments with superhuman capabilities: heightened strength, speed, resilience, and intellect. However, these Augments were also notably belligerent, violent, ambitious, and amoral. Seizing power over many nations on Earth, these superhuman tyrants wrought havoc on the world during the Eugenics Wars.",
+                "Since that time, Humans have been notably wary of genetic augmentation as a science, and it became illegal on Earth to use genetic engineering to enhance the innate capabilities of a person. This ban would remain law within the Federation upon its founding as well. Officially, Augments and other genetically enhanced people are prohibited from entering Starfleet, but this ban has been challenged, and the civil rights of Augments has been a matter for debate within the Federation for some time, with notable cases such as Chin-Riley v. Starfleet and Bashir v. Starfleet Medical creating exceptions and precedents."
+            },
+            ExampleCharacters = "Khan Noonien Singh (Star Trek), Julian Bashir (Deep Space Nine), Dal R’El (Prodigy) ",
+            AttributeModifiers = new CharacterAttributes(),
+            ThreeRandomAttributes = true,
+            TraitDescription = "An Augment has had their genetic structure artificially altered in order to enhance specific qualities and abilities they possess. The specifics of these enhancements can vary considerably depending on which qualities the geneticist chooses to enhance. Creating Augments is banned in the Federation, and many organizations refuse to recruit or employ Augments. Because of this, many Augments are created by illicit geneticists, whose methods are often dubious and whose creations can have debilitating side-effects. Most Augments have to hide their altered nature their entire lives. You also have the Human trait.",
+            SpecificSecondarySpeciesTrait = SpeciesName.Human,
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Genetically Enhanced",
+                Description = "You are an Augment. You may select one or two talents which require the Augment trait, which you gain in addition to the normal talents you can select. If you select two of these Augment talents, then you must select an additional trait which represents a severe personality flaw or neurological problem, such as Heightened Aggression, or Sensory Processing Disorder.",
+                AddAugmentTalents = true,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Klingon,
             Description = new List<string>
             {

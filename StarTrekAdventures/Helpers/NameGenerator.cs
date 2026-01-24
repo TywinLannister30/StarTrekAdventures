@@ -90,7 +90,7 @@ public static class NameGenerator
             return GenerateHologramName(character);
         if (species == SpeciesName.Horta)
             return GenerateCommonName();
-        if (species == SpeciesName.Human)
+        if (species == SpeciesName.Human || species == SpeciesName.HumanAugment)
             return GenerateHumanName(gender);
         if (species == SpeciesName.JemHadar)
             return GenerateJemHadarName(gender);

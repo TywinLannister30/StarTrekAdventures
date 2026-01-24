@@ -936,7 +936,7 @@ public class CharacterTests
     {
         var character = new CharacterBuilder().AddBasicDetails().Build();
 
-        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>())).Returns(new Talent { Name = "Talent" });
+        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>(), null)).Returns(new Talent { Name = "Talent" });
 
         character.AddTalent(_mockTalentSelector.Object);
 
@@ -956,7 +956,7 @@ public class CharacterTests
 
         Assert.Single(character.Talents);
         Assert.Equal("Talent", character.Talents.First().Name);
-        _mockTalentSelector.Verify(x => x.ChooseTalent(It.IsAny<Character>()), Times.Never);
+        _mockTalentSelector.Verify(x => x.ChooseTalent(It.IsAny<Character>(), null), Times.Never);
     }
 
     [Fact]
@@ -964,7 +964,7 @@ public class CharacterTests
     {
         var character = new CharacterBuilder().AddBasicDetails().Build();
 
-        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>())).Returns(new Talent { Name = "Talent", Symbiote = true });
+        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>(), null)).Returns(new Talent { Name = "Talent", Symbiote = true });
 
         character.AddTalent(_mockTalentSelector.Object);
 
@@ -979,7 +979,7 @@ public class CharacterTests
     {
         var character = new CharacterBuilder().AddBasicDetails().Build();
 
-        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>())).Returns(new Talent { Name = "Talent", GainRandomFocus = ["Focus"] });
+        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>(), null)).Returns(new Talent { Name = "Talent", GainRandomFocus = ["Focus"] });
 
         character.AddTalent(_mockTalentSelector.Object);
 
@@ -995,7 +995,7 @@ public class CharacterTests
         var character = new CharacterBuilder().AddBasicDetails().Build();
         character.Focuses.Add("Focus");
 
-        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>())).Returns(new Talent { Name = "Talent", ChooseFocus = true });
+        _mockTalentSelector.Setup(x => x.ChooseTalent(It.IsAny<Character>(), null)).Returns(new Talent { Name = "Talent", ChooseFocus = true });
 
         character.AddTalent(_mockTalentSelector.Object);
 

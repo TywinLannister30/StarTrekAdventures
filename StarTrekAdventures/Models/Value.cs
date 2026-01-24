@@ -8,6 +8,7 @@ public class Value
     {
         Source = BookSource.Core;
         AnyTraitRequirement = new List<string>();
+        AllTraitRequirement = new List<string>();
     }
 
     public string Name { get; set; }
@@ -15,6 +16,8 @@ public class Value
     public string TraitRequirement { get; set; }
 
     public List<string> AnyTraitRequirement { get; set; }
+
+    public List<string> AllTraitRequirement { get; set; }
 
     public string TalentRequirement { get; set; }
 

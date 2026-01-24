@@ -7,12 +7,20 @@ namespace StarTrekAdventures.Selectors;
 
 public class TalentSelector : ITalentSelector
 {
-    public Talent ChooseTalent(Character character)
+    public Talent ChooseTalent(Character character, string traitName = null)
     {
         var weightedTalentsList = new WeightedList<Talent>();
 
         foreach (var talent in Talents)
         {
+            if (!string.IsNullOrEmpty(traitName))
+            {
+                if (talent.TraitRequirement != traitName || !talent.AnyTraitRequirement.Any(r =>string.Equals(r, traitName, StringComparison.OrdinalIgnoreCase)))
+                {
+                    continue;
+                }
+            }
+
             if (CanTakeTalent(character, talent))
                 weightedTalentsList.AddEntry(talent, talent.Weight);
         }
@@ -62,11 +70,12 @@ public class TalentSelector : ITalentSelector
                 return false;
         }
 
-        if (!string.IsNullOrEmpty(talent.MayNotTakeWithTalent))
+        if (talent.MayNotTakeWithTalents != null && talent.MayNotTakeWithTalents.Count != 0)
         {
-            if (character.Talents.Any(x => x.Name == talent.MayNotTakeWithTalent))
+            if (character.Talents.Any(ct => talent.MayNotTakeWithTalents.Contains(ct.Name)))
                 return false;
         }
+
 
         if (talent.DepartmentRequirements != null)
         {
@@ -201,7 +210,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Command task, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may not select this talent if you have Cautious (Command)."
                 },
-                MayNotTakeWithTalent = "Cautious (Command)"
+                MayNotTakeWithTalents = { "Cautious (Command)" }
             },
             new()
             {
@@ -211,7 +220,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Conn task, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may not select this talent if you have Cautious (Conn)."
                 },
-                MayNotTakeWithTalent = "Cautious (Conn)"
+                MayNotTakeWithTalents = { "Cautious (Conn)" }
             },
             new()
             {
@@ -221,7 +230,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Engineering task, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may not select this talent if you have Cautious (Engineering)."
                 },
-                MayNotTakeWithTalent = "Cautious (Engineering)"
+                MayNotTakeWithTalents = { "Cautious (Engineering)" }
             },
             new()
             {
@@ -231,7 +240,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Medicine task, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may not select this talent if you have Cautious (Medicine)."
                 },
-                MayNotTakeWithTalent = "Cautious (Medicine)"
+                MayNotTakeWithTalents = { "Cautious (Medicine)" }
             },
             new()
             {
@@ -241,7 +250,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Science task, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may not select this talent if you have Cautious (Science)."
                 },
-                MayNotTakeWithTalent = "Cautious (Science)"
+                MayNotTakeWithTalents = { "Cautious (Science)" }
             },
             new()
             {
@@ -251,7 +260,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Commadn task, and you buy one or more d20s by adding Threat, you may re-roll a single d20. You may not select this talent if you have Cautious (Security)."
                 },
-                MayNotTakeWithTalent = "Cautious (Security)"
+                MayNotTakeWithTalents = { "Cautious (Security)" }
             },
             new()
             {
@@ -271,7 +280,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Command task, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may not select this talent if you have Bold (Command)."
                 },
-                MayNotTakeWithTalent = "Bold (Command)"
+                MayNotTakeWithTalents = { "Bold (Command)" }
             },
             new()
             {
@@ -281,7 +290,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Conn task, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may not select this talent if you have Bold (Conn)."
                 },
-                MayNotTakeWithTalent = "Bold (Conn)"
+                MayNotTakeWithTalents = { "Bold (Conn)" }
             },
             new()
             {
@@ -291,7 +300,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Engineering task, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may not select this talent if you have Bold (Engineering)."
                 },
-                MayNotTakeWithTalent = "Bold (Engineering)"
+                MayNotTakeWithTalents = { "Bold (Engineering)" }
             },
             new()
             {
@@ -301,7 +310,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Security task, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may not select this talent if you have Bold (Security)."
                 },
-                MayNotTakeWithTalent = "Bold (Security)"
+                MayNotTakeWithTalents = { "Bold (Security)" }
             },
             new()
             {
@@ -311,7 +320,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Science task, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may not select this talent if you have Bold (Science)."
                 },
-                MayNotTakeWithTalent = "Bold (Science)"
+                MayNotTakeWithTalents = { "Bold (Science)" }
             },
             new()
             {
@@ -321,7 +330,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Whenever you attempt a Medicine task, and you buy one or more d20s by spending Momentum, you may re-roll a single d20. You may not select this talent if you have Bold (Medicine)."
                 },
-                MayNotTakeWithTalent = "Bold (Medicine)"
+                MayNotTakeWithTalents = { "Bold (Medicine)" }
             },
             new()
             {
@@ -816,7 +825,7 @@ public class TalentSelector : ITalentSelector
                 Name = "Biosynthetic Construction",
                 AnyTraitRequirement = new List<string> { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid },
                 Weight = 20,
-                MayNotTakeWithTalent = "Duranium Polyalloy Construction",
+                MayNotTakeWithTalents = { "Duranium Polyalloy Construction" },
                 Description = new List<string>
                 {
                     "Though you are an android, your construction is almost indistinguishable from that of a living creature. You gain one additional species trait: this is the species you appear to be. To determine that you are an android, an observer must examine you closely with a tricorder or similar tool, and succeed at a Reason + Engineering or Reason + Medicine task with a Difficulty of 3. Your injuries may be healed using either Engineering or Medicine. You may not take the Duranium Polyalloy Construction talent."
@@ -828,7 +837,7 @@ public class TalentSelector : ITalentSelector
                 Name = "Duranium Polyalloy Construction",
                 AnyTraitRequirement = new List<string> { SpeciesName.Android, SpeciesName.CoppeliusAndroid, SpeciesName.SoongTypeAndroid },
                 Weight = 20,
-                MayNotTakeWithTalent = "Biosynthetic Construction",
+                MayNotTakeWithTalents = { "Biosynthetic Construction" },
                 ProtectionModifier = 1,
                 Description = new List<string>
                 {
@@ -1197,7 +1206,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Through torturous experimentation and exposure to thelomium-847, the nature of your morphogenic matrix has been altered. When you adopt the form of a living being, you may mimic the form of a specific individual, taking their appearance and personality to a degree that it is nearly impossible for others to determine your nature, even with blood tests or extensive bio-screening, and you may retain that form indefinitely. Increase the Potency of the trait you gain when you assume that form by 2. However, it costs 2 Stress for you to change form, and you are no longer immune to exposure to vacuum.",
                 },
-                MayNotTakeWithTalent = "Morphogenic Mastery",
+                MayNotTakeWithTalents = { "Morphogenic Mastery" },
                 Source = BookSource.SpeciesSourcebook
             },
             new()
@@ -1209,7 +1218,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "When you assume an alternate form, you may mimic the form of a specific individual, taking their appearance and personality sufficiently that even close friends may not be able to discern the truth: increase the Potency of the trait you gain when you assume that form by 1. You are no longer required to revert to a liquid state to rest.",
                 },
-                MayNotTakeWithTalent = "Altered Changeling",
+                MayNotTakeWithTalents = { "Altered Changeling" },
                 Source = BookSource.SpeciesSourcebook
             },
             new()
@@ -1587,7 +1596,7 @@ public class TalentSelector : ITalentSelector
                 GMPermission = true,
                 Weight = 10,
                 Symbiote = true, 
-                MayNotTakeWithTalent = "Former Initiate",
+                MayNotTakeWithTalents = { "Former Initiate" },
                 Description = new List<string>
                 {
                     "You are bonded with a symbiont and have lifetimes of memories to draw upon. You gain an additional character trait, which is the name of the symbiont; this reflects potential advantages of being Joined, as well as the ability to perform rites and rituals to awaken past hosts’ memories, and the vulnerabilities inherent in the connection. Furthermore, up to twice per adventure, you may declare that a past Host had experience or expertise in a particular field: you gain an additional focus when you do this, which remains for the rest of the adventure."
@@ -1599,7 +1608,7 @@ public class TalentSelector : ITalentSelector
                 TraitRequirement = SpeciesName.Trill,
                 GMPermission = true,
                 Weight = 10,
-                MayNotTakeWithTalent = "Joined",
+                MayNotTakeWithTalents = { "Joined" },
                 Description = new List<string>
                 {
                     "You joined the Initiate Program, hoping to be chosen by the Symbiosis Commission to become Joined. As there are far more Initiates than there are symbionts, you were one of many who failed, but the capabilities of even a failed Initiate are highly sought after by Starfleet and other organizations. When you attempt a task using Control or Reason, and you spend Determination to set a die as a 1, you may also re-roll your dice pool after the roll. You cannot select this talent if you have the Joined talent."
@@ -1648,7 +1657,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Analytical Recall",
-                AnyTraitRequirement = new List<string> { "Augment", "Cyborg" },
+                AnyTraitRequirement = new List<string> { TraitName.Augment, TraitName.Cyborg },
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1659,7 +1668,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Augmented Ability (Control)",
-                TraitRequirement = "Augment",
+                TraitRequirement = TraitName.Augment,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1669,7 +1678,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Augmented Ability (Daring)",
-                TraitRequirement = "Augment",
+                TraitRequirement = TraitName.Augment,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1679,7 +1688,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Augmented Ability (Fitness)",
-                TraitRequirement = "Augment",
+                TraitRequirement = TraitName.Augment,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1689,7 +1698,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Augmented Ability (Insight)",
-                TraitRequirement = "Augment",
+                TraitRequirement = TraitName.Augment,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1699,7 +1708,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Augmented Ability (Presence)",
-                TraitRequirement = "Augment",
+                TraitRequirement = TraitName.Augment,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1709,7 +1718,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Augmented Ability (Reason)",
-                TraitRequirement = "Augment",
+                TraitRequirement = TraitName.Augment,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1719,7 +1728,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Durability",
-                AnyTraitRequirement = new List<string> { "Augment", "Cyborg" },
+                AnyTraitRequirement = new List<string> { TraitName.Augment, TraitName.Cyborg },
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1729,18 +1738,90 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Heightened Senses (Sight)",
+                TraitRequirement = TraitName.Augment,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "When you select this talent, select a single sense: sight, hearing, smell, taste, or touch. When you attempt a task to perceive or detect something using that sense, reduce the Difficulty by 2, to a minimum of 0. You may also attempt to detect things using that sense which a normal Human could not naturally detect."
+                },
+                MayNotTakeWithTalents = new List<string> { "Heightened Senses (Hearing)", "Heightened Senses (Smell)", "Heightened Senses (Taste)", "Heightened Senses (Touch)" },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Heightened Senses (Hearing)",
+                TraitRequirement = TraitName.Augment,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "When you select this talent, select a single sense: sight, hearing, smell, taste, or touch. When you attempt a task to perceive or detect something using that sense, reduce the Difficulty by 2, to a minimum of 0. You may also attempt to detect things using that sense which a normal Human could not naturally detect."
+                },
+                MayNotTakeWithTalents = new List<string> { "Heightened Senses (Sight)", "Heightened Senses (Smell)", "Heightened Senses (Taste)", "Heightened Senses (Touch)" },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Heightened Senses (Smell)",
+                TraitRequirement = TraitName.Augment,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "When you select this talent, select a single sense: sight, hearing, smell, taste, or touch. When you attempt a task to perceive or detect something using that sense, reduce the Difficulty by 2, to a minimum of 0. You may also attempt to detect things using that sense which a normal Human could not naturally detect."
+                },
+                MayNotTakeWithTalents = new List<string> { "Heightened Senses (Hearing)", "Heightened Senses (Sight)", "Heightened Senses (Taste)", "Heightened Senses (Touch)" },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Heightened Senses (Taste)",
+                TraitRequirement = TraitName.Augment,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "When you select this talent, select a single sense: sight, hearing, smell, taste, or touch. When you attempt a task to perceive or detect something using that sense, reduce the Difficulty by 2, to a minimum of 0. You may also attempt to detect things using that sense which a normal Human could not naturally detect."
+                },
+                MayNotTakeWithTalents = new List<string> { "Heightened Senses (Hearing)", "Heightened Senses (Smell)", "Heightened Senses (Sight)", "Heightened Senses (Touch)" },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Heightened Senses (Touch)",
+                TraitRequirement = TraitName.Augment,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "When you select this talent, select a single sense: sight, hearing, smell, taste, or touch. When you attempt a task to perceive or detect something using that sense, reduce the Difficulty by 2, to a minimum of 0. You may also attempt to detect things using that sense which a normal Human could not naturally detect."
+                },
+                MayNotTakeWithTalents = new List<string> { "Heightened Senses (Sight)", "Heightened Senses (Smell)", "Heightened Senses (Taste)", "Heightened Senses (Hearing)" },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Neural Interface",
-                TraitRequirement = "Cyborg",
+                TraitRequirement = TraitName.Cyborg,
                 Weight = 20,
                 Description = new List<string>
                 {
                     "You have a cybernetic device implanted directly into your brain, allowing you to interface with computers and similar technologies with their thoughts. Initiating or breaking the link between your mind and a computer system takes a minor action, and while you are connected, you may reroll one d20 on any task using that computer (including a ship’s Computer system). However, if the computer (or the ship containing it) is damaged, you immediately suffer a Deadly 4 Injury with the Piercing quality."
-                }
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Regenerative Healing",
+                TraitRequirement = TraitName.Augment,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "You have a cybernetic device that replaces one of your senses—most commonly sight or hearing. You gain the Artificial Sense trait, which represents the ways that your senses differ from those of other members of your species. Further, when you attempt a task to locate something hidden or concealed, or to detect details not normally perceptible to that sense, you may re-roll a single d20."
+                },
+                TraitGained = "Artificial Sight"
             },
             new()
             {
                 Name = "Sensory Replacement (Sight)",
-                TraitRequirement = "Cyborg",
+                TraitRequirement = TraitName.Cyborg,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1751,7 +1832,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Sensory Replacement (Hearing)",
-                TraitRequirement = "Cyborg",
+                TraitRequirement = TraitName.Cyborg,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -1762,7 +1843,7 @@ public class TalentSelector : ITalentSelector
             new()
             {
                 Name = "Synthetic Physiology",
-                TraitRequirement = "Cyborg",
+                TraitRequirement = TraitName.Cyborg,
                 Weight = 20,
                 Description = new List<string>
                 {
@@ -2608,7 +2689,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Melee Attacks against you increase in Difficulty by 1.",
                 },
-                MayNotTakeWithTalent = "Defensive Training (Ranged)"
+                MayNotTakeWithTalents = { "Defensive Training (Ranged)" }
             },
             new()
             {
@@ -2619,7 +2700,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "Ranged Attacks against you increase in Difficulty by 1.",
                 },
-                MayNotTakeWithTalent = "Defensive Training (Melee)"
+                MayNotTakeWithTalents = { "Defensive Training (Melee)" }
             },
             new()
             {

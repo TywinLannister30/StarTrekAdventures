@@ -70,8 +70,16 @@ public class CharacterManager : ICharacterManager
         character.PrimarySpecies = chosenSpecies.First().Name;
         character.Species = chosenSpecies.ToSpeciesName();
 
-        foreach (var species in chosenSpecies)
-            character.Traits.Add(species.Name);
+        if (chosenSpecies.First().Name == SpeciesName.HumanAugment)
+        {
+            character.Traits.Add(SpeciesName.Human);
+            character.Traits.Add(TraitName.Augment);
+        }
+        else
+        {
+            foreach (var species in chosenSpecies)
+                character.Traits.Add(species.Name);
+        }
 
         character.AdjustAttributesForSpecies(chosenSpecies.First());
         character.AddSpeciesAbility(chosenSpecies.First().SpeciesAbility, _talentSelector);
@@ -79,11 +87,14 @@ public class CharacterManager : ICharacterManager
         if (!string.IsNullOrEmpty(chosenSpecies.First().SpeciesAbility.TraitGained))
             character.Traits.Add(chosenSpecies.First().SpeciesAbility.TraitGained);
 
-        if (Util.GetRandom(100) == 1)
-            character.Traits.Add("Augment");
+        if (!character.Traits.Contains(TraitName.Augment) && Util.GetRandom(100) == 1)
+            character.Traits.Add(TraitName.Augment);
 
-        if (!character.Traits.Contains("Cyborg") && Util.GetRandom(100) == 1)
-            character.Traits.Add("Cyborg");
+        if (!character.Traits.Contains(TraitName.Cyborg) && Util.GetRandom(100) == 1)
+            character.Traits.Add(TraitName.Cyborg);
+
+        if (chosenSpecies.Any(x => x.SpeciesAbility.AddAugmentTalents))
+            character.AddAugmentTalents(_talentSelector);
 
         return character;
     }

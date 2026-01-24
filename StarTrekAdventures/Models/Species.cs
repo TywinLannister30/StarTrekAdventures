@@ -31,5 +31,7 @@ public class Species
 
     public bool HasSecondarySpeciesTrait{ get; set; } = false;
 
+    public string SpecificSecondarySpeciesTrait { get; set; }
+
     public string Source { get; set; }
 }

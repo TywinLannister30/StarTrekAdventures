@@ -33,6 +33,12 @@ public class ValueSelector : IValueSelector
                 return false;
         }
 
+        if (value.AllTraitRequirement != null && value.AllTraitRequirement.Count != 0)
+        {
+            if (!value.AllTraitRequirement.All(req => character.Traits.Contains(req)))
+                return false;
+        }
+
         if (!string.IsNullOrEmpty(value.TalentRequirement) && !character.Talents.Any(x => x.Name == value.TalentRequirement))
             return false;
 
@@ -93,6 +99,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I need an open sky and the wind in my feathers", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Soar high and achieve greatness", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "There is always something more to explore", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
+        new Value { Name = "I stand apart because I have to keep part of myself secret", TraitRequirement = TraitName.Augment, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I’m not dangerous; I just see the world differently ", TraitRequirement = TraitName.Augment, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Superior ability breeds superior ambition", TraitRequirement = TraitName.Augment, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "Faith in the prophets", TraitRequirement = SpeciesName.Bajoran, Weight = 10 },
         new Value { Name = "I help others to be closer to the prophets", TraitRequirement = SpeciesName.Bajoran, Weight = 10 },
@@ -271,7 +281,9 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The drive for exploration", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "The Federation has brought peace to countless worlds", TraitRequirement = SpeciesName.Human, Weight = 10 },
         new Value { Name = "We are stronger together", TraitRequirement = SpeciesName.Human, Weight = 10 },
-        
+
+        new Value { Name = "Just because my genes were altered, that doesn’t make me any less Human", AllTraitRequirement = { SpeciesName.Human, TraitName.Augment }, Weight = 20, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "All traitors must be accounted for", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
         new Value { Name = "Loyalty to the founders, now and always", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
         new Value { Name = "We are now dead; we go into battle to reclaim our lives", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },

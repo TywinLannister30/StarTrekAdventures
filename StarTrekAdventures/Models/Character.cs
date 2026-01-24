@@ -116,7 +116,15 @@ public class Character
                 return false;
             }
 
-            if (SpeciesAbility.AddOneOfTheseTalents != null || !string.IsNullOrEmpty(SpeciesAbility.AddTalent))
+            if (SpeciesAbility.AddAugmentTalents)
+            {
+                if (Talents.Count < 5 || Talents.Count > 6)
+                {
+                    ValidationIssue = $"The character has {Talents.Count} talents. It should be 5 or 6.";
+                    return false;
+                }
+            }
+            else if (SpeciesAbility.AddOneOfTheseTalents != null || !string.IsNullOrEmpty(SpeciesAbility.AddTalent))
             {
                 if (Talents.Count != 5)
                 {
@@ -412,7 +420,7 @@ public class Character
         Focuses.Add(focus);
     }
 
-    public void AddTalent(ITalentSelector talentSelector, string talentName = null, IRandomGenerator randomGenerator = null)
+    public void AddTalent(ITalentSelector talentSelector, string talentName = null, string traitName = null, IRandomGenerator randomGenerator = null)
     {
         randomGenerator ??= new RandomGenerator();
 
@@ -420,6 +428,8 @@ public class Character
 
         if (!string.IsNullOrEmpty(talentName))
             talent = talentSelector.GetTalent(talentName);
+        else if (!string.IsNullOrEmpty(talentName))
+            talent = talentSelector.ChooseTalent(this, traitName);
         else
             talent = talentSelector.ChooseTalent(this);
 
@@ -442,6 +452,26 @@ public class Character
 
         if (talent.AdditionalFocuses > 0)
             AddFocuses(FocusHelper.GetAllFocuses(), talent.AdditionalFocuses, randomGenerator);
+    }
+
+    public void AddAugmentTalents(ITalentSelector talentSelector, IRandomGenerator randomGenerator = null)
+    {
+        randomGenerator ??= new RandomGenerator();
+
+        AddTalent(talentSelector, traitName: TraitName.Augment);
+
+        if (Util.GetRandom(100) < 50)
+        {
+            AddTalent(talentSelector, traitName: TraitName.Augment);
+
+            var traitChoices = new List<string>
+            {
+                "Heightened Aggression",
+                "Sensory Processing Disorder"
+            };
+
+            Traits.Add(traitChoices.OrderBy(n => randomGenerator.GetRandom()).First());
+        }
     }
 
     public void AddTraitsForCareerPath(CareerPath track, IRandomGenerator randomGenerator = null)

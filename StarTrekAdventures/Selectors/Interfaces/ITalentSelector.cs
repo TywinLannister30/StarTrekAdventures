@@ -4,11 +4,11 @@ namespace StarTrekAdventures.Selectors;
 
 public interface ITalentSelector
 {
-    Talent ChooseTalent(Character character);
+    Talent ChooseTalent(Character character, string traitName = null);
 
-    public Talent GetTalent(string name);
+    Talent GetTalent(string name);
 
-    public List<Talent> GetAllTalents();
+    List<Talent> GetAllTalents();
 
-    public NpcSpecialRule GetTalentAsSpecialRule(string name);
+    NpcSpecialRule GetTalentAsSpecialRule(string name);
 }

@@ -37,6 +37,9 @@ public class SpeciesAbility
 
     [JsonIgnore]
     public bool HasPastime { get; set; } = true;
+    
+    [JsonIgnore]
+    public bool AddAugmentTalents { get; set; } = false;
 
     public string Source { get; set; }
 }
