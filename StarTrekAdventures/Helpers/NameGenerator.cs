@@ -905,7 +905,7 @@ public static class NameGenerator
     };
     private static readonly List<string> LurianFemaleNames = new List<string>
     {
-        "Eltessa", "Zyrionda", "Gresh", "Slurr"
+        "Grom", "Eltessa", "Zyrionda", "Gresh", "Slurr"
     };
 
     private static string GenerateMariName(Gender gender)

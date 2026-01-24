@@ -1084,6 +1084,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Lurian,
+            Description = new List<string>
+            {
+                "A race as well known for their fierce martial skills as they are for their artistic endeavors, the Lurians are a power whose homeworld is near the Alpha Quadrant side of the Bajoran wormhole. Though their world is controlled by the Royal Family of Luria, they are a frequent sight at outposts and trading posts, and their skill as navigators and warriors makes them prized members of any crew. With multiple hearts and two stomachs, they require large quantities of food and their religious custom dictates that attendees at a Lurian funeral should bring plenty of food and liquor to see the dead through their journey into the afterlife. Though some Lurians have become involved in criminal endeavors such as the Orion Syndicate, they prefer to make their own way, and it is not uncommon to see lone Lurians happily plying their way through space on another great adventure.",
+            },
+            ExampleCharacters = "Morn (Deep Space Nine), Grom (Prodigy)  ",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Lurians are a passionate people, and never do anything by half measure. Whether it is by devoting themselves to the arts or by trying to become the greatest pilots in the Galaxy, the Lurians live with their emotions on their sleeves despite their normally impassive facial features. Lurians are always great thinkers and dreamers, and even though they may sometimes appear quiet, their minds are often on important matters and on formulating plans for their futures. They take great satisfaction in the sharing of ideas, opinions, and stories.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Resistant Anatomy",
+                Description = "Lurians are known for having an extremely hardy constitution. Capable of taking a knife to one of their hearts and keep fighting, Lurians have evolved a physiology that rivals even the redundant anatomy of the Klingons. Lurians have Protection 1 against all attacks, which increases to 2 against Stun Attacks, and you may suffer 1 Stress to ignore any effects or traits caused by toxins, drugs, or poisons. Further, the first time in an adventure you’re Defeated, you may immediately recover from being Defeated, though you still have whatever Injury caused you to become Defeated.",
+                ProtectionBonus = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {
@@ -1229,7 +1252,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Jye, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Karemma, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Lurian, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Mari, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Empath", Weight = 0 },
         //new Species { Name = SpeciesName.Monean, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Ocampa, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },

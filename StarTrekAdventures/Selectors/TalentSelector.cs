@@ -1743,6 +1743,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Into the Breach",
+                TraitRequirement = SpeciesName.Lurian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Life is not worth living to a Lurian if there is not some risk involved. Always willing to dare greater than others, the Lurian finds that the real thrill lurks just beyond the edge of danger and that is what they should strive for even if their comrades do not. When you succeed at a task roll using Daring, you generate 1 bonus Momentum. Bonus Momentum cannot be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Put Your Hearts into It",
+                TraitRequirement = SpeciesName.Lurian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "There’s no point in doing something unless you’re going to give it your all. When you succeed on a task where you purchased three additional dice, you score 3 bonus Momentum. Bonus Momentum cannot be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),
