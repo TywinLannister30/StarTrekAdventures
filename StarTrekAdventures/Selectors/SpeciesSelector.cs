@@ -859,6 +859,39 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 1, 
             Source = BookSource.SpeciesSourcebook
         },
+        new Species 
+        { 
+            Name = SpeciesName.Kelpien,
+            Description = new List<string>
+            {
+                "A sapient humanoid species indigenous to the planet Kaminar, Kelpiens live in an agrarian society. Elders are the leaders of the Kelpien culture, passing down knowledge and history through stories. One of these stories speaks of the Great Balance, a belief that by culling members of their species, the Kelpiens would have peace with the Ba’ul, a powerful species that would hunt their people to extinction if the Kelpien population got out of hand. This meant that when a Kelpien started going through their physiological change known as Vahar’ai, they would be brought in front of the Watchful Eye and culled, releasing them from the pain and threat of mental instability, as well as maintaining the Great Balance.",
+                "In the mid-23rd century, Commander Saru—the first Kelpien in Starfleet—discovered that Vahar’ai was actually a natural physical change that made his people expert hunters. The culling and the Great Balance were both lies forced onto the Kelpiens by the Ba’ul. Eventually, the crew of U.S.S. Discovery helped the Kelpiens rise up against the Ba’ul and break free of the lies they had been told for generations."
+            },
+            ExampleCharacters = "Saru (Discovery), Su’Kal (Discovery)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Control = 1, Fitness = 1, Insight = 1 
+            },
+            TraitDescription = "The Kelpiens are a bipedal species adapted to living on land and in the water. Kelpiens are physically stronger than most humanoids, and are able to run at considerable speeds for short bursts and can see into the ultraviolet and infrared spectrums of light. In addition, all Kelpiens have an additional trait: either Pre-Vahar’ai or Post-Vahar’ai. If Pre-Vahar’ai is chosen, you may choose for your character to undergo Vahar’ai (changing the trait) as part of a character arc.",
+            RandomSecondaryTrait = { TraitName.PreVaharai, TraitName.PostVaharai },
+            SpeciesAbilityBasedOnTrait = new List<(SpeciesAbility, string)>
+            {
+                (new SpeciesAbility
+                {
+                    Name = "Prey",
+                    Description = "Your physiology is finely tuned to evading pursuit. When you take the Movement minor action, reduce the Momentum cost of crossing difficult terrain by 1. When you take the Sprint major action, you move one additional zone. In addition, you have Threat Ganglia. When the gamemaster spends 3 or more Threat at once, you may add 1 point to the group Momentum pool.",
+                    Source = BookSource.SpeciesSourcebook
+                }, TraitName.PreVaharai),
+                (new SpeciesAbility
+                {
+                    Name = "Hunter",
+                    Description = "Your physiology is finely tuned to running down a quarry. When you take the Movement minor action, reduce the Momentum cost of crossing difficult terrain by 1. When you take the Sprint major action, you move one additional zone. In addition, you have Keratin Darts. You have a natural ranged attack, inflicting a Stun/Deadly 2 Injury.",
+                    Source = BookSource.SpeciesSourcebook
+                }, TraitName.PostVaharai)
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
         new Species
         {
             Name = SpeciesName.Klingon,
@@ -1020,11 +1053,8 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Drai, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.JemHadar, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Jye, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Karemma, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.KelpianPostVaharai, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Insight = 1 }, Weight = 1 },
-        //new Species { Name = SpeciesName.KelpianPreVaharai, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Insight = 1 }, Weight = 1 },
         //new Species { Name = SpeciesName.Ktarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1 }, OneOfTheseModifiers = new CharacterAttributes { Fitness = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.LiberatedBorg, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, NonMixed = true, SecondSpecies = true, MustTakeSpecificTalentInStepOne = "Borg Implants", Weight = 1 },
         //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },

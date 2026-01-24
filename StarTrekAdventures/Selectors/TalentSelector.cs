@@ -1541,6 +1541,28 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Predator’s Insight",
+                AllTraitsRequirement = { SpeciesName.Kelpien, TraitName.PostVaharai },
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a heightened awareness that has been honed to allow you to discern the flaws and vulnerabilities in your prey. Whenever you succeed at a task to study or scrutinize a person or starship, you reduce the cost to create a trait—which must represent some weakness you’ve identified—by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Threat Awareness",
+                AllTraitsRequirement = { SpeciesName.Kelpien, TraitName.PreVaharai },
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are keenly aware of every potential threat around you, and you act accordingly. At the start of each scene, if the total number of points in the Threat pool exceeds twice the number of players, add 1 Momentum to the group pool."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Killer's Instinct",
                 TraitRequirement = SpeciesName.Klingon,
                 GMPermission = true,

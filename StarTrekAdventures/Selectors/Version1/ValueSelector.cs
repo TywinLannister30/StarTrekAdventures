@@ -132,9 +132,9 @@ namespace StarTrekAdventures.Selectors.Version1
 
             new Value { Name = "I See Your True Worth", TraitRequirement = SpeciesName.Karemma, Weight = 10 },
 
-            new Value { Name = "The Great Balance Must Be Achieved", TraitRequirement = SpeciesName.KelpianPostVaharai, Weight = 10 },
+            //new Value { Name = "The Great Balance Must Be Achieved", TraitRequirement = SpeciesName.KelpianPostVaharai, Weight = 10 },
 
-            new Value { Name = "The Great Balance Must Be Achieved", TraitRequirement = SpeciesName.KelpianPreVaharai, Weight = 10 },
+            //new Value { Name = "The Great Balance Must Be Achieved", TraitRequirement = SpeciesName.KelpianPreVaharai, Weight = 10 },
 
             new Value { Name = "Honor is More Important Than Life", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
             new Value { Name = "Burn It All", TraitRequirement = SpeciesName.Klingon, Weight = 5 },

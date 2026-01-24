@@ -77,7 +77,7 @@ namespace StarTrekAdventures.Helpers.Version1
                 return GenerateJyeName(gender);
             if (species == SpeciesName.Karemma)
                 return GenerateKaremmaName(gender);
-            if (species == SpeciesName.KelpianPostVaharai || species == SpeciesName.KelpianPreVaharai)
+            if (species == SpeciesName.Kelpien)
                 return GenerateKelpianName();
             if (species == SpeciesName.Klingon)
                 return GenerateKlingonName(gender);

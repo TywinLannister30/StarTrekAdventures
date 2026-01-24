@@ -227,11 +227,11 @@ namespace StarTrekAdventures.Selectors.Version1
             new Talent { Name = "My Honor is my Shield", TraitRequirement = SpeciesName.Karemma, GMPermission = true, Weight = 10 },
             new Talent { Name = "Instant Appraisal", TraitRequirement = SpeciesName.Karemma, GMPermission = true, Weight = 10 },
 
-            new Talent { Name = "Threat Ganglia", TraitRequirement = SpeciesName.KelpianPostVaharai, Weight = 10 },
-            new Talent { Name = "On all Fours", TraitRequirement = SpeciesName.KelpianPostVaharai, GMPermission = true, Weight = 10 },
+            //new Talent { Name = "Threat Ganglia", TraitRequirement = SpeciesName.KelpianPostVaharai, Weight = 10 },
+            //new Talent { Name = "On all Fours", TraitRequirement = SpeciesName.KelpianPostVaharai, GMPermission = true, Weight = 10 },
 
-            new Talent { Name = "Threat Ganglia", TraitRequirement = SpeciesName.KelpianPreVaharai, Weight = 10 },
-            new Talent { Name = "On all Fours", TraitRequirement = SpeciesName.KelpianPreVaharai, GMPermission = true, Weight = 10 },
+            //new Talent { Name = "Threat Ganglia", TraitRequirement = SpeciesName.KelpianPreVaharai, Weight = 10 },
+            //new Talent { Name = "On all Fours", TraitRequirement = SpeciesName.KelpianPreVaharai, GMPermission = true, Weight = 10 },
 
             new Talent { Name = "Brak'lul", TraitRequirement = SpeciesName.Klingon, GMPermission = true, Weight = 10 },
             new Talent { Name = "R'uustai", TraitRequirement = SpeciesName.Klingon, AdditionalValues = 1, GMPermission = true, Weight = 10 },

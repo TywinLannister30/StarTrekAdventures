@@ -103,7 +103,7 @@ public static class NameGenerator
             return GenerateKaremmaName(gender);
         if (species == SpeciesName.Kellerun)
             return GenerateKellerunName();
-        if (species == SpeciesName.KelpianPostVaharai || species == SpeciesName.KelpianPreVaharai)
+        if (species == SpeciesName.Kelpien)
             return GenerateKelpianName();
         if (species == SpeciesName.Klingon)
             return GenerateKlingonName(gender);

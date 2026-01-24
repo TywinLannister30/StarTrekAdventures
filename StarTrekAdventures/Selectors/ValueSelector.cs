@@ -305,10 +305,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I have no taste for battle, but I will not yield meekly to threats", TraitRequirement = SpeciesName.Kellerun, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "I’ve seen too much destruction to allow more ", TraitRequirement = SpeciesName.Kellerun, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "The great balance must be achieved", TraitRequirement = SpeciesName.KelpianPostVaharai, Weight = 10 },
-        
-        new Value { Name = "The great balance must be achieved", TraitRequirement = SpeciesName.KelpianPreVaharai, Weight = 10 },
-        
+        new Value { Name = "I am keenly aware of the coming of danger", TraitRequirement = SpeciesName.Kelpien, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The universe requires a balance; if it does not exist, we must find it", TraitRequirement = SpeciesName.Kelpien, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We are predators, and I study my prey carefully", TraitRequirement = SpeciesName.Kelpien, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "You call it fear, I call it healthy caution", TraitRequirement = SpeciesName.Kelpien, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Honor is more important than life", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
         new Value { Name = "I am a Klingon warrior; if you doubt it, a demonstration can be arranged!", TraitRequirement = SpeciesName.Klingon, Weight = 10 },
         new Value { Name = "Own the day!", TraitRequirement = SpeciesName.Klingon, Weight = 10 },

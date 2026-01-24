@@ -82,13 +82,43 @@ public class CharacterManager : ICharacterManager
                 character.Traits.Add(species.Name);
         }
 
+        if (chosenSpecies.Any(x => x.RandomSecondaryTrait != null && x.RandomSecondaryTrait.Count > 0))
+        {
+            var secondaryTraits = chosenSpecies
+                .Where(x => x.RandomSecondaryTrait != null && x.RandomSecondaryTrait.Count > 0)
+                .SelectMany(x => x.RandomSecondaryTrait)
+                .Distinct()
+                .ToList();
+            var traitToAdd = secondaryTraits.OrderBy(n => Util.GetRandom()).First();
+            character.Traits.Add(traitToAdd);
+        }
+
         character.AdjustAttributesForSpecies(chosenSpecies.First());
-        character.AddSpeciesAbility(chosenSpecies.First().SpeciesAbility, _talentSelector);
 
-        if (!string.IsNullOrEmpty(chosenSpecies.First().SpeciesAbility.TraitGained))
-            character.Traits.Add(chosenSpecies.First().SpeciesAbility.TraitGained);
+        SpeciesAbility speciesAbility = null;
 
-        var augmentChance = chosenSpecies.First().SpeciesAbility.ChanceForAugmentTrait;
+        if (chosenSpecies.First().SpeciesAbilityBasedOnTrait != null && chosenSpecies.First().SpeciesAbilityBasedOnTrait.Count > 0)
+        {
+            foreach (var speciesTrait in chosenSpecies.First().SpeciesAbilityBasedOnTrait)
+            {
+                if (character.Traits.Contains(speciesTrait.Item2))
+                {
+                    speciesAbility = speciesTrait.Item1;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            speciesAbility = chosenSpecies.First().SpeciesAbility;
+        }
+
+        character.AddSpeciesAbility(speciesAbility, _talentSelector);
+
+        if (!string.IsNullOrEmpty(speciesAbility.TraitGained))
+            character.Traits.Add(speciesAbility.TraitGained);
+
+        var augmentChance = speciesAbility.ChanceForAugmentTrait;
 
         if (!character.Traits.Contains(TraitName.Augment) && Util.GetRandom(100) <= augmentChance)
             character.Traits.Add(TraitName.Augment);
@@ -96,7 +126,7 @@ public class CharacterManager : ICharacterManager
         if (!character.Traits.Contains(TraitName.Cyborg) && Util.GetRandom(100) == 1)
             character.Traits.Add(TraitName.Cyborg);
 
-        if (chosenSpecies.Any(x => x.SpeciesAbility.AddAugmentTalents))
+        if (speciesAbility.AddAugmentTalents)
             character.AddAugmentTalents(_talentSelector);
 
         return character;
