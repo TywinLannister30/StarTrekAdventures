@@ -2,7 +2,6 @@
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
 using static StarTrekAdventures.Constants.Enums;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StarTrekAdventures.Helpers;
 
@@ -10,10 +9,10 @@ public static class NameGenerator
 {
     public static string GenerateName(Character character, bool secondSpecies = false)
     {
-        var species = character.Traits.First();
+        var species = character.PrimarySpecies;
 
         if (secondSpecies)
-            species = character.Traits.ElementAt(1);
+            species = character.SecondarySpecies;
 
         var gender = (Gender)Enum.Parse(typeof(Gender), character.Gender);
 
@@ -105,7 +104,7 @@ public static class NameGenerator
             return GenerateKellerunName();
         if (species == SpeciesName.Kelpien)
             return GenerateKelpianName();
-        if (species == SpeciesName.Klingon)
+        if (species == SpeciesName.Klingon || species == SpeciesName.KlingonQuchHa)
             return GenerateKlingonName(gender);
         if (species == SpeciesName.Ktarian)
             return GenerateKtarianName(gender);

@@ -23,6 +23,8 @@ public class Species
 
     public string TraitDescription { get; set; }
 
+    public string AlternateTraitName { get; set; }
+
     public SpeciesAbility SpeciesAbility { get; set; }
 
     public List<(SpeciesAbility, string)> SpeciesAbilityBasedOnTrait { get; set; }

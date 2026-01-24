@@ -71,15 +71,19 @@ public class CharacterManager : ICharacterManager
         character.PrimarySpecies = chosenSpecies.First().Name;
         character.Species = chosenSpecies.ToSpeciesName();
 
-        if (chosenSpecies.First().Name == SpeciesName.HumanAugment)
+        foreach (var species in chosenSpecies)
         {
-            character.Traits.Add(SpeciesName.Human);
-            character.Traits.Add(TraitName.Augment);
-        }
-        else
-        {
-            foreach (var species in chosenSpecies)
+            if (!string.IsNullOrEmpty(chosenSpecies.First().AlternateTraitName))
+            {
+                character.Traits.Add(chosenSpecies.First().AlternateTraitName);
+            }
+            else
+            {
                 character.Traits.Add(species.Name);
+            }
+
+            if (!string.IsNullOrEmpty(chosenSpecies.First().SpecificSecondarySpeciesTrait))
+                character.Traits.Add(species.SpecificSecondarySpeciesTrait);
         }
 
         if (chosenSpecies.Any(x => x.RandomSecondaryTrait != null && x.RandomSecondaryTrait.Count > 0))

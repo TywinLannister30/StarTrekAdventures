@@ -1574,6 +1574,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "To Battle!",
+                TraitRequirement = SpeciesName.Klingon,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When you buy additional dice for a melee attack using Threat, you increase the Severity of your melee attack by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Warrior's Spirit",
                 TraitRequirement = SpeciesName.Klingon,
                 GMPermission = true,
@@ -1582,6 +1594,18 @@ public class TalentSelector : ITalentSelector
                 {
                     "When you make a Melee Attack, or are targeted by a Melee Attack, and you buy one or more d20s by adding Threat, you may re-roll the dice pool for your task roll. Further, you own either a mek’leth (a blade) or a bat’leth (a heavy blade) at your discretion, which counts as standard issue for you."
                 }
+            },
+            new()
+            {
+                Name = "Cruel",
+                TraitRequirement = TraitName.QuchHa,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a tendency towards ruthlessness and cruelty, and the reputation to match, always seeking to undermine those you wish to destroy before you deal the final blow. When you attempt a task to identify the weaknesses or flaws of an enemy, or matters they are particularly sensitive or protective about, you may reduce the Difficulty by 1. If the enemy has a trait which reflects this weakness (such as an advantage you’ve created, or a complication they’re suffering from), you may reroll a single d20 on the next attack or Persuasion task you attempt against them."
+                },
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {

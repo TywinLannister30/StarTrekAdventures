@@ -775,6 +775,7 @@ public class SpeciesSelector : ISpeciesSelector
             AttributeModifiers = new CharacterAttributes(),
             ThreeRandomAttributes = true,
             TraitDescription = "An Augment has had their genetic structure artificially altered in order to enhance specific qualities and abilities they possess. The specifics of these enhancements can vary considerably depending on which qualities the geneticist chooses to enhance. Creating Augments is banned in the Federation, and many organizations refuse to recruit or employ Augments. Because of this, many Augments are created by illicit geneticists, whose methods are often dubious and whose creations can have debilitating side-effects. Most Augments have to hide their altered nature their entire lives. You also have the Human trait.",
+            AlternateTraitName = TraitName.Augment,
             SpecificSecondarySpeciesTrait = SpeciesName.Human,
             SpeciesAbility = new SpeciesAbility
             {
@@ -908,6 +909,30 @@ public class SpeciesSelector : ISpeciesSelector
             TraitDescription = "Klingon physiology is hardy, with a reinforced skeleton and many redundant internal organs which allow them to withstand harm and numerous toxins that would be deadly to other species, though this has the potential for medical complications. They are significantly stronger and more resilient than Humans, though they have less tolerance for the cold.",
             SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.BrakLul),
             Weight = 1
+        },
+        new Species
+        {
+            Name = SpeciesName.KlingonQuchHa,
+            Description = new List<string>
+            {
+                "In 2154, a lethal, metagenic strain of the Levodian flu ran rampant through the Klingon Empire, infecting vast numbers of Klingons. Though a cure was eventually devised, the combination of the plague’s metagenic effects and the cure itself led to numerous physiological and genetic changes in those afflicted, most notably the dissolution of their cranial ridges and a number of neurological alterations, to a point where they somewhat resemble Humans, with these changes passed onto the descendants of those afflicted. These altered Klingons came to be known as QuchHa’, “the unhappy ones,” for their seeming deformity, while those who escaped the plague’s effects were commonly referred to as the HemQuch. Though still hardy and vigorous, the QuchHa’ tend to express the customary aggression of their culture as a ruthless cunning, and they are often regarded as less honorable and trustworthy. They join the armed forces and intelligence services in great numbers to prove their worth and gain glory as a result of this discrimination. By the early 2270s, almost all QuchHa’ had undergone corrective treatment to restore their Klingon physiology, and Klingons in later eras refuse to discuss the matter with outsiders.",
+            },
+            ExampleCharacters = "Arne Darvin (Star Trek), Kras (Star Trek)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Those Klingons affected by this metagenic plague are frequently discriminated against or regarded as cowardly, shameful, or un-Klingon in nature, a stigma that they frequently strive to disprove, or which frees them to take actions that other Klingons may not regard as proper. Their altered genetics leave them less susceptible to a number of diseases and disorders that affect Klingons but allows them to contract a number of Human diseases that Klingons are normally immune to. You also have the Klingon trait.",
+            AlternateTraitName = TraitName.QuchHa,
+            SpecificSecondarySpeciesTrait = SpeciesName.Klingon,
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Superior Ambition",
+                Description = "When you spend Determination, you may add 3 Threat to gain two benefits from spending Determination, instead of 1.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {

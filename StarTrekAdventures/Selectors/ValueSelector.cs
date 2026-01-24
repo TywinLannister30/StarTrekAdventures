@@ -327,7 +327,13 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Never trust Starfleet", TraitRequirement = SpeciesName.Klingon, Weight = 5 },
         new Value { Name = "There is nothing more honorable than victory", TraitRequirement = SpeciesName.Klingon, Weight = 5 },
         new Value { Name = "To kill the defenseless is not true battle", TraitRequirement = SpeciesName.Klingon, Weight = 5 },
-        
+
+        new Value { Name = "I am a Klingon in my heart, even if I must prove it continually", TraitRequirement = TraitName.QuchHa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Survival must be earned ", TraitRequirement = TraitName.QuchHa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "There is always a path to victory", TraitRequirement = TraitName.QuchHa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "There is nothing more honorable than victory ", TraitRequirement = TraitName.QuchHa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
+
         new Value { Name = "Hold the course until the end", TraitRequirement = SpeciesName.Ktarian, Weight = 10 },
         
         new Value { Name = "What does it mean to be an individual?", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 10 },

@@ -270,11 +270,11 @@ public class Character
 
             if (environment.SpeciesAttributes)
             {
-                species = speciesSelector.GetSpecies(Traits.First());
+                species = speciesSelector.GetSpecies(PrimarySpecies);
             }
             else if (environment.AnotherSpeciesAttributes)
             {
-                species = speciesSelector.GetAnotherRandomSpecies(Traits.First());
+                species = speciesSelector.GetAnotherRandomSpecies(PrimarySpecies);
                 Environment += $" ({species.Name})";
             }
 
