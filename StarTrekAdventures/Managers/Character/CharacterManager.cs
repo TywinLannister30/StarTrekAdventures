@@ -70,6 +70,9 @@ public class CharacterManager : ICharacterManager
         character.PrimarySpecies = chosenSpecies.First().Name;
         character.Species = chosenSpecies.ToSpeciesName();
 
+        if (chosenSpecies.Count == 2)
+            character.SecondarySpecies = chosenSpecies.Last().Name;
+
         foreach (var species in chosenSpecies)
         {
             if (!string.IsNullOrEmpty(chosenSpecies.First().AlternateTraitName))
@@ -272,6 +275,12 @@ public class CharacterManager : ICharacterManager
 
         character.Gender = GenderHelper.GetGender(character, _speciesSelector).ToString();
         character.Name = NameGenerator.GenerateName(character);
+
+        if (character.SpeciesAbility.HasPastime)
+            character.Pastime = PastimeGenerator.GeneratePastime();
+
+        if (character.Talents.Any(x => x.GainPastime))
+            character.Pastime = PastimeGenerator.GeneratePastime(); 
 
         character.OrderLists();
 

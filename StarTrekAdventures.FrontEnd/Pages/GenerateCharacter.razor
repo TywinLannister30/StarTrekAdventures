@@ -216,19 +216,25 @@
                             Focuses
                         </h3>
 
-                        @if (character.Focuses?.Any() == true)
-                        {
-                            <div class="bg-gray-700/40 rounded-lg p-4 border border-orange-700/40 text-sm space-y-2">
+                        <div class="bg-gray-700/40 rounded-lg p-4 border border-orange-700/40 text-sm space-y-2">
+                            @if (character.Focuses?.Any() == true)
+                            {
                                 @foreach (var f in character.Focuses)
                                 {
                                     <p class="text-gray-200 leading-snug">• @f</p>
                                 }
-                            </div>
-                        }
-                        else
-                        {
-                            <p class="text-gray-400 text-sm italic">No focuses recorded.</p>
-                        }
+                            }
+                            else
+                            {
+                                <p class="text-gray-400 text-sm italic">No focuses recorded.</p>
+                            }
+
+                            <div class="my-3 h-px bg-orange-700/50"></div>
+                            <p class="text-gray-300 text-sm">
+                                <span class="font-semibold text-orange-300">Pastimes:</span>
+                                @(string.IsNullOrWhiteSpace(character.Pastime) ? "None" : character.Pastime)
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

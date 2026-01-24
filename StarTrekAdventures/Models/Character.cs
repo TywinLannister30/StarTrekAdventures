@@ -74,6 +74,8 @@ public class Character
 
     public ICollection<string> Focuses { get; set; }
 
+    public string Pastime { get; set; }
+
     public ICollection<Talent> Talents { get; set; }
 
     public ICollection<string> BorgImplants { get; set; }
