@@ -47,5 +47,8 @@ public class SpeciesAbility
     [JsonIgnore]
     public int StressModifier { get; set; }
 
+    [JsonIgnore]
+    public bool HasBorgImplants { get; set; } = false;
+
     public string Source { get; set; }
 }

@@ -75,16 +75,16 @@ public class CharacterManager : ICharacterManager
 
         foreach (var species in chosenSpecies)
         {
-            if (!string.IsNullOrEmpty(chosenSpecies.First().AlternateTraitName))
+            if (!string.IsNullOrEmpty(species.AlternateTraitName))
             {
-                character.Traits.Add(chosenSpecies.First().AlternateTraitName);
+                character.Traits.Add(species.AlternateTraitName);
             }
             else
             {
                 character.Traits.Add(species.Name);
             }
 
-            if (!string.IsNullOrEmpty(chosenSpecies.First().SpecificSecondarySpeciesTrait))
+            if (!string.IsNullOrEmpty(species.SpecificSecondarySpeciesTrait))
                 character.Traits.Add(species.SpecificSecondarySpeciesTrait);
         }
 
@@ -134,6 +134,9 @@ public class CharacterManager : ICharacterManager
 
         if (speciesAbility.AddAugmentTalents)
             character.AddAugmentTalents(_talentSelector);
+
+        if (speciesAbility.HasBorgImplants)
+            character.AddBorgImplantTalents();
 
         return character;
     }

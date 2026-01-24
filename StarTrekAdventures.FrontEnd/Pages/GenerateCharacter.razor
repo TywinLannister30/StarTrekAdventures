@@ -253,6 +253,22 @@
                         {
                             <p class="mt-2 text-xs text-gray-500 italic">Source: @character.SpeciesAbility.Source</p>
                         }
+
+                        @if (character.BorgImplants?.Any() == true)
+                        {
+                            <div class="mt-4">
+                                <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Borg Implants</p>
+                                <ul class="mt-2 space-y-2 text-gray-300">
+                                    @foreach (var implant in character.BorgImplants)
+                                    {
+                                        <li>
+                                            <span class="font-semibold text-cyan-200">@implant.Name:</span>
+                                            @implant.Description
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
                     </div>
                 }
                 else

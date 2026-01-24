@@ -1038,6 +1038,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Collective Insights",
+                TraitRequirement = TraitName.Borg,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You still have extensive knowledge from your time in the Borg Collective, though your knowledge may be accompanied by horrific memories of your experiences as a drone. Once per session, when you attempt a task, you may suffer 1 Stress to gain one additional focus of your choice for the remainder of the current session. The focus should reflect some knowledge that the Borg Collective would have assimilated, and thus should not be any subject which the Borg would deem irrelevant.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "The Pursuit of Perfection",
+                TraitRequirement = TraitName.Borg,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "While you are free from the Collective, some aspects of Borg existence still resonate with you; the pursuit of perfection is worthy, but only your own terms. When you make a task roll, you may suffer 1 Stress to reroll any die which would cause a complication. You may do this on as many dice as you like on each task roll.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Cold Warrior",
                 TraitRequirement = SpeciesName.Breen,
                 GMPermission = true,

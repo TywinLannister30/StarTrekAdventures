@@ -711,6 +711,7 @@ public class SpeciesSelector : ISpeciesSelector
             AttributeModifiers = new CharacterAttributes(),
             ThreeRandomAttributes = true,
             TraitDescription = "A hologram can be programmed to any specification, and while they may appear indistinguishable from an organic being, a hologram’s physical presence—or holomatrix—is a combination of light and energy suspended in a force field, colloquially called “holomatter,” which is projected from a holo-emitter. Holograms cannot truly be subject to physical harm (though they can certainly simulate it), though their holomatrix can become disrupted, and holo-emitters can be damaged. A hologram can only exist in locations where there are holo-emitters present. Holograms are often disrespected by flesh-and-blood people, who tend to regard them as tools more than people. Holograms may have a second species trait, to reflect the species they were designed to emulate",
+            HasSecondarySpeciesTrait = true,
             SpeciesAbility = new SpeciesAbility
             {
                 Name = "Photonic",
@@ -719,7 +720,6 @@ public class SpeciesSelector : ISpeciesSelector
                 HasPastime = false,
                 Source = BookSource.SpeciesSourcebook
             },
-            HasSecondarySpeciesTrait = true,
             Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
@@ -1057,6 +1057,33 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.LiberatedBorg,
+            Description = new List<string>
+            {
+                "The horror of the Borg are the drones, sapient beings who have been assimilated: subjugated by advanced technology into the service of the singular will of the Collective. Countless trillions of people—in some cases entire civilizations—have been enslaved by the Borg in this manner, their individual will, sense of self, and their identity suppressed by cybernetic implants and neurochemical conditioning. Once brought into the Collective, these drones are merely an extension of the whole, visiting that same horror upon any unfortunate enough to cross paths with the Borg.",
+                "But over the latter decades of the 24th century, an increasing number of former Borg Drones have been liberated from the Collective. Some escaped by chance, separated from the hive mind by an accident. Others were rescued. More still gained independence during the Unimatrix Zero incident, or found the Collective’s control slipping as it began to suffer defeats. These liberated Borg—also known as Ex-Borg, or XBs—often have a long and painful recovery ahead of them, and they may never fully recover what was taken from them. Some seek to reclaim their original identities, while others are so far removed from who they once were that they must learn how to be individuals all over again."
+            },
+            ExampleCharacters = "Jean-Luc Picard (The Next Generation), Seven of Nine (Voyager), Hugh (The Next Generation, Picard)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "Due to extensive cybernetic, biochemical, and nanotechnological enhancement, Borg are resistant to adverse environmental conditions such as heat, cold, toxins, ionizing radiation, and even vacuum, though this lessens for liberated Borg who have had some of their implants removed. Even those freed are susceptible to influence from the Collective, and their implants can result in health or psychological problems if they malfunction. Borg must periodically undergo a regeneration cycle to recharge their implants and keep them functioning properly. All Liberated Borg characters are mixed heritage (Core Rulebook, page 99), and should select one (or more) other species: this represents what species (or mix of species) the character was before they were assimilated.",
+            AlternateTraitName = TraitName.Borg,
+            HasSecondarySpeciesTrait = true,
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Borg Implants",
+                Description = "You are a Cyborg, and may select cybernetic talents. Further, you may select one, two, or three of the Borg implants from the sidebar on the next page. Medicine tasks performed on you increase their Difficulty by the number of implants you have chosen, as does the complication range of any tasks related to social interaction. You may remove an implant when you receive a milestone, in addition to any other changes you make to your character.",
+                TraitGained = TraitName.Cyborg,
+                HasBorgImplants = true,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {
@@ -1201,7 +1228,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Jye, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Karemma, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.LiberatedBorg, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, NonMixed = true, SecondSpecies = true, MustTakeSpecificTalentInStepOne = "Borg Implants", Weight = 1 },
         //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Lurian, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Mari, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Empath", Weight = 0 },

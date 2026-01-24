@@ -869,7 +869,7 @@ public static class NameGenerator
     {
         var chance = Util.GetRandom(100) + 1;
 
-        if (chance <= 10)
+        if (chance <= 33)
             return GenerateName(character, secondSpecies: true);
 
         var count = Util.GetRandom(9) + 4;

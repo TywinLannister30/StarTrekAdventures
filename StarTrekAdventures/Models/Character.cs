@@ -1,6 +1,5 @@
 ﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
-using StarTrekAdventures.Models.Version1;
 using StarTrekAdventures.Selectors;
 using System.Text.Json.Serialization;
 
@@ -16,6 +15,7 @@ public class Character
         Talents = new List<Talent>();
         CareerEvents = new List<string>();
         Roles = new List<Role>();
+        BorgImplants = new List<BorgImplant>();
 
         Attributes = new CharacterAttributes
         {
@@ -78,7 +78,7 @@ public class Character
 
     public ICollection<Talent> Talents { get; set; }
 
-    public ICollection<string> BorgImplants { get; set; }
+    public ICollection<BorgImplant> BorgImplants { get; set; }
 
     public bool IsValid
     {
@@ -897,6 +897,7 @@ public class Character
         }
 
         Stress += Talents.Sum(x => x.StressModifier);
+        Stress += BorgImplants.Sum(x => x.StressModifier);
         Stress += SpeciesAbility.StressModifier;
     }
 
@@ -905,6 +906,7 @@ public class Character
         Protection = 0;
 
         Protection += Talents.Sum(x => x.ProtectionModifier);
+        Protection += BorgImplants.Sum(x => x.ProtectionModifier);
         Protection += SpeciesAbility.ProtectionBonus;
     }
 
@@ -999,5 +1001,83 @@ public class Character
         Values = Values.OrderBy(x => x).ToList();
         Focuses = Focuses.OrderBy(x => x).ToList();
         Talents = Talents.OrderBy(x => x.Name).ToList();
+    }
+
+    public void AddBorgImplantTalents(IRandomGenerator randomGenerator = null)
+    {
+        randomGenerator ??= new RandomGenerator();
+
+        var borgImplants = new List<BorgImplant>
+        {
+            new()
+            {
+                Name = "Adaptive Shielding",
+                Description = "Each time you are hit by an attack with an energy weapon, before deciding to Avoid Injury, you may roll 1d20; if you roll equal to or under your Fitness, the attack is negated."
+            },
+            new()
+            {
+                Name = "Assimilation Tubules",
+                Description = "You have the assimilation tubules weapon, implanted within your arm. This is a one-handed Melee weapon inflicting Deadly Injuries with a Severity of 3, with the Debilitating and Intense qualities. Enemies defeated by assimilation tubules may become assimilated and become Borg Drones. If you have an Interlink Node, you may also use this weapon to directly interface with a computer, as per the Neural Interface talent (core rulebook, page 155)."
+            },
+            new()
+            {
+                Name = "Biosynthetic Gland",
+                Description = "Whenever you attempt a task to resist or overcome a disease or toxin, you may suffer Stress equal to the task’s Difficulty to automatically succeed."
+            },
+            new()
+            {
+                Name = "Cardiopulmonary Reinforcement",
+                Description = "Your maximum Stress is increased by 2. Further, you may reroll one d20 on any Fitness-based task related to endurance or stamina.",
+                StressModifier = 2
+            },
+            new()
+            {
+                Name = "Cortical Node",
+                Description = "You may suffer 2 Stress to avoid suffering any trait that represents an emotional state, and you have +1 Protection against Stun Attacks. However, if you become Fatigued, choose two attributes to shut down instead of one.",
+            },
+            new()
+            {
+                Name = "Cranial Transceiver",
+                Description = "You always have a communicator on your person, which is operated by mental command and cannot be removed from you. If you also have an Ocular Processor, you are able to perceive the subspace signals you can receive.",
+            },
+            new()
+            {
+                Name = "Cybernetic Arm (Engineering)",
+                Description = "Your arm has been replaced by a cybernetic implant which functions as an engineer’s toolkit.",
+            },
+            new()
+            {
+                Name = "Cybernetic Arm (Medical)",
+                Description = "Your arm has been replaced by a cybernetic implant which functions as a medkit.",
+            },
+            new()
+            {
+                Name = "Exo-Plating",
+                Description = "You have +1 Protection, and you are immune to ill effects and damage from exposure to hard vacuum or extremes of pressure.",
+                ProtectionModifier = 1,
+            },
+            new()
+            {
+                Name = "Interlink Node",
+                Description = "When Borg are present in a scene, you may add 1 Threat to ask a question as per Obtain Information, attempting to gain some knowledge from Borg communications.",
+            },
+            new()
+            {
+                Name = "Occular Processor",
+                Description = "You gain the trait Multi- Spectral Vision, representing your ability to see a wide visual spectrum and to scan the environment in a way comparable to a tricorder.",
+                TraitGained = "Multi- Spectral Vision"
+            },
+        };
+
+        var implantCount = randomGenerator.GetRandom(3) + 1;
+        var picks = borgImplants.OrderBy(n => randomGenerator.GetRandom()).Take(implantCount).ToList();
+
+        foreach (var borgImplant in picks)
+        {
+            BorgImplants.Add(borgImplant);
+
+            if (!string.IsNullOrEmpty(borgImplant.TraitGained))
+                Traits.Add(borgImplant.TraitGained);
+        }
     }
 }

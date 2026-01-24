@@ -358,11 +358,14 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I keep mementos of my past, and I’m always looking for the next one", TraitRequirement = SpeciesName.Lanthanite, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Sooner or later, everything ends; so enjoy it now", TraitRequirement = SpeciesName.Lanthanite, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "What does it mean to be an individual?", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 10 },
-        new Value { Name = "Borg are more than the collective, and I will show them", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
-        new Value { Name = "I have known freedom and will have it again", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
-        new Value { Name = "I must do as my programming instructs", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
-        new Value { Name = "Resistance is not futile", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
+        new Value { Name = "I aspire to perfection on my own terms", TraitRequirement = TraitName.Borg, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My crew is my collective", TraitRequirement = TraitName.Borg, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Resistance is imperative", TraitRequirement = TraitName.Borg, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "What does it mean to be an individual?", TraitRequirement = TraitName.Borg, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Borg are more than the collective, and I will show them", TraitRequirement = TraitName.Borg, Weight = 5 },
+        new Value { Name = "I have known freedom and will have it again", TraitRequirement = TraitName.Borg, Weight = 5 },
+        new Value { Name = "I must do as my programming instructs", TraitRequirement = TraitName.Borg, Weight = 5 },
+        new Value { Name = "Resistance is not futile", TraitRequirement = TraitName.Borg, Weight = 5 },
         
         new Value { Name = "Our creations will submit", TraitRequirement = SpeciesName.Lokirrim, Weight = 10 },
         
