@@ -92,6 +92,8 @@ public static class NameGenerator
             return GenerateCommonName();
         if (species == SpeciesName.Human || species == SpeciesName.HumanAugment)
             return GenerateHumanName(gender);
+        if (species == SpeciesName.Illyrian)
+            return GenerateIllyrianName(gender);
         if (species == SpeciesName.JemHadar)
             return GenerateJemHadarName(gender);
         if (species == SpeciesName.Jye)
@@ -712,6 +714,29 @@ public static class NameGenerator
     {
         return GenerateName(character, secondSpecies: true);
     }
+
+    private static string GenerateIllyrianName(Gender gender)
+    {
+        var firstName = gender == Gender.Male
+            ? IllyrianMaleNames.OrderBy(n => Util.GetRandom()).First()
+            : IllyrianFemaleNames.OrderBy(n => Util.GetRandom()).First();
+
+        var familyName = IllyrianFamilyNames.OrderBy(n => Util.GetRandom()).First();
+
+        return $"{firstName} {familyName}";
+    }
+    private static readonly List<string> IllyrianMaleNames = new List<string>
+    {
+        "Ivan", "Hudek", "Usarn"
+    };
+    private static readonly List<string> IllyrianFemaleNames = new List<string>
+    {
+        "Neera", "Una"
+    };
+    private static readonly List<string> IllyrianFamilyNames = new List<string>
+    {
+        "Chin", "Riley", "Ketoul"
+    };
 
     private static string GenerateJemHadarName(Gender gender)
     {

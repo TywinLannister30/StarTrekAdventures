@@ -43,6 +43,7 @@ public static class SpeciesName
     public const string Horta = "Horta";
     public const string Human = "Human";
     public const string HumanAugment = "Human Augment";
+    public const string Illyrian = "Illyrian";
     public const string JemHadar = "Jem'Hadar";
     public const string Jye = "Jye";
     public const string Karemma = "Karemma";

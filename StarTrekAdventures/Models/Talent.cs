@@ -9,6 +9,7 @@ public class Talent
     {
         Source = BookSource.Core;
         MayNotTakeWithTalents = new List<string>();
+        AllTraitsRequirement = new List<string>();
     }
 
     public string Name { get; set; }
@@ -139,6 +140,9 @@ public class Talent
 
     [JsonIgnore]
     public ICollection<string> AnyTraitRequirement { get; set; }
+
+    [JsonIgnore]
+    public ICollection<string> AllTraitsRequirement { get; set; }
 
     [JsonIgnore]
     public string FocusRequirement { get; set; }

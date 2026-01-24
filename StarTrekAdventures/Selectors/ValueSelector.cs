@@ -284,6 +284,11 @@ public class ValueSelector : IValueSelector
 
         new Value { Name = "Just because my genes were altered, that doesn’t make me any less Human", AllTraitRequirement = { SpeciesName.Human, TraitName.Augment }, Weight = 20, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "Ad astra per aspera—through hardship to the stars", TraitRequirement = SpeciesName.Illyrian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We must choose between a piece of ourselves and a place among the stars", TraitRequirement = SpeciesName.Illyrian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We seek to live in harmony with nature, not to dominate it", TraitRequirement = SpeciesName.Illyrian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Your history should not dictate our future ", TraitRequirement = SpeciesName.Illyrian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "All traitors must be accounted for", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
         new Value { Name = "Loyalty to the founders, now and always", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
         new Value { Name = "We are now dead; we go into battle to reclaim our lives", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },

@@ -788,6 +788,31 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Illyrian,
+            Description = new List<string>
+            {
+                "Illyrians are a species native to the region once known as the Delphic Expanse, and Illyria itself was located in the Vaultera Nebula, but they have spread and settled countless colony worlds over the centuries. Illyrians have embraced genetic engineering to adapt their bodies to suit the worlds they settle, as an alternative to terraforming or geoengineering to make worlds habitable. As a result, Illyrians live on many worlds that other species might regard as uninhabitable.",
+                "However, while many of their colonies are now within Federation space, they exist in an awkward limbo, as their tendency towards genetic engineering puts them in direct conflict with Federation laws against genetic augmentation. This has left them as outcasts, forced to either undo their genetic enhancements, hide their nature, or live in marginalized communities on the fringes of society. The treatment of Illyrians—and by extension, all genetically enhanced persons—is a matter of controversy and the subject of a long-running civil rights movement.",
+                "Due to their engineered nature, Illyrians can vary wildly in appearance, ranging from appearing indistinguishable from Humans, to possessing cranial ridges, brow spines, webbed hands and feet, or a range of other visible or invisible physiological alterations."
+            },
+            ExampleCharacters = "Una Chin-Riley (Strange New Worlds)",
+             AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Reason = 1, Presence = 1
+            },
+            TraitDescription = "Illyrian baseline physiology is fairly close to that of Humans, but few Illyrians match this baseline closely, due to countless generations of divergent genetic engineering to suit different planetary environments or to gain other desired capabilities. Illyrians tend to be secretive due to a history of being outcast or dismissed by Federation races for their enhancements.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Adapt and Excel",
+                Description = "You may have the Augment trait. In addition, select a single attribute when you create your character: when you attempt a task using that attribute, you may suffer 1 Stress to reroll a single d20.",
+                ChanceForAugmentTrait = 75,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Klingon,
             Description = new List<string>
             {

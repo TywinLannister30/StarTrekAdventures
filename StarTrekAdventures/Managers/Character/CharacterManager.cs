@@ -87,7 +87,9 @@ public class CharacterManager : ICharacterManager
         if (!string.IsNullOrEmpty(chosenSpecies.First().SpeciesAbility.TraitGained))
             character.Traits.Add(chosenSpecies.First().SpeciesAbility.TraitGained);
 
-        if (!character.Traits.Contains(TraitName.Augment) && Util.GetRandom(100) == 1)
+        var augmentChance = chosenSpecies.First().SpeciesAbility.ChanceForAugmentTrait;
+
+        if (!character.Traits.Contains(TraitName.Augment) && Util.GetRandom(100) <= augmentChance)
             character.Traits.Add(TraitName.Augment);
 
         if (!character.Traits.Contains(TraitName.Cyborg) && Util.GetRandom(100) == 1)

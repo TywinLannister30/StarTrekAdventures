@@ -41,5 +41,8 @@ public class SpeciesAbility
     [JsonIgnore]
     public bool AddAugmentTalents { get; set; } = false;
 
+    [JsonIgnore]
+    public int ChanceForAugmentTrait { get; set; } = 1;
+
     public string Source { get; set; }
 }

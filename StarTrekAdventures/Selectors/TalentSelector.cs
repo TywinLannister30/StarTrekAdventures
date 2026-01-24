@@ -30,7 +30,7 @@ public class TalentSelector : ITalentSelector
 
     private static bool CanTakeTalent(Character character, Talent talent)
     {
-        var gmPermission = Util.GetRandom(100) == 1;
+        var gmPermission = talent.GMPermission && (Util.GetRandom(100) == 1);
 
         if (character.Talents.Any(x => x.Name == talent.Name))
             return false;
@@ -47,6 +47,12 @@ public class TalentSelector : ITalentSelector
         if (talent.AnyTraitRequirement != null)
         {
             if (!gmPermission && !character.Traits.Any(x => talent.AnyTraitRequirement.Contains(x)))
+                return false;
+        }
+
+        if (talent.AllTraitsRequirement != null)
+        {
+            if (!gmPermission && !talent.AllTraitsRequirement.All(x => character.Traits.Contains(x)))
                 return false;
         }
 
@@ -1478,6 +1484,16 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Augmented Immunity",
+                AllTraitsRequirement = new List<string> { SpeciesName.Illyrian, TraitName.Augment },
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "Your immune system has been altered to burn out toxins and diseases. Whenever you would be affected by toxins or diseases, you may add 1 Threat to immediately eliminate the infectious agent and ignore the effect. You visibly glow when this occurs."
+                }
+            },
+            new()
+            {
                 Name = "Killer's Instinct",
                 TraitRequirement = SpeciesName.Klingon,
                 GMPermission = true,
@@ -1804,6 +1820,16 @@ public class TalentSelector : ITalentSelector
                 Description = new List<string>
                 {
                     "You have a cybernetic device implanted directly into your brain, allowing you to interface with computers and similar technologies with their thoughts. Initiating or breaking the link between your mind and a computer system takes a minor action, and while you are connected, you may reroll one d20 on any task using that computer (including a ship’s Computer system). However, if the computer (or the ship containing it) is damaged, you immediately suffer a Deadly 4 Injury with the Piercing quality."
+                }
+            },
+            new()
+            {
+                Name = "Rapid Comprehension",
+                AnyTraitRequirement = new List<string> { TraitName.Augment, TraitName.Cyborg },
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "Your mind processes information swiftly, allowing you to learn even advanced concepts very quickly. Once per scene, when you ask questions with Obtain Information, or create a trait that represents researched information, you may spend 1 Momentum (Immediate) to select an additional focus related to those questions or that trait. You gain the benefits of the new focus for the remainder of the current scene."
                 },
                 Source = BookSource.SpeciesSourcebook
             },
@@ -1816,7 +1842,7 @@ public class TalentSelector : ITalentSelector
                 {
                     "You have a cybernetic device that replaces one of your senses—most commonly sight or hearing. You gain the Artificial Sense trait, which represents the ways that your senses differ from those of other members of your species. Further, when you attempt a task to locate something hidden or concealed, or to detect details not normally perceptible to that sense, you may re-roll a single d20."
                 },
-                TraitGained = "Artificial Sight"
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {
