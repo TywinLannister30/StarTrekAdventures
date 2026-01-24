@@ -338,8 +338,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The Galaxy is a sumptuous buffet just waiting to be sampled", TraitRequirement = SpeciesName.Klowahkan, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "We appreciate a meal more when we are hungry ", TraitRequirement = SpeciesName.Klowahkan, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Hold the course until the end", TraitRequirement = SpeciesName.Ktarian, Weight = 10 },
-        
+        new Value { Name = "Hold the course until the end", TraitRequirement = SpeciesName.Ktarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "See an obstacle, overcome it", TraitRequirement = SpeciesName.Ktarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Only the foolish fail to prepare", TraitRequirement = SpeciesName.Ktarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Find a solution before the problem arises", TraitRequirement = SpeciesName.Ktarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "What does it mean to be an individual?", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 10 },
         new Value { Name = "Borg are more than the collective, and I will show them", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
         new Value { Name = "I have known freedom and will have it again", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },

@@ -1622,6 +1622,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "From a Place of Strength",
+                TraitRequirement = SpeciesName.Ktarian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Ktarians are loath to enter into negotiations, or any other situation, unless they feel they are at an advantage. Once per scene, when you attempt a task, you may select one trait that currently benefits you on that task; you may increase that trait’s Potency by 1 for the duration of that task."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Relentless",
+                TraitRequirement = SpeciesName.Ktarian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Ktarians are known to face adversity with resolve, adapting to and enduring whatever obstacles arise in their path. Whenever you gain or spend Determination, recover 2 Stress."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),

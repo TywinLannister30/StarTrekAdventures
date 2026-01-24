@@ -957,6 +957,33 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 1,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species 
+        { 
+            Name = SpeciesName.Ktarian,
+            Description = new List<string>
+            {
+                "The Ktarians are a physically diverse species native to the Federation world of Ktaris. They are a common sight throughout Federation space and are one of the many species that maintains its own fleet of vessels, both merchant and military. The Ktarian fleet is considered to be a reserve force, and can be transferred under Starfleet during times of great need. The Ktarians sent representatives to the original Coalition of Planets talks on Earth that preceded the Federation, but Ktaris did not officially join the Federation until much later.",
+                "Unlike most Federation species, the Ktarians are comprised of two separate species that evolved together on Ktaris: one whose brows are bisected into two hemispheres and the other with bone ridges along the center of the forehead. Intermarriage among these two species has resulted in both carrying the traits of the other. Predicting which traits will manifest in offspring is extremely difficult, especially when Ktarians mate with other species. Rumors circulate that the Miradorn are an offshoot of Ktarians, but the reclusive nature of the Miradorn makes this difficult to confirm."
+            },
+            ExampleCharacters = "Etana Jol (The Next Generation), Greskrendtregk (Voyager), Naomi Wildman (Voyager)",
+            AttributeModifiers = new CharacterAttributes 
+            { 
+                Control = 1, Reason = 1 
+            }, 
+            OneOfTheseModifiers = new CharacterAttributes 
+            { 
+                Fitness = 1, Presence = 1 
+            },
+            TraitDescription = "Ktarians are a hard people, determined and relentless in pursuit of their goals. The intertwining of the two native species has led to the Ktarians possessing the best traits of both. They are physically fit and quick witted—adapting and responding to adversity with ease. They dislike entering any situation where they haven’t managed to secure a significant advantage in advance.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Deep Determination",
+                Description = "Ktarians have a well-earned reputation for committing absolutely to their goals, and a single-minded determination to achieve success. Once per mission, when you succeed at a task where you could have spent a point of Determination, but you chose not to, you may spend 3 Momentum to gain a point of Determination.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         new Species
         {
             Name = SpeciesName.Orion,
@@ -1103,7 +1130,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Jye, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Karemma, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Ktarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1 }, OneOfTheseModifiers = new CharacterAttributes { Fitness = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.LiberatedBorg, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, NonMixed = true, SecondSpecies = true, MustTakeSpecificTalentInStepOne = "Borg Implants", Weight = 1 },
         //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Lurian, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
