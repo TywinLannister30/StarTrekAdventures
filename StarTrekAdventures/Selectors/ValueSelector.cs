@@ -368,9 +368,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Resistance is not futile", TraitRequirement = TraitName.Borg, Weight = 5 },
         
         new Value { Name = "Our creations will submit", TraitRequirement = SpeciesName.Lokirrim, Weight = 10 },
-        
-        new Value { Name = "Belly full of song and heart full of glory", TraitRequirement = SpeciesName.Lurian, Weight = 10 },
-        
+
+        new Value { Name = "Everything has a price ", TraitRequirement = SpeciesName.Lurian, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "Your expectations limit you ", TraitRequirement = SpeciesName.Lurian, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "I am not who you expect me to be ", TraitRequirement = SpeciesName.Lurian, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "I thrive because I do not ignore opportunities ", TraitRequirement = SpeciesName.Lurian, Weight = 10, Source = BookSource.SpeciesSourcebook},
+
         new Value { Name = "Peace in mind and action", TraitRequirement = SpeciesName.Mari, Weight = 10 },
         
         new Value { Name = "Space – the greatest ocean of all", TraitRequirement = SpeciesName.Monean, Weight = 10 },
