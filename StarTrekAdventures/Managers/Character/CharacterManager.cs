@@ -2,6 +2,7 @@
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
 using StarTrekAdventures.Selectors;
+using System;
 using System.Reflection;
 
 namespace StarTrekAdventures.Managers;
@@ -103,6 +104,8 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepTwo(Character character)
     {
+        if (character.PrimarySpecies == SpeciesName.JemHadar) return character;
+
         var environment = _environmentSelector.ChooseEnvironment(character.Species);
 
         character.Environment = environment.Name;
@@ -116,6 +119,8 @@ public class CharacterManager : ICharacterManager
 
     private Character PerformStepThree(Character character)
     {
+        if (character.PrimarySpecies == SpeciesName.JemHadar) return PerformModifiedStepTwoAndThreeForJemHadar(character);
+
         var upbringing = _upbringSelector.ChooseUpbringing();
 
         character.Upbringing = upbringing.Name;
@@ -227,6 +232,43 @@ public class CharacterManager : ICharacterManager
         character.Name = NameGenerator.GenerateName(character);
 
         character.OrderLists();
+
+        return character;
+    }
+
+    private Character PerformModifiedStepTwoAndThreeForJemHadar(Character character)
+    {
+        var hatcheries = new List<Hatchery>
+        {
+            new() 
+            {
+                Name = "Gamma Hatchery",
+                Attributes = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 },
+                DepartmentModifiers = new Departments { Security = 1 },
+                AvailableFocuses = new List<string> { 
+                    Focus.AtmosphericFlight, Focus.EvasiveAction, Focus.PrecisionManeuvering, Focus.ZeroGCombat, Focus.BladeWeapons, Focus.Camouflage, 
+                    Focus.Demolitions, Focus.Disruptors, Focus.Intimidation, Focus.MartialArts }
+            },
+            new() 
+            {
+                Name = "Alpha Hatchery",
+                Attributes = new CharacterAttributes { Daring = 1, Presence = 1, Insight = 1 },
+                DepartmentModifiers = new Departments { Command = 1 },
+                AvailableFocuses = new List<string> {
+                    Focus.MentalDiscipline, Focus.StrategyOrTactics, Focus.CombatManeuvers, Focus.AmbushTactics, Focus.FleetFormations,
+                    Focus.SmallUnitTactics }
+            }
+        };
+
+        var chosenHatchery = hatcheries.OrderBy(n => Util.GetRandom()).First();
+
+        character.Environment = chosenHatchery.Name;
+        character.Upbringing = chosenHatchery.Name;
+        character.AddValue(_valueSelector);
+        character.AdjustAttributesForHatchery(chosenHatchery);
+        character.AdjustDepartmentsForHatchery(chosenHatchery);
+        character.AddFocuses(chosenHatchery.AvailableFocuses, 1);
+        character.AddTalent(_talentSelector);
 
         return character;
     }

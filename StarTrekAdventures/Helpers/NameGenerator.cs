@@ -95,7 +95,7 @@ public static class NameGenerator
         if (species == SpeciesName.Illyrian)
             return GenerateIllyrianName(gender);
         if (species == SpeciesName.JemHadar)
-            return GenerateJemHadarName(gender);
+            return GenerateJemHadarName();
         if (species == SpeciesName.Jye)
             return GenerateJyeName(gender);
         if (species == SpeciesName.Karemma)
@@ -738,13 +738,17 @@ public static class NameGenerator
         "Chin", "Riley", "Ketoul"
     };
 
-    private static string GenerateJemHadarName(Gender gender)
+    private static string GenerateJemHadarName()
     {
-        return JemHadarNames.OrderBy(n => Util.GetRandom()).First();
+        return $"{JemHadarFirstPartNames.OrderBy(n => Util.GetRandom()).First()}'{JemHadarSecondPartNames.OrderBy(n => Util.GetRandom()).First()}";
     }
-    private static readonly List<string> JemHadarNames = new List<string>
+    private static readonly List<string> JemHadarFirstPartNames = new List<string>
     {
-        "Omet’iklan"
+        "Amat", "Arak", "Duran", "Goran", "Ikat", "Ixtana", "Kudak", "Lamar", "Limara", "Meso", "Omet", "Remata", "Talak", "Temo", "Toman", "Virak", "Yak"
+    };
+    private static readonly List<string> JemHadarSecondPartNames = new List<string>
+    {
+        "Adar", "Agar", "Clan", "Etan", "Igan", "Ika", "Iklan", "Kara", "Rax", "Son", "Talan", "Taral", "Torax", "Ukan", "Zuma"
     };
 
     private static string GenerateJyeName(Gender gender)

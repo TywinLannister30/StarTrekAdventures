@@ -23,6 +23,11 @@ public class CareerPathSelector : ICareerPathSelector
                 availableCareerPaths.AddEntry(careerPath, careerPath.Weight);
         }
 
+        if (character.PrimarySpecies == SpeciesName.JemHadar)
+        {
+            availableCareerPaths.RemoveWhere(x => x.Name != TrackName.StarfleetEnlisted);
+        }
+
         return availableCareerPaths.GetRandom();
     }
 

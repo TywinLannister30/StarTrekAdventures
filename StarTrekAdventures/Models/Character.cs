@@ -1,7 +1,9 @@
-﻿using StarTrekAdventures.Constants;
+﻿using Microsoft.Extensions.Hosting;
+using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models.Version1;
 using StarTrekAdventures.Selectors;
+using System;
 using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
@@ -378,6 +380,74 @@ public class Character
         }
 
         var choice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
+
+        if (choice == DepartmentName.Command) Departments.Command++;
+        if (choice == DepartmentName.Conn) Departments.Conn++;
+        if (choice == DepartmentName.Engineering) Departments.Engineering++;
+        if (choice == DepartmentName.Medicine) Departments.Medicine++;
+        if (choice == DepartmentName.Science) Departments.Science++;
+        if (choice == DepartmentName.Security) Departments.Security++;
+    }
+
+    public void AdjustAttributesForHatchery(Hatchery hatchery, IRandomGenerator randomGenerator = null)
+    {
+        randomGenerator ??= new RandomGenerator();
+
+        Attributes.Control += hatchery.Attributes.Control;
+        Attributes.Daring += hatchery.Attributes.Daring;
+        Attributes.Fitness += hatchery.Attributes.Fitness;
+        Attributes.Insight += hatchery.Attributes.Insight;
+        Attributes.Presence += hatchery.Attributes.Presence;
+        Attributes.Reason += hatchery.Attributes.Reason;
+
+        var choices = new List<string>();
+
+        if (hatchery.Attributes.Control > 0) choices.Add(AttributeName.Control);
+        if (hatchery.Attributes.Daring > 0) choices.Add(AttributeName.Daring);
+        if (hatchery.Attributes.Fitness > 0) choices.Add(AttributeName.Fitness);
+        if (hatchery.Attributes.Insight > 0) choices.Add(AttributeName.Insight);
+        if (hatchery.Attributes.Presence > 0) choices.Add(AttributeName.Presence);
+        if (hatchery.Attributes.Reason > 0) choices.Add(AttributeName.Reason);
+
+        var choice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
+
+        if (choice == AttributeName.Control) Attributes.Control++;
+        if (choice == AttributeName.Daring) Attributes.Daring++;
+        if (choice == AttributeName.Fitness) Attributes.Fitness++;
+        if (choice == AttributeName.Insight) Attributes.Insight++;
+        if (choice == AttributeName.Presence) Attributes.Presence++;
+        if (choice == AttributeName.Reason) Attributes.Reason++;
+    }
+
+    public void AdjustDepartmentsForHatchery(Hatchery hatchery, IRandomGenerator randomGenerator = null)
+    {
+        randomGenerator ??= new RandomGenerator();
+
+        Departments.Command += hatchery.DepartmentModifiers.Command;
+        Departments.Conn += hatchery.DepartmentModifiers.Conn;
+        Departments.Engineering += hatchery.DepartmentModifiers.Engineering;
+        Departments.Medicine += hatchery.DepartmentModifiers.Medicine;
+        Departments.Science += hatchery.DepartmentModifiers.Science;
+        Departments.Security += hatchery.DepartmentModifiers.Security;
+
+        var departmentsAvailable = new List<string>
+        {
+            DepartmentName.Command,
+            DepartmentName.Conn,
+            DepartmentName.Engineering,
+            DepartmentName.Medicine,
+            DepartmentName.Science,
+            DepartmentName.Security
+        };
+
+        if (hatchery.DepartmentModifiers.Command > 0) departmentsAvailable.Remove(DepartmentName.Command);
+        if (hatchery.DepartmentModifiers.Conn > 0) departmentsAvailable.Remove(DepartmentName.Conn);
+        if (hatchery.DepartmentModifiers.Engineering > 0) departmentsAvailable.Remove(DepartmentName.Engineering);
+        if (hatchery.DepartmentModifiers.Medicine > 0) departmentsAvailable.Remove(DepartmentName.Medicine);
+        if (hatchery.DepartmentModifiers.Science > 0) departmentsAvailable.Remove(DepartmentName.Science);
+        if (hatchery.DepartmentModifiers.Security > 0) departmentsAvailable.Remove(DepartmentName.Security);
+
+        var choice = departmentsAvailable.OrderBy(n => randomGenerator.GetRandom()).First();
 
         if (choice == DepartmentName.Command) Departments.Command++;
         if (choice == DepartmentName.Conn) Departments.Conn++;

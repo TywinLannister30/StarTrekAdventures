@@ -289,8 +289,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "We seek to live in harmony with nature, not to dominate it", TraitRequirement = SpeciesName.Illyrian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Your history should not dictate our future ", TraitRequirement = SpeciesName.Illyrian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "I will do as ordered, but I will seek to do so honorably ", TraitRequirement = SpeciesName.JemHadar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Obedience brings victory, and victory is life!", TraitRequirement = SpeciesName.JemHadar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Relaxation and recreation are weaknesses", TraitRequirement = SpeciesName.JemHadar, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We pledge loyalty to the Founders from now until death", TraitRequirement = SpeciesName.JemHadar, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "All traitors must be accounted for", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
-        new Value { Name = "Loyalty to the founders, now and always", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
         new Value { Name = "We are now dead; we go into battle to reclaim our lives", TraitRequirement = SpeciesName.JemHadar, Weight = 5 },
         
         new Value { Name = "Perfection by the numbers", TraitRequirement = SpeciesName.Jye, Weight = 10 },

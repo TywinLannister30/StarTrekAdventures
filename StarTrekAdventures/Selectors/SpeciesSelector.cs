@@ -796,7 +796,7 @@ public class SpeciesSelector : ISpeciesSelector
                 "Due to their engineered nature, Illyrians can vary wildly in appearance, ranging from appearing indistinguishable from Humans, to possessing cranial ridges, brow spines, webbed hands and feet, or a range of other visible or invisible physiological alterations."
             },
             ExampleCharacters = "Una Chin-Riley (Strange New Worlds)",
-             AttributeModifiers = new CharacterAttributes
+            AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Reason = 1, Presence = 1
             },
@@ -809,6 +809,31 @@ public class SpeciesSelector : ISpeciesSelector
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.JemHadar,
+            Description = new List<string>
+            {
+                "An artificial species of reptilian humanoids created by the Founders, who serve as the military of the Dominion. Rather than being born naturally, Jem’Hadar are bred in birthing chambers, and their growth cycle is accelerated such that they reach maturity within three days. It was rare for any Jem’Hadar to live longer than 10 or 15 years, and those over 20 were regarded as honored elders.",
+                "Jem’Hadar are engineered to be a perfect warrior species. They have exceptional strength, excellent vision and coordination, and they are extremely resilient to attack. They do not require sleep, and receive all their nourishment from a drug known as ketracel-white, which also contains a necessary isogenic enzyme that their metabolism does not produce. Jem’Hadar received regular doses of “the white” from their Vorta overseers, ensuring their loyalty.",
+                "The Jem’Hadar worship the Founders as gods, though few of them had ever actually seen a Founder. Those who had were driven to such a fervid loyalty that they would commit suicide if they allowed a Founder to be harmed. Duty was central to their existence, regarding their lives only as having value as long as they continued to triumph. While some have a personal sense of honor, this is not a major part of their culture."
+            },
+            ExampleCharacters = "Omet’iklan (Deep Space Nine)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "Jem’Hadar are physically powerful, and far stronger and more resilient than Humans. They have keen eyesight, and act without fear or hesitation in battle. They do not regard death with apprehension, and are aggressive, limited only by their absolute obedience to the Founders and the Vorta.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Perfect Soldier",
+                Description = "You are built for warfare. Your Unarmed Strike attacks may inflict Deadly Injuries, and have the Intense quality. Further, you have 1 Protection, and cannot suffer any Stun Injuries. However, you are uncomfortable among other species, and cannot easily empathize or relate to them, adding 1 Difficulty to any task rolls to interact with someone in a peaceful manner unless they are a direct Dominion superior. Finally, you require daily doses of ketracel-white to live: while you have your dose, you recover 4 Stress at the start of each scene, but you cannot rest normally, and each day you do not receive the white, you cannot recover Stress, and you gain the Withdrawal Symptoms trait.",
+                ProtectionBonus = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
         new Species

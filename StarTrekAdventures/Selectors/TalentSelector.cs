@@ -1490,7 +1490,30 @@ public class TalentSelector : ITalentSelector
                 Description = new List<string>
                 {
                     "Your immune system has been altered to burn out toxins and diseases. Whenever you would be affected by toxins or diseases, you may add 1 Threat to immediately eliminate the infectious agent and ignore the effect. You visibly glow when this occurs."
-                }
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "The Shroud",
+                TraitRequirement = SpeciesName.JemHadar,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have honed the Jem’Hadar ability to conceal yourself from the enemy. Using the Prepare minor action, you may shroud yourself, becoming nearly invisible. You gain the Shrouded trait. While shrouded, tasks to detect or locate you increase in Difficulty accordingly, and you cannot be the target of an attack unless the attacker has found some other way to detect you. This ends when you make an attack or when you take another Prepare minor action to end the effect. You cannot use this ability when deprived of ketracel-white."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Victory is Life!",
+                TraitRequirement = SpeciesName.JemHadar,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "During a scene, whenever you defeat an enemy or achieve a specific objective commanded by your superior (or a mission Directive), recover 3 Stress instantly. The gamemaster may veto any objectives they deem too trivial or exploitable."
+                },
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {
