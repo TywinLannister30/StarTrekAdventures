@@ -60,6 +60,7 @@ public static class SpeciesName
     public const string Lokirrim = "Lokirrim";
     public const string Lurian = "Lurian";
     public const string Mari = "Mari";
+    public const string Medusan = "Medusan";
     public const string Monean = "Monean";
     public const string Nausicaan = "Nausicaan";
     public const string Ocampa = "Ocampa";

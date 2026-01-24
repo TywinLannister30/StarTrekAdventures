@@ -136,7 +136,7 @@ public class SpeciesSelector : ISpeciesSelector
             {
                 Name = "Telepathic",
                 Description = "Aenar can sense the minds of other living creatures in their vicinity, and can read the thoughts of others, though they have strict taboos about reading a mind without permission. See the Telepathy talent for more details.",
-                AddTalent = "Telepathy"
+                AddTalents = { TalentName.Telepathy }
             },
             Weight = 1
         },
@@ -536,7 +536,7 @@ public class SpeciesSelector : ISpeciesSelector
             {
                 Name = "Empath",
                 Description = "You have the Empathy talent, described on page 155 of the core rulebook. You may develop this ability further by selecting the Telepathy talent during the course of character advancement.",
-                AddTalent = TalentName.Empathy,
+                AddTalents = { TalentName.Empathy },
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 2,
@@ -1089,7 +1089,7 @@ public class SpeciesSelector : ISpeciesSelector
             {
                 "A race as well known for their fierce martial skills as they are for their artistic endeavors, the Lurians are a power whose homeworld is near the Alpha Quadrant side of the Bajoran wormhole. Though their world is controlled by the Royal Family of Luria, they are a frequent sight at outposts and trading posts, and their skill as navigators and warriors makes them prized members of any crew. With multiple hearts and two stomachs, they require large quantities of food and their religious custom dictates that attendees at a Lurian funeral should bring plenty of food and liquor to see the dead through their journey into the afterlife. Though some Lurians have become involved in criminal endeavors such as the Orion Syndicate, they prefer to make their own way, and it is not uncommon to see lone Lurians happily plying their way through space on another great adventure.",
             },
-            ExampleCharacters = "Morn (Deep Space Nine), Grom (Prodigy)  ",
+            ExampleCharacters = "Morn (Deep Space Nine), Grom (Prodigy)",
             AttributeModifiers = new CharacterAttributes
             {
                 Control = 1, Fitness = 1, Presence = 1
@@ -1100,6 +1100,30 @@ public class SpeciesSelector : ISpeciesSelector
                 Name = "Resistant Anatomy",
                 Description = "Lurians are known for having an extremely hardy constitution. Capable of taking a knife to one of their hearts and keep fighting, Lurians have evolved a physiology that rivals even the redundant anatomy of the Klingons. Lurians have Protection 1 against all attacks, which increases to 2 against Stun Attacks, and you may suffer 1 Stress to ignore any effects or traits caused by toxins, drugs, or poisons. Further, the first time in an adventure you’re Defeated, you may immediately recover from being Defeated, though you still have whatever Injury caused you to become Defeated.",
                 ProtectionBonus = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Medusan,
+            Description = new List<string>
+            {
+                "Medusans are a telepathic non-corporeal species with similar drive to explore and understand the universe to many Federation cultures. Their minds and thought processes are considered by other telepathic species to have a sublime elegance and beauty, yet their appearance— an amorphous mass of coherent electromagnetic energy—is anathema to corporeal life, and looking upon a Medusan without protection causes a severe neurological disruption, resulting in madness and potentially even death (though some species demonstrate a limited resistance, and telepaths are more resistant in general to this effect).",
+                "In their natural state, Medusans gather together and telepathically bond into hive minds, but they are fully capable of leaving a hive mind to travel alone. Among corporeal life, Medusans tend to use a carrier pod or containment suit to travel, hiding their physical appearance; they dislike doing this, as it feels lonely and isolating to exist in this way. Medusans have a deep appreciation for beauty, which they express through a fascination for art—especially the art of other cultures— but also through a deep understanding of physics and mathematics so that they can better appreciate the natural beauty of the universe. Their incompatibility with corporeal species is the main thing that limits their exploration: Medusans are pacifistic, and do not wish to cause harm, but they’re all too aware of how dangerous their presence is to others. Thus, few Medusans leave the safety and comfort of their hive minds to move alone among other people."
+            },
+            ExampleCharacters = "Kollos (Star Trek), Zero (Prodigy)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Reason = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Medusans are non-corporeal beings composed of coherent electromagnetic energy. As incorporeal beings, they have no physical body, are genderless, do not age, and are immune to most biological hazards such as toxins, diseases, heat, cold, and suffocation. Medusans are potent telepaths, and can communicate by projecting their thoughts into the minds of other beings nearby. The electromagnetic form of a Medusan allows them to physically interact with objects in close proximity using magnetic fields, but it also emits wavelengths of EM radiation that can induce severe neurological disruption in corporeal beings who see them.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Sublime Mind, Hideous Form",
+                Description = "You have no physical form, but your mind is powerful indeed. You have the Telepathy and Telepathic Projection talents (both on page 156 of the core rulebook). However, corporeal beings who see your form immediately suffer a Deadly 5 Injury with the Debilitating and Piercing qualities (intentionally exposing your form in order to do harm adds 1 Threat per creature that would be affected) unless they’re wearing a protective visor. Telepathic species count the Severity of this injury to 3. Injuries you suffer represent disruptions to your electromagnetic matrix. When living among other species, you are assumed to dwell within a containment pod, which must be carried around by another character.",
+                AddTalents = new List<string> { TalentName.Telepathy, TalentName.TelepathicProjection },
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 1,

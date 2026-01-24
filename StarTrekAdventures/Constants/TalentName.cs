@@ -8,6 +8,7 @@ public static class TalentName
     // Esoteric
     public const string Empathy = "Empathy";
     public const string Telepathy = "Telepathy";
+    public const string TelepathicProjection = "Telepathic Projection";
 
     // Experience
     public const string UntappedPotential = "Untapped Potential";

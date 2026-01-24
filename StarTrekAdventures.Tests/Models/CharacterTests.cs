@@ -157,7 +157,7 @@ public class CharacterTests
     {
         var character = new CharacterBuilder()
             .AddValidDetails()
-            .SetSpeciesAbility(new SpeciesAbility { Name = "Ability1", Description = "Desc1", AddTalent = "Talent" })
+            .SetSpeciesAbility(new SpeciesAbility { Name = "Ability1", Description = "Desc1", AddTalents = { "Talent" } })
             .ClearTalents()
             .Build();
 
@@ -175,7 +175,7 @@ public class CharacterTests
     {
         var character = new CharacterBuilder()
             .AddValidDetails()
-            .SetSpeciesAbility(new SpeciesAbility { Name = "Ability1", Description = "Desc1", AddTalent = "Talent" })
+            .SetSpeciesAbility(new SpeciesAbility { Name = "Ability1", Description = "Desc1", AddTalents = { "Talent" } })
             .Build();
         
         character.Talents.Add(new Talent { Name = "Talent 5" });
@@ -497,7 +497,7 @@ public class CharacterTests
     public void AddSpeciesAbility_SpeciesAbilityAddsTalent_AddsSpeciesAbilityWithTalent()
     {
         var character = new CharacterBuilder().AddBasicDetails().Build();
-        var speciesAbility = new SpeciesAbility { Name = "Species Ability", AddTalent = "talent" };
+        var speciesAbility = new SpeciesAbility { Name = "Species Ability", AddTalents = { "talent" } };
 
         _mockTalentSelector
             .Setup(t => t.GetTalent("talent"))
@@ -2012,7 +2012,7 @@ public class CharacterTests
         _mockRoleSelector.Setup(x => x.ChooseRole(It.IsAny<Character>())).Returns(
             new Role { Name = "Test Role", AdditionalFocuses = 1, AdditionalFocusesChoices = ["Focus1", "Focus2"] });
 
-        character.AddRole(_mockRoleSelector.Object, _mockValueSelector.Object, new MockRandomGenerator([1, 2, 3, 4, 5, 6]));
+        character.AddRole(_mockRoleSelector.Object, _mockValueSelector.Object, randomGenerator: new MockRandomGenerator([1, 2, 3, 4, 5, 6]));
 
         Assert.Single(character.Focuses);
         Assert.Equal("Focus1", character.Focuses.First());
@@ -2026,7 +2026,7 @@ public class CharacterTests
         _mockRoleSelector.Setup(x => x.ChooseRole(It.IsAny<Character>())).Returns(
             new Role { Name = "Test Role", AdditionalFocuses = 1, AdditionalFocusesChoices = ["Focus1", "Focus2"] });
 
-        character.AddRole(_mockRoleSelector.Object, _mockValueSelector.Object, new MockRandomGenerator([6, 5, 4, 3, 2, 1]));
+        character.AddRole(_mockRoleSelector.Object, _mockValueSelector.Object, randomGenerator: new MockRandomGenerator([6, 5, 4, 3, 2, 1]));
 
         Assert.Single(character.Focuses);
         Assert.Equal("Focus2", character.Focuses.First());

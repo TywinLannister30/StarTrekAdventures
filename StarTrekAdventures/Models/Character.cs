@@ -126,11 +126,19 @@ public class Character
                     return false;
                 }
             }
-            else if (SpeciesAbility.AddOneOfTheseTalents != null || !string.IsNullOrEmpty(SpeciesAbility.AddTalent))
+            else if (SpeciesAbility.AddOneOfTheseTalents != null)
             {
                 if (Talents.Count != 5)
                 {
                     ValidationIssue = $"The character has {Talents.Count} talents. It should be 5.";
+                    return false;
+                }
+            }
+            else if (SpeciesAbility.AddTalents != null && SpeciesAbility.AddTalents.Count > 0)
+            {
+                if (Talents.Count != 4 + SpeciesAbility.AddTalents.Count)
+                {
+                    ValidationIssue = $"The character has {Talents.Count} talents. It should be {4 + SpeciesAbility.AddTalents.Count}.";
                     return false;
                 }
             }
@@ -230,9 +238,10 @@ public class Character
     {
         randomGenerator ??= new RandomGenerator();
 
-        if (!string.IsNullOrEmpty(speciesAbility.AddTalent))
+        if (speciesAbility.AddTalents != null && speciesAbility.AddTalents.Count > 0)
         {
-            Talents.Add(talentSelector.GetTalent(speciesAbility.AddTalent));
+            foreach (var talentName in speciesAbility.AddTalents)
+                Talents.Add(talentSelector.GetTalent(talentName));
         }
 
         if (speciesAbility.AddOneOfTheseTalents != null)

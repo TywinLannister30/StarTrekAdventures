@@ -1767,6 +1767,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Containment Suit",
+                TraitRequirement = SpeciesName.Medusan,
+                Weight = 25,
+                Description = new List<string>
+                {
+                    "You have replaced your containment pod with a fully mobile containment suit, which allows you to interact with corporeal beings without harming them. You gain a Containment Suit trait. Your suit has two arms and two legs, allowing you to move around and operate technology as a humanoid would, and it is sealed in such a way that others are not exposed to your form."
+                },
+                TraitGained = "Containment Suit",
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Intuitive Navigator",
+                TraitRequirement = SpeciesName.Medusan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Medusans are noted for having refined interstellar navigation to a fine art; their electromagnetic forms allowing them to perceive and interact with space in ways that corporeal life cannot. When you attempt to plot a starship course, you may reduce the Difficulty of the task roll by 2, to a minimum of 0. If the Difficulty is reduced to 0, you also gain 2 bonus Momentum on a successful task. Bonus Momentum cannot be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),
@@ -2180,7 +2204,7 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Telepathic Projection",
+                Name = TalentName.TelepathicProjection,
                 TalentRequirement = "Telepathy",
                 Weight = 10,
                 Description = new List<string>

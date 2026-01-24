@@ -124,6 +124,8 @@ public static class NameGenerator
             return GenerateLurianName(gender);
         if (species == SpeciesName.Mari)
             return GenerateMariName(gender);
+        if (species == SpeciesName.Medusan)
+            return GenerateCommonName();
         if (species == SpeciesName.Monean)
             return GenerateMoneanName(gender);
         if (species == SpeciesName.Ocampa)

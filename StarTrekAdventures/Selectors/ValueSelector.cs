@@ -375,7 +375,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "There is inspiration and fortune to be had among the stars", TraitRequirement = SpeciesName.Lurian, Weight = 10, Source = BookSource.SpeciesSourcebook},
 
         new Value { Name = "Peace in mind and action", TraitRequirement = SpeciesName.Mari, Weight = 10 },
-        
+
+        new Value { Name = "I care not for solitude or isolation", TraitRequirement = SpeciesName.Medusan, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "I must balance my desire to explore with the harm my presence may do", TraitRequirement = SpeciesName.Medusan, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "The universe contains countless wonders waiting to be experienced", TraitRequirement = SpeciesName.Medusan, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "We are all bettered by learning from perspectives other than our own", TraitRequirement = SpeciesName.Medusan, Weight = 10, Source = BookSource.SpeciesSourcebook},
+
         new Value { Name = "Space – the greatest ocean of all", TraitRequirement = SpeciesName.Monean, Weight = 10 },
         
         new Value { Name = "All others are weak", TraitRequirement = SpeciesName.Nausicaan, Weight = 10 },

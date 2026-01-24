@@ -8,6 +8,7 @@ public class SpeciesAbility
     public SpeciesAbility()
     {
         Source = BookSource.Core;
+        AddTalents = new List<string>();
     }
 
     public string Name { get; set; }
@@ -18,7 +19,7 @@ public class SpeciesAbility
     public string NpcDescription { get; set; }
 
     [JsonIgnore]
-    public string AddTalent { get; set; }
+    public List<string> AddTalents { get; set; }
 
     [JsonIgnore]
     public List<string> AddOneOfTheseTalents {get; set;}
