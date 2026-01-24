@@ -2,7 +2,6 @@
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models;
 using StarTrekAdventures.Selectors;
-using System;
 using System.Reflection;
 
 namespace StarTrekAdventures.Managers;
@@ -162,7 +161,11 @@ public class CharacterManager : ICharacterManager
         character.AdjustAttributesForUpbringing(upbringing);
         character.AdjustDepartmentsForUpbringing(upbringing);
         character.AddFocuses(upbringing.Focuses, 1);
-        character.AddTalent(_talentSelector);
+
+        if (character.PrimarySpecies == SpeciesName.Kwejian && Util.GetRandom(100) <= 75)
+            character.Talents.Add(_talentSelector.GetTalent(TalentName.Empathy));
+        else
+            character.AddTalent(_talentSelector);
 
         return character;
     }

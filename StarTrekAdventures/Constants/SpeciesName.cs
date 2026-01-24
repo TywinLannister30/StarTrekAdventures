@@ -53,6 +53,7 @@ public static class SpeciesName
     public const string KlingonQuchHa = "Klingon QuchHa'";
     public const string Klowahkan = "Klowahkan";
     public const string Ktarian = "Ktarian";
+    public const string Kwejian = "Kwejian";
     public const string Lanthanite = "Lanthanite";
     public const string LiberatedBorg = "Liberated Borg";
     public const string Lokirrim = "Lokirrim";

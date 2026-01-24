@@ -1646,6 +1646,31 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Bait for the Carrion Reaver",
+                TraitRequirement = SpeciesName.Kwejian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "“Never return from a hunt without enough bait for the carrion reaver” is an old Kwejian saying, cautioning hunters against greed or recklessness that might lead other trouble—such as predators—back to a community. At the end of a scene, you may spend up to 3 Momentum from the group pool to remove the same number of Threat points, as you watch out for potential perils and take precautions against them."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Natural Bond",
+                TraitRequirement = SpeciesName.Kwejian,
+                TalentRequirement = TalentName.Empathy,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your connection to the natural world is deep and powerful. You may attempt to influence the behavior and actions of animals with your empathic abilities, projecting emotions into them with a Presence + Command task roll; the Difficulty is determined by the gamemaster, based on how complex an influence you wish to have, and how cooperative the creature is. You may also attempt to influence plants in a similar way, stimulating particular behaviors and autonomic responses in them."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),
@@ -2029,7 +2054,7 @@ public class TalentSelector : ITalentSelector
         {
             new()
             {
-                Name = "Empathy",
+                Name = TalentName.Empathy,
                 GMPermission = true,
                 Weight = 10,
                 Description = new List<string>
@@ -2069,7 +2094,7 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Telepathy",
+                Name = TalentName.Telepathy,
                 TraitRequirement = SpeciesName.Deltan,
                 GMPermission = true,
                 Weight = 10,

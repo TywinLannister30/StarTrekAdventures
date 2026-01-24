@@ -343,6 +343,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Only the foolish fail to prepare", TraitRequirement = SpeciesName.Ktarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Find a solution before the problem arises", TraitRequirement = SpeciesName.Ktarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "Be careful not to let trouble follow you home", TraitRequirement = SpeciesName.Kwejian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The universe is in careful balance, but care is needed to maintain it", TraitRequirement = SpeciesName.Kwejian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The world gives back what we put into it", TraitRequirement = SpeciesName.Kwejian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We few carry the legacy of the lost", TraitRequirement = SpeciesName.Kwejian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "What does it mean to be an individual?", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 10 },
         new Value { Name = "Borg are more than the collective, and I will show them", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
         new Value { Name = "I have known freedom and will have it again", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },

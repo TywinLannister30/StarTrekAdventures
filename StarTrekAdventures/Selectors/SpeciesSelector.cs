@@ -290,7 +290,7 @@ public class SpeciesSelector : ISpeciesSelector
             {
                 Name = "Telepathic",
                 Description = "Betazoids can sense the minds of living creatures in their vicinity and can read the thoughts and emotions of others. Each Betazoid has either Telepathy or Empathy (see Talents for more details). Part-Betazoid characters generally have Empathy rather than Telepathy.",
-                AddOneOfTheseTalents = new List<string> { "Telepathy", "Empathy" }
+                AddOneOfTheseTalents = new List<string> { TalentName.Telepathy, TalentName.Empathy }
             },
             Weight = 8
         },
@@ -536,7 +536,7 @@ public class SpeciesSelector : ISpeciesSelector
             {
                 Name = "Empath",
                 Description = "You have the Empathy talent, described on page 155 of the core rulebook. You may develop this ability further by selecting the Telepathy talent during the course of character advancement.",
-                AddTalent = "Empathy",
+                AddTalent = TalentName.Empathy,
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 2,
@@ -982,6 +982,30 @@ public class SpeciesSelector : ISpeciesSelector
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Kwejian,
+            Description = new List<string>
+            {
+                "The Kwejian are a relatively new species to the galactic community, having achieved warp travel during the 31st century during the desperate aftermath of The Burn; subspace disruptions altered the orbit of the Kwejian moon, causing an ecological disaster on a massive scale. Eventually the Kwejian people were forced to trade with the ruthless capitalist syndicate the Emerald Chain in order to survive. Alas, this would not be the last disaster Kwejian would face: the planet was destroyed in 3190 by a Dark Matter Anomaly later discovered to have been engineered by an unknown species from beyond the edge of the Galaxy. The remaining Kwejian people are scattered refugees.",
+                "Kwejian society has a deep spirituality, and a reverence for the natural cycles and balance of their homeworld’s ecosystem, though many had compromised on their culture in the name of survival after The Burn. A major element of their culture was the World Root, a root network that spanned the entire planet prior to its destruction, and which symbolized their ancestry and their bond with their home; a cutting of this root was preserved and persists on another world into the 33rd century.",
+                "The Kwejian are relatively few in number, and dwelled within a region of their planet called the Sanctuary, which was hidden from sensors and transporters and shielded from orbital bombardment. In each generation, a few of them would demonstrate an innate empathic ability that allows them to communicate with and influence plants and animals; the manifestation of this trait was regarded as a part of the natural balance of their home."
+            },
+            ExampleCharacters = "Cleveland Booker V (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Kwejians closely resemble Humans, and have a similar biology, biochemistry, and anatomy. A portion of them possess an innate telempathic ability to communicate with and influence plants and animals, which manifests with a glowing pattern appearing on their foreheads.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Natural Balance",
+                Description = "Kwejians are sensitive to the cycles and patterns of the natural world. A Kwejian character may select the Empathy talent (page 155 of the core rulebook). Further, whenever you attempt a task to intuit or understand the nature or behavior of an alien life-form, you may reroll 1d20.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
         new Species

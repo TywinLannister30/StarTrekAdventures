@@ -110,6 +110,8 @@ public static class NameGenerator
             return GenerateKlowahkanName();
         if (species == SpeciesName.Ktarian)
             return GenerateKtarianName(gender);
+        if (species == SpeciesName.Kwejian)
+            return GenerateKwejianName();
         if (species == SpeciesName.LiberatedBorg)
             return GenerateLiberatedBorgName(character);
         if (species == SpeciesName.Lokirrim)
@@ -848,6 +850,15 @@ public static class NameGenerator
     private static readonly List<string> KtarianFemaleNames = new List<string>
     {
         "Nives", "Etana", "Milosama", "Brunmohley", "Jezas", "Selit", "Meriana", "Reginalundula"
+    };
+
+    private static string GenerateKwejianName()
+    {
+        return KwejianNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> KwejianNames = new List<string>
+    {
+        "Kyheem", "Leto", "Tareckx"
     };
 
     private static string GenerateLiberatedBorgName(Character character)
