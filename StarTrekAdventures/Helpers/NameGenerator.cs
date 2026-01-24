@@ -1,6 +1,8 @@
 ﻿using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
+using System.Diagnostics.Metrics;
+using System.Runtime.InteropServices;
 using static StarTrekAdventures.Constants.Enums;
 
 namespace StarTrekAdventures.Helpers;
@@ -128,6 +130,10 @@ public static class NameGenerator
             return GenerateCommonName();
         if (species == SpeciesName.Monean)
             return GenerateMoneanName(gender);
+        if (species == SpeciesName.Nanokin)
+            return GenerateNanokinName();
+        if (species == SpeciesName.Nausicaan)
+            return GenerateNausicaanName();
         if (species == SpeciesName.Ocampa)
             return GenerateOcampaName(gender);
         if (species == SpeciesName.Orion)
@@ -946,6 +952,24 @@ public static class NameGenerator
     private static readonly List<string> MoneanFamilyNames = new List<string>
     {
         "Zulohu", "Bahaho", "Mowel", "Ahlog", "Unajal", "Elgoha", "Omol", "Malom"
+    };
+
+    private static string GenerateNanokinName()
+    {
+        return NanokinNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> NanokinNames = new List<string>
+    {
+        "Blip", "Clip", "Cowpox", "Crimean-Congo Hemorrhagic Fever", "Grip", "Influensina", "Polio", "Tonsillitis", "Trip", "Trip 2", "Wisp"
+    };
+
+    private static string GenerateNausicaanName()
+    {
+        return NausicaanNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> NausicaanNames = new List<string>
+    {
+        "Franti", "Ghlarig", "Kajek", "Krozh", "Savonigar", "Trenigar", "Urotoxa", "Zon"
     };
 
     private static string GenerateOcampaName(Gender gender)

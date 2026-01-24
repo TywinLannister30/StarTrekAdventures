@@ -382,9 +382,18 @@ public class ValueSelector : IValueSelector
         new Value { Name = "We are all bettered by learning from perspectives other than our own", TraitRequirement = SpeciesName.Medusan, Weight = 10, Source = BookSource.SpeciesSourcebook},
 
         new Value { Name = "Space – the greatest ocean of all", TraitRequirement = SpeciesName.Monean, Weight = 10 },
-        
+
+        new Value { Name = "Living large, despite my size", TraitRequirement = SpeciesName.Nanokin, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "Not all life is on the same scale as you", TraitRequirement = SpeciesName.Nanokin, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "Sometimes good things come in small packages", TraitRequirement = SpeciesName.Nanokin, Weight = 10, Source = BookSource.SpeciesSourcebook},
+        new Value { Name = "Small things survive big events", TraitRequirement = SpeciesName.Nanokin, Weight = 10, Source = BookSource.SpeciesSourcebook},
+
         new Value { Name = "All others are weak", TraitRequirement = SpeciesName.Nausicaan, Weight = 10 },
-        
+        new Value { Name = "Do not back down from any challenge", TraitRequirement = SpeciesName.Nausicaan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "It’s only cheating if you are foolish enough to be caught", TraitRequirement = SpeciesName.Nausicaan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "My strength gives me the right to make the rules", TraitRequirement = SpeciesName.Nausicaan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Only the weak have need to fear pain", TraitRequirement = SpeciesName.Nausicaan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "See all that life has to offer", TraitRequirement = SpeciesName.Ocampa, Weight = 10 },
         
         new Value { Name = "Everything has a price", TraitRequirement = SpeciesName.Orion, Weight = 10 },

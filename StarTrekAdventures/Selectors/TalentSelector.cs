@@ -1791,6 +1791,55 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Lifelike Conveyance",
+                TraitRequirement = SpeciesName.Nanokin,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your conveyance is especially realistic, and can pass as a natural member of whatever species it was constructed to resemble. Any attempt to discern that it is artificial requires a task with a Difficulty of 4, even with technological means (as the interior is shielded against sensors). When you take this talent, select a single species for the conveyance to resemble: the conveyance allows you to function as if you had all the physical capabilities of a member of that species. However, your mental faculties are unaffected, and if you behave in a manner unexpected for a typical member of that species, you may draw attention which causes people to scrutinize your conveyance further.",
+                    "In addition, an improved autopilot means the conveyance can attempt tasks with a Difficulty of 1 or higher, though it cannot purchase additional d20s by itself."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Inner Workings",
+                TraitRequirement = SpeciesName.Nanokin,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a unique perspective on technology, from being inside that technology. When away from your conveyance, and able to access the inner workings of a device, you may reroll 1d20 on any Engineering task to operate, sabotage, repair, or alter that technology."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Pack Hunter",
+                TraitRequirement = SpeciesName.Nausicaan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "There is strength in being able to command others to crush your foes. When you or an ally attacks an enemy who has already been attacked by you or an ally during this current round, the attacker may reroll 1d20 in their dice pool."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Let No Challenge Stand",
+                TraitRequirement = SpeciesName.Nausicaan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your pride cannot allow a challenge to go unmet. When you attempt a task to intimidate or attack a character who has intimidated or attacked you previously in the current scene, the first bonus die you purchase is free. While an enemy is present in an action scene who has attempted to threaten or attack you, you must add 1 Threat at the end of each of your turns where you do not attempt to retaliate against them."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),

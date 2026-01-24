@@ -1131,6 +1131,52 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Nanokin,
+            Description = new List<string>
+            {
+                "Nanokin are a rare example of a near-microscopic sapient species. They typically do not interact with the “behemoths,” as they call humanoid creatures, as they exist on an entirely different scale, though they are known to scavenge materials and technology. They reproduce in extremely large numbers, with hundreds of thousands of hatchlings to each brood. Nanokin have extremely volatile emotions, which can cause them to act in erratic or eccentric ways by Human standards. Nanokin are a rare species where first contact was by operatives of Section 31 rather than Starfleet, though this was by accident, as a colony—mistakenly identified as some kind of biological infestation—of Nanokin was discovered on a derelict ship in the late 23rd century.",
+                "On the rare occasion they do need to interact with humanoid life, they do so by piloting android suits called conveyances. Conveyances, especially black-market ones, can be extremely lifelike, and they are difficult to discern as artificial. A Nanokin can depart from their conveyance in a near-microscopic backup vehicle able to fly short distances from the conveyance, leaving the conveyance to operate on autopilot while they range around. Given their small size, this backup vehicle can fit into extremely small spaces, including the inner workings of technology, and it is nearly impossible to spot without technological means."
+            },
+            ExampleCharacters = "Fuzz (Section 31)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "These creatures are extremely small, almost on the scale of microbes, and can only meaningfully interact with humanoid creatures via technology, such as their conveyances, communicators, and so forth. Their physiology is wildly different to that of humanoids, but it allows them—in appropriate craft—to circumvent most barriers or conceal themselves from any search. Nanokin characters also have the trait Conveyance: a conveyance is a piloted android that allows a Nanokin to move among and interact with humanoid life. These all have the same capabilities as a normal Human or similar humanoid being, though they are technological rather than organic. A Nanokin can use a small craft (barely a few millimeters across) to exit its conveyance, leaving the conveyance on autopilot.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Tiny Being in a Lifelike Android",
+                Description = "While in your conveyance, you may act freely as if you were any other character. When you leave your conveyance, you cannot be seen with the naked eye, and attacks against you automatically fail. While away from your conveyance, it operates on autopilot, and it cannot attempt any action which requires a task roll with a Difficulty of 1 or higher.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Nausicaan,
+            Description = new List<string>
+            {
+                "Nausicaans are a belligerent species native to the Beta Quadrant world of Nausicaa, and with territories spreading into the Alpha Quadrant. Nausicaan civilization has a long and storied history, whose ancestors had access to advanced technology, but by the 22nd century, they were mainly known as pirates and mercenaries, with little or no stable central government: indeed, Vulcan High Command regarded the Nausicaan government as being “in a state of constant transition.” Little has changed since.",
+                "The Nausicaans themselves are tall, powerfully built humanoids with prominent bony ridges across their faces, with sharp tusks framing their mouths. Some also have rows of small horns running along their cranial ridges. Their culture tends towards anarchy, with the only consistent social structures being extended family groups dominated by the strongest and most domineering family members. Nausicaans believe that the strong should prosper and those weaker survive by doing as the strong command. Interactions with others tend to involve a lot of bragging, one-upmanship, and bravado, which can turn into “friendly” violence which seldom results in lasting injury."
+            },
+            ExampleCharacters = "Zon (The Next Generation)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Nausicaans are a tall, very strong species hailing from Nausicaa. They are generally stronger than an average Human, and more direct in their thinking, preferring brute force over finesse and direct methods as opposed to subtlety. They have little patience for organized forms of government, though they will tolerate following a captain for as long as that captain earns their capricious loyalty. Nausicaans are somewhat resistant to pain and injury, and almost never back down from a challenge, especially when it involves games that carry the potential for serious bodily harm to themselves or their opponents.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Brute Force",
+                Description = "You are tall, strong, and have little patience for subtlety or nuance. When you attempt a melee attack or a Fitness-based task roll to break or force your way through an obstacle or other problem, you may reroll 1d20, and you score 1 bonus Momentum if the task succeeds. Bonus Momentum cannot be saved. You have +1 Protection against Stun Attacks.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {

@@ -62,6 +62,7 @@ public static class SpeciesName
     public const string Mari = "Mari";
     public const string Medusan = "Medusan";
     public const string Monean = "Monean";
+    public const string Nanokin = "Nanokin";
     public const string Nausicaan = "Nausicaan";
     public const string Ocampa = "Ocampa";
     public const string Orion = "Orion";
