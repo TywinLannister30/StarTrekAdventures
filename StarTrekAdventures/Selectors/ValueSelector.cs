@@ -299,7 +299,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Perfection by the numbers", TraitRequirement = SpeciesName.Jye, Weight = 10 },
         
         new Value { Name = "I see your true worth", TraitRequirement = SpeciesName.Karemma, Weight = 10 },
-        
+
+        new Value { Name = "Harsh action now may prevent something worse later", TraitRequirement = SpeciesName.Kellerun, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I care about what you can do more than who you are", TraitRequirement = SpeciesName.Kellerun, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I have no taste for battle, but I will not yield meekly to threats", TraitRequirement = SpeciesName.Kellerun, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I’ve seen too much destruction to allow more ", TraitRequirement = SpeciesName.Kellerun, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "The great balance must be achieved", TraitRequirement = SpeciesName.KelpianPostVaharai, Weight = 10 },
         
         new Value { Name = "The great balance must be achieved", TraitRequirement = SpeciesName.KelpianPreVaharai, Weight = 10 },

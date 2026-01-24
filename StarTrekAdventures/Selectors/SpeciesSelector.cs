@@ -838,6 +838,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Kellerun,
+            Description = new List<string>
+            {
+                "The Kellerun are a species native to the Alpha Quadrant with a long history of space exploration, but also of conflict. Prior to the late 24th century, the Kellerun were embroiled in a centuries-long conflict with a species from a neighboring system, the T’Lani, which had escalated to the point that deadly nano-biogenic weapons—called the Harvester—were used extensively by both sides, which led to mass casualties. When a tentative peace was finally achieved, both sides sought Federation aid in destroying their stockpiles of the Harvester weapon. Centuries later, the Kellerun faced conflict again, as the territories of the Breen Imperium expanded to claim the Kellerun homeworld as an outpost, stripping it of resources.",
+                "The Kellerun themselves are a humanoid species with pointed, ridged ears, but who otherwise appear similar to Humans, Betazoids, or Vulcans. The species’ long history of warfare has resulted in the Kellerun being an intense and determined people, but it would be difficult to class them as a warrior culture in the way the Klingons are. Still, Kellerun culture does encourage a pragmatic attitude, which some might see as ruthlessness, when it comes to eliminating dire threats before they can arise."
+            },
+            ExampleCharacters = "Ambassador Sharat (Deep Space Nine), Rayner (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Control = 1, Presence = 1
+            },
+            TraitDescription = "Kellerun are a humanoid species with features and physiology similar to Humans and many other species, aside from ridged and pointed ears. The Kellerun have a reputation for being focused and intense, slow to trust, and even humorless.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Intense Defiance",
+                Description = "Your people have endured fierce, brutal conflicts, and cultivated a defiant, pragmatic attitude towards hardship. When you suffer one or more Stress, you may add 1 to Threat to reduce the amount of Stress suffered by 1. Once per mission, when you become Fatigued, you may immediately add 2 Threat to recover 1 Stress.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1, 
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Klingon,
             Description = new List<string>
             {

@@ -1517,6 +1517,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Out of Necessity",
+                TraitRequirement = SpeciesName.Kellerun,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are willing to take whatever action is necessary to achieve the best outcome, even if that action might be dangerous or destructive in the short term. Once per mission, when you take an action that would cause escalation (such as using lethal force on an attack), you may insist that the action is necessary: if you do so, you ignore the normal escalation for that action as long as the action itself was successful. You may also reroll 1d20 on any task roll to try and use intimidation or threats to force an enemy to back down from a fight."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Pragmatic Professional",
+                TraitRequirement = SpeciesName.Kellerun,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The niceties of leadership and teamwork concern you less than the outcome of your endeavors. When you attempt a task with assistance from another character, or assist another character’s task, any character involved in the task may suffer 1 Stress to reroll 1d20."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Killer's Instinct",
                 TraitRequirement = SpeciesName.Klingon,
                 GMPermission = true,

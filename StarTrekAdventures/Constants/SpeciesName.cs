@@ -47,6 +47,7 @@ public static class SpeciesName
     public const string JemHadar = "Jem'Hadar";
     public const string Jye = "Jye";
     public const string Karemma = "Karemma";
+    public const string Kellerun = "Kellerun";
     public const string KelpianPreVaharai = "Kelpian (Pre-Vahar'ai)";
     public const string KelpianPostVaharai = "Kelpian (Post-Vahar'ai)";
     public const string Klingon = "Klingon";

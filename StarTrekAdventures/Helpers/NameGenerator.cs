@@ -2,6 +2,7 @@
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
 using static StarTrekAdventures.Constants.Enums;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace StarTrekAdventures.Helpers;
 
@@ -100,6 +101,8 @@ public static class NameGenerator
             return GenerateJyeName(gender);
         if (species == SpeciesName.Karemma)
             return GenerateKaremmaName(gender);
+        if (species == SpeciesName.Kellerun)
+            return GenerateKellerunName();
         if (species == SpeciesName.KelpianPostVaharai || species == SpeciesName.KelpianPreVaharai)
             return GenerateKelpianName();
         if (species == SpeciesName.Klingon)
@@ -787,6 +790,15 @@ public static class NameGenerator
     private static readonly List<string> KaremmaFemaleNames = new List<string>
     {
         "Nethys", "Zarestra", "Bulko", "Yebesh"
+    };
+
+    private static string GenerateKellerunName()
+    {
+        return KellerunNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> KellerunNames = new List<string>
+    {
+        "Ayelle", "Carzot", "Defren", "Ferro", "Harreb", "Korlom", "Mennor", "Pherri", "Rayner", "Sharat", "Tivana", "Wennix"
     };
 
     private static string GenerateKelpianName()
