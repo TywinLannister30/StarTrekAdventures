@@ -1695,6 +1695,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Ancient Expertise",
+                TraitRequirement = SpeciesName.Lanthanite,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "While all Lanthanites pick up a lot of eclectic knowledge over their long lives, some devote themselves to mastering some of that knowledge. Select one department with a rating of 4 or 5. Whenever you attempt a task roll using that department but do not have an applicable focus, you may spend 1 Momentum to count as having an applicable focus for that task roll."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Esoteric Experiences",
+                TraitRequirement = SpeciesName.Lanthanite,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’d be surprised at the weird things someone learns over a couple of millennia of life. When you attempt a task roll which uses any department with a rating of 1 or 2, you may add 2 Threat to pick a different department and any one focus you possess and explain how that unlikely combination actually applies to the current situation. If the gamemaster is convinced, you may use that department and focus."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),

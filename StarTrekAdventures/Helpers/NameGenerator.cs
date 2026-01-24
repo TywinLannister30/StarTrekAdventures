@@ -114,6 +114,8 @@ public static class NameGenerator
             return GenerateKwejianName();
         if (species == SpeciesName.Kzinti)
             return GenerateCommonName();
+        if (species == SpeciesName.Lanthanite)
+            return GenerateHumanName(gender);
         if (species == SpeciesName.LiberatedBorg)
             return GenerateLiberatedBorgName(character);
         if (species == SpeciesName.Lokirrim)

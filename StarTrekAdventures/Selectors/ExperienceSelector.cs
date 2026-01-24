@@ -8,7 +8,10 @@ public class ExperienceSelector : IExperienceSelector
 {
     public Experience ChooseExperience(Character character)
     {
-        var weightedCareersList = new WeightedList<Experience>();
+        if (character.PrimarySpecies == SpeciesName.Lanthanite)
+            return GetExperience(ExperienceName.Veteran);
+
+        var weightedExperienceList = new WeightedList<Experience>();
 
         foreach (var experience in Experiences)
         {
@@ -16,11 +19,11 @@ public class ExperienceSelector : IExperienceSelector
                 experience.MaxDepartment != null && character.AllDepartmentsLessThanOrEqualTo(experience.MaxDepartment.Value)) ||
                 (experience.MaxAttribute == null && experience.MaxDepartment == null))
             {
-                weightedCareersList.AddEntry(experience, experience.Weight);
+                weightedExperienceList.AddEntry(experience, experience.Weight);
             }
         }
 
-        return weightedCareersList.GetRandom();
+        return weightedExperienceList.GetRandom();
     }
 
     public Experience GetExperience(string name)

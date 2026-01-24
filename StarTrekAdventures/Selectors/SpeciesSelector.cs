@@ -1034,6 +1034,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Lanthanite,
+            Description = new List<string>
+            {
+                "Lanthanites are a species who are almost indistinguishable from Humans in every way except one: they appear to be immortal. The origin of the Lanthanite species is unknown, but a group of them are known to have dwelled on Earth for several thousand years, leading some to speculate that they may be an ancient offshoot of humanity who age far more slowly (or who simply do not age beyond a certain point), but this is unconfirmed. They had managed to move among Humans undetected until the 22nd century, and there is little idea of how many live on Earth, as not all have been forthcoming about their nature.",
+                "As a consequence of their longevity, Lanthanites tend to accumulate quirks about their behavior. Several known Lanthanites demonstrate a strange accent influenced by numerous ancient cultures and dialects over millennia. Some tend to travel light while others are packrats, both often a response to living lives where even the most stable civilization feels temporary. Many hold on to habits and customs from favorite eras of history. They also tend to have idiosyncratic views on the history they lived through.",
+            },
+            ExampleCharacters = "Pelia (Strange New Worlds)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Lanthanites are physically almost identical to a Human, though with a lifespan of several thousand years or more. Many were able to live among Humans for millennia, remaining undetected on Earth until the 22nd century. During lifepath character creation, Lanthanite characters always select the Veteran option at Step Five.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Lived Nearly Forever",
+                Description = "You’ve lived a very long time, and learned a lot. Up to twice per adventure, you may declare you have an experience or expertise in a particular field; you gain an additional focus when you do this, which remains for the rest of the adventure.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {

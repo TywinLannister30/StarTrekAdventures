@@ -353,6 +353,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Once you smell blood, you finish the job", TraitRequirement = SpeciesName.Kzinti, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Plant-eaters do not deserve my respect", TraitRequirement = SpeciesName.Kzinti, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "Boredom is the worst part of living almost forever", TraitRequirement = SpeciesName.Lanthanite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Cherish those who walk through life with you, no matter how briefly", TraitRequirement = SpeciesName.Lanthanite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I keep mementos of my past, and I’m always looking for the next one", TraitRequirement = SpeciesName.Lanthanite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Sooner or later, everything ends; so enjoy it now", TraitRequirement = SpeciesName.Lanthanite, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "What does it mean to be an individual?", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 10 },
         new Value { Name = "Borg are more than the collective, and I will show them", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
         new Value { Name = "I have known freedom and will have it again", TraitRequirement = SpeciesName.LiberatedBorg, Weight = 5 },
