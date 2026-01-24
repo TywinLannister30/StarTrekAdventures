@@ -10,6 +10,7 @@ public class Talent
         Source = BookSource.Core;
         MayNotTakeWithTalents = new List<string>();
         AllTraitsRequirement = new List<string>();
+        SpecificExtraRole = new List<string>();
     }
 
     public string Name { get; set; }
@@ -203,6 +204,9 @@ public class Talent
 
     [JsonIgnore]
     public bool ExtraRole { get; set; }
+
+    [JsonIgnore]
+    public List<string> SpecificExtraRole { get; set; }
 
     [JsonIgnore]
     public bool ChooseFocus { get; set; }

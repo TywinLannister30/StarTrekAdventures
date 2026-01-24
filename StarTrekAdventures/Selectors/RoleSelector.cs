@@ -142,11 +142,16 @@ public class RoleSelector: IRoleSelector
         if (character.CareerPath.StartsWith(TrackName.CivilianOfficial))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.Expert), 10);
+            weightedRoleList.AddEntry(GetRole(RoleName.ShipsCook), 1);
+            weightedRoleList.AddEntry(GetRole(RoleName.ShipsChef), 1);
+
         }
 
         if (character.CareerPath.StartsWith(TrackName.CivilianTrader))
         {
             weightedRoleList.AddEntry(GetRole(RoleName.Merchant), 10);
+            weightedRoleList.AddEntry(GetRole(RoleName.ShipsCook), 1);
+            weightedRoleList.AddEntry(GetRole(RoleName.ShipsChef), 1);
 
             if (character.Departments.Security >= 4) weightedRoleList.AddEntry(GetRole(RoleName.Bodyguard), 10);
 
@@ -288,6 +293,18 @@ public class RoleSelector: IRoleSelector
             Name = RoleName.Translator,
             Description = "You are an expert in language and communication. While the development of the universal translator has reduced the need for translators during daily life in the 23rd and 24th centuries, there are still situations which call for experts in linguistics. Encounters with new cultures often require support from xenolinguistics experts to smooth over any problems that the universal translator has, particularly if a culture has an unusual style or method of communication. Similarly, archaeological research often requires piecing together extinct languages from evidence in ways that can’t easily be automated.",
             Benefit = "When attempting to read, understand, or speak a language unfamiliar to you, you may spend 2 Momentum (Immediate) to piece together a basic understanding of that language immediately, enough to convey simple ideas. This allows social tasks to be attempted in this language, but the complication range of these tasks is increased to 18–20. Deeper study, at the gamemaster’s discretion, allows you to remove this penalty and discuss more complex ideas."
+        },
+        new Role
+        {
+            Name = RoleName.ShipsChef,
+            Description = "In addition to owning restaurants, chefs are often found on starships and starbases, particularly those which do not purely rely upon replicators to feed the crew; a ship’s chef was a common fixture on older ships before the introduction of the replicator. Larger modern Starfleet vessels, especially ones serving diplomatic roles, often have a chef aboard to help prepare banquets for dignitaries, cooking with a mixture of stored foods, fruit and vegetables grown in hydroponics bays, and replicated ingredients to produce spectacular dishes. Chefs aboard starships are often called upon to be adaptable and a quick study, learning new cuisines from encountered cultures, and programming replicators to add special requests to the ship’s menus.",
+            Benefit = "Once per adventure, you may prepare a meal for a non-combat scene set aboard the ship; this may be a dinner at the captain’s table, a banquet for dignitaries or other VIPs, part of a celebration, or some other meaningful occasion. The scene is also considered to be a Break rest, and characters will recover +1 Stress over what they normally would. Player characters may reroll 1d20 on all social conflict tasks they attempt during that scene.",
+        },
+        new Role
+        {
+            Name = RoleName.ShipsCook,
+            Description = "Klingon vessels customarily have a ship’s cook, who is responsible for feeding the ship’s crew during a cruise. The entire crew customarily eats together, and, as Klingons dislike replicated food, regarding it as “artificial” and “lifeless,” a cook is necessary to prepare meals from live or recently slaughtered meat. Other ships and cultures may have reasons to have a cook aboard the ship, preparing meals from scratch.",
+            Benefit = "Once per adventure, at the start of a new scene, you may declare the scene will feature the crew eating together. This is considered to be a Break rest, and characters will recover +1 Stress over and above what they’d normally regain. In addition, after the scene, you may roll 1d20: if you roll equal to or under your Control, add 1 Momentum to the group pool. At the commanding officer’s discretion, you may add drinks (for Klingons, bloodwine; on Starfleet vessels, this will be some variety of synthehol); if you do so, roll two d20s as above, but if either die rolls above your Control, add 1 Threat.",
         },
 
         // 1st Edition Roles

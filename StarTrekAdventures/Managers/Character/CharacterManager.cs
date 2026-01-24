@@ -262,6 +262,11 @@ public class CharacterManager : ICharacterManager
         if (character.Talents.Any(x => x.ExtraRole))
             character.AddRole(_roleSelector, _valueSelector);
 
+        if (character.Talents.Any(x => x.SpecificExtraRole != null && x.SpecificExtraRole.Count > 0))
+        {
+            character.AddRole(_roleSelector, _valueSelector, character.Talents.First(x => x.SpecificExtraRole != null && x.SpecificExtraRole.Count > 0).SpecificExtraRole);
+        }
+
         character.Gender = GenderHelper.GetGender(character, _speciesSelector).ToString();
         character.Name = NameGenerator.GenerateName(character);
 

@@ -255,6 +255,41 @@
                 }
             </section>
 
+            <!-- Role Abilities -->
+            <section class="mb-10">
+                <h2 class="text-lg font-semibold text-teal-300 border-b border-teal-600 pb-1 mb-3 uppercase tracking-widest">
+                    Role Abilities
+                </h2>
+
+                @if (character.Roles?.Any() == true)
+                {
+                    <div class="space-y-6">
+                        @foreach (var role in character.Roles)
+                        {
+                            <div class="bg-gray-700/40 rounded-lg p-4 border border-teal-700/40 text-sm">
+                                <p class="text-lg font-bold text-teal-200 mb-1">@role.Name</p>
+
+                                @if (!string.IsNullOrWhiteSpace(role.Benefit))
+                                {
+                                    <p class="text-gray-200 leading-relaxed">
+                                        <span class="font-semibold text-teal-300">Ability:</span> @role.Benefit
+                                    </p>
+                                }
+
+                                @if (!string.IsNullOrWhiteSpace(role.Source))
+                                {
+                                    <p class="mt-2 text-xs text-gray-500 italic">Source: @role.Source</p>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-gray-400 text-sm italic">No role abilities recorded.</p>
+                }
+            </section>
+
             <!-- Talents -->
             <section>
                 <h2 class="text-lg font-semibold text-purple-300 border-b border-purple-600 pb-1 mb-3 uppercase tracking-widest">

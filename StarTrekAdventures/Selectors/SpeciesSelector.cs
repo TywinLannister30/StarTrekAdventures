@@ -936,6 +936,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Klowahkan,
+            Description = new List<string>
+            {
+                "The Klowahkans are a species of bird-like humanoids native to the Beta Quadrant planet of Klowahka. Klowahkans have bright plumage in a variety of colors, and they possess the ability to “fluff” their down—the inner layer of fine feathers used for insulation—to bulk up their appearance and appear larger when threatened, though many Klowahkans consider the act to be embarrassing.",
+                "Klowahkan culture places considerable emphasis on food, with great worth and status afforded those who live epicurean lifestyles. It is said that the Klowahkans developed warp drive in order to “seek out strange new meals,” and the highest regard is given to chefs, food critics, and others similarly devoted to the culinary arts; consequently, the idea of replicated food is an affront to their way of life. The Klowahkan language is rife with food metaphors, which can often cause communication difficulties (or simply annoyance) when translated to other languages."
+            },
+            ExampleCharacters = "Dr. Gabers Migleemo (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Reason = 1, Insight = 1
+            },
+            TraitDescription = "Klowahkans are an avian humanoid species with bright plumage. Their downy feathers can help keep them warm in cold environments, and can be fluffed up to make themselves look larger when threatened. They have extremely sensitive senses of taste and smell, and have a culture of appreciating fine food, meaning that they have an extremely refined palette, able to discern flavors other species often cannot.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Epicurean",
+                Description = "Your sense of smell and taste are highly acute. You can detect things by smell and taste that would not be obvious to creatures of other species, and any task roll you attempt which involves your sense of smell or taste is reduced by 2, to a minimum of 0. Furthermore, if you ever suffer Stress from ingesting food other species might regard as toxic, reduce the amount of Stress suffered by 1, to a minimum of 0.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {

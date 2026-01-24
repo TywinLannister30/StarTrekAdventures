@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.Hosting;
-using StarTrekAdventures.Constants;
+﻿using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Models.Version1;
 using StarTrekAdventures.Selectors;
-using System;
 using System.Text.Json.Serialization;
 
 namespace StarTrekAdventures.Models;
@@ -907,11 +905,28 @@ public class Character
         Protection += SpeciesAbility.ProtectionBonus;
     }
 
-    public void AddRole(IRoleSelector roleSelector, IValueSelector valueSelector, IRandomGenerator randomGenerator = null)
+    public void AddRole(IRoleSelector roleSelector, IValueSelector valueSelector, List<string> rolesToChooseFrom = null, IRandomGenerator randomGenerator = null)
     {
         randomGenerator ??= new RandomGenerator();
 
-        var role = roleSelector.ChooseRole(this);
+        Role role = null;
+
+        if (rolesToChooseFrom != null && rolesToChooseFrom.Count > 0)
+        {
+            var availableRoles = rolesToChooseFrom.Where(r => !Roles.Any(cr => cr.Name == r)).ToList();
+
+            if (availableRoles.Count == 0)
+                throw new Exception("No available roles to choose from.");
+
+            var chosenRole = availableRoles.OrderBy(_ => Util.GetRandom()).First();
+
+            role = roleSelector.GetRole(chosenRole);
+        }
+        else
+        {
+            role = roleSelector.ChooseRole(this);
+        }
+        
         Roles.Add(role);
 
         if (role.AdditionalFocuses > 0)

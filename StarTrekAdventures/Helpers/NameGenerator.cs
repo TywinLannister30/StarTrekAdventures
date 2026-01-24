@@ -106,6 +106,8 @@ public static class NameGenerator
             return GenerateKelpianName();
         if (species == SpeciesName.Klingon || species == SpeciesName.KlingonQuchHa)
             return GenerateKlingonName(gender);
+        if (species == SpeciesName.Klowahkan)
+            return GenerateKlowahkanName();
         if (species == SpeciesName.Ktarian)
             return GenerateKtarianName(gender);
         if (species == SpeciesName.LiberatedBorg)
@@ -822,6 +824,15 @@ public static class NameGenerator
     private static readonly List<string> KlingonFemaleNames = new List<string>
     {
         "‘a’Setbur", "HuS", "lurSa’", "Mara", "Loor", "Hereg"
+    };
+
+    private static string GenerateKlowahkanName()
+    {
+        return KlowahkanNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> KlowahkanNames = new List<string>
+    {
+       "Gabers Migleemo", "Gonald", "Legnog"
     };
 
     private static string GenerateKtarianName(Gender gender)

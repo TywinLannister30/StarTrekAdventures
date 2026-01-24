@@ -333,6 +333,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "There is always a path to victory", TraitRequirement = TraitName.QuchHa, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "There is nothing more honorable than victory ", TraitRequirement = TraitName.QuchHa, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "Be a can-alope, not a can’t-alope", TraitRequirement = SpeciesName.Klowahkan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Life is too short to be wasted on blandness", TraitRequirement = SpeciesName.Klowahkan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Galaxy is a sumptuous buffet just waiting to be sampled", TraitRequirement = SpeciesName.Klowahkan, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We appreciate a meal more when we are hungry ", TraitRequirement = SpeciesName.Klowahkan, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "Hold the course until the end", TraitRequirement = SpeciesName.Ktarian, Weight = 10 },
         

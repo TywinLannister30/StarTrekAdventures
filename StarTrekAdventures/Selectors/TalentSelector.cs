@@ -1597,13 +1597,26 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Cruel",
-                TraitRequirement = TraitName.QuchHa,
+                Name = "Culinary Comforts",
+                TraitRequirement = SpeciesName.Klowahkan,
                 GMPermission = true,
                 Weight = 10,
                 Description = new List<string>
                 {
-                    "You have a tendency towards ruthlessness and cruelty, and the reputation to match, always seeking to undermine those you wish to destroy before you deal the final blow. When you attempt a task to identify the weaknesses or flaws of an enemy, or matters they are particularly sensitive or protective about, you may reduce the Difficulty by 1. If the enemy has a trait which reflects this weakness (such as an advantage you’ve created, or a complication they’re suffering from), you may reroll a single d20 on the next attack or Persuasion task you attempt against them."
+                    "You cannot let the culinary traditions of your people sit idle, so you combine them with your duties where possible. You have the Ship’s Cook or Ship’s Chef role, in addition to any other role. Further, the amount of Stress you and your allies recover when you cook is increased by 2."
+                },
+                SpecificExtraRole = { RoleName.ShipsCook, RoleName.ShipsChef },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "The Spice of Life",
+                TraitRequirement = SpeciesName.Klowahkan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are eager to explore all that life has to offer, in all its varieties, and you prize yourself on being versatile enough to embrace those different experiences. Each time you use a particular attribute + department combination for the first time during the current mission, add 1 Momentum to the group pool before you roll."
                 },
                 Source = BookSource.SpeciesSourcebook
             },
@@ -1629,6 +1642,18 @@ public class TalentSelector : ITalentSelector
                 {
                     "The Orions are known as one of the most untrustworthy species in the Galaxy, next to the Ferengi, and yet people are willing to do business with them or are often tricked or misled by them. You’ve learned the subtle interplay of social interactions, reputations, and plausible denials that allow others to trust you despite what they’ve heard about ‘those other Orions’. When another character attempts a task to determine if they can trust you, you may spend 2 Momentum if you are sincere, or add 2 Threat if you’re attempting to deceive them. Either way, the character does not need to make a task roll: you convince them you are trustworthy."
                 }
+            },
+            new()
+            {
+                Name = "Cruel",
+                TraitRequirement = TraitName.QuchHa,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a tendency towards ruthlessness and cruelty, and the reputation to match, always seeking to undermine those you wish to destroy before you deal the final blow. When you attempt a task to identify the weaknesses or flaws of an enemy, or matters they are particularly sensitive or protective about, you may reduce the Difficulty by 1. If the enemy has a trait which reflects this weakness (such as an advantage you’ve created, or a complication they’re suffering from), you may reroll a single d20 on the next attack or Persuasion task you attempt against them."
+                },
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {
