@@ -442,9 +442,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The Galaxy gets a little more interesting with each new inhabitant we encounter", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "The stars are filled with opportunities", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "All that is ours is yours", TraitRequirement = SpeciesName.Risian, Weight = 10 },
+        new Value { Name = "All that is ours is yours", TraitRequirement = SpeciesName.Risian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Everyone deserves relief from their burdens", TraitRequirement = SpeciesName.Risian, Weight = 10 },
+        new Value { Name = "I will help you feel better, if you’ll let me", TraitRequirement = SpeciesName.Risian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Joy is as noble a pursuit as truth, duty, or glory", TraitRequirement = SpeciesName.Risian, Weight = 10 },
+        new Value { Name = "Life is too precious to experience without joy", TraitRequirement = SpeciesName.Risian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The pursuit of pleasure is worthy in and of itself", TraitRequirement = SpeciesName.Risian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "Even my secrets have secrets!", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
         new Value { Name = "Every secret I discover is another weapon in my arsenal", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
@@ -452,7 +455,6 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I give my life to the service of the empire", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
         new Value { Name = "Secrecy is a shield against betrayal", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
         new Value { Name = "To survive, I must keep my secrets and discover yours", TraitRequirement = SpeciesName.Romulan, Weight = 10 },
-
         new Value { Name = "Everything I do, I do for Romulus", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
         new Value { Name = "I will not fail in my duty to the Empire", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
         new Value { Name = "My people should be free", TraitRequirement = SpeciesName.Romulan, Weight = 5 },

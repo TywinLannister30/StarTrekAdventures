@@ -1375,6 +1375,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Risian,
+            Description = new List<string>
+            {
+                "Risa was a planet of fierce storms and tectonic instability before the Risians took it upon themselves to essentially terraform their planet. It is now colloquially known throughout the Federation as a “pleasure planet.” It’s a wonder the Risians evolved into the ceremonial society they have today, with tradition and ceremony being central to Risa society.",
+                "Risians have an honest and open attitude to sexuality, renowned throughout the Galaxy. Potential mates with a sexual appetite display ceremonial icons, called a horga’hn, that invite partners to participate in the sexual rite jamaharon. However, despite the Risian reputation for hedonism, they are deeply concerned with consent and are extremely generous; Risian hosts are noted for their diligence in providing a good experience for vacationers."
+            },
+            ExampleCharacters= "Arandis (Deep Space Nine), Ruon Tarka (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Risians appear much like Humans, save a decorative cultural marking—a ja’risia—in the center of the forehead, which is either a worn decoration or a tattooed mark. Despite this superficial similarity, their internal physiology is significantly different from that of Humans, to the point where many medical techniques usable on Humans do not work on Risians, and vice-versa. Among the differences, Risians live longer than Humans, and age more slowly. They have open and adventurous personalities but also have a great patience with others.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Clarity in Peace",
+                Description = "Your demeanor and presence help others reach a clear-minded state where they can be at their best. When an ally spends Determination, and you are present in the scene, both you and that ally may immediately recover 2 Stress each.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {
@@ -1504,7 +1527,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Risian, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Saurian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 2, MustTakeSpecificTalentInStepOne = "Enhanced Metabolism" },
         //new Species { Name = SpeciesName.Sikarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },

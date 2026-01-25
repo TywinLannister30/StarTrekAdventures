@@ -2080,6 +2080,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Open and Insightful",
+                TraitRequirement = SpeciesName.Risian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Risians favor open, frank discussion of problems and opinions, which enables conversation and understanding when working as a team. Whenever you assist another character and use your Insight or Reason, the ally you assist may reroll 1d20. If the character you assist succeeds in their task, they gain 1 bonus Momentum. Bonus Momentum cannot be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Peaceful Existence",
+                TraitRequirement = SpeciesName.Risian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your upbringing in a peaceful society, one that promotes harmony and has an outright ban on weapons, has developed the Risian knack for peaceful resolutions. Whenever you attempt a task to dissuade another individual or group from resorting to conflict, the first d20 you purchase is free."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Guile and Cunning",
                 TraitRequirement = SpeciesName.Romulan,
                 GMPermission = true,
