@@ -30,7 +30,8 @@ public class TalentSelector : ITalentSelector
 
     private static bool CanTakeTalent(Character character, Talent talent)
     {
-        var gmPermission = talent.GMPermission && (Util.GetRandom(100) == 1);
+        var chance = Util.GetRandom(100);
+        var gmPermission = talent.GMPermission && chance == 1;
 
         if (character.Talents.Any(x => x.Name == talent.Name))
             return false;
@@ -61,9 +62,6 @@ public class TalentSelector : ITalentSelector
             return false;
         }
 
-        if (string.IsNullOrEmpty(talent.TraitRequirement) && talent.AnyTraitRequirement == null && talent.GMPermission && !gmPermission)
-            return false;
-
         if (!string.IsNullOrEmpty(talent.FocusRequirement))
         {
             if (!character.Focuses.Any(x => x == talent.FocusRequirement))
@@ -81,7 +79,6 @@ public class TalentSelector : ITalentSelector
             if (character.Talents.Any(ct => talent.MayNotTakeWithTalents.Contains(ct.Name)))
                 return false;
         }
-
 
         if (talent.DepartmentRequirements != null)
         {
@@ -149,6 +146,12 @@ public class TalentSelector : ITalentSelector
                 if (FocusHelper.IsPsychologyFocus(focus)) return true;
             }
         }
+
+        if (talent.IsEsoteric && character.SpeciesAbility.CanTakeEsotericTalents)
+            return true;
+
+        if (string.IsNullOrEmpty(talent.TraitRequirement) && talent.AnyTraitRequirement == null && talent.GMPermission && !gmPermission)
+            return false;
 
         return true;
     }
@@ -1840,6 +1843,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Fresh Perspective",
+                TraitRequirement = SpeciesName.Ocampa,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your species’ unique life cycle gives you a distinct perspective that more jaded minds may overlook. Whenever an ally fails a task roll using a focus which you also share, you may add 1 Threat to create a trait which represents the benefits of your perspective."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Quick Learner",
+                TraitRequirement = SpeciesName.Ocampa,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You learn quickly from watching others work. When you attempt a task which you have seen another ally attempt during this adventure, the first d20 you purchase is free."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Pheromones",
                 TraitRequirement = SpeciesName.Orion,
                 GenderRequirement = Gender.Female.ToString(),
@@ -2225,52 +2252,57 @@ public class TalentSelector : ITalentSelector
             {
                 Name = TalentName.Empathy,
                 GMPermission = true,
-                Weight = 10,
+                Weight = 20,
                 Description = new List<string>
                 {
                     "You can sense the emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar. You cannot choose not to sense the emotions of those nearby, except for those who are resistant to telepathy. It may require effort and a task to pick out the emotions of a specific individual in a crowd, or to block out the emotions of those nearby. Increase the Difficulty of this task if the situation is stressful, if there are a lot of beings present, if the target has resistance to telepathy, and other relevant factors."
-                }
+                },
+                IsEsoteric = true
             },
             new()
             {
                 Name = "Extrasensory Perception",
                 GMPermission = true,
-                Weight = 10,
+                Weight = 20,
                 Description = new List<string>
                 {
                     "You have an ability to perceive things beyond the normal limits of humanoid senses, allowing you to gain knowledge of people, places, and objects beyond your ability to sense them conventionally. This is known as extrasensory perception, or ESP. It is not directly under your control but instead tends to come in the form of accurate guesses, strong feelings, or flashes of insight. Such sensitivity often leaves you vulnerable to psychic dangers as well. At any point during play, you may ask the gamemaster for hints or insights about the current situation, and the gamemaster may similarly offer you information about the current situation that you would not normally be able to determine. Each hint adds 1 Threat, and you may always refuse to accept the hints offered."
-                }
+                },
+                IsEsoteric = true
             },
             new()
             {
                 Name = "Psychokinesis",
                 GMPermission = true,
-                Weight = 10,
+                Weight = 20,
                 Description = new List<string>
                 {
                     "You can manipulate and control objects using only the power of the mind. You may exert a psychic force upon an object within Close range equivalent to the force that you would normally be able to exert physically, though this takes concentration and cannot be done violently."
-                }
+                },
+                IsEsoteric = true
             },
             new()
             {
                 Name = TalentName.TelepathicProjection,
                 TalentRequirement = "Telepathy",
-                Weight = 10,
+                Weight = 20,
                 Description = new List<string>
                 {
                     "Your telepathic ability is more potent than most, and you are accustomed to projecting your thoughts into other minds. You can send your thoughts into the minds of other creatures—other than those immune to telepathy—even if those creatures are not telepathic themselves. You can ‘hear’ their responses by reading their minds. You are also capable of using this ability offensively, overwhelming a target’s mind with pain-inducing psychic noise. This requires a Presence + Security task with a Difficulty of 2 (increasing by 1 for each range category beyond Close); success inflicts a Stun or Deadly Injury with Severity 3 and the Piercing effect."
-                }
+                },
+                IsEsoteric = true
             },
             new()
             {
                 Name = TalentName.Telepathy,
                 TraitRequirement = SpeciesName.Deltan,
                 GMPermission = true,
-                Weight = 10,
+                Weight = 20,
                 Description = new List<string>
                 {
                     "You can sense the surface thoughts and emotions of most living beings nearby, and can communicate telepathically with other empaths and telepaths, as well as those with whom you are extremely familiar. You cannot choose not to sense the emotions or read the surface thoughts of those nearby, except for those resistant to telepathy. It requires effort and a task to pick out the emotions or thoughts of a specific individual in a crowd, to search a creature’s mind for specific thoughts or memories, or to block out the minds of those nearby. Increase the Difficulty if the situation is stressful, if there are many beings present, if the target target is resistant to telepathy, etc."
-                }
+                },
+                IsEsoteric = true
             },
         };
     }

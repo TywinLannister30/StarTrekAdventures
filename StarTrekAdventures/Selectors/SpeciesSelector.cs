@@ -1177,6 +1177,31 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Ocampa,
+            Description = new List<string>
+            {
+                "An oddity for humanoid species, the Ocampa are an extremely short-lived people. For nearly all of Ocampan history, they have been under the protective watch of the Caretaker—a member of an extremely powerful extra-galactic civilization. At some point in the distant past, the Caretaker was responsible for rendering the Ocampan homeworld nearly uninhabitable. To attempt to atone for this act, the Caretaker then spent the following centuries ensuring the Ocampan people had everything they could need. This relationship continued until the Caretaker’s death—and as a final act, the powerful being provided the Ocampans with sufficient energy reserves to hold out for another several years at best.",
+                "While, physically, they are nearly identical to Humans, Ocampan physiology is radically different. The Ocampa only live to be roughly 10 standard years old—though this can be extended significantly through advanced medical technologies. Much like insects, Ocampa development proceeds through a series of stages: alternating periods of stability and rapid aging. Newborn Ocampans remain in a childlike stage for a brief year before rapidly aging and growing into pseudo-adulthood. Following this, they remain in this stage for another few years before reaching sexual maturity, a stage that lasts only a few months before fading. After this, Ocampans gradually continue to age through their adulthood before undergoing one final rapid development stage that marks their twilight. Once this occurs, Ocampa can expect to live for no more than a year or two before expiring.",
+                "Interestingly, Ocampa possess powerful, latent telepathic abilities that appear to have become long since dormant. If allowed, or nurtured, into development, these abilities range from simple forms of empathy and telepathy to more powerful and advanced forms of precognition and even telekinesis. The full range and capability of these talents has yet to be fully determined."
+            },
+            ExampleCharacters = "Kes (Voyager)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Ocampa development is more closely akin to that of insects than to Humans. Long-time support, provided by the enigmatic Caretaker, has left the species in somewhat of a socially stunted state, and their society has since become entirely dependent upon the services the Caretaker provided. When separated from this welfare state, Ocampa are curious and studious learners, voraciously devouring information with incredible speed. They are capable of truly astounding psychic feats, though few develop these abilities.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Extraordinary Mind",
+                Description = "Your mind can assimilate new information swiftly, allowing you to gain knowledge and understand techniques quickly. The first time each scene that you Obtain Information after succeeding at a task roll which used   one of your focuses, that use of Obtain Information is free. In addition, you may purchase talents from the Esoteric Talents list on page 155 of the core rulebook.",
+                CanTakeEsotericTalents = true,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Orion,
             Description = new List<string>
             {
@@ -1324,7 +1349,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Mari, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Empath", Weight = 0 },
         //new Species { Name = SpeciesName.Monean, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Ocampa, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Osnullus, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },

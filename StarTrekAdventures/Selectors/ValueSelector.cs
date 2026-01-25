@@ -394,8 +394,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "My strength gives me the right to make the rules", TraitRequirement = SpeciesName.Nausicaan, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Only the weak have need to fear pain", TraitRequirement = SpeciesName.Nausicaan, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "See all that life has to offer", TraitRequirement = SpeciesName.Ocampa, Weight = 10 },
-        
+        new Value { Name = "Do not be afraid to explore your full potential", TraitRequirement = SpeciesName.Ocampa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Life is short, do not waste it", TraitRequirement = SpeciesName.Ocampa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Optimism, not naiveté", TraitRequirement = SpeciesName.Ocampa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "See all that life has to offer", TraitRequirement = SpeciesName.Ocampa, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Everything has a price", TraitRequirement = SpeciesName.Orion, Weight = 10 },
         new Value { Name = "I am not who you expect me to be", TraitRequirement = SpeciesName.Orion, Weight = 10 },
         new Value { Name = "I thrive because I do not ignore opportunities", TraitRequirement = SpeciesName.Orion, Weight = 10 },

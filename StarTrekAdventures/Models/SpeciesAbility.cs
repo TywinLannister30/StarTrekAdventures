@@ -51,5 +51,8 @@ public class SpeciesAbility
     [JsonIgnore]
     public bool HasBorgImplants { get; set; } = false;
 
+    [JsonIgnore]
+    public bool CanTakeEsotericTalents { get; set; } = false;
+
     public string Source { get; set; }
 }
