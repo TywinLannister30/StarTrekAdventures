@@ -493,6 +493,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "The truth can be painful, but I take no joy in your pain", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
         new Value { Name = "You’ll never get an answer if you don’t ask questions", TraitRequirement = SpeciesName.Tellarite, Weight = 10 },
 
+        new Value { Name = "Every day is a new battle for supremacy", TraitRequirement = SpeciesName.Terran, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Leave no star unconquered", TraitRequirement = SpeciesName.Terran, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Long live the Empire!", TraitRequirement = SpeciesName.Terran, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Those who rely on others are asking to be betrayed", TraitRequirement = SpeciesName.Terran, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Several lifetimes of adventure", TraitRequirement = SpeciesName.Trill, TalentRequirement = "Joined", Weight = 20 },
         new Value { Name = "Even a 400-year-old explorer can find something new", TraitRequirement = SpeciesName.Trill, TalentRequirement = "Joined", Weight = 5 },
         new Value { Name = "The Galaxy contains more than you can see in a lifetime", TraitRequirement = SpeciesName.Trill, Weight = 10 },

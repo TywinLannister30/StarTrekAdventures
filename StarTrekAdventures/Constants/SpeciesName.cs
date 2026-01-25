@@ -85,6 +85,7 @@ public static class SpeciesName
     public const string Talaxian = "Talaxian";
     public const string Tamarian = "Tamarian";
     public const string Tellarite = "Tellarite";
+    public const string Terran = "Terran";
     public const string Tosk = "Tosk";
     public const string Trill = "Trill";
     public const string Turei = "Turei";

@@ -174,6 +174,8 @@ public static class NameGenerator
             return GenerateTamarianName();
         if (species == SpeciesName.Tellarite)
             return GenerateTellariteName(gender);
+        if (species == SpeciesName.Terran)
+            return GenerateHumanName(gender);
         if (species == SpeciesName.Tosk)
             return GenerateToskName(gender);
         if (species == SpeciesName.Trill)

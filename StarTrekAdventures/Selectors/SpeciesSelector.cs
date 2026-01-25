@@ -1542,6 +1542,28 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Terran,
+            Description = new List<string>
+            {
+                "Originating on a version of Earth from an alternate dimension dubbed the “Mirror Universe,” Terrans are an alternative version of Humans whose history and culture is a dark reflection of the one we are most familiar with. A fractious, warlike, and belligerent species, Terrans emerged from a global nuclear conflict to a growing interstellar empire—the Terran Empire—in less than a century, and conquering nearby Vulcan, Andoria, Qo’noS, and dozens of other worlds by the 2250s. Terrans often exhibit a dichotomy in their nature— sometimes as brutal and bloodthirsty as Klingons or Andorians, yet at other times as dispassionate and ruthless as Vulcans or Tellarites—which had allowed them to overcome their neighboring species, and their capacity for ambition and aggression were key factors in the Terran Empire’s dominance.",
+                "Terrans maintain the cultural values of the Terran Empire, a civilization that claims continuity back to the Roman Empire, millennia before. The Empire demands obedience and loyalty from its subjects, but Terrans are expected to seek any opportunity for personal gratification— and there are few taboos in Terran culture, other than perhaps mercy—and any opportunity for personal advancement. In the Terran Starfleet, any officer may be loyal to their superiors right until they see a chance to gain promotion through assassination. The Terran Empire collapsed in the late 23rd century, and 24th century Terrans were second-class citizens in a region of the Galaxy dominated by the Klingon-Cardassian Alliance. A number of Terrans escaped the Mirror Universe over the years, arriving in the Prime Universe to pursue an agenda or take refuge."
+            },
+            ExampleCharacters = "Miles “Smiley” O’Brien (Deep Space Nine), Philippa Georgiou Augustus Iaponius Centarius (Discovery)",
+            AttributeModifiers = new CharacterAttributes(),
+            ThreeRandomAttributes = true,
+            TraitDescription = "Terrans are adaptable and resilient, and they are physiologically identical to Prime Universe Humans in every way bar one: due to differences in their universe, they are slightly more sensitive to bright light. Terran culture encourages them to be hedonistic, opportunistic, belligerent, and cruel, and they tend to be deeply paranoid as betrayal is rife. Terrans also have the Mirror Universe trait, representing their origin in another dimension.",
+            SpecificSecondarySpeciesTrait = TraitName.MirrorUniverse,
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Accustomed to Violence",
+                Description = "Violence is a routine part of your life, and you are constantly aware of the potential for it. Whenever an enemy makes a Deadly Attack against you, you may add 1 Threat to increase the Difficulty of the attack by 1. Further, whenever you spend Determination on a Deadly Attack, you do not have to add to Threat to make that attack. Finally, you always carry a dagger as part of your standard issue equipment.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Trill,
             Description = new List<string>
             {

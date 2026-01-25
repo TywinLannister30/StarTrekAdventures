@@ -132,6 +132,9 @@ public class CharacterManager : ICharacterManager
         if (!character.Traits.Contains(TraitName.Cyborg) && Util.GetRandom(100) == 1)
             character.Traits.Add(TraitName.Cyborg);
 
+        if (!character.Traits.Contains(TraitName.MirrorUniverse) && Util.GetRandom(100) == 1)
+            character.Traits.Add(TraitName.MirrorUniverse);
+
         if (speciesAbility.AddAugmentTalents)
             character.AddAugmentTalents(_talentSelector);
 

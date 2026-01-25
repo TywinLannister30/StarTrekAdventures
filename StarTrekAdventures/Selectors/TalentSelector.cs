@@ -1853,6 +1853,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Doppelganger",
+                TraitRequirement = TraitName.MirrorUniverse,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a Prime Universe counterpart in an important or noteworthy position. Work with the gamemaster to create that character; you are physically indistinguishable from your counterpart (this includes having no visible scars or body modifications) and can convincingly pass yourself off as them if desired, requiring a Difficulty 5 task to detect that you are an imposter. If your counterpart is currently alive and active in the same universe as you, then you add 1 Threat in each scene you pretend to be your counterpart."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Lifelike Conveyance",
                 TraitRequirement = SpeciesName.Nanokin,
                 Weight = 10,
@@ -2241,6 +2253,31 @@ public class TalentSelector : ITalentSelector
                 {
                     "When you attempt a task that relates to information you’ve received from Obtain Information questions in the current scene, you may re-roll 1d20."
                 }
+            },
+            new()
+            {
+                Name = "Because We Feel Like It",
+                TraitRequirement = SpeciesName.Terran,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Terrans are notably unclouded by motivations more complex than simple, selfish whims or revenge. Once per adventure, you may spend a point of Determination without needing to have an applicable value. Once per adventure, when you are attacked or someone takes direct action to hinder or defy you, you may gain 1 Determination. Because a value is not involved, you do not add anything to your log when Determination is gained or spent using this talent."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Paranoia",
+                TraitRequirement = SpeciesName.Terran,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Being paranoid is just good sense when you know people are out to get you. Your maximum Stress increases by an amount equal to your Security rating."
+                },
+                AddDepartmentToStress = DepartmentName.Security,
+                Source = BookSource.SpeciesSourcebook
             },
             new()
             {
