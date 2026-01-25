@@ -461,9 +461,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "My portion is obedience", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
         new Value { Name = "War is bought with blood", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
         new Value { Name = "Outlanders are people, too", TraitRequirement = SpeciesName.Romulan, Weight = 5 },
-        
-        new Value { Name = "Consider carefully, then act decisively", TraitRequirement = SpeciesName.Saurian, Weight = 10 },
-        
+
+        new Value { Name = "A hunt requires patience long before it requires action", TraitRequirement = SpeciesName.Saurian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Consider carefully, then act decisively", TraitRequirement = SpeciesName.Saurian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Needless aggression can blind you to the right decision", TraitRequirement = SpeciesName.Saurian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "No environment I will not brave", TraitRequirement = SpeciesName.Saurian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Welcome all travelers", TraitRequirement = SpeciesName.Sikarian, Weight = 10 },
         
         new Value { Name = "The tide always breaks upon the shore and the shore endures", TraitRequirement = SpeciesName.Skreeaa, Weight = 10 },

@@ -1415,6 +1415,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Saurian,
+            Description = new List<string>
+            {
+                "The Saurians were acquainted with humanity by the mid-22nd century, and joined the Federation in the mid-23rd century, but it took them some time to adjust to the norms of being aboard Federation starships. With their native language being a series of clicks, chirps, and growls, older versions of the universal translator sometimes had problems translating Saurian speech into Federation Standard. They are a physically imposing species, with a heightened sense of smell and large eyes capable of seeing long distances.",
+                "Saurians are welcome additions to landing parties and away teams because of their ability to be resourceful in almost any environment. Their culture stresses prudence and consideration in all things, though if a Saurian is pushed into conflict, they will respond ferociously. Saurians are omnivores, and frequently enjoy meals consisting of bamboo, fish, and dried insect casings. Saurians reproduce asexually and do not have sexual dimorphism or gender roles—with any of them capable of laying clutches of eggs at certain points in their adult lives—but some Saurians will, when among gendered species, adopt some aspects of a gender presentation for convenience or because they find the idea interesting."
+            },
+            ExampleCharacters= "Linus (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "Saurians possess enhanced senses that are often superior to their colleagues. With six nasal canals, they can pick up scents from kilometers away and their sharp fangs and claws make them imposing. As a civilization, they respect strength and decisiveness but prefer to avoid aggression if at all possible. Saurians also possess a high tolerance for alcohol, and Saurian brandy is prized throughout the Alpha and Beta Quadrants.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Superior Metabolism",
+                Description = "Your biology allows you to process toxins at a much higher rate than other species. Whenever you are exposed to a toxic substance, you may immediately suffer 1 or more Stress to shrug off the effects quickly. Most common toxins can be shrugged off with 1 Stress, but the gamemaster may rule that especially potent toxins require more Stress. In addition, your natural claws mean that your Unarmed Strikes can inflict Stun or Deadly Injuries.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.SoongTypeAndroid,
             Description = new List<string>
             {
@@ -1527,7 +1550,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Saurian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 2, MustTakeSpecificTalentInStepOne = "Enhanced Metabolism" },
         //new Species { Name = SpeciesName.Sikarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Sona, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Insight = 1 }, Weight = 0 },

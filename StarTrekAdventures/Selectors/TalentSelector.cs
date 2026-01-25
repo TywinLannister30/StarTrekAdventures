@@ -2126,6 +2126,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Hunter’s Senses",
+                TraitRequirement = SpeciesName.Saurian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Your enhanced senses have been honed with practice and study to make you a superlative tracker. When you attempt a task to detect the presence of hidden creatures, or to discern if creatures have passed through the area recently, you may automatically count one of your d20s as if it had rolled a 1. If you’re attempting an extended task to locate or track a creature, your Impact increases by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Patience Before Aggression",
+                TraitRequirement = SpeciesName.Saurian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Decisive action is often necessary, but it should never be done hastily or needlessly. During combat, if you allow one or more enemies to take a turn before you, add 1 Momentum to the group pool when your turn begins."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Learn from the Past",
                 TraitRequirement = SpeciesName.Tamarian,
                 GMPermission = true,
