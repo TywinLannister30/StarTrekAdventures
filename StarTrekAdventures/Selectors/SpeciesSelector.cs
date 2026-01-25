@@ -1320,6 +1320,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.RigellianChelon,
+            Description = new List<string>
+            {
+                "Chelons—also called Chelarians—are a hardy, semi-aquatic species from Beta Rigel III, sharing their home solar system of Beta Rigel with Rigellian Jelna. They are descendants of saber-toothed turtles and, though bipedal, they have retained their ancestral beaks, claws, and hard shells. Chelons have only a single sex, and take on masculine or feminine gender roles temporarily at varying points in their lives, reproducing like most reptilians by laying eggs and fertilizing those eggs. Some traditionalists within Chelon society maintain a neutral gender, and refuse to take on male or female roles.  ",
+            },
+            ExampleCharacters= "Simmerith (Star Trek: Destiny novels), Jetanien (Star Trek: Vanguard novels)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "The Chelon species retains many characteristics from its ancestral species, a type of sabertoothed turtle. They have beaks, and a strong (if clumsy) bite; some have trained to use this in close-quarters combat. During times of stress or physical combat, they also emit a deadly toxin through their skin. This can be used with their claws so that the toxin reaches an opponent’s blood. They are skilled swimmers and prefer a warm, humid climate. They are also resistant to ultraviolet radiation and, to a lesser extent, other radioactivity. This is probably due to the shells that extend over much their bodies.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Atavistic Defenses",
+                Description = "Your biology contains a number of physiological defense mechanisms inherited from your ancestral species. Your shell gives you Protection 1, and means you may ignore the negative effects of traits that represent dangerous radiation. Further, your beak and natural toxins mean that your unarmed attacks inflict Stun/Deadly 3 Injuries with the Debilitating quality.",
+                ProtectionBonus = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {
@@ -1449,8 +1472,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.RigellianChelon, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.RigellianJelna, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Risian, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Saurian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 2, MustTakeSpecificTalentInStepOne = "Enhanced Metabolism" },
         //new Species { Name = SpeciesName.Sikarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },

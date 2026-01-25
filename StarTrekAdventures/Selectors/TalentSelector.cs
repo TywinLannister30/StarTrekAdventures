@@ -2031,6 +2031,31 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Defensive Posture",
+                TraitRequirement = SpeciesName.RigellianChelon,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’ve learned to turn your dense shell to protect yourself and your allies during a difficult situation. The Protection you gain from your species ability is increased to 2. Further, up to one ally may take up a defensive position behind you, gaining the benefit of being in cover.",
+                },
+                ProtectionModifier = 2,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Strength in Service",
+                TraitRequirement = SpeciesName.RigellianChelon,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Chelons have a strong sense of community and in supporting the group, and take strength from the success of such actions. When you assist an ally on a task, you and the character you assist both recover 1 Stress. If that task is successful, you and the character you assisted recover 1 additional Stress, and any Momentum spent from that task to recover further Stress affects both you and the character you assisted."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Guile and Cunning",
                 TraitRequirement = SpeciesName.Romulan,
                 GMPermission = true,
