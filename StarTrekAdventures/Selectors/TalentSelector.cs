@@ -2174,6 +2174,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Being of Many Talents",
+                TraitRequirement = SpeciesName.Talaxian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’ve developed a degree of ability across a broad range of disciplines that often intersect in interesting ways. When attempting a task where more than one of your focuses would apply, you may reroll 1d20."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Infectious Nature",
+                TraitRequirement = SpeciesName.Talaxian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You come from a people who are outgoing, good-natured, and enjoy the company of others. This exuberance can even improve the outlook of those around you, whether they want to be cheered up or not. Whenever you succeed at a Presence-based task roll, you may spend 1 Momentum to create a trait which represents your positive attitude on the scene. Further, whenever you and an ally both rest, and spend a meaningful part of that rest together (the entire Breather, at least half of a break, or at least one hour of a longer rest), you both recover 1 more Stress than normal."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Learn from the Past",
                 TraitRequirement = SpeciesName.Tamarian,
                 GMPermission = true,

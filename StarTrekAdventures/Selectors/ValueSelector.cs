@@ -476,7 +476,10 @@ public class ValueSelector : IValueSelector
         new Value { Name = "We do what we must", TraitRequirement = SpeciesName.Sona, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "What right do you have to stop us taking what we deserve?", TraitRequirement = SpeciesName.Sona, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10 },
+        new Value { Name = "A full belly puts anyone in the right mind to talk", TraitRequirement = SpeciesName.Talaxian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Friends, family, and home are vital, no matter where you find them", TraitRequirement = SpeciesName.Talaxian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "It is not cowardice to want to preserve life", TraitRequirement = SpeciesName.Talaxian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "Kailash, when it rises (referencing the necessity of sacrifice for a greater cause)", TraitRequirement = SpeciesName.Tamarian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Kiazi’s Children, Their Faces Wet (downplaying injury or hardship)", TraitRequirement = SpeciesName.Tamarian, Weight = 10, Source = BookSource.SpeciesSourcebook },

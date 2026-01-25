@@ -1479,6 +1479,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Talaxian,
+            Description = new List<string>
+            {
+                "Resilient and reliable, the Talaxians became one of the most widely recognizable and dispersed species in the Delta Quadrant. Talaxians have been warp capable for millennia, and during this time they encountered countless species and traveled to nearly all corners of their quadrant. Talaxians have a reputation for being sociable, good-natured travelers who enjoy the company of others. Unlike other species that have been warp capable for such an extended time, Talaxians are not known for their technological capabilities, which can vary wildly from group to group. Like many species in the quadrant, Talaxians do not boast a significant military presence or a large empire, though this may be due to the war between them and the Haakonian Order—a conflict that left both sides exhausted. Unfortunately, the war ended with the surrender of the Talaxian government following the detonation of a weapon of mass destruction on a Talaxian moon.",
+                "The trauma suffered by the Talaxian people during the war resulted in a large number of Talaxian refugees seeking safety beyond Talaxian space. Further, most Talaxians seek to avoid confrontation if possible and may even flee from a determined foe. The Talaxians are not, however, cowardly by nature, and when left with no alternative they can display great levels of courage and heroism. This avoidance of physical confrontation does not, however, spill over into their social dealings, as Talaxians are rarely fearful of speaking their mind when offended or upset. Talaxians enjoy good food and good company, and many consider themselves superb culinary experts—though their associates may argue otherwise."
+            },
+            ExampleCharacters = "Neelix (Voyager)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "While humanoid in most respects, Talaxians do have several interesting biological adaptations. First and foremost, Talaxians are capable of enduring heat well beyond what the average Human can comfortably tolerate and can endure much longer without water. Talaxian skulls have much more pronounced ridges where the plates meet. Talaxian hair tends to be thin and wispy, and large portions of their heads are bald to allow for greater cooling. Talaxian sight is a touch less refined than that of a Human, though their senses of taste and smell are much keener.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Widely Traveled",
+                Description = "Having traveled through space for most of your adult life, you’ve seen much and picked up esoteric knowledge and unusual skills along the way. Once per mission, when attempting a task for which none of your focuses apply, you may declare that you have an applicable focus. This remains for the rest of the adventure.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Tamarian,
             Description = new List<string>
             {
@@ -1575,7 +1598,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Sikarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Talaxian, AttributeModifiers = new CharacterAttributes { Control = 1, Presence = 1, Insight = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Tosk, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Fitness = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Turei, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Vorta, AttributeModifiers = new CharacterAttributes { Insight = 1, Presence = 1, Reason = 1 }, Weight = 0 },
