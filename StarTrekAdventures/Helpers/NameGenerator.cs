@@ -140,6 +140,8 @@ public static class NameGenerator
             return GenerateOrionName(gender);
         if (species == SpeciesName.Osnullus)
             return GenerateOsnullusName();
+        if (species == SpeciesName.Pakled)
+            return GeneratePakledName();
         if (species == SpeciesName.Paradan)
             return GenerateParadanName(gender);
         if (species == SpeciesName.Pendari)
@@ -1009,6 +1011,15 @@ public static class NameGenerator
     private static readonly List<string> OsnullusNames = new List<string>
     {
         "Aemmo", "Hivfa", "Rahma", "Srwell"
+    };
+
+    private static string GeneratePakledName()
+    {
+        return PakledNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> PakledNames = new List<string>
+    {
+        "Grunog", "Trendur", "Morgug", "Rangorg", "Dendinor", "Frondog", "Zelnabog"
     };
 
     private static string GenerateParadanName(Gender gender)

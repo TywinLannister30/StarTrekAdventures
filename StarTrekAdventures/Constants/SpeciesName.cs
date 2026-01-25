@@ -68,6 +68,7 @@ public static class SpeciesName
     public const string Orion = "Orion";
     public const string OrionBlue = "Orion, Blue";
     public const string Osnullus = "Osnullus";
+    public const string Pakled = "Pakled";
     public const string Paradan = "Paradan";
     public const string Pendari = "Pendari";
     public const string Reman = "Reman";

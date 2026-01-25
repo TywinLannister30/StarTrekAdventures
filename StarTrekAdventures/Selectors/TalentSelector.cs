@@ -1938,6 +1938,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Make It Go",
+                TraitRequirement = SpeciesName.Pakled,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are smart, and can make things go when they won’t go. When you attempt an Engineering task, you may reduce the Difficulty by 1, 2, or 3. If you do so, the complication range for that task increases by the same amount."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Too Stubborn to Die",
+                TraitRequirement = SpeciesName.Pakled,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are strong, and they cannot kill you. When you take a Deadly Injury, roll 1d20: if you roll equal to or under your Fitness, that Injury counts as treated immediately, and you do not die from that Injury at the end of the scene."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Cruel",
                 TraitRequirement = TraitName.QuchHa,
                 GMPermission = true,

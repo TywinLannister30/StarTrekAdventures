@@ -414,8 +414,13 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I do what I must for my community", TraitRequirement = SpeciesName.Osnullus, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "You can’t tell, but this is my happy face", TraitRequirement = SpeciesName.Osnullus, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "I find what others have, and make myself strong", TraitRequirement = SpeciesName.Pakled, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I should have the biggest hat", TraitRequirement = SpeciesName.Pakled, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Pakleds are strong!", TraitRequirement = SpeciesName.Pakled, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "You think we are not smart. We are smart.", TraitRequirement = SpeciesName.Pakled, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "I am original and that gives me strength", TraitRequirement = SpeciesName.Paradan, Weight = 10 },
-        
+
         new Value { Name = "Victory or death", TraitRequirement = SpeciesName.Pendari, Weight = 10 },
         
         new Value { Name = "I make the rules and you obey them", TraitRequirement = SpeciesName.Rakhari, Weight = 10 },

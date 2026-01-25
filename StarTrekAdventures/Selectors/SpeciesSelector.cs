@@ -1270,6 +1270,30 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Pakled,
+            Description = new List<string>
+            {
+                "Pakleds are solidly built, bipedal humanoids with a robust physiology, characterized by a blunt, straightforward, even simplistic approach to life. Pakled culture places emphasis upon strength, directness, and overcoming any obstacles or challenges in their path, and they have little time for subtlety or nuance. While these attitudes have sometimes made the Pakleds the subject of ridicule, the Pakleds themselves seem impervious to shame, and will stop at nothing to achieve the respect— and if necessary, the fear—of anyone they encounter.",
+                "Pakleds tend to approach problems with a mixture of brute force and intuition, favoring instinct over logical reasoning. They’ve demonstrated an adeptness for adopting and combining the technologies of other cultures, often through intense trial and error. Pakleds have little fear of failure, and are willing to meet catastrophe time and time again if it eventually leads them to triumph."
+            },
+            ExampleCharacters= "Grebnedlog (The Next Generation), Rebner (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "Pakleds have an incredibly resilient physiology, allowing them to resist extremes of temperature or other inhospitable environments, and even endure exposure to hard vacuum for short periods of time with minimal consequences. They have a poor reputation among many other cultures, and are often underestimated.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Straightforward",
+                Description = "A Pakled gains +1 Protection against Stun Attacks, and their Maximum Stress is equal to their Fitness +3.",
+                StressModifier = 3,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {
