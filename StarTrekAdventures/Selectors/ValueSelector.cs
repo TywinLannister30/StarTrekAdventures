@@ -470,8 +470,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Welcome all travelers", TraitRequirement = SpeciesName.Sikarian, Weight = 10 },
         
         new Value { Name = "The tide always breaks upon the shore and the shore endures", TraitRequirement = SpeciesName.Skreeaa, Weight = 10 },
-        
-        new Value { Name = "We do what we must", TraitRequirement = SpeciesName.Sona, Weight = 10 },
+
+        new Value { Name = "If you cross us, we will show no mercy", TraitRequirement = SpeciesName.Sona, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Federation seeks to hold back those who would challenge it", TraitRequirement = SpeciesName.Sona, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We do what we must", TraitRequirement = SpeciesName.Sona, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "What right do you have to stop us taking what we deserve?", TraitRequirement = SpeciesName.Sona, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
         new Value { Name = "Only fools take risks", TraitRequirement = SpeciesName.Talaxian, Weight = 10 },
 

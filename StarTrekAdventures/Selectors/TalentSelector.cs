@@ -2150,6 +2150,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "To the Fullest",
+                TraitRequirement = SpeciesName.Sona,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You live life intensely and show no remorse for the things you do. Whenever you attempt a task and purchase the maximum number of d20s, you may either reroll 1d20 or you may recover 2 Stress. You may choose which effect you gain after you have rolled your dice pool."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Particle Engineering",
+                TraitRequirement = SpeciesName.Sona,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "A large portion of the Son’a’s scientific research is dedicated towards understanding the unique particles that cling to the atmosphere of their former homeworld. When you attempt a task which relates to studying or manipulating radiation or exotic particles, the first d20 you purchase is free, and you may ignore the negative effects of any one trait that represents radiation or exotic particles."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Learn from the Past",
                 TraitRequirement = SpeciesName.Tamarian,
                 GMPermission = true,

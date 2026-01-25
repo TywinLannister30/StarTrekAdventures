@@ -1438,6 +1438,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Sona,
+            Description = new List<string>
+            {
+                "The Son’a are a minor player in the Alpha Quadrant, but one which shot to some prominence after siding with the Dominion during the Dominion War. The Son’a are unique in that they are an offshoot of the Ba’ku, a race of beings hailing from a planet in the sector of space known as the Briar Patch. They are a race of conquerors who had subjugated several neighboring systems into their small but powerful empire, and they were not afraid to employ weaponry such as isolytic subspace weapons which were so deadly they tore holes in subspace to release devastating waves of energy. Their use of enslaved labor and illegal genetic tampering meant the Federation could not initiate trade with them, although a rogue Starfleet admiral was caught offering the Son’a assistance with a plot to drain their homeworld of its metaphasic radiation.",
+                "Although some Son’a returned to their homeworld to try to start over, a large number of their race refused to give up the wealth and territory gained when they allied themselves with the Dominion during the war. Although they made up a small portion of the Dominion’s armed forces, the Son’a are technologically sophisticated, and they make for powerful foes. In the years since the Dominion War and their conflict with the Ba’ku, many Son’a have developed a grudge against the Federation, viewing Starfleet to blame for their lost chance at immortality. Some Son’a refuse to join in their species’ vendetta against the Federation, and instead travel as traders of illicit goods; siding with the Dominion during the war means few other cultures have much goodwill for the scattered Son’a."
+            },
+            ExampleCharacters= "Adhar Ru’afo (Star Trek: Insurrection)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Daring = 1, Insight = 1
+            },
+            TraitDescription = "The Son’a were once similar to Humans in appearance but centuries of exile from their homeworld has led them to experiment upon themselves to stay alive. Older Son’a spend several hours each day undergoing extensive surgical, chemical, and genetic treatments in order to prolong their lives. Most Son’a can be described as possessing a stretched appearance to their faces, while others develop painful lesions along their body. Son’a children, who are almost never permitted to leave their homeworld, are similar in appearance to the Ba’ku but possess pale skin.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "At All Costs",
+                Description = "Though a small power in the region, the Son’a have not become one of the dominant powers in the Briar Patch by engaging in half measures or pulling their punches. When you succeed at a Deadly Attack, you score 1 bonus Momentum. Bonus Momentum may not be saved.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.SoongTypeAndroid,
             Description = new List<string>
             {
@@ -1552,8 +1575,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Sikarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Sona, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Insight = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.SoongTypeAndroid, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, MustTakeSpecificTalentInStepOne = "Polyalloy Construction", MustTakeAnotherSpecificTalentInStepOne = "Positronic Brain", Weight = 0 },
         //new Species { Name = SpeciesName.Talaxian, AttributeModifiers = new CharacterAttributes { Control = 1, Presence = 1, Insight = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Tosk, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Fitness = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Turei, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 0 },
