@@ -2056,6 +2056,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Industrious Mind",
+                TraitRequirement = SpeciesName.RigellianJelna,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Jelna are naturally enterprising and industrious and have an affinity for technological developments and industrial engineering. When you succeed at an Engineering or Science task relating to fixing or adapting technology, and spend 2 or more Momentum for any other purpose, you may use the Create Trait Momentum spend for free once on that task."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Inquisitive Drive",
+                TraitRequirement = SpeciesName.RigellianJelna,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Jelna long ago learned the value in looking beyond their homes and themselves for all the answers, and they actively encourage curiosity and a willingness to explore. At the start of a scene, if you are the first person to attempt a task during that scene, you may reroll 1d20."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Guile and Cunning",
                 TraitRequirement = SpeciesName.Romulan,
                 GMPermission = true,

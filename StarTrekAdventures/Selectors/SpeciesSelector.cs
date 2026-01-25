@@ -1343,6 +1343,38 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.RigellianJelna,
+            Description = new List<string>
+            {
+                "The Jelna are natives of the Rigel system, coming from Beta Rigel V. A diligent and hard-working species, the Jelna were the first Rigellians to engage in space flight. Although they took to commerce and systemwide government quicker than the Chelon, the Jelna weren’t aggressive, and they made sure there was democratic representation for all Rigellian species on the Governing Board and the Rigellian Trade Commission. The humanoid Jelnas have four sexes: exomale, endomale, exofemale, and endofemale. The exomales and exofemales— collectively the exosexes—contain an additional Z chromosome, and they outnumber the endosexes two to one. Exosexes are the more aggressive and hardy members of the species, while the endosexes— endomale and endofemale—tend to be more circumspect and subtle.",
+            },
+            ExampleCharacters = "Beljo Tweekle (Lower Decks) ",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Fitness = 1, Presence = 1, Reason = 1
+            },
+            TraitDescription = "The Jelna of Beta Rigel V evolved along similar lines to most humanoids, aside from their four sexes. The two endosexes—endomale and endofemale— are comparable to other humanoids, while the two exosexes—exomale and exofemale—possess a more robust physique and aggressive tendencies. Endosexes have exclusively gray skin and red eyes and are more suited to nurture and care; exosexes have a pale brown complexion.",
+            RandomSecondaryTrait = { TraitName.Endosex, TraitName.Exosex },
+            SpeciesAbilityBasedOnTrait = new List<(SpeciesAbility, string)>
+            {
+                (new SpeciesAbility
+                {
+                    Name = "Divergent Physiology (Endosex)",
+                    Description = "Whenever you attempt a task using Insight or Reason, the first d20 you purchase is free, and you gain 1 bonus Momentum on a successful task. Bonus Momentum cannot be saved.",
+                    Source = BookSource.SpeciesSourcebook
+                }, TraitName.Endosex),
+                (new SpeciesAbility
+                {
+                    Name = "Divergent Physiology (Exosex)",
+                    Description = "Whenever you attempt a task using Daring or Fitness, the first d20 you purchase is free, and you gain 1 bonus Momentum on a successful task. Bonus Momentum cannot be saved.",
+                    Source = BookSource.SpeciesSourcebook
+                }, TraitName.Exosex)
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {

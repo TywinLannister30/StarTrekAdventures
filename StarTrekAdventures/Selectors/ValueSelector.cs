@@ -437,6 +437,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Real power is in the service of others", TraitRequirement = SpeciesName.RigellianChelon, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Violence is a thing of our past", TraitRequirement = SpeciesName.RigellianChelon, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "For the prosperity of all", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Our Galaxy is a better place when we make allies rather than enemies", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Galaxy gets a little more interesting with each new inhabitant we encounter", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The stars are filled with opportunities", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "All that is ours is yours", TraitRequirement = SpeciesName.Risian, Weight = 10 },
         new Value { Name = "Everyone deserves relief from their burdens", TraitRequirement = SpeciesName.Risian, Weight = 10 },
         new Value { Name = "Joy is as noble a pursuit as truth, duty, or glory", TraitRequirement = SpeciesName.Risian, Weight = 10 },
