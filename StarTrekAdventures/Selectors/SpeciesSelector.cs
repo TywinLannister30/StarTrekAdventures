@@ -1294,6 +1294,32 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Reman,
+            Description = new List<string>
+            {
+                "Remans are a nocturnal species subjugated by the Romulan Star Empire, hailing from Romulus’ twin world of Remus. Little is known about the Remans outside of the Romulan Empire, due mainly to the Romulans’ secrecy, but some have speculated that they may be a mutant offshoot of early Romulan settlers, their genetics altered over generations by experimentation or contact with micro-organisms native to Remus. The truth is unknown. During the height of the Romulan Empire, Remans were enslaved and forced to toil in the dilithium mines of their homeworld. However, they were also regarded as great warriors, and select Remans often found employment as bodyguards for important Romulan figures, including senators, while others have been employed as expendable shock troops for boarding actions and ground assaults during wars against the Klingons and later, during the Dominion War.",
+                "The Remans attempted a coup against the Romulan government in 2379, which would have spilled out into a wider conflict against other Beta Quadrant powers had it not been stopped by Federation involvement. However, while the coup was put down, the Remans would not return quietly to a state of servitude, despite nearly two years of skirmishes and blockades between the Romulans and the Remans. Eventually, however, the Romulans were forced to concede to demands for Reman emancipation simply because of how vital mining on Remus was to Romulan interests. While they were still second-class citizens, the newly freed Remans began to spread across the Empire, some seeking to leave to try their luck outside the Romulan Star Empire, while others sought employment in the mining guilds, as mercenaries, or seeking glory in the military.",
+                "The threat of the Romulan supernova changed things considerably. Efforts to evacuate the Romulan system were made, but politics meant that Remans were lower priority for evacuation. When Federation aid for the evacuation disappeared, only those Remans who had already left their home system by themselves were spared, and Remans were pushed to the brink of extinction."
+            },
+            ExampleCharacters= "Vkruk (Star Trek: Nemesis), Obisek (Star Trek Online)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Insight = 1
+            },
+            TraitDescription = "Remans are tall, powerfully built beings, stronger and more durable even than Romulans. Their nocturnal nature means that they cannot easily tolerate bright light. Some Remans have telepathic abilities, allowing them to read the minds of others and to project their thoughts to others, though using these powers effectively takes skill and training.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Born to the Dark",
+                Description = "You are nocturnal and have keen night vision: you may ignore the effects of any trait relating to low light or darkness, but any penalties suffered from traits caused by bright light are increased as if those traits had +1 Potency. Your tolerance for extreme exertion means your maximum Stress is increased by 2. Finally, you may select the Telepathy and Telepathic Projection talents (both on page 156 of the core rulebook). As subjects of the Romulan Star Empire, Remans may also purchase Romulan species talents.",
+                CountAsSpeciesForTalents = SpeciesName.Romulan,
+                CanTakeSpecificEsotericTalents = { TalentName.Telepathy, TalentName.TelepathicProjection },
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {
@@ -1423,7 +1449,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Reman, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.RigellianChelon, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Insight = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.RigellianJelna, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Risian, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },

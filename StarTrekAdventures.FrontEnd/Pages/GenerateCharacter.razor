@@ -324,7 +324,15 @@
                         @foreach (var t in character.Talents)
                         {
                             <div class="bg-gray-700/40 rounded-lg p-4 border border-purple-700/40 text-sm">
-                                <p class="text-lg font-bold text-purple-200 mb-1">@t.Name</p>
+                                <div class="flex flex-wrap items-center gap-2 mb-1">
+                                    <p class="text-lg font-bold text-purple-200">@t.Name</p>
+                                    @if (t.GMPermissionGranted)
+                                    {
+                                        <span class="text-xs uppercase tracking-wider bg-yellow-700/40 text-yellow-200 border border-yellow-600/60 px-2 py-0.5 rounded-full">
+                                            GM Permission Granted
+                                        </span>
+                                    }
+                                </div>
 
                                 @if (!string.IsNullOrWhiteSpace(t.Requirement))
                                 {

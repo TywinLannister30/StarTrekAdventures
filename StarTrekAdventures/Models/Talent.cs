@@ -166,6 +166,8 @@ public class Talent
     [JsonIgnore]
     public bool GMPermission { get; set; }
 
+    public bool GMPermissionGranted { get; set; }
+
     [JsonIgnore]
     public List<string> MayNotTakeWithTalents { get; set; }
 

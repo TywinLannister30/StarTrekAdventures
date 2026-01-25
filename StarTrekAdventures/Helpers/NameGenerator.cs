@@ -148,13 +148,15 @@ public static class NameGenerator
             return GeneratePendariName(gender);
         if (species == SpeciesName.Rakhari)
             return GenerateRakhariName(gender);
+        if (species == SpeciesName.Reman)
+            return GenerateRemanName();
         if (species == SpeciesName.RigellianChelon)
             return GenerateRigellianChelonName(gender);
         if (species == SpeciesName.RigellianJelna)
             return GenerateRigellianJelnaName(gender);
         if (species == SpeciesName.Risian)
             return GenerateRisianName(gender);
-        if (species == SpeciesName.Romulan || species == SpeciesName.Reman)
+        if (species == SpeciesName.Romulan)
             return GenerateRomulanName(gender);
         if (species == SpeciesName.Saurian)
             return GenerateSaurianName(gender);
@@ -1073,6 +1075,15 @@ public static class NameGenerator
     private static readonly List<string> RakhariFemaleNames = new List<string>
     {
         "Yareth", "Etheran", "Nichil", "Heldix"
+    };
+
+    private static string GenerateRemanName()
+    {
+        return RemanNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> RemanNames = new List<string>
+    {
+        "Chagrith", "E’Mek", "Jianuk", "Karatek", "Lorix", "Mekrikuk", "Obisek", "R’Vek", "S’hanclado", "Tenakruvek", "Vkruk", "Xiomek"
     };
 
     private static string GenerateRigellianChelonName(Gender gender)

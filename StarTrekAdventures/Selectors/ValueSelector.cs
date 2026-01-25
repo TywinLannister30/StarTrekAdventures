@@ -424,9 +424,13 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Victory or death", TraitRequirement = SpeciesName.Pendari, Weight = 10 },
         
         new Value { Name = "I make the rules and you obey them", TraitRequirement = SpeciesName.Rakhari, Weight = 10 },
-        
+
+        new Value { Name = "Pain is no deterrent", TraitRequirement = SpeciesName.Reman, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We do not fear the dark, for it is our home", TraitRequirement = SpeciesName.Reman, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We have known hardship, and that gives us the", TraitRequirement = SpeciesName.Reman, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We shall no longer bow before anyone strength to conquer", TraitRequirement = SpeciesName.Reman, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "My life for my charge", TraitRequirement = SpeciesName.Reman, Weight = 5 },
-        
+
         new Value { Name = "Real power is in the service of others", TraitRequirement = SpeciesName.RigellianChelon, Weight = 10 },
         new Value { Name = "Governance and trade for the prosperity of all", TraitRequirement = SpeciesName.RigellianJelna, Weight = 10 },
 

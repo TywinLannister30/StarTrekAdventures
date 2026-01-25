@@ -9,7 +9,7 @@ public class TalentSelector : ITalentSelector
 {
     public Talent ChooseTalent(Character character, string traitName = null)
     {
-        var weightedTalentsList = new WeightedList<Talent>();
+        var weightedTalentsList = new WeightedList<TalentCandidate>();
 
         foreach (var talent in Talents)
         {
@@ -21,17 +21,23 @@ public class TalentSelector : ITalentSelector
                 }
             }
 
-            if (CanTakeTalent(character, talent))
-                weightedTalentsList.AddEntry(talent, talent.Weight);
+            if (CanTakeTalent(character, talent, out var gmPermissionGranted))
+                weightedTalentsList.AddEntry(new TalentCandidate(talent, gmPermissionGranted), talent.Weight);
         }
 
-        return weightedTalentsList.GetRandom();
+        var choice = weightedTalentsList.GetRandom();
+        if (choice == null)
+            return null;
+
+        choice.Talent.GMPermissionGranted = choice.GmPermissionGranted;
+        return choice.Talent;
     }
 
-    private static bool CanTakeTalent(Character character, Talent talent)
+    private static bool CanTakeTalent(Character character, Talent talent, out bool gmPermissionGranted)
     {
         var chance = Util.GetRandom(100);
         var gmPermission = talent.GMPermission && chance == 1;
+        gmPermissionGranted = gmPermission;
 
         if (character.Talents.Any(x => x.Name == talent.Name))
             return false;
@@ -41,19 +47,19 @@ public class TalentSelector : ITalentSelector
 
         if (!string.IsNullOrEmpty(talent.TraitRequirement))
         {
-            if (!gmPermission && !character.Traits.Any(x => x == talent.TraitRequirement))
+            if (!gmPermission && !HasTrait(character, talent.TraitRequirement))
                 return false;
         }
 
-        if (talent.AnyTraitRequirement != null)
+        if (talent.AnyTraitRequirement != null && talent.AnyTraitRequirement.Count != 0)
         {
-            if (!gmPermission && !character.Traits.Any(x => talent.AnyTraitRequirement.Contains(x)))
+            if (!gmPermission && !talent.AnyTraitRequirement.Any(req => HasTrait(character, req)))
                 return false;
         }
 
-        if (talent.AllTraitsRequirement != null)
+        if (talent.AllTraitsRequirement != null && talent.AllTraitsRequirement.Count != 0)
         {
-            if (!gmPermission && !talent.AllTraitsRequirement.All(x => character.Traits.Contains(x)))
+            if (!gmPermission && !talent.AllTraitsRequirement.All(req => HasTrait(character, req)))
                 return false;
         }
 
@@ -156,6 +162,22 @@ public class TalentSelector : ITalentSelector
         return true;
     }
 
+    private static bool HasTrait(Character character, string traitName)
+    {
+        if (string.IsNullOrWhiteSpace(traitName))
+            return false;
+
+        if (character.Traits.Any(t => string.Equals(t, traitName, StringComparison.OrdinalIgnoreCase)))
+            return true;
+
+        var countsAs = character.SpeciesAbility?.CountAsSpeciesForTalents;
+        if (!string.IsNullOrWhiteSpace(countsAs) &&
+            string.Equals(countsAs, traitName, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return false;
+    }
+
     public Talent GetTalent(string name)
     {
         return Talents.First(x => x.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase));
@@ -179,6 +201,19 @@ public class TalentSelector : ITalentSelector
     }
 
     private static readonly List<Talent> Talents = GetAllTalentsList();
+
+    private sealed class TalentCandidate
+    {
+        public TalentCandidate(Talent talent, bool gmPermissionGranted)
+        {
+            Talent = talent;
+            GmPermissionGranted = gmPermissionGranted;
+        }
+
+        public Talent Talent { get; }
+
+        public bool GmPermissionGranted { get; }
+    }
 
     private static List<Talent> GetAllTalentsList()
     {
@@ -1820,7 +1855,6 @@ public class TalentSelector : ITalentSelector
             {
                 Name = "Lifelike Conveyance",
                 TraitRequirement = SpeciesName.Nanokin,
-                GMPermission = true,
                 Weight = 10,
                 Description = new List<string>
                 {
@@ -1833,7 +1867,6 @@ public class TalentSelector : ITalentSelector
             {
                 Name = "Inner Workings",
                 TraitRequirement = SpeciesName.Nanokin,
-                GMPermission = true,
                 Weight = 10,
                 Description = new List<string>
                 {
@@ -1969,6 +2002,30 @@ public class TalentSelector : ITalentSelector
                 Description = new List<string>
                 {
                     "You have a tendency towards ruthlessness and cruelty, and the reputation to match, always seeking to undermine those you wish to destroy before you deal the final blow. When you attempt a task to identify the weaknesses or flaws of an enemy, or matters they are particularly sensitive or protective about, you may reduce the Difficulty by 1. If the enemy has a trait which reflects this weakness (such as an advantage you’ve created, or a complication they’re suffering from), you may reroll a single d20 on the next attack or Persuasion task you attempt against them."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Familiar with Suffering",
+                TraitRequirement = SpeciesName.Reman,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Reman people have suffered for centuries, and you are no stranger to hardship. Once per scene, when you suffer 1 or more Stress, reduce the amount of Stress you must suffer to 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Shock Assault",
+                TraitRequirement = SpeciesName.Reman,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You’re well-versed in swift, decisive attacks that overwhelm enemies who are unprepared for your ferocity. When you make an attack against an enemy who has not yet taken a turn during this scene, or against an enemy who is hindered by a trait which does not hinder you, you may reroll 1d20 on your task roll, and the Severity of your attack (or, if in space combat, the Damage rating of the attack) is increased by 1."
                 },
                 Source = BookSource.SpeciesSourcebook
             },

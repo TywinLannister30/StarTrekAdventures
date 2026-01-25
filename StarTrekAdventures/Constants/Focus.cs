@@ -105,6 +105,7 @@ public static class Focus
     public const string Geography = "Geography";
     public const string Geology = "Geology";
     public const string GroundVehicles = "Ground Vehicles";
+    public const string GuerrillaTactics = "Guerrilla Tactics";
     public const string GuidanceSystems = "Guidance Systems";
     public const string GuidedTherapy = "Guided Therapy";
     public const string HandToHandCombat = "Hand-to-Hand Combat";

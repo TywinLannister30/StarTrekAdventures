@@ -160,7 +160,7 @@ public class CharacterManager : ICharacterManager
     {
         if (character.PrimarySpecies == SpeciesName.JemHadar) return PerformModifiedStepTwoAndThreeForJemHadar(character);
 
-        var upbringing = _upbringSelector.ChooseUpbringing();
+        var upbringing = _upbringSelector.ChooseUpbringing(character);
 
         character.Upbringing = upbringing.Name;
 

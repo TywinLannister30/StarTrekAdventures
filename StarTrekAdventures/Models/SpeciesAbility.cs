@@ -9,6 +9,7 @@ public class SpeciesAbility
     {
         Source = BookSource.Core;
         AddTalents = new List<string>();
+        CanTakeSpecificEsotericTalents = new List<string>();
     }
 
     public string Name { get; set; }
@@ -53,6 +54,12 @@ public class SpeciesAbility
 
     [JsonIgnore]
     public bool CanTakeEsotericTalents { get; set; } = false;
+
+    [JsonIgnore]
+    public string CountAsSpeciesForTalents  { get; set; }
+
+    [JsonIgnore]
+    public List<string> CanTakeSpecificEsotericTalents { get; set; }
 
     public string Source { get; set; }
 }

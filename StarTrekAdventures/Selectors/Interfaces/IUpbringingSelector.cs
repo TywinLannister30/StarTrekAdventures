@@ -4,7 +4,7 @@ namespace StarTrekAdventures.Selectors;
 
 public interface IUpbringingSelector
 {
-    Upbringing ChooseUpbringing();
+    Upbringing ChooseUpbringing(Character character);
 
     Upbringing GetUpbringing(string name);
 

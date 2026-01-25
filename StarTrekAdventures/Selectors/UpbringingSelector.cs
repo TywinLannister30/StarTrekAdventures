@@ -6,9 +6,27 @@ namespace StarTrekAdventures.Selectors;
 
 public class UpbringingSelector : IUpbringingSelector
 {
-    public Upbringing ChooseUpbringing()
+    public Upbringing ChooseUpbringing(Character character)
     {
-        return Upbringings.OrderBy(n => Util.GetRandom()).First();
+
+        var weightedUpbringingList = new WeightedList<Upbringing>();
+
+        foreach (var upbringing in Upbringings)
+        {
+            if (upbringing.Name.StartsWith("Hardship and Subjugation") && character.PrimarySpecies == SpeciesName.Reman)
+                weightedUpbringingList.AddEntry(upbringing, 20);
+            else if (upbringing.Name.StartsWith("Hardship and Subjugation") && character.PrimarySpecies != SpeciesName.Reman)
+                weightedUpbringingList.AddEntry(upbringing, 1);
+            else
+                weightedUpbringingList.AddEntry(upbringing, 2);
+        }
+
+        var choice = weightedUpbringingList.GetRandom();
+        
+        if (choice == null)
+            return null;
+        
+        return choice;
     }
 
     public Upbringing GetUpbringing(string name)
@@ -94,5 +112,17 @@ public class UpbringingSelector : IUpbringingSelector
             Attributes = new CharacterAttributes { Daring = 2, Insight = 1 },
             AnyDepartment = true,
             Focuses = new List<string> { Focus.Astronavigation, Focus.Composure, Focus.ExtraVehicularActivity, Focus.HandPhasers, Focus.HandToHandCombat, Focus.History, Focus.SmallCraft, Focus.StarfleetProtocol, Focus.StarshipRecognition } },
+
+        new Upbringing {
+            Name = "Hardship and Subjugation (Accepted)",
+            Attributes = new CharacterAttributes { Control = 2, Presence = 1 },
+            DepartmentChoices = new Departments { Command = 1, Security = 1, Medicine = 1 },
+            Focuses = new List<string> { Focus.EmergencyMedicine, Focus.Endurance, Focus.GuerrillaTactics, Focus.Stealth, Focus.Survival } },
+
+        new Upbringing {
+            Name = "Hardship and Subjugation (Rebelled)",
+            Attributes = new CharacterAttributes { Daring = 2, Fitness = 1 },
+            DepartmentChoices = new Departments { Command = 1, Security = 1, Medicine = 1 },
+            Focuses = new List<string> { Focus.EmergencyMedicine, Focus.Endurance, Focus.GuerrillaTactics, Focus.Stealth, Focus.Survival } },
     };
 }
