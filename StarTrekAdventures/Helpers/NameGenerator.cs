@@ -136,7 +136,7 @@ public static class NameGenerator
             return GenerateNausicaanName();
         if (species == SpeciesName.Ocampa)
             return GenerateOcampaName(gender);
-        if (species == SpeciesName.Orion)
+        if (species == SpeciesName.Orion || species == SpeciesName.OrionBlue)
             return GenerateOrionName(gender);
         if (species == SpeciesName.Osnullus)
             return GenerateOsnullusName();

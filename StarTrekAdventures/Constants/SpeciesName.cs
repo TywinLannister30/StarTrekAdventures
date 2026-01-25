@@ -66,6 +66,7 @@ public static class SpeciesName
     public const string Nausicaan = "Nausicaan";
     public const string Ocampa = "Ocampa";
     public const string Orion = "Orion";
+    public const string OrionBlue = "Orion, Blue";
     public const string Osnullus = "Osnullus";
     public const string Paradan = "Paradan";
     public const string Pendari = "Pendari";

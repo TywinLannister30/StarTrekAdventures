@@ -1223,6 +1223,30 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.OrionBlue,
+            Description = new List<string>
+            {
+                "A relatively rare, blue-skinned subset of Orions, Blue Orions (who pronounce their species’ name as Or-eeon) represent a minority among the Orion people, largely represented in the Orion Syndicate by House Azure. Unlike the majority green Orions, Blue Orions have a more patriarchal culture, and are generally more uniform and conformist in their behavior. They’re often mocked and derided by the majority Orion culture.",
+            },
+            ExampleCharacters= "K’Levin (Lower Decks)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Blue Orions are very similar to the majority of the Orion species, and the largest physical difference is their skin pigmentation. The other differences between the green Orion majority and the Blue Orions are cultural, with the Blue Orions cleaving more strongly to traditions and a narrower definition of “acceptable” pirate behaviors. They are commonly disrespected by other Orions, and have a strong sense of solidarity. You also have the Orion trait (core rulebook, page 109).",
+            AlternateTraitName = TraitName.BlueOrion,
+            SpecificSecondarySpeciesTrait = SpeciesName.Orion,
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Honor Among Thieves",
+                Description = "When an ally attempts to lie, cheat, or steal from an enemy, you may spend 1 Momentum (Immediate) to assist that task roll automatically, by providing a lookout, or distracting the enemy, or otherwise trying to give your ally a better opportunity. Your assistance does not require you to take an action or prevent you doing anything else: you’re accustomed to covering your allies’ illicit ventures out of habit and reflex.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {

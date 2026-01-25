@@ -1017,6 +1017,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Piratical Understanding",
+                TraitRequirement = TraitName.BlueOrion,
+                GMPermission = true,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "You’re well-versed in many traditions, techniques, and tactics of Orion pirates, and you can both utilize and defend against these methods. When attempting to bypass a lock or other security measure, you may reroll 1d20, and you may ignore complications rolled by spending 1 Momentum (Repeatable). In addition, you own an Orion Multikey (core rulebook, page 247), which counts as standard issue for you."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "True Blue",
+                TraitRequirement = TraitName.BlueOrion,
+                GMPermission = true,
+                Weight = 20,
+                Description = new List<string>
+                {
+                    "You stand with your allies above all else. When you notice an ally become Defeated, add 1 to the group’s Momentum pool, as your ally’s fall motivates you to work harder so you don’t fail them."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Born Near a Warp Core",
                 TraitRequirement = SpeciesName.Bolian,
                 GMPermission = true,

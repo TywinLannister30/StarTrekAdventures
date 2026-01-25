@@ -3,6 +3,7 @@
 public static class TraitName
 {
     public const string Augment = "Augment";
+    public const string BlueOrion = "Blue Orion";
     public const string Borg = "Borg";
     public const string Cyborg = "Cyborg";
     public const string PreVaharai = "Pre-Vahar’ai";
