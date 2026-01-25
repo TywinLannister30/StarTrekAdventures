@@ -1247,6 +1247,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Osnullus,
+            Description = new List<string>
+            {
+                "The Osnullus hail from a homeworld that has only recently begun to shed their caste-based society. Once beholden biologically to queens who governed their individual colonies, Osnullus evolved to a stage where they are more independent minded and are capable of breaking away from their colonies. Though some still prefer to cling to the castes of their births, the Osnullus have embraced independence and the concept of the individual.",
+                "Since joining Starfleet, the Osnullus can now be seen across the Alpha Quadrant where they embrace the close communities of their starships as new colonies for them to live in. Some species find the Osnullus method of eating to be disturbing, as their lack of mouths means they absorb their food through specialized feeding ports within their fingers."
+            },
+            ExampleCharacters= "Rahma (Discovery)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "The Osnullus exemplify being at peace with themselves and with others. They are able to notice changes in the behavior of their friends and crewmates while also being able to exist on their own. The Osnullus prize their independence and there is nothing more abhorrent to them than the subjugation of others against their will. They see working toward the same goal as something that others should strive for, but being coerced into doing so makes them want to rebel against it.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Unreadable Face",
+                Description = "While Osnullus can look at each other’s faces and tell what they are thinking, it is more difficult for other species to do so. This natural trait gives them an advantage when it comes to treachery and deceit. On any task to try to mislead or lie to a member of another species, the first bonus d20 is free.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Romulan,
             Description = new List<string>
             {
@@ -1373,7 +1396,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Mari, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Empath", Weight = 0 },
         //new Species { Name = SpeciesName.Monean, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Osnullus, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },

@@ -409,8 +409,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I will grasp any opportunity to elevate myself and my House ", TraitRequirement = TraitName.BlueOrion, Weight = 20, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Piracy is our tradition, and should be respected", TraitRequirement = TraitName.BlueOrion, Weight = 20, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "I am as strong apart as I am with others", TraitRequirement = SpeciesName.Osnullus, Weight = 10 },
-        
+        new Value { Name = "I am as strong apart as I am with others", TraitRequirement = SpeciesName.Osnullus, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I choose my place in the Galaxy, and my place is in this crew", TraitRequirement = SpeciesName.Osnullus, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I do what I must for my community", TraitRequirement = SpeciesName.Osnullus, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "You can’t tell, but this is my happy face", TraitRequirement = SpeciesName.Osnullus, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "I am original and that gives me strength", TraitRequirement = SpeciesName.Paradan, Weight = 10 },
         
         new Value { Name = "Victory or death", TraitRequirement = SpeciesName.Pendari, Weight = 10 },

@@ -1914,6 +1914,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Born to a Task",
+                TraitRequirement = SpeciesName.Osnullus,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Osnullus caste system is a relic from a bygone age, but it still affects the futures of many of their species. Some Osnullus are born with advanced reflexes for working in space, while others have a hardier carapace to assist them with construction. Over time, an Osnullus can shift their bodies slightly to assist with certain tasks. When this talent is chosen, you may pick a single department. Whenever you attempt a task using that department, you may suffer 1 Stress to reroll one of your d20s. You may change which department this talent affects when you gain a milestone."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Push Towards a Single Goal",
+                TraitRequirement = SpeciesName.Osnullus,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When faced with a difficult challenge, you push yourself to support your comrades or your community. When you assist an ally, you may suffer 2 Stress to set your assistance die to a 1 instead of rolling. Each time after the first in a single mission that you use this talent, the Stress cost increases by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Cruel",
                 TraitRequirement = TraitName.QuchHa,
                 GMPermission = true,
