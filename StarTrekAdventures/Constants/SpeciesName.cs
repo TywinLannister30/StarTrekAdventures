@@ -99,6 +99,7 @@ public static class SpeciesName
     public const string XindiInsectoid = "Xindi-Insectoid";
     public const string XindiPrimate = "Xindi-Primate";
     public const string XindiReptilian = "Xindi-Reptilian";
+    public const string Yridian = "Yridian";
     public const string Zahl = "Zahl";
     public const string Zakdorn = "Zakdorn";
     public const string Zaranite = "Zaranite";

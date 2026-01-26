@@ -203,6 +203,8 @@ public static class NameGenerator
             return GenerateXindiPrimateName(gender);
         if (species == SpeciesName.XindiReptilian)
             return GenerateXindiReptilianName(gender);
+        if (species == SpeciesName.Yridian)
+            return GenerateYridianName();
         if (species == SpeciesName.Zahl)
             return GenerateZahlName(gender);
         if (species == SpeciesName.Zakdorn)
@@ -1478,6 +1480,15 @@ public static class NameGenerator
     private static readonly List<string> XindiReptilianFamilyNames = new List<string>
     {
         "Damron", "Dolim", "Kimdomma", "Mokimro", "Rilromma", "Rokkima", "Rommarol"
+    };
+
+    private static string GenerateYridianName()
+    {
+        return YridianNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> YridianNames = new List<string>
+    {
+        "Ashrock", "Galdus Mon", "Jaglom Shrek", "Larutan", "Manimoujak", "Xillius Vas", "Yerdrin Lek", "Yog", "Yranac"
     };
 
     private static string GenerateZahlName(Gender gender)

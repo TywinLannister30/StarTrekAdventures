@@ -563,8 +563,13 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Strength is in the deeds we accomplish", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "The universe does not care who you are unless you make it", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "Don’t get involved unless you can get away clean", TraitRequirement = SpeciesName.Yridian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Every fact is worth something to someone", TraitRequirement = SpeciesName.Yridian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I get forgetful without latinum", TraitRequirement = SpeciesName.Yridian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Know where the exits are", TraitRequirement = SpeciesName.Yridian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Kindness wins more battles than weapons", TraitRequirement = SpeciesName.Zahl, Weight = 10 },
-        
+
         new Value { Name = "A coherent strategy is the first line of defense", TraitRequirement = SpeciesName.Zakdorn, Weight = 10 },
         
         new Value { Name = "The tougher the skin, the tougher the being", TraitRequirement = SpeciesName.Zaranite, Weight = 10 },

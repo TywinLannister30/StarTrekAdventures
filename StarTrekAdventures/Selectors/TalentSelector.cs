@@ -2542,6 +2542,30 @@ public class TalentSelector : ITalentSelector
                 StressModifier = 3,
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "Don’t Look Threatening",
+                TraitRequirement = SpeciesName.Yridian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You strive to be innocuous, seeking to avoid hostile attention. Whenever you are attacked, the attacker must spend 1 Threat to attack you (in addition to any Threat spent on a Deadly Attack) if there is another ally who lacks this talent within Close range of you. If you are armed, you cannot use the benefits of this talent unless the weapons you are carrying have the Hidden X quality.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "See All, Admit Nothing",
+                TraitRequirement = SpeciesName.Yridian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Everything you observe is stored away, even if it might seem trivial, and you never reveal more than you have to, just in case that knowledge is vital later on. Whenever an NPC suffers a complication, you may add 1 Momentum to the group pool. Once per mission, if you have added one or more Momentum to the group pool previously during that mission, you may spend 2 Momentum (Immediate) to immediately create a truth which represents some advantage, insight, or situational benefit that you can exploit due to something trivial you observed earlier. You may declare what this benefit is, such as declaring that the Orion mercenary holding you at gunpoint has serious gambling debts, and might be more open to bribery, or noticing that a diplomat is distracted due to a family matter and might miss some important detail in important negotiations.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

@@ -1782,11 +1782,34 @@ public class SpeciesSelector : ISpeciesSelector
             SpeciesAbility = new SpeciesAbility
             {
                 Name = "Durable Physiology",
-                Description = "Xindi- Reptilians are tough, and cannot easily be stopped by attacks intended to subdue or incapacitate. Nothing short of deadly force can deter you. You have 1 Protection, which increases to 3 against Stun Attacks",
+                Description = "Xindi-Reptilians are tough, and cannot easily be stopped by attacks intended to subdue or incapacitate. Nothing short of deadly force can deter you. You have 1 Protection, which increases to 3 against Stun Attacks.",
                 ProtectionBonus = 1,
                 Source = BookSource.SpeciesSourcebook
             },
             Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Yridian,
+            Description = new List<string>
+            {
+                "A warp-capable humanoid species found across the Alpha and Beta quadrants, Yridians are commonly encountered as traders, merchants, information brokers, and mercenaries. Yridians have no known central government, and they are found everywhere, aboard starbases and on planets across the Federation and beyond; the illicit dealings of some Yridians has led to them gaining an unsavory reputation in many parts of the Galaxy. They originally hailed from Yridia, a world in the Beta Quadrant, and then suddenly vanished, leading many to believe that the species had gone extinct, and that some disaster had befallen their homeworld. This apparent extinction was proven wrong during the 2360s, when isolated colonies of Yridians were discovered. Soon after, Yridians were once again a widespread site across the Galaxy; the mystery of their homeworld is yet to be solved, and conspiracy theorists often suggest some sinister agenda behind this oddity.",
+                "Yridians are, generally, a calm and affable people who socialize easily with others of any species, though some see them as ruthless and self-serving. They are believed to have evolved from a prey species on their homeworld, who developed to favor subtlety, avoidance, and wariness as survival tactics. Yridians typically demonstrate a hunched posture that makes them appear smaller than they are, and they’re known to possess an eidetic memory, allowing them to retain any and all information that might be useful to them. In the modern day, the tendency to avoid presenting as a threat while soaking up information from all around them has made them effective traders and information brokers, and given them an edge in more illicit, clandestine work."
+            },
+            ExampleCharacters = "Yerdrin Lek (Enterprise), Jaglom Shrek (The Next Generation)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "A humanoid species with wrinkled skin and large ears, Yridians maintain a hunched posture to appear smaller than others, and tend to act pleasantly sociable in most cases. They’re notable for possessing an eidetic memory, and they’re reputed to work as information brokers, smugglers, and spies.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Eidetic Memory",
+                Description = "Yridians have an extraordinary ability to process, retain, and recall information. You may spend 1 Momentum (and a major action if in combat) attempting an Insight + Science task with a Difficulty of 0 to recall some event which you witnessed in the past; Momentum spent may be used to Obtain Information to gain new insights from this recollection.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 1,
             Source = BookSource.SpeciesSourcebook
         },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
