@@ -2337,7 +2337,30 @@ public class TalentSelector : ITalentSelector
                 {
                     "You can, with effort, direct some of your psychokinetic potential to bolster another. As a major action, you may attempt a Control + Command task roll with a Difficulty of 2 to direct your energy to an ally within Long range; you reduce the Difficulty by 1 if the target is another Vau N’Akat. On a successful task, you can suffer up to 5 Stress, and the target recovers an equal amount of Stress."
                 },
-                AddDepartmentToStress = DepartmentName.Security,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Manipulative",
+                TraitRequirement = SpeciesName.Vorta,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You have a knack for knowing what to say to elicit the desired response from others. When you purchase one or more d20s when attempting a task roll to deceive or intimidate someone, you may reroll 1d20. Further, if you use either deception or intimidation during a social conflict, and the affected character attempts to resist being persuaded, the Severity (the amount of Stress they must suffer to resist) increases by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Overseer",
+                TraitRequirement = SpeciesName.Vorta,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are not much of a combatant yourself, but you know how to coordinate others. When you take the Assist or Direct major action in combat, you may spend Determination to apply the effects of that action to two allies rather than one. The normal requirements for spending Determination apply."
+                },
                 Source = BookSource.SpeciesSourcebook
             },
             new()
@@ -2619,7 +2642,7 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Psychokinesis",
+                Name = TalentName.Psychokinesis,
                 GMPermission = true,
                 Weight = 20,
                 Description = new List<string>

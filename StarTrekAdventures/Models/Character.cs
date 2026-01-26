@@ -1,4 +1,5 @@
-﻿using StarTrekAdventures.Constants;
+﻿using Microsoft.Extensions.FileSystemGlobbing;
+using StarTrekAdventures.Constants;
 using StarTrekAdventures.Helpers;
 using StarTrekAdventures.Selectors;
 using System.Text.Json.Serialization;
@@ -457,6 +458,81 @@ public class Character
         if (hatchery.DepartmentModifiers.Security > 0) departmentsAvailable.Remove(DepartmentName.Security);
 
         var choice = departmentsAvailable.OrderBy(n => randomGenerator.GetRandom()).First();
+
+        if (choice == DepartmentName.Command) Departments.Command++;
+        if (choice == DepartmentName.Conn) Departments.Conn++;
+        if (choice == DepartmentName.Engineering) Departments.Engineering++;
+        if (choice == DepartmentName.Medicine) Departments.Medicine++;
+        if (choice == DepartmentName.Science) Departments.Science++;
+        if (choice == DepartmentName.Security) Departments.Security++;
+    }
+
+    public void AdjustAttributesForVortaCloning(IRandomGenerator randomGenerator = null)
+    {
+        randomGenerator ??= new RandomGenerator();
+
+        var choicesAvailable = new List<string>
+        {
+            AttributeName.Control,
+            AttributeName.Daring,
+            AttributeName.Fitness,
+            AttributeName.Insight,
+            AttributeName.Presence,
+            AttributeName.Reason
+        };
+
+        var choices = choicesAvailable.OrderBy(n => randomGenerator.GetRandom()).Take(3);
+
+        foreach (var choice in choices)
+        {
+            if (choice == AttributeName.Control) Attributes.Control++;
+            if (choice == AttributeName.Daring) Attributes.Daring++;
+            if (choice == AttributeName.Fitness) Attributes.Fitness++;
+            if (choice == AttributeName.Insight) Attributes.Insight++;
+            if (choice == AttributeName.Presence) Attributes.Presence++;
+            if (choice == AttributeName.Reason) Attributes.Reason++;
+        }
+
+        var additionalChoice = choices.OrderBy(n => randomGenerator.GetRandom()).First();
+
+        if (additionalChoice == AttributeName.Control) Attributes.Control++;
+        if (additionalChoice == AttributeName.Daring) Attributes.Daring++;
+        if (additionalChoice == AttributeName.Fitness) Attributes.Fitness++;
+        if (additionalChoice == AttributeName.Insight) Attributes.Insight++;
+        if (additionalChoice == AttributeName.Presence) Attributes.Presence++;
+        if (additionalChoice == AttributeName.Reason) Attributes.Reason++;
+    }
+
+    public void AdjustDepartmentsForVortaCloning(IRandomGenerator randomGenerator = null)
+    {
+        randomGenerator ??= new RandomGenerator();
+
+        var departmentsAvailable = new List<string>
+        {
+            DepartmentName.Command,
+            DepartmentName.Science,
+            DepartmentName.Medicine,
+        };
+
+        var choice = departmentsAvailable.OrderBy(n => randomGenerator.GetRandom()).First();
+
+        if (choice == DepartmentName.Command) Departments.Command++;
+        if (choice == DepartmentName.Medicine) Departments.Medicine++;
+        if (choice == DepartmentName.Science) Departments.Science++;
+
+        departmentsAvailable = new List<string>
+        {
+            DepartmentName.Command,
+            DepartmentName.Conn,
+            DepartmentName.Engineering,
+            DepartmentName.Medicine,
+            DepartmentName.Science,
+            DepartmentName.Security
+        };
+
+        departmentsAvailable.Remove(choice);
+
+        choice = departmentsAvailable.OrderBy(n => randomGenerator.GetRandom()).First();
 
         if (choice == DepartmentName.Command) Departments.Command++;
         if (choice == DepartmentName.Conn) Departments.Conn++;

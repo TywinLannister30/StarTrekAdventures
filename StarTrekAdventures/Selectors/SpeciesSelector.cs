@@ -1609,6 +1609,30 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Vorta,
+            Description = new List<string>
+            {
+                "Notable as the administrators, field commanders, scientists, and diplomats of the Dominion, the Vorta style themselves as the Founders’ closest servants. They are a genetically engineered species designed specifically for dutiful service. The Vorta themselves are bred artificially, each engineered for specific purposes, in batches of identical clones: each clone is a unique individual, but they receive all the memories of their predecessors to ensure that they can pick up where the last one of their line left off. Though they reproduce via artificial means, the Vorta still have a superficial, vestigial sense of sex and gender, though they often affect more pronounced gender presentation if it will aid them in their work.",
+                "The Vorta hold an important place within Dominion society, and are often mistakenly thought of as the leaders of the Dominion, as the Founders prefer to be reclusive and stay out of the day-to-day of running the Dominion. The Vorta themselves are extremely cunning, ruthless, and persuasive, and highly adept at playing political games among themselves, and with any vassals or allies of the Dominion, though they would never dare to allow such activities to interfere with the will of the Founders."
+            },
+            ExampleCharacters = "Weyoun (Deep Space Nine)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Insight = 1, Presence = 1, Reason = 1
+            },
+            TraitDescription = "Vorta have extremely keen hearing, but poor eyesight. They are immune to most forms of poison, as a defense against assassination attempts. The Vorta revere the Founders as living gods, and are incapable of acting against a Founder. Those who encounter the Vorta often regard them as insincere or manipulative.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "The Voice of the Founders",
+                Description = "When you use the Direct or Assist major action to aid or command another servant of the Dominion (a Jem’Hadar, a Vorta of lower status, or a member of an allied state), you may roll 2d20 for your assist dice rather than 1d20 and apply both results. If you are captured, you may trigger a termination implant as a minor action, which kills you instantly. Whenever you die, you are replaced by your next clone at the start of the next mission. Additionally, some Vorta are engineered with telepathic or telekinetic abilities, and may purchase the Telepathy or Psychokinesis talents (page 156 of the core rulebook).",
+                CanTakeSpecificEsotericTalents = { TalentName.Telepathy, TalentName.Psychokinesis },
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Vulcan,
             Description = new List<string>
             {

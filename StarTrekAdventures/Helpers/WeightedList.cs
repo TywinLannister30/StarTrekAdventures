@@ -76,4 +76,10 @@ public class WeightedList<T>
         entries.AddRange(filtered);
         accumulatedWeight = newAccumulatedWeight;
     }
+
+    public void RemoveWhereNotIn<TValue>(Func<T, TValue> selector, params TValue[] allowedValues)
+    {
+        var allowed = new HashSet<TValue>(allowedValues);
+        RemoveWhere(x => !allowed.Contains(selector(x)));
+    }
 }

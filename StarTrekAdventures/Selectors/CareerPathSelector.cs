@@ -24,9 +24,10 @@ public class CareerPathSelector : ICareerPathSelector
         }
 
         if (character.PrimarySpecies == SpeciesName.JemHadar)
-        {
             availableCareerPaths.RemoveWhere(x => x.Name != TrackName.StarfleetEnlisted);
-        }
+
+        if (character.PrimarySpecies == SpeciesName.Vorta)
+            availableCareerPaths.RemoveWhereNotIn(x => x.Name, TrackName.DiplomaticCorps, TrackName.CivilianPhysician, TrackName.CivilianScientist, TrackName.CivilianOfficial);
 
         return availableCareerPaths.GetRandom();
     }

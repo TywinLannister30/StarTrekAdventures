@@ -147,6 +147,7 @@ public class CharacterManager : ICharacterManager
     private Character PerformStepTwo(Character character)
     {
         if (character.PrimarySpecies == SpeciesName.JemHadar) return character;
+        if (character.PrimarySpecies == SpeciesName.Vorta) return character;
 
         var environment = _environmentSelector.ChooseEnvironment(character.Species);
 
@@ -162,6 +163,7 @@ public class CharacterManager : ICharacterManager
     private Character PerformStepThree(Character character)
     {
         if (character.PrimarySpecies == SpeciesName.JemHadar) return PerformModifiedStepTwoAndThreeForJemHadar(character);
+        if (character.PrimarySpecies == SpeciesName.Vorta) return PerformModifiedStepTwoAndThreeForVorta(character);
 
         var upbringing = _upbringSelector.ChooseUpbringing(character);
 
@@ -325,6 +327,24 @@ public class CharacterManager : ICharacterManager
         character.AdjustAttributesForHatchery(chosenHatchery);
         character.AdjustDepartmentsForHatchery(chosenHatchery);
         character.AddFocuses(chosenHatchery.AvailableFocuses, 1);
+        character.AddTalent(_talentSelector);
+
+        return character;
+    }
+
+    private Character PerformModifiedStepTwoAndThreeForVorta(Character character)
+    {
+        var vortaCloningFocuses = new List<string>
+        {
+            Focus.Astrometrics, Focus.Biotechnology, Focus.Composure, Focus.Deception, Focus.Diplomacy, Focus.Ecology, Focus.Etiquette, Focus.Genetics, 
+            Focus.Negotiation, Focus.Politics, Focus.Parapsychology, Focus.Psychoanalysis, Focus.Research, Focus.Sociology, Focus.SubspaceTheory
+        };
+        character.Environment = "Vorta Cloning";
+        character.Upbringing = "Vorta Cloning";
+        character.AddValue(_valueSelector);
+        character.AdjustAttributesForVortaCloning();
+        character.AdjustDepartmentsForVortaCloning();
+        character.AddFocuses(vortaCloningFocuses, 1);
         character.AddTalent(_talentSelector);
 
         return character;

@@ -515,9 +515,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "There is no barrier we cannot overcome", TraitRequirement = SpeciesName.VauNAkat, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "We should not deny ourselves what other worlds have to offer ", TraitRequirement = SpeciesName.VauNAkat, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "I do not wish to be your enemy, and it is regrettable that you have forced my hand", TraitRequirement = SpeciesName.Vorta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I serve at the Founders pleasure", TraitRequirement = SpeciesName.Vorta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The Dominion philosophy is superior", TraitRequirement = SpeciesName.Vorta, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "There is nothing I will not do to achieve my—the Founders’—ends", TraitRequirement = SpeciesName.Vorta, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "I am an expert on lies", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
-        new Value { Name = "I live to serve the founders", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
-        new Value { Name = "The Dominion philosophy is superior", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
         new Value { Name = "The founders are the masters", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
         new Value { Name = "There is nothing I will not do to succeed", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
         
