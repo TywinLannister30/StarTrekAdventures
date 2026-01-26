@@ -558,8 +558,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Do not fear creation, but seek to understand how your work may be used", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Honesty never makes a problem worse", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Patience is for the dead", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10 },
-        
+        new Value { Name = "Existence is unfair, but I’ll win regardless", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Patience is for the dead", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Strength is in the deeds we accomplish", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The universe does not care who you are unless you make it", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Kindness wins more battles than weapons", TraitRequirement = SpeciesName.Zahl, Weight = 10 },
         
         new Value { Name = "A coherent strategy is the first line of defense", TraitRequirement = SpeciesName.Zakdorn, Weight = 10 },

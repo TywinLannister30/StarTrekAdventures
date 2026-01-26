@@ -1469,15 +1469,15 @@ public static class NameGenerator
     }
     private static readonly List<string> XindiReptilianMaleNames = new List<string>
     {
-        "Dankra", "Guruk"
+        "Dankra", "Drolid", "Guruk", "Kolrimm"
     };
     private static readonly List<string> XindiReptilianFemaleNames = new List<string>
     {
-        "Igak", "Krell"
+         "Igak", "Kimo", "Kolo", "Krell", "Najiin"
     };
     private static readonly List<string> XindiReptilianFamilyNames = new List<string>
     {
-        "Dolim"
+        "Damron", "Dolim", "Kimdomma", "Mokimro", "Rilromma", "Rokkima", "Rommarol"
     };
 
     private static string GenerateZahlName(Gender gender)

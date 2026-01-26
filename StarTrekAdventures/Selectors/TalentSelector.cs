@@ -2517,6 +2517,31 @@ public class TalentSelector : ITalentSelector
                 },
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "Triumph Against Any Odds",
+                TraitRequirement = SpeciesName.XindiReptilian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You will face any challenge that presents itself. When you attempt a task with a Difficulty of 3 or higher, you may suffer 1 Stress to reroll 1d20. You may reroll any number of dice this way, each one inflicting 1 Stress, but you may not reroll any dice that have already been rerolled (as normal), and you may not use this ability to reroll more dice than half (rounding up) the Difficulty of the task.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Cold-Blooded Supremacy",
+                TraitRequirement = SpeciesName.XindiReptilian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You are driven to excel, and to prove not only your own might, but that of Xindi-Reptilians in general. Your maximum Stress is increased by 3. Further, whenever you spend a point of Determination on a task roll, you recover Stress equal to the task’s Difficulty.",
+                },
+                StressModifier = 3,
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

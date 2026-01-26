@@ -1765,6 +1765,30 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species
+        {
+            Name = SpeciesName.XindiReptilian,
+            Description = new List<string>
+            {
+                "The Xindi-Reptilians are undoubtedly the most aggressive and impatient of the Xindi species. Reptilian society is deeply militaristic, using discipline to check and direct their customary belligerence, and the Xindi Council often relied on the Reptilians whenever force was necessary to achieve their ends. Reptilians are passionate and ambitious, and have historically had little regard for other species and few scruples. They have a reputation for being dishonest, selfish, and confrontational, swayed more by strength and coercion than by reasoned arguments. Fiercely competitive and relishing challenge in all aspects of life, they have a need to prove themselves and demonstrating their excellence is a powerful motivator in much of Reptilian culture. To a Reptilian, the satisfaction in triumphing when the odds are against them is greater, so they have few taboos against cheating or deception. Intense debates and cutting-edge science are equally appealing to Reptilian sensibilities as ways to prove themselves and make their mark on an uncaring universe. Indeed, Xindi-Reptilian scientists and engineers have made numerous breakthroughs in bioengineering, developing organic components for high-tech systems such as energy weapons.",
+                "Since the 2150s, the Xindi-Reptilians have sought to direct this desire for challenge to useful, positive ends. While the Xindi collectively are members of the Federation, Reptilians are those who tend to drift to the fringes of society more often, with a desire to seek out challenges that cannot be found in more civilized places. It is rare for Reptilians to apply to Starfleet Academy, and rarer still for them to be accepted, as their temperament can lead to confrontations. Those Xindi-Reptilians who do join Starfleet tend to excel as warriors, strategists, and leaders, and revel at disproving the negative reputation that hangs over them, seeing it as just another challenge."
+            },
+            ExampleCharacters = "Dolim (Enterprise)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "A cold-blooded reptiloid species, Xindi-Reptilians are powerfully built obligate carnivores whose powerful bodies are suited for hunting and fighting. They are strong, durable, aggressive beings, with keen senses and considerable endurance. They are also stubborn, strong-willed, and impatient, with an unquenchable desire to triumph in any endeavor they pursue. They have a reputation for ruthlessness and untrustworthiness.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Durable Physiology",
+                Description = "Xindi- Reptilians are tough, and cannot easily be stopped by attacks intended to subdue or incapacitate. Nothing short of deadly force can deter you. You have 1 Protection, which increases to 3 against Stun Attacks",
+                ProtectionBonus = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arbazan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
