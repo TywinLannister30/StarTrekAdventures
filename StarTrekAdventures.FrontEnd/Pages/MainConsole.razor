@@ -1,5 +1,7 @@
 ﻿@page "/main"
 @inject NavigationManager NavManager
+@inject StarTrekApiClient Api
+@using StarTrekAdventures.FrontEnd.Services
 
 <PageTitle>Starfleet Operations</PageTitle>
 
@@ -36,11 +38,22 @@
                     Specify species (optional):
                 </label>
 
-                <input id="speciesInput"
-                       @bind="selectedSpecies"
-                       placeholder="Enter species (e.g. Vulcan, Andorian)..."
-                       class="px-4 py-2 rounded-lg border border-blue-500 bg-gray-800/60 text-white
-                      focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200" />
+                <div class="relative">
+                    <input id="speciesInput"
+                           @bind="selectedSpecies"
+                           @bind:event="oninput"
+                           placeholder="Enter species (e.g. Vulcan, Andorian)..."
+                           data-ghost-remainder="@GetSpeciesRemainder(selectedSpecies)"
+                           class="ghost-autocomplete-input px-4 py-2 rounded-lg border border-blue-500 bg-gray-800/60 text-white
+                      focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200 w-full relative z-10" />
+                    @if (!string.IsNullOrWhiteSpace(selectedSpecies) && !string.IsNullOrWhiteSpace(GetSpeciesRemainder(selectedSpecies)))
+                    {
+                        <div class="pointer-events-none absolute inset-0 flex items-center px-4 py-2 text-gray-500 z-20">
+                            <span class="text-transparent">@selectedSpecies</span>
+                            <span>@GetSpeciesRemainder(selectedSpecies)</span>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
 
@@ -75,6 +88,12 @@
 
 @code {
     private string selectedSpecies = string.Empty;
+    private List<string>? speciesList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        speciesList = (await Api.GetSpeciesNames())?.OrderBy(x => x).ToList() ?? new List<string> { "Human" };
+    }
 
     private void GoToGenerate()
     {
@@ -86,6 +105,24 @@
     }
 
     private void GoToCreator() => NavManager.NavigateTo("/character-creator");
+
+    private string GetSpeciesRemainder(string? input)
+    {
+        if (speciesList is null)
+            return string.Empty;
+
+        var value = input ?? string.Empty;
+        if (string.IsNullOrWhiteSpace(value))
+            return string.Empty;
+
+        var match = speciesList.FirstOrDefault(sp =>
+            sp.StartsWith(value, StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(match) || match.Length <= value.Length)
+            return string.Empty;
+
+        return match[value.Length..];
+    }
 }
 
 

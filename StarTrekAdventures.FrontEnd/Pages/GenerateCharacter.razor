@@ -386,10 +386,21 @@
 
         <!-- Species input + Generate Another -->
         <div class="flex flex-col sm:flex-row items-center gap-3">
-            <input @bind="selectedSpecies"
-                   placeholder="Enter species (e.g. Vulcan, Andorian)..."
-                   class="px-4 py-2 rounded-lg border border-blue-500 bg-gray-800/60 text-white
-                      focus:outline-none focus:ring-2 focus:ring-blue-400 w-64" />
+            <div class="relative w-64">
+                <input @bind="selectedSpecies"
+                       @bind:event="oninput"
+                       placeholder="Enter species (e.g. Vulcan, Andorian)..."
+                       data-ghost-remainder="@GetSpeciesRemainder(selectedSpecies)"
+                       class="ghost-autocomplete-input px-4 py-2 rounded-lg border border-blue-500 bg-gray-800/60 text-white
+                      focus:outline-none focus:ring-2 focus:ring-blue-400 w-full relative z-10" />
+                @if (!string.IsNullOrWhiteSpace(selectedSpecies) && !string.IsNullOrWhiteSpace(GetSpeciesRemainder(selectedSpecies)))
+                {
+                    <div class="pointer-events-none absolute inset-0 flex items-center px-4 py-2 text-gray-500 z-20">
+                        <span class="text-transparent">@selectedSpecies</span>
+                        <span>@GetSpeciesRemainder(selectedSpecies)</span>
+                    </div>
+                }
+            </div>
 
             <button @onclick="GenerateAnother"
                     class="px-6 py-3 bg-blue-700 text-white rounded-lg shadow-xl hover:bg-blue-600
@@ -406,6 +417,7 @@
     private Character? character;
     private bool loading = true;
     private string? selectedSpecies;
+    private List<string>? speciesList;
 
     protected override async Task OnInitializedAsync()
     {
@@ -413,6 +425,8 @@
 
         if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("species", out var species))
             selectedSpecies = species.ToString();
+
+        speciesList = (await Api.GetSpeciesNames())?.OrderBy(x => x).ToList() ?? new List<string> { "Human" };
 
         await FetchCharacterAsync(selectedSpecies);
     }
@@ -430,6 +444,24 @@
     }
 
     private void GoBack() => NavManager.NavigateTo("/main");
+
+    private string GetSpeciesRemainder(string? input)
+    {
+        if (speciesList is null)
+            return string.Empty;
+
+        var value = input ?? string.Empty;
+        if (string.IsNullOrWhiteSpace(value))
+            return string.Empty;
+
+        var match = speciesList.FirstOrDefault(sp =>
+            sp.StartsWith(value, StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(match) || match.Length <= value.Length)
+            return string.Empty;
+
+        return match[value.Length..];
+    }
 }
 
 
