@@ -2493,6 +2493,30 @@ public class TalentSelector : ITalentSelector
                 },
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "A Mind for Design",
+                TraitRequirement = SpeciesName.XindiPrimate,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Xindi-Primates have produced many talented engineers and scientists, pushing at the frontiers of design and construction. When you spend 2 or more Momentum to Obtain Information when using a focus that represents science or technology, you may create a new trait for free which represents a hypothesis. Further, when you succeed at an extended task related to a scientific or engineering activity, you may spend 2 Momentum to ignore any Resistance on the extended task for that roll.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Voice of the Xindi",
+                TraitRequirement = SpeciesName.XindiPrimate,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Among the Xindi, the Primates are respected for their fairness and honesty, and you work to live up to that. When you begin a social conflict, you may create an additional trait to represent a reputation for honesty and fairness, which will last to the end of the scene. While you have that trait, you may reroll 1d20 on any Persuasion task made as long as you remain completely honest during the scene, but any attempt at deception immediately adds 1 Threat as escalation.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

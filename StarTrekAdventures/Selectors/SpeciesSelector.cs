@@ -1742,6 +1742,29 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species
+        {
+            Name = SpeciesName.XindiPrimate,
+            Description = new List<string>
+            {
+                "Xindi-Primates are a mammalian humanoid species who more closely resemble Humans or other humanoid species in the Galaxy; they are sometimes incorrectly referred to as Xindi-Humanoids as a result. They are similar to the Xindi-Arboreals in attitude and appearance, though more ambitious and passionate, and quicker to act. Widely considered to be the second Xindi species to achieve sapience, the Primates pride themselves on their intellect and ingenuity, and while this can sometimes result in arrogance, they are generally seen as honest, fair-minded, and trustworthy by other Xindi. The Primates’ language developed into the common language used by the Xindi Council, and for much of Xindi history, Primates were the most widespread and dominant Xindi species, a state of affairs that resulted in some historical resentment but which is long-since resolved.",
+                "The Xindi inclusion into the United Federation of Planets enabled Xindi-Primates to enhance their learning, and find positions in design, architecture, engineering, along with research and development. Xindi-Primates are the Xindi species who appear most often in Starfleet service, where they find themselves in a variety of roles and positions, a testament to their adaptability and audaciousness."
+            },
+            ExampleCharacters = "Degra (Enterprise)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Reason = 1, Presence = 1
+            },
+            TraitDescription = "With a broadly similar physiology to Humans, Primates share their characteristic internal organ structure and metabolism, as well as their sensory perceptions. Their facial structure is markedly different, however, with pronounced foreheads and ridged cheekbones like other Xindus species. Amongst other Xindi, Primates have gained a reputation for fairness and honesty.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Adaptable and Talented",
+                Description = "Xindi-Primates are well-known and respected for their ingenuity and drive to overcome challenges. Once per mission, when you attempt a task roll, select one of your focuses: on that task roll, and for the remainder of the mission, whenever you succeed at a task using that focus, you score 1 bonus Momentum. Bonus Momentum may not be saved.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arbazan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },

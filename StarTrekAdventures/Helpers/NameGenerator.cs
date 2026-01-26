@@ -1450,11 +1450,11 @@ public static class NameGenerator
     }
     private static readonly List<string> XindiPrimateMaleNames = new List<string>
     {
-        "Degra", "Ragnar", "Toki"
+        "Begra", "Chusra", "Degra", "Logra", "Mallora", "Ragnar", "Rhucsa", "Toki"
     };
     private static readonly List<string> XindiPrimateFemaleNames = new List<string>
     {
-        "Bryn", "Guyda", "Hreidur"
+        "Allina", "Bryn", "Guyda", "Hreidur", "Jaina", "Naara", "Piral", "Trenia"
     };
 
     private static string GenerateXindiReptilianName(Gender gender)

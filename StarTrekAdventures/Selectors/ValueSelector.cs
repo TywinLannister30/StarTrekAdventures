@@ -553,7 +553,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Take whatever actions you must, deal with the consequences that follow", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "We must act quickly to secure our future", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Honesty never makes a problem worse", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10 },
+        new Value { Name = "Always seek the fair way forwards, even if it’s difficult to get there", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Dare to find a solution to today’s problems", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Do not fear creation, but seek to understand how your work may be used", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Honesty never makes a problem worse", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Patience is for the dead", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10 },
         
         new Value { Name = "Kindness wins more battles than weapons", TraitRequirement = SpeciesName.Zahl, Weight = 10 },
