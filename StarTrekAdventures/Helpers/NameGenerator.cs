@@ -198,7 +198,7 @@ public static class NameGenerator
         if (species == SpeciesName.XindiArboreal)
             return GenerateXindiArborealName(gender);
         if (species == SpeciesName.XindiInsectoid)
-            return GenerateXindiInsectoidName(gender);
+            return GenerateXindiInsectoidName();
         if (species == SpeciesName.XindiPrimate)
             return GenerateXindiPrimateName(gender);
         if (species == SpeciesName.XindiReptilian)
@@ -1433,10 +1433,14 @@ public static class NameGenerator
         "Aruu", "Coji", "Durr", "Jannar", "Krett", "Settra", "Surr", "Tarr", "Trennit"
     };
 
-    private static string GenerateXindiInsectoidName(Gender gender)
+    private static string GenerateXindiInsectoidName()
     {
-        return "?????";
+        return XindiInsectoidNames.OrderBy(n => Util.GetRandom()).First();
     }
+    private static readonly List<string> XindiInsectoidNames = new List<string>
+    {
+        "Ch’zilti’la", "Ikzi’chik", "K’chik’lak", "Kil’thik’zi", "T’likchik’zi", "Tik’chiki’zi", "Zi’lizch’thik", "Zil’il’chzi"
+    };
 
     private static string GenerateXindiPrimateName(Gender gender)
     {

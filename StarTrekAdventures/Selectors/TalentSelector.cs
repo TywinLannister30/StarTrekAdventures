@@ -2469,6 +2469,30 @@ public class TalentSelector : ITalentSelector
                 StressModifier = 2,
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "Protective Instinct",
+                TraitRequirement = SpeciesName.XindiInsectoid,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "The Insectoid instinct to defend their eggs and offspring is powerful, but many Insectoids have developed a similar protective bond with comrades, colleagues, and friends. When you attempt the Guard major action to protect an ally within Reach, you immediately recover 2 Stress as you receive a surge of vitality, and you ignore the normal Difficulty increase for using the Guard action to protect an ally.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Rapid Processing",
+                TraitRequirement = SpeciesName.XindiInsectoid,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Xindi-Insectoids learn quickly, as their lives aren’t long enough to spend decades in deep study. The first time each scene that you Obtain Information after succeeding at a task roll which used one of your focuses, that use of Obtain Information is free.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

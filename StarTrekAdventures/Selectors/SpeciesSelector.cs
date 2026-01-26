@@ -1718,6 +1718,30 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species
+        {
+            Name = SpeciesName.XindiInsectoid,
+            Description = new List<string>
+            {
+                "Xindi-Insectoids are probably the most dissimilar to the other Xindi. Their insect-like appearance includes a chitinous exoskeleton, but, unlike Earth insects, they only have four limbs. Xindi-Insectoids reproduce asexually with large clutches of eggs in hatcheries aboard their ships, which are fiercely protected. The Insectoids themselves live short lives—only around twelve years on average— which makes them prioritize the wellbeing of their offspring even above their own lives, and contributes to their tendency to be aggressive and decisive… which can result in them being easily provoked into action. Insectoids over ten years old are regarded as “elders.” There are numerous subspecies of Xindi-Insectoid, with differing appearances; their shorter lifespans and rapid breeding have allowed different clades of Insectoids to diverge through the history of the species, and internal Insectoid politics involve much vying for predominance. Their language is the most complex among the Xindi species with dozens of different dialects of clicks and chirps that other species find hard to replicate; while they can understand other languages, Insectoids physically cannot speak the languages of most other humanoid species.",
+                "The Xindi-Insectoids have traditionally aligned themselves with the similarly aggressive Reptilians, and they and the Reptilians were responsible for the destruction of Xindus through a plan which involved detonating weapons of mass destruction at seismic weak points around the planet. In the wake of the conflict with Earth, the Insectoids and the Reptilians alike were distrusted by other species—including other Xindi—for many years. However, while aggressive and quick to action, Insectoids are also the quickest to assimilate new ideas and new information into their worldview if they see it as valuable."
+            },
+            ExampleCharacters = "Shresht (Enterprise novels)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Fitness = 1, Reason = 1
+            },
+            TraitDescription = "Insectoids have a dense exoskeletal carapace, and an extremely rapid and efficient metabolism, which makes them quite hardy and durable, though they lack an endoskeleton beneath their carapace. They move and react quickly when necessary, and process information quickly: a necessity for a short-lived intelligent species, allowing them to learn enough to match the knowledge and experience of longer-lived species. They’re adept at climbing and crawling through confined spaces. They seldom show fear or hesitation once they’ve decided on a course of action.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Insectoid",
+                Description = "Your exoskeleton gives you Protection 1, while your rapid metabolism means that you may reroll 1d20 on any task roll using Fitness.",
+                ProtectionBonus = 1,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arbazan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },

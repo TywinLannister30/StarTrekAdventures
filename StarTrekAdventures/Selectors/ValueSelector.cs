@@ -548,7 +548,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Hasty action shakes the trees and endangers everyone", TraitRequirement = SpeciesName.XindiArboreal, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Quiet words can make more difference than the loudest uproar", TraitRequirement = SpeciesName.XindiArboreal, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Protect your off-spring at the expense of self", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10 },
+        new Value { Name = "Indecision can be as dangerous as the wrong decision", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Protect our children even at the cost of yourself", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Take whatever actions you must, deal with the consequences that follow", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We must act quickly to secure our future", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Honesty never makes a problem worse", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10 },
         new Value { Name = "Patience is for the dead", TraitRequirement = SpeciesName.XindiReptilian, Weight = 10 },
         
