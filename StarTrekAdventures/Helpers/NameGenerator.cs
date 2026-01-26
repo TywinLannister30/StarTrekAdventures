@@ -192,6 +192,8 @@ public static class NameGenerator
             return GenerateWadiName(gender);
         if (species == SpeciesName.Xahean)
             return GenerateXaheanName();
+        if (species == SpeciesName.XindiAquatic)
+            return GenerateXindiAquaticName();
         if (species == SpeciesName.XindiArboreal)
             return GenerateXindiArborealName(gender);
         if (species == SpeciesName.XindiInsectoid)
@@ -1396,6 +1398,15 @@ public static class NameGenerator
     private static readonly List<string> XaheanNames = new List<string>
     {
         "Caler No Fi Dafili", "Drex Dar Mala So Lesk", "Foto Mri Ka Se Wachi", "Me Hani Ika Hali Ka Po", "Vinters Saba Ra Ke Fa Nobi"
+    };
+
+    private static string GenerateXindiAquaticName()
+    {
+        return XindiAquaticNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> XindiAquaticNames = new List<string>
+    {
+        "Ainsuri", "Amsoti", "Bimmaul", "Ixmaut", "Kiaphet", "Mizaub", "Muaza", "Phetixa", "Qoh", "Qam", "Soreb", "Zuain", "Zumamt"
     };
 
     private static string GenerateXindiArborealName(Gender gender)

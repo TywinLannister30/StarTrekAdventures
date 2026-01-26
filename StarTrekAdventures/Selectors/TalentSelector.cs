@@ -2420,6 +2420,30 @@ public class TalentSelector : ITalentSelector
                 },
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "Circumspect",
+                TraitRequirement = SpeciesName.XindiAquatic,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Xindi-Aquatics do not rush into decisions that matter. When you attempt a task roll outside of combat, you may choose (before rolling) to double the amount of time the task will take; if you do so, then you may either reduce the Difficulty by 2 or generate 2 bonus Momentum if the task is successful. Bonus Momentum may not be saved."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Seek Consensus",
+                TraitRequirement = SpeciesName.XindiAquatic,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Xindi-Aquatics established a society that prized equality and consensus-building long before any other Xindi did. When you spend Momentum to Obtain Information about another character and ask questions about that character’s goals, perspective, or state of mind, you may reduce the cost of creating a trait to 1 Momentum. Any trait created using this talent must relate to the information gained."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

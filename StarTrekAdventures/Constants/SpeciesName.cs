@@ -94,6 +94,7 @@ public static class SpeciesName
     public const string Vulcan = "Vulcan";
     public const string Wadi = "Wadi";
     public const string Xahean = "Xahean";
+    public const string XindiAquatic = "Xindi-Aquatic";
     public const string XindiArboreal = "Xindi-Arboreal";
     public const string XindiInsectoid = "Xindi-Insectoid";
     public const string XindiPrimate = "Xindi-Primate";

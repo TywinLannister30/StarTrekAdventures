@@ -538,6 +538,11 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Seek balance between oneself and the world around you", TraitRequirement = SpeciesName.Xahean, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "You cannot put yourself before your home and your people", TraitRequirement = SpeciesName.Xahean, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
+        new Value { Name = "If something is important, it’s worth debating and considering deeply and thoroughly", TraitRequirement = SpeciesName.XindiAquatic, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "If you want to convince me, show me the proof: don’t just tell me", TraitRequirement = SpeciesName.XindiAquatic, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "The world is too complex to rush to conclusions", TraitRequirement = SpeciesName.XindiAquatic, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We all swim in the same ocean; the same currents affect us all", TraitRequirement = SpeciesName.XindiAquatic, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Calm focuses the mind", TraitRequirement = SpeciesName.XindiArboreal, Weight = 10 },
         new Value { Name = "Protect your off-spring at the expense of self", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10 },
         new Value { Name = "Honesty never makes a problem worse", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10 },

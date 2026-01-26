@@ -1671,6 +1671,29 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 2,
             Source = BookSource.SpeciesSourcebook
         },
+        new Species
+        {
+            Name = SpeciesName.XindiAquatic,
+            Description = new List<string>
+            {
+                "Xindi-Aquatics are non-humanoid species that evolved on Xindus, a planet in the Delphic Expanse in the Beta Quadrant. A species evolved to live underwater, Xindi-Aquatics are also known to be patient and prudent, sometimes to the point of being overly cautious or even indecisive; their natural environments are in constant flux, meaning that they are used to processing the interplay of complex factors and variables in their everyday lives. They are extremely technically adept, and many of the technological adaptations necessary for them to communicate with other Xindi species—and eventually, species from other worlds—were developed by the Aquatics themselves. Historically, the Xindi-Aquatics were the first Xindi species to achieve sapience, and they are customarily peaceful, only engaging in the brutal civil wars of their lost homeworld when the land-dwelling species’ conflicts spilled over into the Aquatics’ oceans.",
+                "Xindi-Aquatics have their own starships adapted to their watery environment, but since joining the Federation, a small number of Xindi-Aquatics have been found in Starfleet, often serving alongside or in similar roles to Earth-born Cetaceans and other aquatic species, with whom they share many qualities. The Aquatics’ culture prizes equity and the forming of consensus, and despite their customary circumspection, they were among the first of the Xindi species to propose joining the Federation, due to these values."
+            },
+            ExampleCharacters = "Qoh Kiaphet Amman’sor (Enterprise)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Reason = 1
+            },
+            TraitDescription = "Xindi-Aquatics evolved to live underwater, and cannot survive for long outside the water. They have forelimbs with dextrous three-fingered hands, but fins and tails for maneuvering under the water. Their eyesight is adapted to discern objects underwater and with limited light, but they dislike bright lights. They communicate using high- and low-frequency vocalizations similar to whale song. Like all Xindi, they have distinctive ridges on their faces.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Aquatic",
+                Description = "You can move freely and without hindrance through the water. You may ignore any traits or injuries caused by exposure to extremely cold aquatic conditions. However, when on land you are always considered to be Prone (core rulebook, page 288).",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arbazan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
@@ -1692,10 +1715,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Tosk, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Fitness = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Turei, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.XindiArboreal, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.XindiInsectoid, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.XindiPrimate, AttributeModifiers = new CharacterAttributes { Daring = 1, Presence = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.XindiReptilian, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Wadi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Zahl, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Zakdorn, AttributeModifiers = new CharacterAttributes { Insight = 1, Presence = 1, Reason = 1 }, Weight = 2 },
