@@ -1648,6 +1648,29 @@ public class SpeciesSelector : ISpeciesSelector
             SpeciesAbility = _speciesAbilitySelector.GetSpeciesAbility(SpeciesAbilityName.MentalDiscipline),
             Weight = 12
         },
+        new Species
+        {
+            Name = SpeciesName.Xahean,
+            Description = new List<string>
+            {
+                "Believing themselves to have been created at the exact moment their world was, the Xaheans are a species who have achieved a great level of technological advancement in a short amount of time. Capable of manipulating technology instinctively and possessing numerous self-defense mechanisms such as spines and the ability to render themselves almost invisible, the Xaheans had recently begun to experiment with dilithium crystals and warp technology in the 23rd century. This discovery caused some upheaval in Xahean society, and the balance that their culture once prized—and their beloved homeworld itself—was threatened by the pursuit of technological progress.",
+                "With time, the damage to their culture and homeworld was repaired, but it would not be the only time the Xaheans were put into peril; their planet was occupied by the Cardassians and subjected to intense strip mining. Then, during the Dominion War, Xahea was annexed by the Dominion and laid waste. As a result of this, Xaheans were scattered across the Alpha and Beta Quadrants, becoming starship-dwelling nomads, a state of affairs that persisted into the 32nd century and beyond."
+            },
+            ExampleCharacters = "Me Hani Ika Hali Ka Po (Discovery), Caler (Picard)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Reason = 1
+            },
+            TraitDescription = "The Xaheans are technologically gifted as a species, to the point that they often appear smug in the face of technological advancements by other species. When they encounter a technology unfamiliar to them, they adapt quickly to its uses and seek out ways to construct devices of their own. Their innate ability to manipulate energy fields allows them to activate many different types of machinery in their proximity—though not necessarily with any fine control— and their ability to shroud themselves in a field that obscures their appearance allows them to remain undetected from pursuers.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Camouflage Field",
+                Description = "Using the Prepare minor action, you may suffer 1 Stress to camouflage yourself, becoming nearly invisible. You gain the Camouflaged trait. While camouflaged, tasks to detect or locate you increase in Difficulty accordingly, and you  cannot be the target of an attack unless the attacker has found some other way to detect you. This ends when you make an attack or when you take another Prepare minor action to end the effect. This ability is taxing, and the amount of Stress suffered increases by 1 each time during the same scene it is used; this increase is cumulative.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Arbazan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
@@ -1669,8 +1692,6 @@ public class SpeciesSelector : ISpeciesSelector
         //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Tosk, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Fitness = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.Turei, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Vorta, AttributeModifiers = new CharacterAttributes { Insight = 1, Presence = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Xahean, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.XindiArboreal, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 2 },
         //new Species { Name = SpeciesName.XindiInsectoid, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Reason = 1 }, Weight = 0 },
         //new Species { Name = SpeciesName.XindiPrimate, AttributeModifiers = new CharacterAttributes { Daring = 1, Presence = 1, Reason = 1 }, Weight = 2 },

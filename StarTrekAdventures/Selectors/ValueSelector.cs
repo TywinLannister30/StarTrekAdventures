@@ -532,9 +532,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "We may choose to be guided by logic, but the real world isn’t always reasonable", TraitRequirement = SpeciesName.Vulcan, Weight = 10 },
 
         new Value { Name = "Allamaraine!, shall we play again?", TraitRequirement = SpeciesName.Wadi, Weight = 10 },
-        
-        new Value { Name = "Balance between oneself and the world around you.", TraitRequirement = SpeciesName.Xahean, Weight = 10 },
-        
+
+        new Value { Name = "Cherish that which is precious to you, because you do not know how long you’ll have it", TraitRequirement = SpeciesName.Xahean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Our ingenuity should serve a greater balance, not our own ambition ", TraitRequirement = SpeciesName.Xahean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Seek balance between oneself and the world around you", TraitRequirement = SpeciesName.Xahean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "You cannot put yourself before your home and your people", TraitRequirement = SpeciesName.Xahean, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "Calm focuses the mind", TraitRequirement = SpeciesName.XindiArboreal, Weight = 10 },
         new Value { Name = "Protect your off-spring at the expense of self", TraitRequirement = SpeciesName.XindiInsectoid, Weight = 10 },
         new Value { Name = "Honesty never makes a problem worse", TraitRequirement = SpeciesName.XindiPrimate, Weight = 10 },

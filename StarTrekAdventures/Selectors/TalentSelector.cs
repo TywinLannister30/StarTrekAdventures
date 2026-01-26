@@ -2396,6 +2396,30 @@ public class TalentSelector : ITalentSelector
                     "You have learned numerous techniques for the stimulation and control of nerve impulses—collectively called neuropressure. Some applications of neuropressure can be used to incapacitate assailants swiftly and non-lethally. The nerve pinch counts as a Melee Attack which inflicts Stun Injuries with a Severity of 3 and the Intense quality. You may use Science or Medicine instead of Security when attempting a Nerve Pinch Attack."
                 }
             },
+            new()
+            {
+                Name = "Discerning Scientific Mind",
+                TraitRequirement = SpeciesName.Xahean,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Xahean culture and physiology allows them to discern scientific phenomena quickly and inspires them in how to replicate it. When a Xahean is attempting to perform an extended task to determine the purpose of a piece of technology, their Impact increases by 1."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Technopathy",
+                TraitRequirement = SpeciesName.Xahean,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "All Xaheans have a limited capability to manipulate electromagnetic fields nearby, which contributes to their camouflage field and their ability to influence technology. However, it takes practice to be able to manipulate technology in useful ways. You may suffer 1 Stress to operate technology within Close range as if you were holding it. If someone else is holding and operating that technology, they may cancel or override any actions you attempt with that device, and if operating that technology takes an action and/or a task roll, then it still does when operated remotely."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 
