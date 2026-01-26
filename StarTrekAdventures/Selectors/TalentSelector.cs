@@ -2566,6 +2566,30 @@ public class TalentSelector : ITalentSelector
                 },
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "Master Strategist",
+                TraitRequirement = SpeciesName.Zakdorn,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Zakdorn strategic sense is unparalleled in contemporary military theory. When you attempt a task to Create a Trait related to strategy or tactics, the first bonus d20 you purchase is free. If you have such a trait currently in effect, then each time an enemy NPC suffers a complication, you may immediately select another player character who has not yet acted this round and allow them to take an extra minor action immediately, to capitalize on the enemy’s mistake.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Tactical Voice",
+                TraitRequirement = SpeciesName.Zakdorn,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "In command positions, the speed of Zakdorn tactical calculations allows them to issue succinct, efficient orders. During combat, you may use the Direct major action without paying the normal Momentum cost. Further, when you use the Swift Action Momentum spend, the cost is reduced to 1 Momentum, so long as the second action you attempt is either Assist or Direct.",
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

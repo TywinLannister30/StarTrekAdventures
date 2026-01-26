@@ -1526,15 +1526,15 @@ public static class NameGenerator
     }
     private static readonly List<string> ZakdornMaleNames = new List<string>
     {
-        "Gruhn", "Jir", "Koll", "Sirna"
+        "Gelim", "Gruhn", "Jir", "Koll", "Rujat", "Sakud", "Sirna", "Virum"
     };
     private static readonly List<string> ZakdornFemaleNames = new List<string>
     {
-        "Bel", "Myk", "Orym"
+        "Bel", "Gelfina", "Myk", "Orym"
     };
     private static readonly List<string> ZakdornFamilyNames = new List<string>
     {
-        "Azernal", "Bunkrep", "Kolrami", "Roplik"
+        "Armnoj", "Azernal", "Betai", "Borvala", "Bunkrep", "Kalnota", "Kolrami", "Kreinns", "Roplik", "Suwadi"
     };
 
     private static string GenerateZaraniteName(Gender gender)

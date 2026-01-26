@@ -570,8 +570,11 @@ public class ValueSelector : IValueSelector
 
         new Value { Name = "Kindness wins more battles than weapons", TraitRequirement = SpeciesName.Zahl, Weight = 10 },
 
-        new Value { Name = "A coherent strategy is the first line of defense", TraitRequirement = SpeciesName.Zakdorn, Weight = 10 },
-        
+        new Value { Name = "A coherent strategy is the first line of defense", TraitRequirement = SpeciesName.Zakdorn, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "I know your plans better than you do", TraitRequirement = SpeciesName.Zakdorn, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "If you fail to consider all the variables, you will simply fail", TraitRequirement = SpeciesName.Zakdorn, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Trust me, I know what I’m talking about", TraitRequirement = SpeciesName.Zakdorn, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "The tougher the skin, the tougher the being", TraitRequirement = SpeciesName.Zaranite, Weight = 10 },
         
         new Value { Name = "Starfleet is a promise: I’d give my life for you, you’d give your life for me, and nobody gets left behind", TrackRequirement = TrackName.StarfleetOfficerCommand, Weight = 10 },

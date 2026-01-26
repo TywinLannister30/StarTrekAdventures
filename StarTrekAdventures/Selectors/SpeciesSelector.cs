@@ -1812,30 +1812,28 @@ public class SpeciesSelector : ISpeciesSelector
             Weight = 1,
             Source = BookSource.SpeciesSourcebook
         },
-        //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Arbazan, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Ardanan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Presence = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Argrathi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Arkarian, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.CyberneticallyEnhanced, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, NonMixed = true, SecondSpecies = true, Weight = 1 },
-        //new Species { Name = SpeciesName.Dosi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Drai, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Haliian, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Presence = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Jye, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Karemma, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Lokirrim, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Mari, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, MustTakeSpecificTalentInStepOne = "Empath", Weight = 0 },
-        //new Species { Name = SpeciesName.Monean, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Paradan, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Pendari, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Rakhari, AttributeModifiers = new CharacterAttributes { Daring = 1, Insight = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Sikarian, AttributeModifiers = new CharacterAttributes { Control = 1, Reason = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Skreeaa, AttributeModifiers = new CharacterAttributes { Daring = 1, Fitness = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Tosk, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Fitness = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Turei, AttributeModifiers = new CharacterAttributes { Control = 1, Daring = 1, Reason = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Wadi, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Zahl, AttributeModifiers = new CharacterAttributes { Control = 1, Insight = 1, Presence = 1 }, Weight = 0 },
-        //new Species { Name = SpeciesName.Zakdorn, AttributeModifiers = new CharacterAttributes { Insight = 1, Presence = 1, Reason = 1 }, Weight = 2 },
-        //new Species { Name = SpeciesName.Zaranite, AttributeModifiers = new CharacterAttributes { Control = 1, Fitness = 1, Reason = 1 }, Weight = 2 }
+        new Species
+        {
+            Name = SpeciesName.Zakdorn,
+            Description = new List<string>
+            {
+                "Zakdorn are a humanoid species from the Beta Quadrant world of the same name. They joined the Federation in 2344, and quickly became an important contributor. While many Zakdorn appear physically unimpressive, their meticulous minds, attention to detail, and capacity for high-level theoretical reasoning have resulted in them gaining the reputation as the finest tactical and strategic minds in the Galaxy, able to outthink and outwit their foes with startling, almost contemptuous ease: it’s said that no foe has bested the Zakdorn in millennia. The Zakdorn have quickly become a major asset in defining Federation defense policy and strategic readiness.",
+                "Critics of the Zakdorn point out that part of their reputation means that nobody has tried to beat them in a very long time, meaning that the reputation was untested. Nevertheless, Zakdorn strategists are in high demand, and the same qualities that make them excellent strategists also allow them to thrive in other detail-oriented roles. Zakdorn are seen across the Federation and beyond as bureaucrats, administrators, engineers, investigators, scientists, and politicians. The Zakdorn tend to be officious and self-confident, often to the point of hubris; the Zakdorn themselves contend that this attitude is a deserved self-assuredness, and that it isn’t overconfidence if they can back up their claims."
+            },
+            ExampleCharacters = "Klim Docachin (The Next Generation), Sirna Kolrami (The Next Generation)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Insight = 1, Presence = 1, Reason = 1
+            },
+            TraitDescription = ". Zakdorn tend to be of shorter stature than most humanoids and have distinctive wrinkles of fatty tissue over their faces and bodies. This fatty layer enables Zakdorn to survive without food for much longer periods than most humanoids. Their analytical brains give them an edge in logic and reasoning that rivals even Vulcans.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Several Moves Ahead",
+                Description = "Zakdorn are reputed to have the finest strategic minds, and they can analyze complex situations and predict their outcomes with startling accuracy. Once per scene, when you create a trait representing a plan of action or a strategy, you may spend 1 additional Momentum to either increase the Potency of that trait by 1, or to create a second copy of that trait to grant to an ally you are in communication with.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
+        },
     };
 }
