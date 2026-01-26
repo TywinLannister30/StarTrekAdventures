@@ -182,6 +182,8 @@ public static class NameGenerator
             return GenerateTrillName(gender, character.Traits);
         if (species == SpeciesName.Turei)
             return GenerateTureiName(gender);
+        if (species == SpeciesName.VauNAkat)
+            return GenerateVauNAkatName();
         if (species == SpeciesName.Vorta)
             return GenerateVortaName(gender);
         if (species == SpeciesName.Vulcan)
@@ -1337,6 +1339,15 @@ public static class NameGenerator
     private static readonly List<string> TureiFamilyNames = new List<string>
     {
         "Turell", "Buhese", "Kiralur", "Wanoti", "Kotathi", "Hailova", "Jailance", "Madmika"
+    };
+
+    private static string GenerateVauNAkatName()
+    {
+        return VauNAkatNames.OrderBy(n => Util.GetRandom()).First();
+    }
+    private static readonly List<string> VauNAkatNames = new List<string>
+    {
+        "Borom", "Ascencia", "Gwyndala", "Ilthuran", "Kathon"
     };
 
     private static string GenerateVortaName(Gender gender)

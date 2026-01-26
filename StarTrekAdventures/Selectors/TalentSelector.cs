@@ -2306,6 +2306,42 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Heirloom",
+                TraitRequirement = SpeciesName.VauNAkat,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You bear an object known only as an heirloom, which normally appears as a piece of fretwork jewelry made from a brass-colored metal. The metal can respond to trained use of neuroflux by reconfiguring into various forms, such as blades, shields, or other useful structures.",
+                    "You add an heirloom device to your standard issue equipment, and have the training necessary to use it. If this item is out of your reach but still present in the same scene, you may suffer 1 Stress affect the heirloom at a distance, or to move it telekinetically. If it is damaged, you may suffer 6 Stress in order to force it to reform.",
+                    "These devices, which appear as fretwork-style jewelry— bracelets, necklaces, cuffs, or similar—made of a brass-colored metal, are worn on the owner’s body when not in use. Each is made from a rare reactive alloy unique to the world of Solum. In conjunction with the neuroflux ability of the Vau N’Akat, this alloy can function as crude programmable matter, altering its structure and shaping it into a variety of useful tools.",
+                    "You may use the Prepare minor action, or spend 1 Momentum (Immediate) outside of your turn, to switch the heirloom’s form in any of the following ways while touching it: "
+                },
+                BulletPoints = new List<string>
+                {
+                    "The heirloom becomes a Blade (Melee, Deadly 3).",
+                    "The heirloom becomes a Heavy Blade (Melee, Deadly 3, Intense). This adds 1 Threat. ",
+                    "The heirloom becomes a shield. This equipment trait counts as cover, and adds an automatic success to your task roll in an opposed task when defending against an attack.",
+                    "The heirloom takes the form of any simple metallic tool. This is an equipment trait, and the heirloom cannot take any form that has moving parts or circuitry. This could be a climbing tool, a way to extend someone’s reach, to gain leverage for moving a heavy object or prying a door, or as a splint to immobilize an injured limb.",
+                    "The heirloom takes the form of restraints, similar to handcuffs or manacles. This is an equipment trait which impairs another character."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Share Strength",
+                TraitRequirement = SpeciesName.VauNAkat,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You can, with effort, direct some of your psychokinetic potential to bolster another. As a major action, you may attempt a Control + Command task roll with a Difficulty of 2 to direct your energy to an ally within Long range; you reduce the Difficulty by 1 if the target is another Vau N’Akat. On a successful task, you can suffer up to 5 Stress, and the target recovers an equal amount of Stress."
+                },
+                AddDepartmentToStress = DepartmentName.Security,
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
                 Name = "Kohlinar",
                 TraitRequirement = SpeciesName.Vulcan,
                 GMPermission = true,

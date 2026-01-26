@@ -1586,6 +1586,29 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.VauNAkat,
+            Description = new List<string>
+            {
+                "The Vau N’Akat are native to the planet Solum in the Delta Quadrant. While technologically advanced, the Vau N’Akat had little interest in space exploration until the late 24th century, when a Federation vessel made first contact with them: prior to this event, the species had believed themselves to be the only intelligent life in the universe, and saw little value in venturing beyond their homeworld. However, the revelation that there was life upon other worlds caused a vicious schism in Vau N’Akat society, resulting in an intense civil war. The specifics of these events are the subject of a significant temporal event which has been classified by the Department of Temporal Investigations.",
+                "The Vau N’Akat themselves are a humanoid species, though an unusual one in many regards. Among their qualities is a distinctive psychokinetic potential which expresses in a few ways. Certain forms of their technology—notably the adaptive multi-tool weapons known as heirlooms— were operated and configured into a variety of forms using little more than mental effort, even at a distance."
+            },
+            ExampleCharacters = "Gwyndala (Prodigy)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Daring = 1, Reason = 1
+            },
+            TraitDescription = "A humanoid species with numerous unusual qualities, the Vau N’Akat have a potent psychokinetic potential which allows them to influence and control their technology, and which allows them to share strength and vitality with other Vau N’Akat over a short distance. It can also be directed inwards, heightening their own physical recovery from injury. Vau N’Akat minds are also impervious to telepathy. When a Vau N’Akat dies, the unexpressed psychokinetic potential in their bodies causes their remains to evaporate into a shower of luminescent blue particles.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Neuroflux",
+                Description = "Vau N’Akat have an innate psychokinetic capability which they refer to as neuroflux. You can use this ability to heal yourself more swiftly: you may recover 2 Stress at the start of any scene. Further, when healing Injuries you have suffered, count the Severity of the Injury as 2 lower than normal. You may directly interact with objects of Vau N’Akat technology using your neuroflux, without the need for any control interfaces; when you do this, your eyes and patterns across your skin glow.",
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
             Name = SpeciesName.Vulcan,
             Description = new List<string>
             {

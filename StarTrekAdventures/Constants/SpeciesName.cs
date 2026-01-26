@@ -90,6 +90,7 @@ public static class SpeciesName
     public const string Trill = "Trill";
     public const string Turei = "Turei";
     public const string Vorta = "Vorta";
+    public const string VauNAkat = "Vau N'Akat";
     public const string Vulcan = "Vulcan";
     public const string Wadi = "Wadi";
     public const string Xahean = "Xahean";

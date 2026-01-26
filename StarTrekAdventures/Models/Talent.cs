@@ -11,6 +11,7 @@ public class Talent
         MayNotTakeWithTalents = new List<string>();
         AllTraitsRequirement = new List<string>();
         SpecificExtraRole = new List<string>();
+        BulletPoints = new List<string>();
     }
 
     public string Name { get; set; }
@@ -135,6 +136,8 @@ public class Talent
     }
 
     public ICollection<string> Description { get; set; }
+
+    public ICollection<string> BulletPoints { get; set; }
 
     [JsonIgnore]
     public string TraitRequirement { get; set; }

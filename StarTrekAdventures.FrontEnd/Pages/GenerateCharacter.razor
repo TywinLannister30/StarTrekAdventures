@@ -349,6 +349,16 @@
                                     }
                                 }
 
+                                @if (t.BulletPoints?.Any() == true)
+                                {
+                                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-300">
+                                        @foreach (var point in t.BulletPoints)
+                                        {
+                                            <li>@point</li>
+                                        }
+                                    </ul>
+                                }
+
                                 @if (!string.IsNullOrWhiteSpace(t.Source))
                                 {
                                     <p class="mt-2 text-xs text-gray-500 italic">Source: @t.Source</p>

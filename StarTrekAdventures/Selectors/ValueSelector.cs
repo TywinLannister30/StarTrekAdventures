@@ -509,7 +509,12 @@ public class ValueSelector : IValueSelector
         new Value { Name = "I am tosk", TraitRequirement = SpeciesName.Tosk, Weight = 10 },
         
         new Value { Name = "No one shall be my master", TraitRequirement = SpeciesName.Turei, Weight = 10 },
-        
+
+        new Value { Name = "All that we need is right here", TraitRequirement = SpeciesName.VauNAkat, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "Our strength is one another, and division does us great harm", TraitRequirement = SpeciesName.VauNAkat, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "There is no barrier we cannot overcome", TraitRequirement = SpeciesName.VauNAkat, Weight = 10, Source = BookSource.SpeciesSourcebook },
+        new Value { Name = "We should not deny ourselves what other worlds have to offer ", TraitRequirement = SpeciesName.VauNAkat, Weight = 10, Source = BookSource.SpeciesSourcebook },
+
         new Value { Name = "I am an expert on lies", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
         new Value { Name = "I live to serve the founders", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
         new Value { Name = "The Dominion philosophy is superior", TraitRequirement = SpeciesName.Vorta, Weight = 5 },
