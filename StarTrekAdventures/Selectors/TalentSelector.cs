@@ -2444,6 +2444,31 @@ public class TalentSelector : ITalentSelector
                 },
                 Source = BookSource.SpeciesSourcebook
             },
+            new()
+            {
+                Name = "Patient Counsel",
+                TraitRequirement = SpeciesName.XindiArboreal,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Xindi-Arboreals are commonly the voice of reason in a crisis. During a social conflict, whenever you or an ally spends one or more Momentum to purchase d20s on a task, they may ignore the first complication rolled."
+                },
+                Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Unwavering Calm",
+                TraitRequirement = SpeciesName.XindiArboreal,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Even by the standards of your people, you are unflappable, never letting the pressure get to you. When you suffer Stress to avoid a trait that represents fear or panic, you only suffer 1 Stress rather than two. In addition, your maximum Stress is increased by 2.",
+                },
+                StressModifier = 2,
+                Source = BookSource.SpeciesSourcebook
+            },
         };
     }
 

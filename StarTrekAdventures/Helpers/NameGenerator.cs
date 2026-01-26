@@ -1,6 +1,7 @@
 ﻿using RandomNameGeneratorLibrary;
 using StarTrekAdventures.Constants;
 using StarTrekAdventures.Models;
+using System;
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
 using static StarTrekAdventures.Constants.Enums;
@@ -1421,15 +1422,15 @@ public static class NameGenerator
     }
     private static readonly List<string> XindiArborealMaleNames = new List<string>
     {
-        "Janner", "Gralik"
+        "Ezra", "Jalik", "Janner", "Kilal", "Gralik", "Ottaq", "Roddall", "Ruul", "Sartis"
     };
     private static readonly List<string> XindiArborealFemaleNames = new List<string>
     {
-        "Adela", "Rolindis"
+        "Adela", "Celijo", "Kelti", "Rolindis", "Settia", "Tuula"
     };
     private static readonly List<string> XindiArborealFamilyNames = new List<string>
     {
-        "Durr"
+        "Aruu", "Coji", "Durr", "Jannar", "Krett", "Settra", "Surr", "Tarr", "Trennit"
     };
 
     private static string GenerateXindiInsectoidName(Gender gender)

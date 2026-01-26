@@ -1691,7 +1691,31 @@ public class SpeciesSelector : ISpeciesSelector
                 Description = "You can move freely and without hindrance through the water. You may ignore any traits or injuries caused by exposure to extremely cold aquatic conditions. However, when on land you are always considered to be Prone (core rulebook, page 288).",
                 Source = BookSource.SpeciesSourcebook
             },
-            Weight = 2,
+            Weight = 0,
+            Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.XindiArboreal,
+            Description = new List<string>
+            {
+                "The Xindi-Arboreals are marsupial humanoids noted for their calm, almost lethargic demeanor, and their slow pace of life. This can often result in them being underestimated as slow-witted or lazy, but their torpid exterior conceals shrewd minds and keen insight. Among the more peaceful of Xindi species, Arboreals favored rational debate and restraint when resolving disputes, and are slow to anger and slow to panic.",
+                "Xindi-Arboreals excel in technical fields that rely on patient, methodical work and careful analysis, but their true strength is in working with other people; on the Xindi Council, the Arboreals are peacemakers, often cautioning against overreaction or recklessness. They are often on good terms with the Aquatics, who share their patience, despite the Arboreals disliking the large bodies of water that Aquatics dwell within. Since becoming members of the Federation, Xindi-Arboreals have worked in Starfleet and the Federation as mediators, counsellors, diplomats, and administrators."
+            },
+            ExampleCharacters = "Gralik Durr (Enterprise)",
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Reason = 1
+            },
+            TraitDescription = "Covered in hair, and with distinctive ridges on their nose and cheekbones, Xindi- Arboreals evolved from creatures similar to the terrestrial sloth. They are vegetarian, and possess sharp claws and long arms for climbing. They commonly have thick, fur-like hair over their bodies, which helps them remain warm in cooler climes. They have a calm temperament, and they are slow to panic, though they are afraid of large bodies of water. They have large eyes that can pick out details more easily in low light.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Calm Under Pressure",
+                Description = "Your unwavering calm allows you to maintain a clear head in a crisis. Your maximum Stress is equal to your Control, rather than your Fitness. Whenever you are affected by a trait or effect which represents fear or panic, you may suffer 2 Stress to avoid that trait.",
+                StressBasedOn = AttributeName.Control,
+                Source = BookSource.SpeciesSourcebook
+            },
+            Weight = 0,
             Source = BookSource.SpeciesSourcebook
         },
         //new Species { Name = SpeciesName.Ankari, AttributeModifiers = new CharacterAttributes { Fitness = 1, Insight = 1, Presence = 1 }, Weight = 0 },
