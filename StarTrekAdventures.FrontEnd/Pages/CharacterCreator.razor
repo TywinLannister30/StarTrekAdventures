@@ -16,24 +16,48 @@
         <div class="col-span-3 bg-gray-800/40 border border-blue-600/40 rounded-xl p-4">
             <h3 class="text-blue-300 font-semibold mb-3">Available Species</h3>
 
+            <div class="mb-3">
+                <label for="speciesSearchInput" class="text-xs text-gray-400 uppercase tracking-wider">Search</label>
+                <div class="relative mt-1">
+                    <input id="speciesSearchInput"
+                           value="@speciesSearch"
+                           @oninput="OnSpeciesSearchInput"
+                           data-ghost-remainder="@GetSpeciesRemainder(speciesSearch)"
+                           placeholder="Type a species..."
+                           class="ghost-autocomplete-input w-full px-3 py-2 rounded-md border border-blue-600/60 bg-gray-900/60 text-white text-sm
+                                  focus:outline-none focus:ring-2 focus:ring-blue-400 relative z-10" />
+                    @if (!string.IsNullOrWhiteSpace(speciesSearch) && !string.IsNullOrWhiteSpace(GetSpeciesRemainder(speciesSearch)))
+                    {
+                        <div class="pointer-events-none absolute inset-0 flex items-center px-3 py-2 text-gray-500 z-20 text-sm">
+                            <span class="text-transparent">@speciesSearch</span>
+                            <span>@GetSpeciesRemainder(speciesSearch)</span>
+                        </div>
+                    }
+                </div>
+            </div>
+
             @if (speciesList == null)
             {
                 <p>Loading...</p>
             }
             else
             {
-                @foreach (var sp in speciesList)
-                {
-                    <button class="block w-full text-left px-3 py-2 mb-1 rounded
-                                           hover:bg-blue-700/30 hover:text-white transition"
-                            @onclick="() => SelectSpecies(sp)">
-                        @sp
-                    </button>
-                }
+                <div class="border border-blue-600/40 rounded-lg overflow-hidden bg-gray-900/50">
+                    <div class="max-h-80 overflow-y-auto">
+                        @foreach (var sp in GetFilteredSpecies())
+                        {
+                            <button class="block w-full text-left px-3 py-2 border-b border-blue-800/30 last:border-b-0
+                                           hover:bg-blue-700/30 hover:text-white transition text-sm"
+                                    @onclick="() => SelectSpeciesFromList(sp)">
+                                @sp
+                            </button>
+                        }
+                    </div>
+                </div>
             }
 
             <label class="flex items-center gap-2 mt-3">
-                <input type="checkbox" @bind="isMixedHeritage" />
+                <input type="checkbox" @bind="isMixedHeritage" @bind:after="OnMixedHeritageChanged" />
                 Mixed-Heritage Character
             </label>
 
@@ -42,14 +66,38 @@
                 <div class="mt-4 p-3 rounded bg-gray-800/60 border border-blue-700">
                     <h4 class="text-blue-300 font-semibold mb-2">Select Secondary Species</h4>
 
-                    @foreach (var sp in speciesList.Where(s => s != selectedSpecies))
-                    {
-                        <button class="block w-full text-left px-3 py-2 mb-1 rounded
-                                   hover:bg-blue-700/30 hover:text-white transition"
-                                @onclick="() => SelectSecondarySpecies(sp)">
-                            @sp
-                        </button>
-                    }
+                    <div class="mb-3">
+                        <label for="secondarySpeciesSearchInput" class="text-xs text-gray-400 uppercase tracking-wider">Search</label>
+                        <div class="relative mt-1">
+                            <input id="secondarySpeciesSearchInput"
+                                   value="@secondarySpeciesSearch"
+                                   @oninput="OnSecondarySpeciesSearchInput"
+                                   data-ghost-remainder="@GetSpeciesRemainder(secondarySpeciesSearch, selectedSpecies)"
+                                   placeholder="Type a species..."
+                                   class="ghost-autocomplete-input w-full px-3 py-2 rounded-md border border-blue-600/60 bg-gray-900/60 text-white text-sm
+                                          focus:outline-none focus:ring-2 focus:ring-blue-400 relative z-10" />
+                            @if (!string.IsNullOrWhiteSpace(secondarySpeciesSearch) && !string.IsNullOrWhiteSpace(GetSpeciesRemainder(secondarySpeciesSearch, selectedSpecies)))
+                            {
+                                <div class="pointer-events-none absolute inset-0 flex items-center px-3 py-2 text-gray-500 z-20 text-sm">
+                                    <span class="text-transparent">@secondarySpeciesSearch</span>
+                                    <span>@GetSpeciesRemainder(secondarySpeciesSearch, selectedSpecies)</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="border border-blue-600/40 rounded-lg overflow-hidden bg-gray-900/50">
+                        <div class="max-h-80 overflow-y-auto">
+                            @foreach (var sp in GetFilteredSpecies(secondarySpeciesSearch, selectedSpecies))
+                            {
+                                <button class="block w-full text-left px-3 py-2 border-b border-blue-800/30 last:border-b-0
+                                               hover:bg-blue-700/30 hover:text-white transition text-sm"
+                                        @onclick="() => SelectSecondarySpeciesFromList(sp)">
+                                    @sp
+                                </button>
+                            }
+                        </div>
+                    </div>
                 </div>
             }
 
@@ -131,7 +179,6 @@
                 <div>
                     <h4 class="text-sm font-semibold text-cyan-300 uppercase tracking-wider">Trait</h4>
                     <p class="font-bold text-cyan-200">@selectedSpeciesInfo.Name</p>
-                    <p class="text-gray-300 text-sm">@selectedSpeciesInfo.TraitDescription</p>
                 </div>
 
                 <div>
@@ -239,11 +286,13 @@
     private Character character = new();
     private List<string>? speciesList;
     private string? selectedSpecies;
+    private string speciesSearch = string.Empty;
     private Species? selectedSpeciesInfo;
     private bool showAttributePicker = false;
     private HashSet<string> chosenAttributes = new();
     private bool isMixedHeritage = false;
     private string? selectedSecondarySpecies;
+    private string secondarySpeciesSearch = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -261,13 +310,14 @@
     private async Task SelectSpecies(string species)
     {
         selectedSpecies = species;
+        isMixedHeritage = false;
+        selectedSecondarySpecies = null;
+        secondarySpeciesSearch = string.Empty;
         character = CreateBaseCharacter();
         character.Species = species;
         character.SecondarySpecies = null;
-        character.Traits = new List<string>();
+        ResetTraitsToPrimary();
         chosenAttributes.Clear();
-
-        character.Traits.Add(species);
 
         selectedSpeciesInfo = await Api.GetSpeciesAsync(species);
 
@@ -305,6 +355,7 @@
     private async Task SelectSecondarySpecies(string species)
     {
         selectedSecondarySpecies = species;
+        secondarySpeciesSearch = string.Empty;
 
         // Load the second species' data
         var secondaryInfo = await Api.GetSpeciesAsync(species);
@@ -312,10 +363,9 @@
         // Apply secondary trait (but NOT attributes or ability)
         if (secondaryInfo != null)
         {
-            character.Traits ??= new List<string>();
-
-            // Add the TRAIT label (species name)
-            if (!character.Traits.Contains(secondaryInfo.Name))
+            ResetTraitsToPrimary();
+            if (!string.IsNullOrWhiteSpace(secondaryInfo.Name) &&
+                !string.Equals(secondaryInfo.Name, character.Species, StringComparison.OrdinalIgnoreCase))
                 character.Traits.Add(secondaryInfo.Name);
         }
 
@@ -332,14 +382,11 @@
         var secondaryInfo = await Api.GetSpeciesAsync(selectedSecondarySpecies);
 
         character.SecondarySpecies = selectedSecondarySpecies;
-        character.Traits ??= new List<string>();
+        ResetTraitsToPrimary();
 
-        if (!character.Traits.Contains(secondaryInfo.Name))
+        if (!string.IsNullOrWhiteSpace(secondaryInfo.Name) &&
+            !string.Equals(secondaryInfo.Name, character.Species, StringComparison.OrdinalIgnoreCase))
             character.Traits.Add(secondaryInfo.Name);
-
-        if (!string.IsNullOrWhiteSpace(secondaryInfo.TraitDescription) &&
-            !character.Traits.Contains(secondaryInfo.TraitDescription))
-            character.Traits.Add(secondaryInfo.TraitDescription);
     }
 
     private void ToggleAttribute(string attr)
@@ -362,5 +409,112 @@
 
         showAttributePicker = false;
         StateHasChanged();
+    }
+
+    private IEnumerable<string> GetFilteredSpecies()
+    {
+        if (speciesList is null)
+            return Array.Empty<string>();
+
+        if (string.IsNullOrWhiteSpace(speciesSearch))
+            return speciesList;
+
+        return speciesList
+            .Where(s => s.Contains(speciesSearch, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private async Task SelectSpeciesFromList(string species)
+    {
+        speciesSearch = string.Empty;
+        await SelectSpecies(species);
+    }
+
+    private async Task OnSpeciesSearchInput(ChangeEventArgs args)
+    {
+        speciesSearch = args.Value?.ToString() ?? string.Empty;
+
+        if (speciesList is null)
+            return;
+
+        var exact = speciesList.FirstOrDefault(s => s.Equals(speciesSearch, StringComparison.OrdinalIgnoreCase));
+        if (!string.IsNullOrWhiteSpace(exact))
+            await SelectSpecies(exact);
+    }
+
+    private IEnumerable<string> GetFilteredSpecies(string? query, string? exclude)
+    {
+        if (speciesList is null)
+            return Array.Empty<string>();
+
+        var candidates = speciesList.AsEnumerable();
+
+        if (!string.IsNullOrWhiteSpace(exclude))
+            candidates = candidates.Where(s => !string.Equals(s, exclude, StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(query))
+            return candidates;
+
+        return candidates
+            .Where(s => s.Contains(query, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private async Task SelectSecondarySpeciesFromList(string species)
+    {
+        secondarySpeciesSearch = string.Empty;
+        await SelectSecondarySpecies(species);
+    }
+
+    private async Task OnSecondarySpeciesSearchInput(ChangeEventArgs args)
+    {
+        secondarySpeciesSearch = args.Value?.ToString() ?? string.Empty;
+
+        if (speciesList is null)
+            return;
+
+        var exact = speciesList.FirstOrDefault(s => s.Equals(secondarySpeciesSearch, StringComparison.OrdinalIgnoreCase));
+        if (!string.IsNullOrWhiteSpace(exact))
+            await SelectSecondarySpecies(exact);
+    }
+
+    private void ResetTraitsToPrimary()
+    {
+        character.Traits = new List<string>();
+
+        if (!string.IsNullOrWhiteSpace(character.Species))
+            character.Traits.Add(character.Species);
+    }
+
+    private void OnMixedHeritageChanged()
+    {
+        if (!isMixedHeritage)
+        {
+            selectedSecondarySpecies = null;
+            secondarySpeciesSearch = string.Empty;
+            character.SecondarySpecies = null;
+            ResetTraitsToPrimary();
+            StateHasChanged();
+        }
+    }
+
+    private string GetSpeciesRemainder(string? input, string? exclude = null)
+    {
+        if (speciesList is null)
+            return string.Empty;
+
+        var value = input ?? string.Empty;
+        if (string.IsNullOrWhiteSpace(value))
+            return string.Empty;
+
+        var candidates = speciesList.AsEnumerable();
+        if (!string.IsNullOrWhiteSpace(exclude))
+            candidates = candidates.Where(s => !string.Equals(s, exclude, StringComparison.OrdinalIgnoreCase));
+
+        var match = candidates.FirstOrDefault(sp =>
+            sp.StartsWith(value, StringComparison.OrdinalIgnoreCase));
+
+        if (string.IsNullOrWhiteSpace(match) || match.Length <= value.Length)
+            return string.Empty;
+
+        return match[value.Length..];
     }
 }
