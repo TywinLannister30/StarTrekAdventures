@@ -87,13 +87,13 @@ public class ValueSelector : IValueSelector
 
         new Value { Name = "Fortune favors the faithful", TraitRequirement = SpeciesName.Ankari, Weight = 10 },
         
-        new Value { Name = "Propriety first and always", TraitRequirement = SpeciesName.Arbazan, Weight = 10 },
+        new Value { Name = "Propriety first and always", TraitRequirement = SpeciesName.Arbazan, Weight = 10, Source = BookSource.AlphaQuadrantSuppliment },
         
         new Value { Name = "Nothing is more beautiful than a city in the sky", TraitRequirement = SpeciesName.Ardanan, Weight = 10 },
         
         new Value { Name = "The law is blind but also fair", TraitRequirement = SpeciesName.Argrathi, Weight = 10 },
         
-        new Value { Name = "Dedication and diligence", TraitRequirement = SpeciesName.Arkarian, Weight = 10 },
+        new Value { Name = "Dedication and Diligence", TraitRequirement = SpeciesName.Arkarian, Weight = 10, Source = BookSource.AlphaQuadrantSuppliment },
 
         new Value { Name = "By knowing our past, we can see better what’s coming", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "I need an open sky and the wind in my feathers", AnyTraitRequirement = { SpeciesName.Aurelian, SpeciesName.AurelianNovolare }, Weight = 10, Source = BookSource.SpeciesSourcebook },
@@ -262,7 +262,7 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Patient study yields the best results", TraitRequirement = SpeciesName.Grazerite, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "The best way to resolve conflict is to prevent it arising", TraitRequirement = SpeciesName.Grazerite, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "Many sides to every tale", TraitRequirement = SpeciesName.Haliian, Weight = 10 },
+        new Value { Name = "Many sides to every tale", TraitRequirement = SpeciesName.Haliian, Weight = 10, Source = BookSource.AlphaQuadrantSuppliment },
 
         new Value { Name = "Few organics pay a hologram much mind", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "I am not flesh and blood, but I am real", TraitRequirement = SpeciesName.Hologram, Weight = 20, Source = BookSource.SpeciesSourcebook },
@@ -575,7 +575,7 @@ public class ValueSelector : IValueSelector
         new Value { Name = "If you fail to consider all the variables, you will simply fail", TraitRequirement = SpeciesName.Zakdorn, Weight = 10, Source = BookSource.SpeciesSourcebook },
         new Value { Name = "Trust me, I know what I’m talking about", TraitRequirement = SpeciesName.Zakdorn, Weight = 10, Source = BookSource.SpeciesSourcebook },
 
-        new Value { Name = "The tougher the skin, the tougher the being", TraitRequirement = SpeciesName.Zaranite, Weight = 10 },
+        new Value { Name = "The tougher the skin, the tougher the being", TraitRequirement = SpeciesName.Zaranite, Weight = 10, Source = BookSource.AlphaQuadrantSuppliment },
         
         new Value { Name = "Starfleet is a promise: I’d give my life for you, you’d give your life for me, and nobody gets left behind", TrackRequirement = TrackName.StarfleetOfficerCommand, Weight = 10 },
         new Value { Name = "The first duty of every Starfleet officer is to the truth", TrackRequirement = TrackName.StarfleetOfficerCommand, Weight = 10 },

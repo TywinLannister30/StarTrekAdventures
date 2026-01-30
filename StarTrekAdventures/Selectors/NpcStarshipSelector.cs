@@ -71,11 +71,13 @@ public class NpcStarshipSelector : INpcStarshipSelector
         var allNpcs = new List<NpcStarship>();
         allNpcs.AddRange(GetShowStarships());
         allNpcs.AddRange(GetStarfleetStarships());
+
+        allNpcs.AddRange(GetBreenStarships());
+        allNpcs.AddRange(GetCardassianStarships());
+        allNpcs.AddRange(GetDominionStarships());
+        allNpcs.AddRange(GetFerengiStarships());
         allNpcs.AddRange(GetKlingonStarships());
         allNpcs.AddRange(GetRomulanStarships());
-        allNpcs.AddRange(GetCardassianStarships());
-        allNpcs.AddRange(GetFerengiStarships());
-        allNpcs.AddRange(GetDominionStarships());
         return allNpcs;
     }
 
@@ -275,6 +277,382 @@ public class NpcStarshipSelector : INpcStarshipSelector
         },
     };
 
+    private IEnumerable<NpcStarship> GetBreenStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "Chel Greet",
+            Description = new List<string>
+            {
+                "The Breen Confederacy originally designed the Chel Greet-class in the 2350s to be their primary frontline starship and to fill two roles: as a battle cruiser and as a chevauchée, a raider whose purpose was to harass and force the enemy to deploy more forces to an area than they otherwise would need to. The success of this class of starship allowed the Confederacy to attack and subsume two small multi-system political bodies on their coreward borders in the late 2350s, and gave them both strategic and technological edges in battles against the Cardassian Union and the Tholian Assembly."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.Battlecruiser,
+            Traits = new List<string>
+            {
+                "Breen Starship",
+                "Chel Greet class",
+                "Battlecruiser"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 8, Computers = 9, Engines = 10, Sensors = 9, Structure = 11, Weapons = 12 },
+            Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 5, Medicine = 1, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.BreenTorpedoes),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.BreenEnergyDissipationWeapon),
+            },
+            TractorBeamStrength = 2,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RedundantSystemsEngines),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new()
+        {
+            Name = "Bes Ghant",
+            Description = new List<string>
+            {
+                "The Bes Ghant class is the primary vessel used for exploration and survey duties for the Breen Confederacy. These vessels are rarely deployed to areas anti-spinward of their territory in the Orion Spur, but is more often used inside the Confederacy and in other areas not frequented by the Federation and the Tholian Assembly. What Starfleet Intelligence has gathered on this class shows that it is a capable exploration vessel with a higher importance placed on offensive weaponry as compared to similar Starfleet designs."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.MultiroleExplorer,
+            Traits = new List<string>
+            {
+                "Breen Starship",
+                "Bes Ghant class",
+                "Scout Explorer"
+            },
+            Scale = 3,
+            Systems = new StarshipSystems { Comms = 10, Computers = 10, Engines = 12, Sensors = 10, Structure = 7, Weapons = 10 },
+            Departments = new Departments { Command = 2, Conn = 4, Engineering = 2, Security = 3, Medicine = 1, Science = 3 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.BreenTorpedoes),
+            },
+            TractorBeamStrength = 2,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedWarpDrive),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                new()
+                {
+                    Name = "Close to the Chest",
+                    Description = new List<string>
+                    {
+                        "When not at warp, the vessel may reconfigure itself into Close mode at the start of a round. When reconfigured, it adds +1 to Resistance, and may re-roll its assist die when it rolls Structure, but it cannot take the Warp action. It must reconfigure into Warp mode at the start of a round—losing these benefits—in order to take the Warp major action."
+                    },
+                    Source = BookSource.AlphaQuadrantSuppliment
+                },
+                
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+    };
+
+    private IEnumerable<NpcStarship> GetCardassianStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "Galor-class Cruiser",
+            Description = new List<string>
+            {
+                "The main battle cruiser of the Cardassian navy, a bit dated as of the mid- 24th century, but capable enough to suppress most resistance."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Cardassian Starship",
+                "Galor class"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 9, Sensors = 8, Structure = 8, Weapons = 9 },
+            Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 4, Medicine = 2, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorSpinalLance),
+            },
+            TractorBeamStrength = 3,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+            }
+        },
+        new()
+        {
+            Name = "Hideki-class Corvette",
+            Description = new List<string>
+            {
+                "Historically, the Cardassian Union relied primarily on a single class of starship in order to ease supply chains during its many wars of conquest, as well as to be efficient with resources during the Union’s many decades of impoverishment and famine. This philosophy began to change beginning with the Occupation of Bajor and the Federation-Cardassian Wars of the 2340s and 50s. One example of this change in thinking was the design and deployment of the Hideki-class corvette. Meant to be individually weak, if operated in squadrons it could be seen as an effective use of trained crewmen and resources."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Cardassian Heavy Shuttle",
+                "Hideki class",
+                "Small Craft"
+            },
+            Scale = 2,
+            Systems = new StarshipSystems { Comms = 5, Computers = 5, Engines = 5, Sensors = 8, Structure = 5, Weapons = 7 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 2, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+            },
+            TractorBeamStrength = 1,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new()
+        {
+            Name = "Keldon-class Heavy Cruiser",
+            Description = new List<string>
+            {
+                "The Cardassian Union began an extensive refit program for the Galor class in late 2370, and this gave engineers on Cardassia Prime the opportunity to build a newer and larger warship around the core structure of the Galor-class cruiser. This would allow the new class to use the same modules and systems that the Galor class utilized, and fleet yards would be able to produce them in the same facilities as the older vessel, keeping new construction needs to a minimum. The result was a new heavy cruiser, the Keldon class, and initial trials of the vessel went well enough that the Union has begun deploying them in active squadrons of Galor-class vessels, acting as command vessels or used by the Obsidian Order."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Cardassian Starship",
+                "Keldon class",
+                "Upgraded Galor Class"
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 10, Computers = 8, Engines = 9, Sensors = 7, Structure = 9, Weapons = 10 },
+            Departments = new Departments { Command = 5, Conn = 1, Engineering = 2, Security = 4, Medicine = 1, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorSpinalLance),
+            },
+            TractorBeamStrength = 3,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.CommandShip),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedHullIntegrity),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                new()
+                {
+                    Name = "Keldon-R Variant",
+                    Description = new List<string>
+                    {
+                        "Some Keldon-class cruisers were refitted with Romulan technology and used by the Obsidian Order. These vessels have the Obsidian Order Starship trait, Engines 10, Weapons 11 (which adds +1 to the damage of its weapons), and the Cloaking Device talent."
+                    },
+                    Source = BookSource.AlphaQuadrantSuppliment,
+                },
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+    };
+
+    private IEnumerable<NpcStarship> GetDominionStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "Jem’Hadar Attack Ship",
+            Description = new List<string>
+            {
+                "The primary fighter of the Dominion, used by the Jem’Hadar to strike fear into the hearts of their adversaries."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            Traits = new List<string>
+            {
+                "Dominion Warship"
+            },
+            Scale = 3,
+            Systems = new StarshipSystems { Comms = 7, Computers = 7, Engines = 8, Sensors = 10, Structure = 6, Weapons = 10 },
+            Departments = new Departments { Command = 1, Conn = 5, Engineering = 2, Security = 4, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 2,
+            Talents = new List<StarshipTalent>
+            {
+                new()
+                {
+                    Name = "Anti-Cloak Sensors",
+                    Description = new List<string>
+                    {
+                        "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
+                    }
+                },
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem)
+            }
+        },
+        new()
+        {
+            Name = "Jem’Hadar Battlecruiser",
+            Description = new List<string>
+            {
+                "A powerful warship capable of subjugating planets or standing in battle against the starships of most opponents."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            Traits = new List<string>
+            {
+                "Dominion Warship"
+            },
+            Scale = 6,
+            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 9, Sensors = 10, Structure = 12, Weapons = 12 },
+            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 0, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamArray),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
+            },
+            TractorBeamStrength = 5,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedTransporters),
+                new()
+                {
+                    Name = "Anti-Cloak Sensors",
+                    Description = new List<string>
+                    {
+                        "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
+                    }
+                },
+                _starshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighIntensityEnergyWeapons),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RapidFireTorpedoLauncher),
+            }
+        },
+    };
+
+    private IEnumerable<NpcStarship> GetFerengiStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "Acquisition-class Scout",
+            Description = new List<string>
+            {
+                "The Acquisition class began its long service life as a non-warp capable interplanetary cargo shuttle in the years before the Ferengi discovered warp drive in the late 20th century. The design was in widespread use after the invention of warp drive, and these vessels were retrofitted with stronger power cores and the smallest warp coils available to the Alliance. The internal space required by the warp propulsion systems meant that cargo space became more limited, but this restriction allowed for more varied uses for the Acquisition class and making it indispensable to the Ferengi Alliance."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Ferengi Shuttle",
+                "Small Craft",
+                "Versatile",
+                "Ubiquitous"
+            },
+            Scale = 1,
+            Systems = new StarshipSystems { Comms = 5, Computers = 5, Engines = 6, Sensors = 5, Structure = 4, Weapons = 4 },
+            Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 1, Medicine = 0, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.ParticleBeam),
+            },
+            TractorBeamStrength = 4,
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                new()
+                {
+                    Name = "After-Market Aquisitions",
+                    Description = new List<string>
+                    {
+                        "May add one talent to this shuttle."
+                    },
+                    Source = BookSource.AlphaQuadrantSuppliment,
+                },
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new()
+        {
+            Name = "D’Kora-class Marauder",
+            Description = new List<string>
+            {
+                "In the 24th century, the D’Kora class was the largest Ferengi starship in the Ferengi navy, though a number were sold to independent merchant-captains as well."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Flagship,
+            Traits = new List<string>
+            {
+                "Ferengi Marauder",
+                "D’Kora class",
+                "The Best Latinum Can Buy"
+            },
+            Scale = 5,
+            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 10, Sensors = 9, Structure = 10, Weapons = 7 },
+            Departments = new Departments { Command = 4, Conn = 1, Engineering = 3, Security = 3, Medicine = 1, Science = 3 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannons),
+            },
+            TractorBeamStrength = 4,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedShields),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DeluxeGalley),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
+            }
+        },
+        new()
+        {
+            Name = "Ul’ess-class Mobile Cruiser",
+            Description = new List<string>
+            {
+                "During the late 23rd-century, the Ferengi Alliance began a period of rapid expansion. Over the next 50 years the Alliance brought in hundreds of star systems, dozens of intelligent species, and uncounted trade routes under its control. Historians attribute much of this success to the Ul’ess class. The name roughly translates into Federation Standard as ‘Enforcer,’ but the heavy armaments and defenses suggested by this name are only a minor part of this class’s success story. At over 2 kilometers long and wide and a crew of over 10,000, these vessels act as a mobile marketplace and a light industrial center, as well as being the Alliance’s most massive starship."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.Flagship,
+            Traits = new List<string>
+            {
+                "Ferengi Starship",
+                "Ul’ess class",
+                "Mobile Trading Outpost",
+                "Spared No Expense"
+            },
+            Scale = 7,
+            Systems = new StarshipSystems { Comms = 9, Computers = 10, Engines = 8, Sensors = 8, Structure = 14, Weapons = 12 },
+            Departments = new Departments { Command = 4, Conn = 2, Engineering = 4, Security = 3, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannons),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonicTorpedoes),
+            },
+            TractorBeamStrength = 6,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.SecondaryReactors),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.AbundantPersonnel),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+    };
+
     private IEnumerable<NpcStarship> GetKlingonStarships() => new List<NpcStarship>
     {
         new()
@@ -423,152 +801,4 @@ public class NpcStarshipSelector : INpcStarshipSelector
         },
     };
 
-    private IEnumerable<NpcStarship> GetCardassianStarships() => new List<NpcStarship>
-    {
-        new()
-        {
-            Name = "Galor-class Cruiser",
-            Description = new List<string>
-            {
-                "The main battle cruiser of the Cardassian navy, a bit dated as of the mid- 24th century, but capable enough to suppress most resistance."
-            },
-            CrewQualityEnum = CrewQuality.Proficient,
-            MissionProfile = MissionProfileName.Patrol,
-            Traits = new List<string>
-            {
-                "Cardassian Starship",
-                "Galor class"
-            },
-            Scale = 4,
-            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 9, Sensors = 8, Structure = 8, Weapons = 9 },
-            Departments = new Departments { Command = 2, Conn = 3, Engineering = 2, Security = 4, Medicine = 2, Science = 2 },
-            Attacks = new List<StarshipWeapon>
-            {
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorSpinalLance),
-            },
-            TractorBeamStrength = 3,
-            Talents = new List<StarshipTalent>
-            {
-                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
-            }
-        },
-    };
-
-    private IEnumerable<NpcStarship> GetFerengiStarships() => new List<NpcStarship>
-    {
-        new()
-        {
-            Name = "D’Kora-class Marauder",
-            Description = new List<string>
-            {
-                "In the 24th century, the D’Kora class was the largest Ferengi starship in the Ferengi navy, though a number were sold to independent merchant-captains as well."
-            },
-            CrewQualityEnum = CrewQuality.Proficient,
-            MissionProfile = MissionProfileName.Flagship,
-            Traits = new List<string>
-            {
-                "Ferengi Marauder",
-                "D’Kora class",
-                "The Best Latinum Can Buy"
-            },
-            Scale = 5,
-            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 10, Sensors = 9, Structure = 10, Weapons = 7 },
-            Departments = new Departments { Command = 4, Conn = 1, Engineering = 3, Security = 3, Medicine = 1, Science = 3 },
-            Attacks = new List<StarshipWeapon>
-            {
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.ElectromagneticCannons),
-            },
-            TractorBeamStrength = 4,
-            Talents = new List<StarshipTalent>
-            {
-                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedShields),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.DeluxeGalley),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.DiplomaticSuites),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.ElectronicWarfareSystems),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.HighResolutionSensors),
-            }
-        },
-    };
-
-    private IEnumerable<NpcStarship> GetDominionStarships() => new List<NpcStarship>
-    {
-        new()
-        {
-            Name = "Jem’Hadar Attack Ship",
-            Description = new List<string>
-            {
-                "The primary fighter of the Dominion, used by the Jem’Hadar to strike fear into the hearts of their adversaries."
-            },
-            CrewQualityEnum = CrewQuality.Talented,
-            Traits = new List<string>
-            {
-                "Dominion Warship"
-            },
-            Scale = 3,
-            Systems = new StarshipSystems { Comms = 7, Computers = 7, Engines = 8, Sensors = 10, Structure = 6, Weapons = 10 },
-            Departments = new Departments { Command = 1, Conn = 5, Engineering = 2, Security = 4, Medicine = 1, Science = 1 },
-            Attacks = new List<StarshipWeapon>
-            {
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamBanks),
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
-            },
-            TractorBeamStrength = 2,
-            Talents = new List<StarshipTalent>
-            {
-                new()
-                {
-                    Name = "Anti-Cloak Sensors",
-                    Description = new List<string>
-                    {
-                        "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
-                    }
-                },
-                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedImpulseDrive),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedReactionControlSystem)
-            }
-        },
-        new()
-        {
-            Name = "Jem’Hadar Battlecruiser",
-            Description = new List<string>
-            {
-                "A powerful warship capable of subjugating planets or standing in battle against the starships of most opponents."
-            },
-            CrewQualityEnum = CrewQuality.Talented,
-            Traits = new List<string>
-            {
-                "Dominion Warship"
-            },
-            Scale = 6,
-            Systems = new StarshipSystems { Comms = 9, Computers = 8, Engines = 9, Sensors = 10, Structure = 12, Weapons = 12 },
-            Departments = new Departments { Command = 3, Conn = 2, Engineering = 2, Security = 5, Medicine = 0, Science = 1 },
-            Attacks = new List<StarshipWeapon>
-            {
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhasedPoleronBeamArray),
-                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhotonTorpedoes),
-            },
-            TractorBeamStrength = 5,
-            Talents = new List<StarshipTalent>
-            {
-                _starshipTalentSelector.GetTalent(StarshipTalentName.AdvancedTransporters),
-                new()
-                {
-                    Name = "Anti-Cloak Sensors",
-                    Description = new List<string>
-                    {
-                        "Dominion vessels are fitted with antiproton beam scanners and long-range tachyon scanners, that allow them to reliably detect cloaked vessels. Dominion vessels may always attack cloaked ships, though the Difficulty of attacks against a cloaked ship increases by 1."
-                    }
-                },
-                _starshipTalentSelector.GetTalent(StarshipTalentName.BackupEPSConduits),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.HighIntensityEnergyWeapons),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedPowerSystems),
-                _starshipTalentSelector.GetTalent(StarshipTalentName.RapidFireTorpedoLauncher),
-            }
-        },
-    };
 }

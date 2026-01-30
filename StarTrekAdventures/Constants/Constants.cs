@@ -246,6 +246,8 @@
         public const string AntiprotonBeamCannons = "Antiproton Beam Cannons";
         public const string AntiprotonBeamSpinalLance = "Antiproton Beam Spinal Lance";
 
+        public const string BreenEnergyDissipationWeapon = "Breen Energy Dissipation Weapon";
+
         public const string DisruptorArray = "Disruptor Array";
         public const string DisruptorBanks = "Disruptor Banks";
         public const string DisruptorCannons = "Disruptor Cannons";
@@ -270,6 +272,8 @@
         public const string IonicBanks = "Ionic Banks";
         public const string IonicCannons = "Ionic Cannons";
         public const string IonicSpinalLance = "Ionic Spinal Lance";
+
+        public const string ParticleBeam = "Particle Beam";
 
         public const string PhaseArray = "Phase Array";
         public const string PhaseBanks = "Phase Banks";
@@ -303,6 +307,7 @@
         public const string TetryonBeamCannons = "Tetryon Beam Cannons";
         public const string TetryonBeamSpinalLance = "Tetryon Beam Spinal Lance";
 
+        public const string BreenTorpedoes = "Breen Torpedoes";
         public const string ChronitonTorpedoes = "Chroniton Torpedoes";
         public const string GravimetricTorpedoes = "Gravimetric Torpedoes";
         public const string MicroTorpedoes = "Micro Torpedoes";

@@ -254,6 +254,20 @@ public class StarshipWeaponSelector : IStarshipWeaponSelector
 
         new StarshipWeapon
         {
+            Name = StarshipWeaponName.BreenEnergyDissipationWeapon,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Close,
+            Damage = 2,
+            DamageBasedOnScale = true,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Dampening),
+                GetWeaponQuality(WeaponQualityName.Piercing)
+            }
+        },
+
+        new StarshipWeapon
+        {
             Name = StarshipWeaponName.DisruptorArray,
             Type = StarshipWeaponType.Energy,
             Range = StarshipWeaponRange.Medium,
@@ -510,7 +524,18 @@ public class StarshipWeaponSelector : IStarshipWeaponSelector
                 GetWeaponQuality(WeaponQualityName.Piercing)
             }
         },
-
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.ParticleBeam,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Close,
+            Damage = 3,
+            DamageBasedOnScale = false,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Versatile1)
+            }
+        },
         new StarshipWeapon
         {
             Name = StarshipWeaponName.PhaseArray,
@@ -836,6 +861,18 @@ public class StarshipWeaponSelector : IStarshipWeaponSelector
         },
 
         // TORPEDOES
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.BreenTorpedoes,
+            Type = StarshipWeaponType.Torpedo,
+            Range = StarshipWeaponRange.Long,
+            Damage = 2,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Intense),
+                GetWeaponQuality(WeaponQualityName.HighYield)
+            }
+        },
         new StarshipWeapon
         {
             Name = StarshipWeaponName.ChronitonTorpedoes,

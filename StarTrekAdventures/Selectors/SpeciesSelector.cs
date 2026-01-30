@@ -63,8 +63,7 @@ public class SpeciesSelector : ISpeciesSelector
 
         foreach (var species in GetSpecies())
         {
-            //if (!species.NonMixed)
-                availableSpecies.Add(species);
+             availableSpecies.Add(species);
         }
 
         availableSpecies.RemoveAll(x => x.Name == name);
@@ -142,6 +141,48 @@ public class SpeciesSelector : ISpeciesSelector
         },
         new Species
         {
+            Name = SpeciesName.Arbazan,
+            Description = new List<string>
+            {
+                "The Arbazan were one of the earliest civilizations encountered during Starfleet’s early ventures into deep space. Within a short time, the stoic Arbazan were welcomed into the newly-formed Federation and are considered by many to be one of its founding members, a fact the Arbazan take great pride in. Like many humanoid species within the Federation, the Arbazan are physically similar to Humans, though the forward portion of their skulls have slightly raised plates that reinforce their brows. The Arbazan are known for their conservative values, infallible self-confidence, and devotion to social protocol. Some, however, find the cultural focus on proper social etiquette to be stifling, and rebellious young Arbazan can often be found at Starfleet Academy pursuing security or ship operation roles.",
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Arbazan have been Federation members since shortly after its founding and are found throughout Federation space, often serving as ambassadors, attaches, advisors, and negotiators – though there have also been several well-known scientific discoveries and engineering advancements by dedicated Arbazan.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Cold Shoulder",
+                Description = "Strong self-discipline and conservative cultural values prevent Arbazan from being susceptible to their baser desires. Characters attempting to use attractiveness, seduction, or base emotive appeals against an Arbazan during a social conflict increase their Difficulty by 1.",
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            Weight = 2,
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new Species
+        {
+            Name = SpeciesName.Arkarian,
+            Description = new List<string>
+            {
+                "Arkarians are native to the Class-M world of Arkaria, home to the Remmler Array – an orbital facility that removes built-up baryon particles (a by-product of warp travel) – and Arkaria Base. Arkaria is a member world of the Federation and Arkarians serve throughout Starfleet and other Federation organizations. Arkaria is known for its abnormal weather patterns, resulting in extremely colorful sunrises and sunsets of every shade of green, pink, and purple as well as higherthan- normal average temperatures. The nature trails that run throughout the sweeping plains located near Arkaria Base are a common attraction for those visiting the Array or Base, especially for those wanting to see the nesting sites for horn fowls. Arkarians are physically very similar to Humans and other humanoid species – save for distinctive brow and nasal ridges. Their society has recently begun to shift away from its traditional authoritarian nobility toward the more common egalitarian systems found throughout the Federation. This is largely believed to be due to the increasing interactions between Arkarians and other Federation member worlds, though a conservative minority continues to maintain their noble holdings and social expectations.",
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Daring = 1, Reason = 1
+            },
+            TraitDescription = "Direct and hardworking, Arkarians have a reputation for detail-oriented work practices and high expectations. Due to their historical authoritarian nobility, Arkarians tend to be more socially reserved than many other Federation member species and tend to be inwardly uncomfortable in social gatherings where ‘mingling’ and ‘small talk’ are expected. In addition, Arkarians are accustomed to slightly warmer climates than other humanoids and can endure higher temperatures than many other species without difficulty.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Quick Recovery",
+                Description = "The increased bone density of the brow and nasal areas are also found throughout the rest of their physical frame and provide Arkarians with superior protection from blunt trauma. They gain +1 Protection against any Injury inflicted by bludgeoning weapons or blunt force trauma.",
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            Weight = 2,
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new Species
+        {
             Name = SpeciesName.Aurelian,
             Description = new List<string>
             {
@@ -160,7 +201,8 @@ public class SpeciesSelector : ISpeciesSelector
                 Description = "Your powerful wings allow you to maneuver easily through the air. When you take a Movement minor action or Sprint major action, you may choose to fly; if you fly, you move one additional zone, and you ignore any difficult terrain or obstacles on the ground. However, weather conditions, such as strong winds, can act as difficult terrain when you fly. When in any enclosed space, including the interior of a starship, increase the complication range of all tasks you attempt by 2, as you feel agitated and claustrophobic.",
                 Source = BookSource.SpeciesSourcebook
             },
-            Weight = 2
+            Weight = 2,
+            Source = BookSource.SpeciesSourcebook
         },
         new Species
         {
@@ -698,6 +740,27 @@ public class SpeciesSelector : ISpeciesSelector
             },
             Weight = 2,
             Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Haliian,
+            Description = new List<string>
+            {
+                "Haliians are native to the Federation world of Halii – renowned for its crystal formations and beautiful waterfalls. As one of the few telepathic species in the Federation, the Haliians share many of the same social nuances of other telepathic or empathic species, such as Betazoids. Haliians often find it hard to truly connect with non-Haliians, and this has the unfortunate effect of limiting their interactions with other Federation species. Due to the nature of their telepathic abilities, Haliians are either far more prone to physical contact during social encounters or avoid it entirely depending on individual in question. Haliians also share a deep fondness for holidays – of which they have many – which almost always involve music.",
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Daring = 1, Insight = 1, Presence = 1
+            },
+            TraitDescription = "Physically, Haliians are similar to other humanoid species within the Federation; however, the natives of Halii possess distinctive bulges along the bridge of their noses and just above their brows. Haliians tend to have close family bonds and numerous festivals and holidays. Much like other telepathic species, Haliians struggle with the use of deception, and will often misinterpret it during social encounters.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Contact Empathy",
+                Description = "Haliians possess minor empathic abilities which, without the canar focusing crystal, is limited to touch. When you touch another character, you can sense the emotions of that individual, as well as communicate telepathically with other empaths or telepaths. You cannot choose to not sense the emotions of those you touch. It may require effort and a task to gain information from beings that are resistant to forms of telepathy. This functions as the Empathy talent from page 155 of the core rulebook, but requires physical contact.",
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            Weight = 2,
+            Source = BookSource.AlphaQuadrantSuppliment
         },
         new Species
         {
@@ -1834,6 +1897,28 @@ public class SpeciesSelector : ISpeciesSelector
             },
             Weight = 2,
             Source = BookSource.SpeciesSourcebook
+        },
+        new Species
+        {
+            Name = SpeciesName.Zaranite,
+            Description = new List<string>
+            {
+                "Zaranites are a humanoid species native to a Class-K world, Zaran II, a planet of endless volcanic activity that supports a flourishing chemosynthesis-based ecosystem. The Zaranites evolved breathing the toxic volcanic gases and must wear a respirator that provides the gas mixture that would be lethal to most Federation species. In addition, Zaranites have a strong sensitivity to light due to the constant clouds of volcanic ash covering their world, and must wear special eye protection to prevent damage to their retinas. Zaranites serve in Starfleet like any other member world of the Federation, and the Starfleet Corps of Engineers has developed standardized modules that convert the atmosphere of crew quarters to meet their particular needs. These biological differences have the unfortunate effect of often isolating Zaranite officers from their crewmates. Their unique physiology, dependence on a respirator, and natural resilience makes the Zaranite one of the few species serving in Starfleet able to survive hard vacuum.",
+            },
+            AttributeModifiers = new CharacterAttributes
+            {
+                Control = 1, Fitness = 1, Presence = 1
+            },
+            TraitDescription = "Zaranites are hardy and immune to toxic gases, complications due to bright lighting, and can survive the extremes conditions of the vacuum of space, so long as their respirator tanks last. In general, Zaranites are pleasant if not somewhat reserved. In addition to their service in Starfleet, Zaranites also serve in various positions within the scientific community and diplomatic corps.",
+            SpeciesAbility = new SpeciesAbility
+            {
+                Name = "Hardened Hide",
+                Description = "Zaranite skin is extremely tough and capable of withstanding pressures, temperatures, and even acidity levels that would prove lethal to other species. Zaranites gain 1 Protection.",
+                ProtectionBonus = 1,
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            Weight = 2,
+            Source = BookSource.AlphaQuadrantSuppliment
         },
     };
 }

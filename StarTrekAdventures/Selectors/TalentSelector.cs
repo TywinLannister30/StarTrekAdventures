@@ -913,6 +913,30 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "The Protocol of Politics",
+                TraitRequirement = SpeciesName.Arbazan,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Arbazan are naturally adept at the subtleties of social protocol, and often come to rely on it heavily during social interactions. To many other species, the Arbazan’s focus on such rules and guidelines is often viewed as obsessive, but to the Arbazan, it is simply the natural way to engage in interactions. Whenever you attempt a task during Social Conflict, you may re-roll a d20 so long as you know from experience or have recently studied that culture’s protocols and social mores."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            new()
+            {
+                Name = "Cool Under Pressure",
+                TraitRequirement = SpeciesName.Arkarian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Demands of Arkarian society place strict requirements on social interactions. You are able to keep your outward expressions neutral, revealing as little as possible. Whenever you are engaged in a social conflict, you may spend 1 Momentum (Immediate) to create an additional trait representing your stoic demeanor and composure. This is lost instantly If you suffer any trait or complication representing an emotional state."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            new()
+            {
                 Name = "Airborne Advantage",
                 AnyTraitRequirement = new List<string> { SpeciesName.Aurelian, SpeciesName.AurelianNovolare },
                 GMPermission = true,
@@ -1222,6 +1246,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Duty and Discipline",
+                TraitRequirement = SpeciesName.Cardassian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When you assist a character who is your superior officer, or when you are assisted by a superior officer, and the task is successful, generate 1 bonus Momentum. Bonus Momentum may not be saved."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            new()
+            {
                 Name = "Regimented Mind",
                 TraitRequirement = SpeciesName.Cardassian,
                 GMPermission = true,
@@ -1230,6 +1266,18 @@ public class TalentSelector : ITalentSelector
                 {
                     "When you spend Momentum to Obtain Information, you may reduce the Difficulty of one task later in the same scene by 1, so long as that task relates to the information gained."
                 }
+            },
+            new()
+            {
+                Name = "Suspicious by Nature",
+                TraitRequirement = SpeciesName.Cardassian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When you attempt a task to detect hidden enemies, traps, or other hazards, you may re-roll one d20."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
             },
             new()
             {
@@ -1455,6 +1503,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Every Man Has His Price",
+                TraitRequirement = SpeciesName.Ferengi,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "When you attempt a task during social conflict where your opponent can be bribed, bought, or is otherwise enticed by monetary gain, the first bonus die you purchase is free."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            new()
+            {
                 Name = "Greed is Eternal",
                 TraitRequirement = SpeciesName.Ferengi,
                 GMPermission = true,
@@ -1463,6 +1523,30 @@ public class TalentSelector : ITalentSelector
                 {
                     "When engaged in negotiations—including in social conflict— that have the potential for you to profit personally, you may add 1 Threat to re-roll your dice pool."
                 }
+            },
+            new()
+            {
+                Name = "Hear All, Trust Nothing",
+                TraitRequirement = SpeciesName.Ferengi,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Whenever another character attempts a task to deceive you, you may suffer 2 Stress to ignore their attempt."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
+            },
+            new()
+            {
+                Name = "Knowledge Equals Profit",
+                TraitRequirement = SpeciesName.Ferengi,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "After you succeed at a task and spend one or more Momentum to Obtain Information, add 1 Momentum to the group Momentum Pool after all other Momentum spends are resolved."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
             },
             new()
             {
@@ -1497,6 +1581,18 @@ public class TalentSelector : ITalentSelector
                     "A small minority of Grazerites are born with a genetic variance that causes their horns to be hollow. This gives them a highly sensitive organ that can detect subtle changes in air pressure, sound, and all manner of vibrations. When you attempt a task that involves the detection or analysis of sound or vibrations of any kind, the first additional d20 you purchase is free.",
                 },
                 Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Faceted Attention",
+                TraitRequirement = SpeciesName.Haliian,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "You can compartmentalize your attention, allowing you to swiftly switch between different tasks. You may use the Swift Task Momentum spend for free by suffering 1 Stress, and you do not increase the Difficulty of the second task."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
             },
             new()
             {
@@ -2589,6 +2685,18 @@ public class TalentSelector : ITalentSelector
                     "In command positions, the speed of Zakdorn tactical calculations allows them to issue succinct, efficient orders. During combat, you may use the Direct major action without paying the normal Momentum cost. Further, when you use the Swift Action Momentum spend, the cost is reduced to 1 Momentum, so long as the second action you attempt is either Assist or Direct.",
                 },
                 Source = BookSource.SpeciesSourcebook
+            },
+            new()
+            {
+                Name = "Multispectrum Vision",
+                TraitRequirement = SpeciesName.Zaranite,
+                GMPermission = true,
+                Weight = 10,
+                Description = new List<string>
+                {
+                    "Zaranites can see a broader spectrum of light than most humanoid species. You gain one bonus Momentum on any task to observe or study your surroundings. This bonus Momentum may only be used to Obtain Information, and bonus Momentum may not be saved."
+                },
+                Source = BookSource.AlphaQuadrantSuppliment
             },
         };
     }
