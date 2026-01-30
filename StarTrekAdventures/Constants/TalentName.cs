@@ -4,6 +4,7 @@ public static class TalentName
 {
     // General
     public const string LifeLessons = "Life Lessons";
+    public const string NervePinch = "Nerve Pinch";
 
     // Esoteric
     public const string Empathy = "Empathy";

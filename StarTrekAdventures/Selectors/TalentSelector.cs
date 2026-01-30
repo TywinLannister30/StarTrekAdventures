@@ -2483,7 +2483,7 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
-                Name = "Nerve Pinch",
+                Name = TalentName.NervePinch,
                 TraitRequirement = SpeciesName.Vulcan,
                 GMPermission = true,
                 Weight = 10,

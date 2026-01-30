@@ -755,6 +755,7 @@ public class ValueSelector : IValueSelector
         new Value { Name = "Nothing better than practical experience", Weight = 1 },
         new Value { Name = "Nothing is certain", Weight = 1 },
         new Value { Name = "Nothing’s more important than family", Weight = 1 },
+        new Value { Name = "Observe and Report", Weight = 1 },
         new Value { Name = "On the cutting edge of progress", Weight = 1 },
         new Value { Name = "Our best defense is knowledge", Weight = 1 },
         new Value { Name = "Our first priority is the lives of Federation citizens", Weight = 1 },

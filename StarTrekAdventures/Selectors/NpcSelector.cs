@@ -1832,6 +1832,63 @@ public class NpcSelector : INpcSelector
         },
         new()
         {
+            Name = "Starfleet Border Agent",
+            TypeEnum = NPCType.Notable,
+            Description = new List<string>
+            {
+                "Given the increased tensions between the Cardassians and Federation along the Demilitarized Zone, Starfleet Intelligence has placed a number of undercover assets in the DMZ to operate as forward observers and, when necessary, the hidden first line of defense should hostilities arise. Their mandate is to monitor Maquis and Cardassian military operations within the DMZ and along the borders. They are under strict orders to avoid any overt confrontations and to issue regular status reports to Starfleet Intelligence."
+            },
+            Traits = new List<string>
+            {
+                "Vulcan",
+                "Starfleet Intelligence Agent",
+                "Undercover Operative"
+            },
+            Values = new List<string>
+            {
+                "Observe and report",
+            },
+            Focuses = new List<string>
+            {
+                Focus.Infiltration, Focus.Persuasion, Focus.Observation
+            },
+            PersonalThreat = 3,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 11, Daring = 9, Fitness = 8, Insight = 10, Presence = 7, Reason = 9 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 3, Medicine = 1, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.VulcanNervePinch),
+                _weaponSelector.GetWeapon(WeaponName.Stiletto),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.PulseGrenade, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Effective Concealment",
+                    Description = new List<string>
+                    {
+                        "When hidden or moving unnoticed, the border agent may spend 1 Threat to increase the Difficulty of enemy tasks to detect them by +1."
+                    },
+                },
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
+                new()
+                {
+                    Name = "Wary",
+                    Description = new List<string>
+                    {
+                        "Whenever a border agent attempts a task to notice or detect an enemy or hazard, they may re-roll one d20."
+                    }
+                },
+                _talentSelector.GetTalentAsSpecialRule(TalentName.NervePinch),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new()
+        {
             Name = "Starfleet Intelligence Agent",
             TypeEnum = NPCType.Notable,
             Description = new List<string>
@@ -2273,7 +2330,7 @@ public class NpcSelector : INpcSelector
                     }
                 },
                 _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.IntensiveTraining),
-                _talentSelector.GetTalentAsSpecialRule("Nerve Pinch")
+                _talentSelector.GetTalentAsSpecialRule(TalentName.NervePinch)
             }
         },
         new()
@@ -2778,6 +2835,33 @@ public class NpcSelector : INpcSelector
                 },
             },
             Source = BookSource.ScienceDivision1stEdition,
+        },
+        new()
+        {
+            Name = "Federation Colonist",
+            TypeEnum = NPCType.Minor,
+            Description = new List<string>
+            {
+                "Federation colonists can be found on many planets inside the DMZ or along the border, and may be members of most any Federation member world or protectorate. For the most part, they are simple folk living their lives on their respective planets or colonies, working whatever jobs they are called to perform and raising families as best they can. They will, when forced, attempt to defend their homes when Cardassian forces attack or when Maquis privateers appear, though they rarely have any formalized military training and have limited access to weaponry."
+            },
+            Traits = new List<string>
+            {
+                "Species (add 3 points to attributes based on species)",
+                "Colonist",
+            },
+            RandomSpecies = true,
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 8, Fitness = 7, Insight = 8, Presence = 7, Reason = 7 },
+            Departments = new Departments { Command = 0, Conn = 1, Engineering = 2, Security = 1, Medicine = 0, Science = 2 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Knife),
+                _weaponSelector.GetWeapon(WeaponName.Bludgeon),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment,
         },
         new()
         {
@@ -3653,7 +3737,7 @@ public class NpcSelector : INpcSelector
                 },
                 _talentSelector.GetTalentAsSpecialRule("Cold Reading"),
                 _talentSelector.GetTalentAsSpecialRule("Mind Meld"),
-                _talentSelector.GetTalentAsSpecialRule("Nerve Pinch"),
+                _talentSelector.GetTalentAsSpecialRule(TalentName.NervePinch),
                 _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.MentalDiscipline),
                 new()
                 {

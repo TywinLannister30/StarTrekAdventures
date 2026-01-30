@@ -408,6 +408,19 @@ public class WeaponSelector : IWeaponSelector
         },
         new Weapon
         {
+            Name = WeaponName.Stiletto,
+            Type = WeaponType.Melee,
+            Injury = InjuryType.Deadly,
+            Severity = 2,
+            Size = WeaponSize.OneHanded,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Hidden1)
+            },
+            Costs = new List<string> { "Opportunity 1" }
+        },
+        new Weapon
+        {
             Name = WeaponName.VulcanNervePinch,
             Type = WeaponType.Melee,
             Injury = InjuryType.Stun,
