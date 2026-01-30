@@ -859,6 +859,15 @@ public class StarshipWeaponSelector : IStarshipWeaponSelector
                 GetWeaponQuality(WeaponQualityName.Depleting)
             }
         },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.XRayLaserCannon,
+            Type = StarshipWeaponType.Energy,
+            Range = StarshipWeaponRange.Close,
+            Damage = 6,
+            Qualities = new List<WeaponQuality>(),
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
 
         // TORPEDOES
         new StarshipWeapon
@@ -887,6 +896,19 @@ public class StarshipWeaponSelector : IStarshipWeaponSelector
         },
         new StarshipWeapon
         {
+            Name = StarshipWeaponName.FusionPumpedXRayTorpedo,
+            Type = StarshipWeaponType.Torpedo,
+            Range = StarshipWeaponRange.Medium,
+            Damage = 3,
+            Qualities = new List<WeaponQuality>
+            {
+                GetWeaponQuality(WeaponQualityName.Calibration),
+                GetWeaponQuality(WeaponQualityName.Intense)
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new StarshipWeapon
+        {
             Name = StarshipWeaponName.GravimetricTorpedoes,
             Type = StarshipWeaponType.Torpedo,
             Range = StarshipWeaponRange.Long,
@@ -898,6 +920,15 @@ public class StarshipWeaponSelector : IStarshipWeaponSelector
                 GetWeaponQuality(WeaponQualityName.HighYield),
                 GetWeaponQuality(WeaponQualityName.Piercing)
             }
+        },
+        new StarshipWeapon
+        {
+            Name = StarshipWeaponName.MerculiteRocket,
+            Type = StarshipWeaponType.Torpedo,
+            Range = StarshipWeaponRange.Medium,
+            Damage = 2,
+            Qualities = new List<WeaponQuality>(),
+            Source = BookSource.AlphaQuadrantSuppliment
         },
         new StarshipWeapon
         {

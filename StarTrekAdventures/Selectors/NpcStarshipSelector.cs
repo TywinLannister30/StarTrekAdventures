@@ -78,6 +78,8 @@ public class NpcStarshipSelector : INpcStarshipSelector
         allNpcs.AddRange(GetFerengiStarships());
         allNpcs.AddRange(GetKlingonStarships());
         allNpcs.AddRange(GetRomulanStarships());
+        allNpcs.AddRange(GetTalarianStarships());
+        allNpcs.AddRange(GetTholianStarships());
         return allNpcs;
     }
 
@@ -408,6 +410,9 @@ public class NpcStarshipSelector : INpcStarshipSelector
             Attacks = new List<StarshipWeapon>
             {
                 _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorCannons),
+            },
+            EscalationAttacks = new List<StarshipWeapon>
+            {
                 _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PhaserBanks),
             },
             TractorBeamStrength = 1,
@@ -801,4 +806,166 @@ public class NpcStarshipSelector : INpcStarshipSelector
         },
     };
 
+    private IEnumerable<NpcStarship> GetTalarianStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "Q'maire",
+            Description = new List<string>
+            {
+                "The Talarian Republic is a young interstellar polity, with many of its member only gaining warp capabilities in the past century, and some being given the technology without it being developed on their own. The development of the Q’Maire class represents the state of the art of Republic engineering as of 2367 and was designed in an attempt to compete with nearby interstellar states such as the Federation and the Cardassian Union."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Talarian Starship",
+            },
+            Scale = 4,
+            Systems = new StarshipSystems { Comms = 5, Computers = 5, Engines = 5, Sensors = 4, Structure = 5, Weapons = 4 },
+            Departments = new Departments { Command = 2, Conn = 2, Engineering = 2, Security = 3, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.XRayLaserCannon),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MerculiteRocket),
+            },
+            TractorBeamStrength = 1,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedDamageControl),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new()
+        {
+            Name = "Talarian Bulk Freighter",
+            Description = new List<string>
+            {
+                "One significant source of interstellar trade with the Talarian Republic is the sale of bulk freighters to anyone with enough dilithium or latinum. The bulk freighter design is based on the Federation’s Antares-class freighters, the designs of which were sold to the Republic and then heavily modified to be able to be built in the vast, but low-tech shipyards surrounding the Talarian homeworld. Externally the Talarian bulk freighter is very similar to the Antaresclass, but the differences in systems are apparent to any customs inspector."
+            },
+            CrewQualityEnum = CrewQuality.Basic,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Talarian Cargo Ship",
+                "Compact Vessel"
+            },
+            Scale = 2,
+            Systems = new StarshipSystems { Comms = 5, Computers = 3, Engines = 3, Sensors = 2, Structure = 4, Weapons = 2 },
+            Departments = new Departments { Command = 2, Conn = 1, Engineering = 2, Security = 1, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.MerculiteRocket),
+            },
+            EscalationAttacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.FusionPumpedXRayTorpedo),
+            },
+            TractorBeamStrength = 1,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.RuggedDesign),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                new()
+                {
+                    Name = "Container Ship",
+                    Description = new List<string>
+                    {
+                        "The Freighter may be fitted with one or more cargo pods. Each pod increases the ship’s Scale by +1. Each additional point of Scale increases the ship’s Shields by +1. Every two points of additional Scale, the ship’s Resistance increases by +1. When the ship suffers a Structure Breach, it may lose a cargo pod instead of suffering that Breach."
+                    },
+                    Source = BookSource.AlphaQuadrantSuppliment
+                },
+
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+    };
+
+    private IEnumerable<NpcStarship> GetTholianStarships() => new List<NpcStarship>
+    {
+        new()
+        {
+            Name = "Spinner",
+            Description = new List<string>
+            {
+                "Small, agile, and easily grown, the Tholian Assembly relies on the Spinner-class corvettes to patrol the frontiers of their territories and to escort their trade delegations through territories not under their control. The small vessels were typically manned by five to ten crew members during the 23rd century, but by the 24th, advances in nanoscale weaving of high temperature superconductors into the crystal structure of their computers allowed for more automation and the reduction of the crew to only an average of three."
+            },
+            CrewQualityEnum = CrewQuality.Proficient,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Tholian Starship",
+                "Compact Vessel",
+                "Non-Class M Environment"
+            },
+            Scale = 2,
+            Systems = new StarshipSystems { Comms = 5, Computers = 5, Engines = 8, Sensors = 7, Structure = 5, Weapons = 5 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 1, Security = 2, Medicine = 1, Science = 1 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
+            },
+            TractorBeamStrength = 1,
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                _starshipSpecialRuleSelector.GetSpecialRule(StarshipSpecialRuleName.CompactVessel),
+                new()
+                {
+                    Name = "Web Spinner",
+                    Description = new List<string>
+                    {
+                        "As long as two or more ships that have this rule are within Close range, they can use the Tractor Beam action to spin a graviton web around an enemy vessel. This is an extended task with a progress track equal to the target ship’s Scale +2. While trying to spin a graviton web, this ship attempts an Engines + Conn task with a Difficulty of 1, and they have an Impact equal to their Tractor Beam strength +1. If this extended task passes its first Breakthrough, the target ship loses Reserve Power; if the extended task passes its second breakthrough, then any attacks from within the web to ships outside it increase in difficulty by +2. If the web is completed, then the trapped ship is rendered helpless."
+                    },
+                    Source = BookSource.AlphaQuadrantSuppliment
+                },
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+        new()
+        {
+            Name = "Weaver",
+            Description = new List<string>
+            {
+                "The Weaver class is one of the larger class of vessels in service with the Tholian Assembly. The ship itself is on the same scale as the older Ambassador-class cruisers of Starfleet, and designed for both defence and exploration. Grown in the same manner as all Tholian vessels through crystallization of hull segments from dissolved materials in a superhot fluid, the Weaver class resembles a long sixsided crystal structure with three smaller tetrahedral crystals spaced around its midsection at 120 degree angles."
+            },
+            CrewQualityEnum = CrewQuality.Talented,
+            MissionProfile = MissionProfileName.Patrol,
+            Traits = new List<string>
+            {
+                "Tholian Starship",
+                "Non-Class M Environment"
+            },
+            Scale = 5,
+            Systems = new StarshipSystems { Comms = 6, Computers = 8, Engines = 6, Sensors = 9, Structure = 11, Weapons = 10 },
+            Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 3, Medicine = 2, Science = 2 },
+            Attacks = new List<StarshipWeapon>
+            {
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.DisruptorBanks),
+                _starshipWeaponSelector.GetWeapon(StarshipWeaponName.PlasmaTorpedoes),
+            },
+            TractorBeamStrength = 1,
+            Talents = new List<StarshipTalent>
+            {
+                _starshipTalentSelector.GetTalent(StarshipTalentName.AblativeArmor),
+                _starshipTalentSelector.GetTalent(StarshipTalentName.ImprovedDamageControl),
+            },
+            SpecialRules = new List<StarshipSpecialRule>
+            {
+                new()
+                {
+                    Name = "Standing Graviton Field",
+                    Description = new List<string>
+                    {
+                        "When this vessel takes the Tractor Beam action, it may target a number of separate tractor beams up to its Scale, but each beam is Strength 1. Each beam may target separate vessel, or multiple beams may target a single vessel, adding their Strengths together."
+                    },
+                    Source = BookSource.AlphaQuadrantSuppliment
+                },
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
+        },
+    };
 }

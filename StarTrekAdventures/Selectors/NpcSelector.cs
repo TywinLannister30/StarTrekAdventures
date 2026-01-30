@@ -3669,6 +3669,484 @@ public class NpcSelector : INpcSelector
         },
     };
 
+    private IEnumerable<NonPlayerCharacter> GetCardassianNpcs() => new List<NonPlayerCharacter>
+    {
+        new()
+        {
+            Name = "Cardassian Colonist",
+            TypeEnum = NPCType.Minor,
+            Description = new List<string>
+            {
+                "Cardassian colonists can be found on many planets inside the DMZ or along the border. For the most part, they are simple folk living their lives on their respective planets or colonies, working whatever jobs they are called to perform and raising families as best they can. They will, when forced, attempt to defend their homes when Maquis pirates invade, though they rarely have any formalized military training and have limited access to weaponry."
+            },
+            Traits = new List<string>
+            {
+                "Cardassian",
+                "Colonist"
+            },
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 7, Fitness = 8, Insight = 9, Presence = 7, Reason = 8 },
+            Departments = new Departments { Command = 1, Conn = 1, Engineering = 2, Security = 0, Medicine = 0, Science =2 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Knife),
+                _weaponSelector.GetWeapon(WeaponName.Bludgeon),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+            },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.HealthySuspicions),
+            },
+            Source = BookSource.AlphaQuadrantSuppliment,
+        },
+        new()
+        {
+            Name = "Cardassian Soldier",
+            TypeEnum = NPCType.Minor,
+            Description = new List<string>
+            {
+                "Representative of countless Cardassian soldiers protecting Cardassian interests."
+            },
+            Traits = new List<string>
+            {
+                "Cardassian",
+                "Soldier"
+            },
+            PersonalThreat = 0,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 9, Fitness = 8, Insight = 7, Presence = 8, Reason = 9 },
+            Departments = new Departments { Command = 1, Conn = 3, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.HealthySuspicions),
+                new()
+                {
+                    Name = "Loyal",
+                    Description = new List<string>
+                    {
+                        "Whenever a Cardassian assists a task performed by someone they deem their superior, they may reroll their assistance die."
+                    }
+                },
+            }
+        },
+        new()
+        {
+            Name = "Cardassian Glinn",
+            TypeEnum = NPCType.Notable,
+            Description = new List<string>
+            {
+                "An experienced and loyal Cardassian soldier with rank and responsibility to lead others."
+            },
+            Traits = new List<string>
+            {
+                "Cardassian",
+                "Military Officer"
+            },
+            Values = new List<string>
+            {
+                "Cardassians did not choose to be superior, fate made us this way"
+            },
+            Focuses = new List<string>
+            {
+                Focus.MilitaryTactics, Focus.Willpower
+            },
+            PersonalThreat = 3,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 11, Daring = 8, Fitness = 7, Insight = 8, Presence = 10, Reason = 10 },
+            Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 1 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.HealthySuspicions),
+                new()
+                {
+                    Name = "Expects Success",
+                    Description = new List<string>
+                    {
+                        "Whenever the Cardassian Glinn uses the Direct or Assist task to aid a subordinate, that task may always Succeed at Cost."
+                    }
+                },
+                new()
+                {
+                    Name = "Loyal",
+                    Description = new List<string>
+                    {
+                        "Whenever a Cardassian Glinn assists a task performed by someone they deem their superior, they may reroll their assistance die."
+                    }
+                },
+            }
+        },
+        new()
+        {
+            Name = "Gul Tremak",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "An experienced and loyal Cardassian soldier with rank and responsibility to lead others."
+            },
+            Traits = new List<string>
+            {
+                "Cardassian",
+                "Military Officer"
+            },
+            Values = new List<string>
+            {
+                "Cardassia expects everyone to do their duty",
+                "Knowledge is power, and power is everything"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Debate, Focus.MilitaryTactics, Focus.Politics, Focus.Willpower
+            },
+            PersonalThreat = 8,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 11, Daring = 9, Fitness = 8, Insight = 9, Presence = 12, Reason = 10 },
+            Departments = new Departments { Command = 4, Conn = 4, Engineering = 2, Security = 2, Medicine = 1, Science = 2 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Cultured",
+                    Description = new List<string>
+                    {
+                        "When engaged in social conflict, and given an opportunity to speak at length on a subject, Gul Tremak if he purchases any bonus d20s he may re-roll his dice pool."
+                    }
+                },
+                _speciesAbilitySelector.GetSpeciesAbilityAsSpecialRule(SpeciesAbilityName.HealthySuspicions),
+                new()
+                {
+                    Name = "Loyal",
+                    Description = new List<string>
+                    {
+                        "Whenever Gul Tremak assists a task performed by someone they deem their superior, they may reroll their assistance die."
+                    }
+                },
+                new()
+                {
+                    Name = "Ruthless",
+                    Description = new List<string>
+                    {
+                        "When Gul Tremak makes an attack against an enemy that was not aware of or prepared for an attack, or against an enemy that is defenseless, he may spend 1 Threat to re-roll any number of d20s in his dice pool."
+                    }
+                },
+            }
+        },
+    };
+
+    private IEnumerable<NonPlayerCharacter> GetDominionNpcs() => new List<NonPlayerCharacter>
+    {
+        new()
+        {
+            Name = "Jem'Hadar Warrior",
+            TypeEnum = NPCType.Minor,
+            Description = new List<string>
+            {
+                "One of countless genetically engineered warriors designed to obey and to follow the Founders’ will through their Vorta handlers."
+            },
+            Traits = new List<string>
+            {
+                "Jem'Hadar",
+                "Warrior"
+            },
+            PersonalThreat = 0,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 8, Daring = 10, Fitness = 10, Insight = 9, Presence = 7, Reason = 7 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 2, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Blade),
+                _weaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
+                _weaponSelector.GetWeapon(WeaponName.KarTakin),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.KarTakin, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Brute Force",
+                    Description = new List<string>
+                    {
+                        "Jem’Hadar add the Intense effect to their Unarmed Strike, and may attack with Deadly force."
+                    },
+                    UnarmedStrikesCanBeDeadly = true,
+                    AddQualitiesToUnarmedStrikes = new List<string> { "Intense" }
+                },
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
+                new()
+                {
+                    Name = "The Shroud",
+                    Description = new List<string>
+                    {
+                        "A Jem’Hadar may spend 1 Threat as a minor action to become virtually invisible, increasing the Difficulty of all tasks to observe, locate, or target the Jem’Hadar by 3. This effect ends when the Jem’Hadar makes an Attack, or takes a minor action to end the effect. The Jem’Hadar loses this ability when deprived of ketracel-white."
+                    }
+                },
+            },
+        },
+        new()
+        {
+            Name = "Jem'Hadar First",
+            TypeEnum = NPCType.Notable,
+            Description = new List<string>
+            {
+                "A battle-tested warrior who has seen their share of battle, a Jem’Hadar First is a fearsome opponent on the battlefield."
+            },
+            Traits = new List<string>
+            {
+                "Jem'Hadar",
+                "Warrior"
+            },
+            Values = new List<string>
+            {
+                "We are now dead; we go into battle to reclaim our lives",
+            },
+            Focuses = new List<string>
+            {
+                Focus.CombatTactics, Focus.HandToHandCombat
+            },
+            PersonalThreat = 3,
+            Protection = 1,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 10, Fitness = 11, Insight = 9, Presence = 8, Reason = 7 },
+            Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 3, Medicine = 1, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Blade),
+                _weaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
+                _weaponSelector.GetWeapon(WeaponName.KarTakin),
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.KarTakin, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Brute Force",
+                    Description = new List<string>
+                    {
+                        "Jem’Hadar add the Intense effect to their Unarmed Strike, and may attack with Deadly force."
+                    },
+                    UnarmedStrikesCanBeDeadly = true,
+                    AddQualitiesToUnarmedStrikes = new List<string> { "Intense" }
+                },
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
+                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
+                new()
+                {
+                    Name = "The Shroud",
+                    Description = new List<string>
+                    {
+                        "A Jem’Hadar may spend 1 Threat as a minor action to become virtually invisible, increasing the Difficulty of all tasks to observe, locate, or target the Jem’Hadar by 3. This effect ends when the Jem’Hadar makes an Attack, or takes a minor action to end the effect. The Jem’Hadar loses this ability when deprived of ketracel-white."
+                    }
+                },
+                new()
+                {
+                    Name = "Victory is Life",
+                    Description = new List<string>
+                    {
+                        "Whenever a Jem’Hadar First or one of its subordinates inflicts an Injury or achieves an objective, add 1 Threat."
+                    }
+                },
+            },
+        },
+        new()
+        {
+            Name = "Taris, Vorta Overseer",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "Vorta act as the mouthpieces for the Founders, the leaders of the Dominion. Vorta oversee the Jem’Hadar and command them through threats and through the warriors’ dependence on ketracel-white. Taris is representative of the genetically-engineered Vorta."
+            },
+            Traits = new List<string>
+            {
+                "Vorta",
+                "Diplomat"
+            },
+            Values = new List<string>
+            {
+                "I live to serve the Founders",
+                "There is nothing I will not do to succeed"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Deception, Focus.Diplomacy, Focus.Observation, Focus.Psychology
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 9, Insight = 11, Presence = 12, Reason = 10 },
+            Departments = new Departments { Command = 4, Conn = 3, Engineering = 2, Security = 2, Medicine = 2, Science = 3 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "In the Name of the Founders",
+                    Description = new List<string>
+                    {
+                        "When using the Direct or Assist task to command other servants of the Dominion, a Vorta may roll 2d20 instead of 1d20."
+                    },
+                },
+                new()
+                {
+                    Name = "Manipulative",
+                    Description = new List<string>
+                    {
+                        "If Taris purchases one or more d20s when attempting a task to deceive or intimidate another, she may re-roll her dice pool."
+                    }
+                },
+            },
+        },
+    };
+
+    private IEnumerable<NonPlayerCharacter> GetFerengiNpcs() => new List<NonPlayerCharacter>
+    {
+        new()
+        {
+            Name = "Ferengi Menial",
+            TypeEnum = NPCType.Minor,
+            Description = new List<string>
+            {
+                "Representative of a young Ferengi working their way up into the world, or of a Ferengi lacking the lobes for independent success."
+            },
+            Traits = new List<string>
+            {
+                "Ferengi",
+                "Underling"
+            },
+            PersonalThreat = 0,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 7, Fitness = 7, Insight = 10, Presence = 10, Reason = 8 },
+            Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 1, Medicine = 0, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
+            }
+        },
+        new()
+        {
+            Name = "Ferengi Salesman",
+            TypeEnum = NPCType.Notable,
+            Description = new List<string>
+            {
+                "An experienced Ferengi with some latinum and prestige to their name, always looking for the next deal to make themselves wealthier."
+            },
+            Traits = new List<string>
+            {
+                "Ferengi",
+                "Merchant"
+            },
+            Values = new List<string>
+            {
+                "First Rule of Acquisition: Once you have their money, never give it back"
+            },
+            Focuses = new List<string>
+            {
+                Focus.Economics, Focus.Negotiation
+            },
+            PersonalThreat = 3,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 7, Insight = 9, Presence = 10, Reason = 8 },
+            Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 1, Medicine = 0, Science = 2 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
+                _talentSelector.GetTalentAsSpecialRule("Never Place Friendship Above Profit"),
+            }
+        },
+        new()
+        {
+            Name = "DaiMon Skel",
+            TypeEnum = NPCType.Major,
+            Description = new List<string>
+            {
+                "A DaiMon is often either an experienced businessman, with large lobes for business, or a military officer with a ship of their own and the will to use it effectively. The most cunning are both. DaiMon Skel is representative of such an officer."
+            },
+            Traits = new List<string>
+            {
+                "Ferengi",
+                "Entrepreneur"
+            },
+            Values = new List<string>
+            {
+                "48th Rule of Acquisition: The bigger the smile, the sharper the knife",
+                "211th Rule of Acquisition: Employees are the rungs on the ladder to success; don’t hesitate to step on them"
+            },
+            Focuses = new List<string>
+            {
+                "Bribery", Focus.Negotiation, Focus.StarshipTactics, Focus.Subterfuge
+            },
+            PersonalThreat = 8,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 10, Daring = 11, Fitness = 8, Insight = 10, Presence = 11, Reason = 9 },
+            Departments = new Departments { Command = 4, Conn = 3, Engineering = 3, Security = 3, Medicine = 1, Science = 2 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.EnergyWhip),
+                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
+            },
+            EscalationAttacks = new List<(string, int)>(),
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                new()
+                {
+                    Name = "Free Advice is Seldom Cheap",
+                    Description = new List<string>
+                    {
+                        "Increase the Difficulty of all social conflict tasks to persuade DaiMon Skel by 2. This Difficulty increase is removed as soon as Skel is offered something in trade."
+                    }
+                },
+                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
+                new()
+                {
+                    Name = "You Can't Make a Deal if You're Dead",
+                    Description = new List<string>
+                    {
+                        "DaiMon Skel will never make a Deadly attack. Further, when attempting a task to make a deal or persuade an enemy he has previously incapacitated, or an enemy who obviously outmatches him, he may add a bonus d20 to the roll for free."
+                    }
+                },
+            }
+        },
+    };
+
     private IEnumerable<NonPlayerCharacter> GetKlingonNpcs() => new List<NonPlayerCharacter>
     {
         new()
@@ -3932,475 +4410,6 @@ public class NpcSelector : INpcSelector
                 },
                 _talentSelector.GetTalentAsSpecialRule("Wary"),
             }
-        },
-    };
-
-    private IEnumerable<NonPlayerCharacter> GetCardassianNpcs() => new List<NonPlayerCharacter>
-    {
-        new()
-        {
-            Name = "Cardassian Soldier",
-            TypeEnum = NPCType.Minor,
-            Description = new List<string>
-            {
-                "Representative of countless Cardassian soldiers protecting Cardassian interests."
-            },
-            Traits = new List<string>
-            {
-                "Cardassian",
-                "Soldier"
-            },
-            PersonalThreat = 0,
-            Protection = 1,
-            Attributes = new CharacterAttributes { Control = 10, Daring = 9, Fitness = 8, Insight = 7, Presence = 8, Reason = 9 },
-            Departments = new Departments { Command = 1, Conn = 3, Engineering = 1, Security = 2, Medicine = 0, Science = 0 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
-            },
-            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "Healthy Suspicions",
-                    Description = new List<string>
-                    {
-                        "The Cardassian Soldier may buy their first d20 for free when attempting to determine if someone is lying."
-                    }
-                },
-                new()
-                {
-                    Name = "Loyal",
-                    Description = new List<string>
-                    {
-                        "Whenever a Cardassian assists a task performed by someone they deem their superior, they may reroll their assistance die."
-                    }
-                },
-            }
-        },
-        new()
-        {
-            Name = "Cardassian Glinn",
-            TypeEnum = NPCType.Notable,
-            Description = new List<string>
-            {
-                "An experienced and loyal Cardassian soldier with rank and responsibility to lead others."
-            },
-            Traits = new List<string>
-            {
-                "Cardassian",
-                "Military Officer"
-            },
-            Values = new List<string>
-            {
-                "Cardassians did not choose to be superior, fate made us this way"
-            },
-            Focuses = new List<string>
-            {
-                Focus.MilitaryTactics, Focus.Willpower
-            },
-            PersonalThreat = 3,
-            Protection = 1,
-            Attributes = new CharacterAttributes { Control = 11, Daring = 8, Fitness = 7, Insight = 8, Presence = 10, Reason = 10 },
-            Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 2, Medicine = 0, Science = 1 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
-            },
-            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "Healthy Suspicions",
-                    Description = new List<string>
-                    {
-                        "The Cardassian Glinn may buy their first d20 for free when attempting to determine if someone is lying."
-                    }
-                },
-                new()
-                {
-                    Name = "Expects Success",
-                    Description = new List<string>
-                    {
-                        "Whenever the Cardassian Glinn uses the Direct or Assist task to aid a subordinate, that task may always Succeed at Cost."
-                    }
-                },
-                new()
-                {
-                    Name = "Loyal",
-                    Description = new List<string>
-                    {
-                        "Whenever a Cardassian Glinn assists a task performed by someone they deem their superior, they may reroll their assistance die."
-                    }
-                },
-            }
-        },
-        new()
-        {
-            Name = "Gul Tremak",
-            TypeEnum = NPCType.Major,
-            Description = new List<string>
-            {
-                "An experienced and loyal Cardassian soldier with rank and responsibility to lead others."
-            },
-            Traits = new List<string>
-            {
-                "Cardassian",
-                "Military Officer"
-            },
-            Values = new List<string>
-            {
-                "Cardassia expects everyone to do their duty",
-                "Knowledge is power, and power is everything"
-            },
-            Focuses = new List<string>
-            {
-                Focus.Debate, Focus.MilitaryTactics, Focus.Politics, Focus.Willpower
-            },
-            PersonalThreat = 8,
-            Protection = 1,
-            Attributes = new CharacterAttributes { Control = 11, Daring = 9, Fitness = 8, Insight = 9, Presence = 12, Reason = 10 },
-            Departments = new Departments { Command = 4, Conn = 4, Engineering = 2, Security = 2, Medicine = 1, Science = 2 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorRifle)
-            },
-            EscalationAttacks = new List<(string, int)> { (WeaponName.DisruptorRifle, 1) },
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "Cultured",
-                    Description = new List<string>
-                    {
-                        "When engaged in social conflict, and given an opportunity to speak at length on a subject, Gul Tremak if he purchases any bonus d20s he may re-roll his dice pool."
-                    }
-                },
-                new()
-                {
-                    Name = "Healthy Suspicions",
-                    Description = new List<string>
-                    {
-                        "Gul Tremak may buy their first d20 for free when attempting to determine if someone is lying."
-                    }
-                },
-                new()
-                {
-                    Name = "Loyal",
-                    Description = new List<string>
-                    {
-                        "Whenever Gul Tremak assists a task performed by someone they deem their superior, they may reroll their assistance die."
-                    }
-                },
-                new()
-                {
-                    Name = "Ruthless",
-                    Description = new List<string>
-                    {
-                        "When Gul Tremak makes an attack against an enemy that was not aware of or prepared for an attack, or against an enemy that is defenseless, he may spend 1 Threat to re-roll any number of d20s in his dice pool."
-                    }
-                },
-            }
-        },
-    };
-
-    private IEnumerable<NonPlayerCharacter> GetFerengiNpcs() => new List<NonPlayerCharacter>
-    {
-        new()
-        {
-            Name = "Ferengi Menial",
-            TypeEnum = NPCType.Minor,
-            Description = new List<string>
-            {
-                "Representative of a young Ferengi working their way up into the world, or of a Ferengi lacking the lobes for independent success."
-            },
-            Traits = new List<string>
-            {
-                "Ferengi",
-                "Underling"
-            },
-            PersonalThreat = 0,
-            Protection = 0,
-            Attributes = new CharacterAttributes { Control = 9, Daring = 7, Fitness = 7, Insight = 10, Presence = 10, Reason = 8 },
-            Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 1, Medicine = 0, Science = 0 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
-            },
-            EscalationAttacks = new List<(string, int)>(),
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
-            }
-        },
-        new()
-        {
-            Name = "Ferengi Salesman",
-            TypeEnum = NPCType.Notable,
-            Description = new List<string>
-            {
-                "An experienced Ferengi with some latinum and prestige to their name, always looking for the next deal to make themselves wealthier."
-            },
-            Traits = new List<string>
-            {
-                "Ferengi",
-                "Merchant"
-            },
-            Values = new List<string>
-            {
-                "First Rule of Acquisition: Once you have their money, never give it back"
-            },
-            Focuses = new List<string>
-            {
-                Focus.Economics, Focus.Negotiation
-            },
-            PersonalThreat = 3,
-            Protection = 0,
-            Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 7, Insight = 9, Presence = 10, Reason = 8 },
-            Departments = new Departments { Command = 3, Conn = 1, Engineering = 2, Security = 1, Medicine = 0, Science = 2 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
-            },
-            EscalationAttacks = new List<(string, int)>(),
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
-                _talentSelector.GetTalentAsSpecialRule("Never Place Friendship Above Profit"),
-            }
-        },
-        new()
-        {
-            Name = "DaiMon Skel",
-            TypeEnum = NPCType.Major,
-            Description = new List<string>
-            {
-                "A DaiMon is often either an experienced businessman, with large lobes for business, or a military officer with a ship of their own and the will to use it effectively. The most cunning are both. DaiMon Skel is representative of such an officer."
-            },
-            Traits = new List<string>
-            {
-                "Ferengi",
-                "Entrepreneur"
-            },
-            Values = new List<string>
-            {
-                "48th Rule of Acquisition: The bigger the smile, the sharper the knife",
-                "211th Rule of Acquisition: Employees are the rungs on the ladder to success; don’t hesitate to step on them"
-            },
-            Focuses = new List<string>
-            {
-                "Bribery", Focus.Negotiation, Focus.StarshipTactics, Focus.Subterfuge
-            },
-            PersonalThreat = 8,
-            Protection = 0,
-            Attributes = new CharacterAttributes { Control = 10, Daring = 11, Fitness = 8, Insight = 10, Presence = 11, Reason = 9 },
-            Departments = new Departments { Command = 4, Conn = 3, Engineering = 3, Security = 3, Medicine = 1, Science = 2 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.EnergyWhip),
-                _weaponSelector.GetWeapon(WeaponName.DisruptorPistol)
-            },
-            EscalationAttacks = new List<(string, int)>(),
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "Free Advice is Seldom Cheap",
-                    Description = new List<string>
-                    {
-                        "Increase the Difficulty of all social conflict tasks to persuade DaiMon Skel by 2. This Difficulty increase is removed as soon as Skel is offered something in trade."
-                    }
-                },
-                _talentSelector.GetTalentAsSpecialRule("Greed is Eternal"),
-                new()
-                {
-                    Name = "You Can't Make a Deal if You're Dead",
-                    Description = new List<string>
-                    {
-                        "DaiMon Skel will never make a Deadly attack. Further, when attempting a task to make a deal or persuade an enemy he has previously incapacitated, or an enemy who obviously outmatches him, he may add a bonus d20 to the roll for free."
-                    }
-                },
-            }
-        },
-    };
-
-    private IEnumerable<NonPlayerCharacter> GetDominionNpcs() => new List<NonPlayerCharacter>
-    {
-        new()
-        {
-            Name = "Jem'Hadar Warrior",
-            TypeEnum = NPCType.Minor,
-            Description = new List<string>
-            {
-                "One of countless genetically engineered warriors designed to obey and to follow the Founders’ will through their Vorta handlers."
-            },
-            Traits = new List<string>
-            {
-                "Jem'Hadar",
-                "Warrior"
-            },
-            PersonalThreat = 0,
-            Protection = 1,
-            Attributes = new CharacterAttributes { Control = 8, Daring = 10, Fitness = 10, Insight = 9, Presence = 7, Reason = 7 },
-            Departments = new Departments { Command = 1, Conn = 2, Engineering = 2, Security = 2, Medicine = 0, Science = 0 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.Blade),
-                _weaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
-                _weaponSelector.GetWeapon(WeaponName.KarTakin),
-            },
-            EscalationAttacks = new List<(string, int)> { (WeaponName.KarTakin, 1) },
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "Brute Force",
-                    Description = new List<string>
-                    {
-                        "Jem’Hadar add the Intense effect to their Unarmed Strike, and may attack with Deadly force."
-                    },
-                    UnarmedStrikesCanBeDeadly = true,
-                    AddQualitiesToUnarmedStrikes = new List<string> { "Intense" }
-                },
-                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
-                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
-                new()
-                {
-                    Name = "The Shroud",
-                    Description = new List<string>
-                    {
-                        "A Jem’Hadar may spend 1 Threat as a minor action to become virtually invisible, increasing the Difficulty of all tasks to observe, locate, or target the Jem’Hadar by 3. This effect ends when the Jem’Hadar makes an Attack, or takes a minor action to end the effect. The Jem’Hadar loses this ability when deprived of ketracel-white."
-                    }
-                },
-            },
-        },
-        new()
-        {
-            Name = "Jem'Hadar First",
-            TypeEnum = NPCType.Notable,
-            Description = new List<string>
-            {
-                "A battle-tested warrior who has seen their share of battle, a Jem’Hadar First is a fearsome opponent on the battlefield."
-            },
-            Traits = new List<string>
-            {
-                "Jem'Hadar",
-                "Warrior"
-            },
-            Values = new List<string>
-            {
-                "We are now dead; we go into battle to reclaim our lives",
-            },
-            Focuses = new List<string>
-            {
-                Focus.CombatTactics, Focus.HandToHandCombat
-            },
-            PersonalThreat = 3,
-            Protection = 1,
-            Attributes = new CharacterAttributes { Control = 9, Daring = 10, Fitness = 11, Insight = 9, Presence = 8, Reason = 7 },
-            Departments = new Departments { Command = 2, Conn = 2, Engineering = 1, Security = 3, Medicine = 1, Science = 0 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
-                _weaponSelector.GetWeapon(WeaponName.Blade),
-                _weaponSelector.GetWeapon(WeaponName.JemHadarPlasmaRifle),
-                _weaponSelector.GetWeapon(WeaponName.KarTakin),
-            },
-            EscalationAttacks = new List<(string, int)> { (WeaponName.KarTakin, 1) },
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "Brute Force",
-                    Description = new List<string>
-                    {
-                        "Jem’Hadar add the Intense effect to their Unarmed Strike, and may attack with Deadly force."
-                    },
-                    UnarmedStrikesCanBeDeadly = true,
-                    AddQualitiesToUnarmedStrikes = new List<string> { "Intense" }
-                },
-                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToFear),
-                _npcSpecialRuleSelector.GetSpecialRule(NpcSpecialRuleName.ImmuneToPain),
-                new()
-                {
-                    Name = "The Shroud",
-                    Description = new List<string>
-                    {
-                        "A Jem’Hadar may spend 1 Threat as a minor action to become virtually invisible, increasing the Difficulty of all tasks to observe, locate, or target the Jem’Hadar by 3. This effect ends when the Jem’Hadar makes an Attack, or takes a minor action to end the effect. The Jem’Hadar loses this ability when deprived of ketracel-white."
-                    }
-                },
-                new()
-                {
-                    Name = "Victory is Life",
-                    Description = new List<string>
-                    {
-                        "Whenever a Jem’Hadar First or one of its subordinates inflicts an Injury or achieves an objective, add 1 Threat."
-                    }
-                },
-            },
-        },
-        new()
-        {
-            Name = "Taris, Vorta Overseer",
-            TypeEnum = NPCType.Major,
-            Description = new List<string>
-            {
-                "Vorta act as the mouthpieces for the Founders, the leaders of the Dominion. Vorta oversee the Jem’Hadar and command them through threats and through the warriors’ dependence on ketracel-white. Taris is representative of the genetically-engineered Vorta."
-            },
-            Traits = new List<string>
-            {
-                "Vorta",
-                "Diplomat"
-            },
-            Values = new List<string>
-            {
-                "I live to serve the Founders",
-                "There is nothing I will not do to succeed"
-            },
-            Focuses = new List<string>
-            {
-                Focus.Deception, Focus.Diplomacy, Focus.Observation, Focus.Psychology
-            },
-            PersonalThreat = 8,
-            Protection = 0,
-            Attributes = new CharacterAttributes { Control = 9, Daring = 8, Fitness = 9, Insight = 11, Presence = 12, Reason = 10 },
-            Departments = new Departments { Command = 4, Conn = 3, Engineering = 2, Security = 2, Medicine = 2, Science = 3 },
-            Attacks = new List<Weapon>
-            {
-                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike)
-            },
-            EscalationAttacks = new List<(string, int)>(),
-            SpecialRules = new List<NpcSpecialRule>
-            {
-                new()
-                {
-                    Name = "In the Name of the Founders",
-                    Description = new List<string>
-                    {
-                        "When using the Direct or Assist task to command other servants of the Dominion, a Vorta may roll 2d20 instead of 1d20."
-                    },
-                },
-                new()
-                {
-                    Name = "Manipulative",
-                    Description = new List<string>
-                    {
-                        "If Taris purchases one or more d20s when attempting a task to deceive or intimidate another, she may re-roll her dice pool."
-                    }
-                },
-            },
         },
     };
 

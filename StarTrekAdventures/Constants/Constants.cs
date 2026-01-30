@@ -307,9 +307,13 @@
         public const string TetryonBeamCannons = "Tetryon Beam Cannons";
         public const string TetryonBeamSpinalLance = "Tetryon Beam Spinal Lance";
 
+        public const string XRayLaserCannon = "X-Ray Laser Cannon";
+
         public const string BreenTorpedoes = "Breen Torpedoes";
         public const string ChronitonTorpedoes = "Chroniton Torpedoes";
         public const string GravimetricTorpedoes = "Gravimetric Torpedoes";
+        public const string FusionPumpedXRayTorpedo = "Fusion-Pumped X-Ray Torpedo";
+        public const string MerculiteRocket = "Merculite Rocket";
         public const string MicroTorpedoes = "Micro Torpedoes";
         public const string NeutronicTorpedoes = "Neutronic Torpedoes";
         public const string NuclearTorpedoes = "Nuclear Torpedoes";

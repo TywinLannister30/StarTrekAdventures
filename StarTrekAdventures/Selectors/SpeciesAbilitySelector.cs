@@ -54,6 +54,12 @@ public class SpeciesAbilitySelector : ISpeciesAbilitySelector
         },
         new SpeciesAbility
         {
+            Name = SpeciesAbilityName.HealthySuspicions,
+            Description = "You may add 1 Threat when interacting with an NPC to ask the gamemaster if that NPC is lying about something. The gamemaster must answer either Yes or No, and this answer must be accurate, but the gamemaster does not have to specify what the NPC is lying about.",
+            NpcDescription = "This character may buy their first d20 for free when attempting to determine if someone is lying."
+        },
+        new SpeciesAbility
+        {
             Name = SpeciesAbilityName.MentalDiscipline,
             Description = "While Vulcans have some psychic capabilities, they require training to use it effectively (see the Mind Meld talent). Further, your maximum Stress is based on your Control rather than your Fitness, and you may suffer 2 Stress to avoid suffering any trait that represents an emotional state. However, if you become Fatigued, you increase the Potency of any such emotion-related trait by 1.",
             NpcDescription = "This character's Personal Threat is equal to their Control (if major) or half their control (otherwise), and they may suffer 2 Stress to avoid suffering any trait which represents an emotional state. If they become Fatigued, they increase the potency of any such emotion-related trait by 1.",

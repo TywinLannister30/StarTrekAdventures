@@ -11,6 +11,7 @@ public class NpcStarship
     {
         Traits = new List<string>();
         Attacks = new List<StarshipWeapon>();
+        EscalationAttacks = new List<StarshipWeapon>();
         Talents = new List<StarshipTalent>();
         SpecialRules = new List<StarshipSpecialRule>();
 
@@ -64,6 +65,13 @@ public class NpcStarship
         {
             Attacks.Add(new StarshipWeapon(weapon));
         };
+
+        EscalationAttacks = new List<StarshipWeapon>();
+        foreach (var weapon in npcStarship.EscalationAttacks)
+        {
+            EscalationAttacks.Add(new StarshipWeapon(weapon));
+        }
+        ;
 
         TractorBeamStrength = npcStarship.TractorBeamStrength;
         GrapplerCableStrength = npcStarship.GrapplerCableStrength;
@@ -125,6 +133,8 @@ public class NpcStarship
     public Departments Departments { get; set; }
 
     public ICollection<StarshipWeapon> Attacks { get; set; }
+
+    public ICollection<StarshipWeapon> EscalationAttacks { get; set; }
 
     [JsonIgnore]
     public int GrapplerCableStrength { get; set; }
