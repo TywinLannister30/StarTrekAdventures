@@ -62,6 +62,7 @@ public class NpcSelector : INpcSelector
         allNpcs.AddRange(GetStarfleetNpcs());
         allNpcs.AddRange(GetFederationNpcs());
         allNpcs.AddRange(GetKlingonNpcs());
+        allNpcs.AddRange(GetMaquisNpcs());
         allNpcs.AddRange(GetRomulanNpcs());
         allNpcs.AddRange(GetCardassianNpcs());
         allNpcs.AddRange(GetFerengiNpcs());
@@ -4364,6 +4365,65 @@ public class NpcSelector : INpcSelector
                 },
                 _talentSelector.GetTalentAsSpecialRule("Warrior's Spirit"),
             }
+        },
+    };
+
+    private IEnumerable<NonPlayerCharacter> GetMaquisNpcs() => new List<NonPlayerCharacter>
+    {
+        new()
+        {
+            Name = "Maquis Smuggler",
+            TypeEnum = NPCType.Minor,
+            Description = new List<string>
+            {
+                "Desperate times along the Federation-Cardassian border has resulted in a number of dissident Federation citizens and former Starfleet officers to join the rogue Maquis organization and provide their services as smugglers. These individuals pilot small craft along and through the DMZ, in some cases ducking into the hazardous Badlands, to avoid detection. They usually carry food and medical supplies to colonists or fellow Maquis sympathizers, but some intelligence reports indicate that they are also beginning to take on cargoes of illegal contraband, including drugs and weapons."
+            },
+            Traits = new List<string>
+            {
+                "Betazoid",
+                "Maquis",
+                "Smuggler"
+            },
+            Values = new List<string>
+            {
+                "It’s not illegal if you don’t get caught"
+            },
+            Focuses = new List<string>
+            {
+                Focus.BlackMarketDealings, Focus.Negotiation, Focus.SmallCraft
+            },
+            PersonalThreat = 3,
+            Protection = 0,
+            Attributes = new CharacterAttributes { Control = 9, Daring = 10, Fitness = 9, Insight = 9, Presence = 9, Reason = 8 },
+            Departments = new Departments { Command = 1, Conn = 3, Engineering = 2, Security = 2, Medicine = 1, Science = 0 },
+            Attacks = new List<Weapon>
+            {
+                _weaponSelector.GetWeapon(WeaponName.UnarmedStrike),
+                _weaponSelector.GetWeapon(WeaponName.Knife),
+                _weaponSelector.GetWeapon(WeaponName.PhaserType1)
+            },
+            EscalationAttacks = new List<(string, int)> { (WeaponName.PhaserType2, 1) },
+            SpecialRules = new List<NpcSpecialRule>
+            {
+                _talentSelector.GetTalentAsSpecialRule(TalentName.Empathy),
+                new()
+                {
+                    Name = "One with the Ship",
+                    Description = new List<string>
+                    {
+                        "Whenever the Maquis smuggler attempts a task to pilot their ship, they may reduce the difficulty by 1, to a minimum of 0."
+                    }
+                },
+                new()
+                {
+                    Name = "Wary",
+                    Description = new List<string>
+                    {
+                        "Whenever a Maquis smuggler attempts a task to notice or detect an enemy or hazard, they may re-roll one d20."
+                    }
+                },
+            },
+            Source = BookSource.AlphaQuadrantSuppliment
         },
     };
 

@@ -3124,6 +3124,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Emergency Response",
+                DepartmentRequirements = new DepartmentRequirements { Command = 3 },
+                AttributeRequirements = new CharacterAttributes { Control = 10 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You’re prepared for emergencies, and have plans of action to deal with any crisis. At the start of a scene, roll 1d20: if the total is equal to or under the amount of Threat in the gamemaster’s pool, add 2 Momentum to the group pool.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
+            },
+            new()
+            {
                 Name = "Fleet Commander",
                 DepartmentRequirements = new DepartmentRequirements { Command = 4 },
                 Weight = 3,
@@ -3142,6 +3154,18 @@ public class TalentSelector : ITalentSelector
                 {
                     "When you succeed at a task during combat or another perilous situation, you may spend Determination. If you do, choose a single ally who can hear you. The next task that ally attempts counts as having assistance from you, using your Presence + Command. On this task, do not roll your assistance die: it counts as having already rolled a 1.",
                 }
+            },
+            new()
+            {
+                Name = "Gunship Diplomacy",
+                DepartmentRequirements = new DepartmentRequirements { Command = 4 },
+                AttributeRequirements = new CharacterAttributes { Presence = 10 },
+                Weight = 4,
+                Description = new List<string>
+                {
+                    "You’ve developed a knack for ending fights once shots have already been fired. When you attempt a task roll to try and talk down an enemy and force a ceasefire, the first bonus d20 you purchase is free if the enemy force has suffered casualties (1+ Notable or Major NPCs, or 2+ Minor NPCs defeated) or the enemy ship has suffered one or more Breaches.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
             },
             new()
             {
@@ -3408,6 +3432,17 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Tactical Maneuvers",
+                DepartmentRequirements = new DepartmentRequirements { Conn = 3, Security = 3 },
+                Weight = 6,
+                Description = new List<string>
+                {
+                    "Location and positioning is vital in battle. Creating a trait based on reaching an advantageous position on the battlefield costs only 1 Momentum, rather than 2. Further, if you have such a trait, you may gain one of the following benefits: your next attack’s Severity increases by +1, or you gain +1 Protection. In starship combat, your ship instead gains one of the following benefits: either the ship’s next attack inflicts +1 Damage, or the ship’s Resistance is increased by +1.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
+            },
+            new()
+            {
                 Name = "Thread the Needle",
                 DepartmentRequirements = new DepartmentRequirements { Conn = 4 },
                 Weight = 4,
@@ -3645,6 +3680,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Throw Out the Manual",
+                DepartmentRequirements = new DepartmentRequirements { Engineering = 3 },
+                AttributeRequirements = new CharacterAttributes { Daring = 10 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You know that sometimes you don’t have time to follow proper procedures or pay attention to the tech manuals. You may add 1 to Threat when you attempt an Engineering task roll. You may use Daring on this task instead of whichever attribute would normally be used, and you will generate two extra Momentum if you succeed, but if you fail, you’ll suffer one extra complication in addition to any other results.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
+            },
+            new()
+            {
                 Name = "Transporter Chief",
                 DepartmentRequirements = new DepartmentRequirements { Engineering = 3 },
                 Weight = 3,
@@ -3715,6 +3762,18 @@ public class TalentSelector : ITalentSelector
             },
             new()
             {
+                Name = "Controlled Force",
+                DepartmentRequirements = new DepartmentRequirements { Security = 4 },
+                AttributeRequirements = new CharacterAttributes { Control = 10 },
+                Weight = 4,
+                Description = new List<string>
+                {
+                    "You employ lethal force with absolute restraint and only when absolutely necessary. When you make a Deadly attack, you do not add to Threat if the Threat npool already contains more Threat than the number of player characters.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
+            },
+            new()
+            {
                 Name = "Criminal Minds",
                 DepartmentRequirements = new DepartmentRequirements { Security = 3 },
                 Weight = 3,
@@ -3777,6 +3836,18 @@ public class TalentSelector : ITalentSelector
                 {
                     "If you make an Attack, you may use the Swift Action Momentum spend for 1 Momentum rather than 2, but the second major action you take must also be an Attack.",
                 }
+            },
+            new()
+            {
+                Name = "Friends in Low Places",
+                DepartmentRequirements = new DepartmentRequirements { Security = 3 },
+                AttributeRequirements = new CharacterAttributes { Presence = 10 },
+                Weight = 3,
+                Description = new List<string>
+                {
+                    "You have contacts in the dark corners of civilization. Once per session, you may add 2 to Threat to reveal that you know someone familiar with illegal trade or other illicit activities. Work with the gamemaster to create that character and contact them. They will be willing to assist you, but their aid will come with some kind of price that you’ll need to pay, such as owing them a favor.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
             },
             new()
             {
@@ -3849,6 +3920,18 @@ public class TalentSelector : ITalentSelector
                 {
                     "Your Unarmed Strike Attack gains the Intense quality.",
                 }
+            },
+            new()
+            {
+                Name = "Measured Strike",
+                DepartmentRequirements = new DepartmentRequirements { Security = 4 },
+                AttributeRequirements = new CharacterAttributes { Control = 10 },
+                Weight = 4,
+                Description = new List<string>
+                {
+                    "You strike with the utmost precision, using your fire to shape the battle. When you succeed at an attack where you aimed beforehand, you may reduce the Severity by 2 to also inflict a complication upon the target. In ship combat, when you target a specific system on a ship, you may reduce the damage by 2 to inflict a complication on the target related to that system.",
+                },
+                Source = BookSource.CampiagnGuide24thCentury
             },
             new()
             {

@@ -165,6 +165,16 @@ public class StarshipTalentSelector : IStarshipTalentSelector
         },
         new StarshipTalent
         {
+            Name = StarshipTalentName.AdvancedTargetingSystems,
+            Description = new List<string>
+            {
+                "The ship’s targeting computers can rapidly calculate more complex targeting solutions even during the heat of battle. When you use the Targeting Solution minor action, you may select two ships, and gain one benefit against each. When you use the Swift Action Momentum Spend on the same turn as using Targeting Solution, you may ignore the normal Difficulty increase as long as each action is an attack against one of the two ships selected.",
+            },
+            SystemRequirements = new StarshipSystems { Weapons = 10 },
+            Source = BookSource.CampiagnGuide24thCentury
+        },
+        new StarshipTalent
+        {
             Name = StarshipTalentName.AdditionalPropulsionSystemSporeHubDrive,
             Description = new List<string>
             {
@@ -257,6 +267,16 @@ public class StarshipTalentSelector : IStarshipTalentSelector
         },
         new StarshipTalent
         {
+            Name = StarshipTalentName.AstrometricsLab,
+            Description = new List<string>
+            {
+                "The ship is equipped with an advanced stellar cartography laboratory used to analyze navigational sensor data more efficiently. This lab can function as the Navigator and Sensor Operations bridge stations. In addition, any navigation-based Extended Task gains +1 Impact, and the ship counts the Momentum Cost of difficult terrain as one lower, to a minimum of 1.",
+            },
+            SystemRequirements = new StarshipSystems { Sensors = 10 },
+            Source = BookSource.CampiagnGuide24thCentury
+        },
+        new StarshipTalent
+        {
             Name = StarshipTalentName.AutomatedDefences,
             Description = new List<string>
             {
@@ -281,6 +301,16 @@ public class StarshipTalentSelector : IStarshipTalentSelector
             {
                 "When the ship is shaken and loses Reserve Power, roll 1d20; if you roll equal to or under your ship’s Structure, regain Reserve Power."
             },
+        },
+        new StarshipTalent
+        {
+            Name = StarshipTalentName.BioNeuralComputing,
+            Description = new List<string>
+            {
+                "The ship’s computers are supplemented by state-of-the-art bio-neural gel packs which increase the speed and efficiency of information processing. Whenever you attempt a task roll assisted by the ship’s Computers system, you may re-roll one d20 (the ship’s die or one of the characters’ dice). In addition, whether the task succeeds or not, the time taken is reduced by 1 interval without spending Momentum.",
+            },
+            SystemRequirements = new StarshipSystems { Computers = 10 },
+            Source = BookSource.CampiagnGuide24thCentury
         },
         new StarshipTalent
         {
@@ -435,6 +465,16 @@ public class StarshipTalentSelector : IStarshipTalentSelector
         },
         new StarshipTalent
         {
+            Name = StarshipTalentName.EnhancedImpulseThrust,
+            Description = new List<string>
+            {
+                "The maximum output of the ship’s impulse engines has been enhanced, allowing brief bursts of high speed. If Reserve Power is rerouted to Engines, the next time the ship takes the Impulse minor action, it may move up to two additional zones.",
+            },
+            SystemRequirements = new StarshipSystems { Engines = 10 },
+            Source = BookSource.CampiagnGuide24thCentury
+        },
+        new StarshipTalent
+        {
             Name = StarshipTalentName.ExpandedEmergencyMedicalFacilities,
             Description = new List<string>
             {
@@ -552,6 +592,16 @@ public class StarshipTalentSelector : IStarshipTalentSelector
                 "When you use the Targeting Solution minor action, you may gain both benefits: re-roll a d20 on the next attack and choose the system hit by the attack.",
             },
             DepartmentRequirements = new DepartmentRequirements { Security = 3 },
+        },
+        new StarshipTalent
+        {
+            Name = StarshipTalentName.HighGainTransceivers,
+            Description = new List<string>
+            {
+                "An advanced suite of powerful subspace transceivers boost the ship’s communications systems. If Reserve Power is rerouted to Communications, the next task assisted by the ship’s Communications system doubles any Momentum scored.",
+            },
+            SystemRequirements = new StarshipSystems { Comms = 10 },
+            Source = BookSource.CampiagnGuide24thCentury
         },
         new StarshipTalent
         {
@@ -780,6 +830,16 @@ public class StarshipTalentSelector : IStarshipTalentSelector
             },
             MinimumServiceYear = 2400,
             Source = BookSource.GameToolkit
+        },
+        new StarshipTalent
+        {
+            Name = StarshipTalentName.RegenerativeShielding,
+            Description = new List<string>
+            {
+                "The ship’s deflector shields are designed with additional redundant generators and enhanced autorepair systems that help maintain and restore shield integrity during intense battle. The ship does not require Reserve Power to be used to take the Regenerate Shields action, and the difficulty of that task is reduced by 1. Further, if the ship is hit by an attack with the Piercing quality, its Resistance is halved (rounding up), rather than ignored.",
+            },
+            SystemRequirements = new StarshipSystems { Structure = 10 },
+            Source = BookSource.CampiagnGuide24thCentury
         },
         new StarshipTalent
         {

@@ -6,7 +6,7 @@ namespace StarTrekAdventures.Selectors;
 
 public class EnvironmentSelector : IEnvironmentSelector
 {
-    private const int HomeworldWeight = 10;
+    private const int HomeworldWeight = 20;
 
     public CharacterEnvironment ChooseEnvironment(string species)
     {
@@ -14,7 +14,7 @@ public class EnvironmentSelector : IEnvironmentSelector
 
         foreach (var environment in GetAllEnvironments())
         {
-            if (environment.SpeciesHomeworld.Contains(species))
+            if (environment.SpeciesHomeworld is not null && environment.SpeciesHomeworld.Contains(species))
                 weightedEnvironmentList.AddEntry(environment, HomeworldWeight);
             else
                 weightedEnvironmentList.AddEntry(environment, environment.Weight);
@@ -36,16 +36,20 @@ public class EnvironmentSelector : IEnvironmentSelector
     private static readonly List<CharacterEnvironment> Environments = new()
     {
         new() { Name = "Homeworld", DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesAttributes = true, Weight = HomeworldWeight },
-        new() { Name = "Busy Colony", AttributeChoices = new CharacterAttributes { Daring = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, Weight = 5 },
-        new() { Name = "Isolated Colony", AttributeChoices = new CharacterAttributes { Reason = 1, Insight = 1 }, DepartmentChoices = new Departments { Engineering = 1, Science = 1, Medicine = 1 }, Weight = 5 },
-        new() { Name = "Frontier Colony", AttributeChoices = new CharacterAttributes { Control = 1, Fitness = 1 }, DepartmentChoices = new Departments { Conn = 1, Security = 1, Medicine = 1 }, Weight = 5 },
-        new() { Name = "Starship or Stabase", AttributeChoices = new CharacterAttributes { Control = 1, Insight = 1 }, DepartmentChoices = new Departments { Command = 1, Conn = 1, Engineering = 1 }, Weight = 5 },
+        new() { Name = "Busy Colony", AttributeChoices = new CharacterAttributes { Daring = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, Weight = 10 },
+        new() { Name = "Isolated Colony", AttributeChoices = new CharacterAttributes { Reason = 1, Insight = 1 }, DepartmentChoices = new Departments { Engineering = 1, Science = 1, Medicine = 1 }, Weight = 10 },
+        new() { Name = "Frontier Colony", AttributeChoices = new CharacterAttributes { Control = 1, Fitness = 1 }, DepartmentChoices = new Departments { Conn = 1, Security = 1, Medicine = 1 }, Weight = 10 },
+        new() { Name = "Starship or Stabase", AttributeChoices = new CharacterAttributes { Control = 1, Insight = 1 }, DepartmentChoices = new Departments { Command = 1, Conn = 1, Engineering = 1 }, Weight = 10 },
         new() { Name = "Another Species' World", AnotherSpeciesAttributes = true, AnyDepartment = true, Weight = 1 },
 
         new() { Name = "Andoria", AttributeChoices = new CharacterAttributes { Control = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Aenar, SpeciesName.Andorian }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
+        new() { Name = "Bajor", AttributeChoices = new CharacterAttributes { Daring = 1, Fitness = 1 }, DepartmentChoices = new Departments { Engineering = 1, Security = 1, Medicine = 1 }, SpeciesHomeworld = { SpeciesName.Bajoran }, Weight = 1, Source = BookSource.CampiagnGuide24thCentury },
         new() { Name = "Betazed", AttributeChoices = new CharacterAttributes { Insight = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Medicine = 1 }, SpeciesHomeworld = { SpeciesName.Betazoid }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
+        new() { Name = "Cardassia Prime", AttributeChoices = new CharacterAttributes { Control = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Conn = 1, Security = 1 }, SpeciesHomeworld = { SpeciesName.Cardassian }, Weight = 1, Source = BookSource.CampiagnGuide24thCentury },
         new() { Name = "Denobula", AttributeChoices = new CharacterAttributes { Insight = 1, Reason = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Denobulan }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
         new() { Name = "Earth", AttributeChoices = new CharacterAttributes { Daring = 1, Control = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Human, SpeciesName.Lanthanite }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
+        new() { Name = "Ferenginar", AttributeChoices = new CharacterAttributes { Insight = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Engineering = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Ferengi }, Weight = 1, Source = BookSource.CampiagnGuide24thCentury },
+        new() { Name = "Freecloud", AttributeChoices = new CharacterAttributes { Control = 1, Insight = 1 }, DepartmentChoices = new Departments { Command = 1, Engineering = 1, Security = 1 }, SpeciesHomeworld = null, Weight = 1, Source = BookSource.CampiagnGuide24thCentury },
         new() { Name = "Qo’noS", AttributeChoices = new CharacterAttributes { Daring = 1, Presence = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Engineering = 1 }, SpeciesHomeworld = { SpeciesName.Klingon }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
         new() { Name = "Risa", AttributeChoices = new CharacterAttributes { Control = 1, Reason = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Risian }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },
         new() { Name = "Romulus", AttributeChoices = new CharacterAttributes { Control = 1, Reason = 1 }, DepartmentChoices = new Departments { Command = 1, Security = 1, Science = 1 }, SpeciesHomeworld = { SpeciesName.Romulan }, Weight = 1, Source = BookSource.CampiagnGuide23rdCentury },

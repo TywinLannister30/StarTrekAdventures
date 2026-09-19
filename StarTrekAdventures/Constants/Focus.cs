@@ -16,6 +16,7 @@ public static class Focus
     public const string Archaeology = "Archaeology";
     public const string Archaeotechnology = "Archaeotechnology";
     public const string ArchaeologicalMedicine = "Archaeological Medicine";
+    public const string ArtificialIntelligence = "Artificial Intelligence";
     public const string Art = "Art";
     public const string Astrometrics = "Astrometrics";
     public const string Astromycology = "Astromycology";
@@ -29,6 +30,7 @@ public static class Focus
     public const string BiologyOrXenobiology = "Biology/Xenobiology";
     public const string Biotechnology = "Biotechnology";
     public const string Bioweaponry = "Bioweaponry";
+    public const string BlackMarketDealings = "Black Market Dealings";
     public const string BladeWeapons = "Blade Weapons";
     public const string BoatPilotOrSubmersibles = "Boat Pilot/Submersibles";
     public const string Botany = "Botany";
@@ -89,6 +91,7 @@ public static class Focus
     public const string ExoTectonics = "Exo-tectonics";
     public const string ExtraVehicularActivity = "Extra-Vehicular Activity";
     public const string ExperimentalTechnology = "Experimental Technology";
+    public const string ExperimentalWeaponry = "Experimental Weaponry";
     public const string FieldMedicine = "Field Medicine";
     public const string Finances = "Finances";
     public const string FirstAid = "First Aid";
@@ -182,6 +185,7 @@ public static class Focus
     public const string PowerSystems = "Power Systems";
     public const string PrecisionManeuvering = "Precision Maneuvering";
     public const string PrimeDirective = "Prime Directive";
+    public const string Privateering = "Privateering";
     public const string Propulsion = "Propulsion";
     public const string Prototyping = "Prototyping";
     public const string Psychiatry = "Psychiatry";
@@ -249,6 +253,7 @@ public static class Focus
     public const string Toxicology = "Toxicology";
     public const string Tracking = "Tracking";
     public const string TransportersAndReplicators = "Transporters & Replicators";
+    public const string TranswarpPropulsion = "Transwarp Propulsion";
     public const string TraumaSurgery = "Trauma Surgery";
     public const string Triage = "Triage";
     public const string Troubleshooting = "Troubleshooting";

@@ -499,5 +499,139 @@ public class CareerEventSelector : ICareerEventSelector
            Focuses = new List<string> { Focus.Catastrophism, Focus.Diplomacy, Focus.Ecology },
            Source = BookSource.CampiagnGuide23rdCentury
         },
+
+        // 24th CENTURY EVENTS
+        new()
+        {
+           Name = "The Tomed Incident (2311)",
+           YearMin = 2311,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Engineering = 1 },
+           Focuses = new List<string> { Focus.Diplomacy, Focus.Espionage, Focus.WarpTheory },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Klingon-Romulan Conflict (2344-2346)",
+           YearMin = 2344,
+           YearMax = 2346,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Medicine = 1 },
+           Focuses = new List<string> { Focus.CrisisManagement, Focus.Diplomacy, Focus.EmergencyMedicine },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Great Monetary Collapse (2352–2360)",
+           YearMin = 2352,
+           YearMax = 2360,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Presence = 1 },
+           DepartmentModifierChoices = new Departments { Conn = 1, Engineering = 1 },
+           Focuses = new List<string> { Focus.Bargain, Focus.Privateering, Focus.Salvage },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Occupation of Bajor (2319–2369)",
+           YearMin = 2319,
+           YearMax = 2369,
+           AttributeModifierChoices = new CharacterAttributes { Fitness = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Security = 1, Medicine = 1 },
+           Focuses = new List<string> { Focus.AmbushTactics, Focus.Infiltration, Focus.Saboteur },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Federation-Cardassian Wars (2347–2366)",
+           YearMin = 2347,
+           YearMax = 2366,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Presence = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Security = 1 },
+           Focuses = new List<string> { Focus.Diplomacy, Focus.FleetFormations, Focus.SmallUnitTactics },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Battle of Wolf 359 (2367)",
+           YearMin = 2367,
+           AttributeModifierChoices = new CharacterAttributes { Fitness = 1, Presence = 1 },
+           DepartmentModifierChoices = new Departments { Security = 1, Engineering = 1 },
+           Focuses = new List<string> { Focus.CombatManeuvers, Focus.EvacuationProcedures, Focus.EmergencyMedicine },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Klingon Civil War (2367–2368)",
+           YearMin = 2367,
+           YearMax = 2368,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Presence = 1 },
+           DepartmentModifierChoices = new Departments { Security = 1, Science = 1 },
+           Focuses = new List<string> { Focus.CloakingTechnology, Focus.Espionage, Focus.ShipEngagementTactics },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Discovery of the Bajoran Wormhole (2369)",
+           YearMin = 2369,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Conn = 1, Science = 1 },
+           Focuses = new List<string> { Focus.Philosophy, Focus.StellarCartography, Focus.QuantumMechanics },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Dominion War (2373-2375)",
+           YearMin = 2373,
+           YearMax = 2375,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Engineering = 1, Security = 1 },
+           Focuses = new List<string> { Focus.ChemicalAndBiologicalWeapons, Focus.ReverseEngineering, Focus.StrategyOrTactics },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Battle of Sector 001 (2373)",
+           YearMin = 2373,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Engineering = 1, Science = 1 },
+           Focuses = new List<string> { Focus.CombatManeuvers, Focus.Cybernetics, Focus.TemporalMechanics },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Reman Coup (2379)",
+           YearMin = 2379,
+           AttributeModifierChoices = new CharacterAttributes { Daring = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Command = 1, Security = 1 },
+           Focuses = new List<string> { Focus.CloakingTechnology, Focus.ExperimentalWeaponry, Focus.SmallUnitTactics },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Living Construct Crisis (2384)",
+           YearMin = 2384,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Reason = 1 },
+           DepartmentModifierChoices = new Departments { Conn = 1, Engineering = 1 },
+           Focuses = new List<string> { Focus.ArtificialIntelligence, Focus.TemporalMechanics, Focus.TranswarpPropulsion },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Attack on Mars (2385)",
+           YearMin = 2385,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Engineering = 1, Medicine = 1 },
+           Focuses = new List<string> { Focus.Cybernetics, Focus.EmergencyMedicine, Focus.Salvage },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
+        new()
+        {
+           Name = "Romulan Supernova (2387)",
+           YearMin = 2385,
+           AttributeModifierChoices = new CharacterAttributes { Control = 1, Insight = 1 },
+           DepartmentModifierChoices = new Departments { Engineering = 1, Medicine = 1 },
+           Focuses = new List<string> { Focus.Cybernetics, Focus.EmergencyMedicine, Focus.Salvage },
+           Source = BookSource.CampiagnGuide24thCentury
+        },
     };
 }

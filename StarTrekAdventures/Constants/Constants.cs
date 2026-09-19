@@ -55,6 +55,7 @@
         public const string FreeTrader = "Free Trader";
         public const string IndependentArchaeologist = "Independent Archaeologist";
         public const string OutpostScientist = "Outpost Scientist";
+        public const string Vigilante = "Vigilante";
     }
 
     public static class Rank
@@ -326,6 +327,7 @@
         public const string AblativeFieldProjector = "Ablative Armor Generator";
         public const string AdaptableEnergyWeapons = "Adaptable Energy Weapons";
         public const string AdaptiveShieldModulator = "Adaptive Shield Modulator";
+        public const string AdvancedTargetingSystems = "Advanced Targeting Systems";
         public const string AdditionalPropulsionSystemSporeHubDrive = "Additional Propulsion System (Displacement-Activated Spore Hub Drive)";
         public const string AdditionalPropulsionSystemProtostarDrive = "Additional Propulsion System (Protostar Drive)";
         public const string AdditionalPropulsionSystemQuantumSlipstreamDrive = "Additional Propulsion System (Quantum Slipstream Drive)";
@@ -336,9 +338,11 @@
         public const string AdvancedShields = "Advanced Shields";
         public const string AdvancedTransporters = "Advanced Transporters";
         public const string AnnularConfinementJacketing = "Annular Confinement Jacketing";
+        public const string AstrometricsLab = "Astrometrics Lab";
         public const string AutomatedDefences = "Automated Defences";
         public const string AutomaticReturn = "Automatic Return";
         public const string BackupEPSConduits = "Backup EPS Conduits";
+        public const string BioNeuralComputing = "Bio-Neural Computing";
         public const string CaptainsYacht = "Captain's Yacht";
         public const string CloakedMines = "Cloaked Mines";
         public const string CloakingDevice = "Cloaking Device";
@@ -356,6 +360,7 @@
         public const string DualEnvironment = "Dual Environment";
         public const string ElectronicWarfareSystems = "Electronic Warfare Systems";
         public const string EmergencyMedicalHologram = "Emergency Medical Hologram";
+        public const string EnhancedImpulseThrust = "Enhanced Impulse Thrust";
         public const string ExpandedEmergencyMedicalFacilities = "Expanded Emergency Medical Facilities";
         public const string ExpandedMunitions = "Expanded Munitions";
         public const string ExpansiveDepartmentCommand = "Expansive Department (Command)";
@@ -369,6 +374,7 @@
         public const string ExtensiveMedicalLaboratories = "Extensive Medical Laboratories";
         public const string ExtensiveShuttlebays = "Extensive Shuttlebays";
         public const string FastTargetingSystems = "Fast Targeting Systems";
+        public const string HighGainTransceivers = "High-Gain Transceivers";
         public const string HighIntensityEnergyWeapons = "High-Intensity Energy Weapons";
         public const string HighPowerTractorBeam = "High-Power Tractor Beam";
         public const string HighResolutionSensors = "High-Resolution Sensors";
@@ -395,6 +401,7 @@
         public const string RedundantSystemsStructure = "Redundant Systems (Structure)";
         public const string RedundantSystemsWeapons = "Redundant Systems (Weapons)";
         public const string RegenerativeHull = "Regenerative Hull";
+        public const string RegenerativeShielding = "Regenerative Shielding";
         public const string RuggedDesign = "Rugged Design";
         public const string SecondaryReactors = "Secondary Reactors";
         public const string SelfReplicatingMines = "Self-Replicating Mines";
